@@ -2,7 +2,7 @@
  * Title       GSFocus
  * by          Kiehyun Kevin Park
  *
- * Copyright (C) 2012 to 2018 Kiehyun Kevin Park.
+ * Copyright (C) 2018 to 2018 Kiehyun Kevin Park.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
