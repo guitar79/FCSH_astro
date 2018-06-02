@@ -1,137 +1,115 @@
-#include "U8glib.h"
+/*
+ * Title       GSFocus
+ * by          Kiehyun Kevin Park
+ *
+ * Copyright (C) 2012 to 2018 Kiehyun Kevin Park.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Description:
+ *   Full featured stepper motor telescope focus controller.
+ *
+ * Author: Kiehyun Kevin Park
+ * 
+ *   Kiehyun.Park@gmail.com
+ */
 
-//U8GLIB_SSD1306_128X64 u8g(U8G_I2C_OPT_NONE);  // I2C / TWI 
-U8GLIB_SSD1306_128X64 u8g(U8G_I2C_OPT_NO_ACK);  // Display which does not send ACK
+// Use Config.xxxxx.h to configure OnStep to your requirements (아직 미확인)
 
-#define KEY_NONE 0
-#define KEY_PREV 1
-#define KEY_NEXT 2
-#define KEY_SELECT 3
-#define KEY_BACK 4
+// firmware info, these are returned by the ":GV?#" commands (아직 미확인)
+#define FirmwareDate   "Jun. 1st. 2018"
+#define FirmwareNumber "1.0b"
+#define FirmwareName   "GSFocus"
+#define FirmwareTime   "12:00:00"
 
-// DOGS102 shield configuration values
-//uint8_t uiKeyPrev = 2;
-//uint8_t uiKeyNext = 4;
-//uint8_t uiKeySelect = 5;
-//uint8_t uiKeyBack = 3;
+#include "Constants.h"
+#include "Kevina.h"
 
-// DOGM128-Shield  configuration values
-// DOGXL60-Shield configuration values
-uint8_t uiKeyPrev = 3;
-uint8_t uiKeyNext = 1;
-uint8_t uiKeySelect = 2;
-uint8_t uiKeyBack = 0;
+/* How to use the DHT-22 sensor with Arduino uno
+Temperature and humidity sensor
+*/
 
-uint8_t uiKeyCodeFirst = KEY_NONE;
-uint8_t uiKeyCodeSecond = KEY_NONE;
-uint8_t uiKeyCode = KEY_NONE;
+//Libraries
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
 
+#include <DHT.h>;
+DHT dht(DHTPIN, DHTTYPE); //// Initialize DHT sensor for normal 16mhz Arduino
 
-void uiSetup(void) {
-  // configure input keys 
-  
-  pinMode(uiKeyPrev, INPUT);           // set pin to input
-  digitalWrite(uiKeyPrev, HIGH);       // turn on pullup resistors
-  pinMode(uiKeyNext, INPUT);           // set pin to input
-  digitalWrite(uiKeyNext, HIGH);       // turn on pullup resistors
-  pinMode(uiKeySelect, INPUT);           // set pin to input
-  digitalWrite(uiKeySelect, HIGH);       // turn on pullup resistors
-  pinMode(uiKeyBack, INPUT);           // set pin to input
-  digitalWrite(uiKeyBack, HIGH);       // turn on pullup resistors
+#define OLED_RESET 4
+Adafruit_SSD1306 display(OLED_RESET);
+
+//Variables
+int chk;
+float hum; //Stores humidity value
+float temp; //Stores temperature value
+
+void setup() { 
+Serial.begin(9600);
+dht.begin();
+
+// by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
+display.begin(SSD1306_SWITCHCAPVCC, 0x3C); // initialize with the I2C addr 0x3D (for the 128x64)
+// init done
+
+display.clearDisplay();
+delay(100);
+updateOLED_Welcome();
+display.clearDisplay();
 }
 
-void uiStep(void) {
-  uiKeyCodeSecond = uiKeyCodeFirst;
-  if ( digitalRead(uiKeyPrev) == LOW )
-    uiKeyCodeFirst = KEY_PREV;
-  else if ( digitalRead(uiKeyNext) == LOW )
-    uiKeyCodeFirst = KEY_NEXT;
-  else if ( digitalRead(uiKeySelect) == LOW )
-    uiKeyCodeFirst = KEY_SELECT;
-  else if ( digitalRead(uiKeyBack) == LOW )
-    uiKeyCodeFirst = KEY_BACK;
-  else 
-    uiKeyCodeFirst = KEY_NONE;
-  
-  if ( uiKeyCodeSecond == uiKeyCodeFirst )
-    uiKeyCode = uiKeyCodeFirst;
-  else
-    uiKeyCode = KEY_NONE;
+void loop() {
+float val_temp = dht.readTemperature();
+float val_humi = dht.readHumidity();
+
+updateSM_AWS(val_temp, val_humi);
+updateOLED_AWS(val_temp, val_humi);
+display.clearDisplay();
 }
 
-
-#define MENU_ITEMS 4
-char *menu_strings[MENU_ITEMS] = { "First Line", "Second Item", "3333333", "abcdefg" };
-
-uint8_t menu_current = 0;
-uint8_t menu_redraw_required = 0;
-uint8_t last_key_code = KEY_NONE;
-
-
-void drawMenu(void) {
-  uint8_t i, h;
-  u8g_uint_t w, d;
-
-  u8g.setFont(u8g_font_6x13);
-  u8g.setFontRefHeightText();
-  u8g.setFontPosTop();
-  
-  h = u8g.getFontAscent()-u8g.getFontDescent();
-  w = u8g.getWidth();
-  for( i = 0; i < MENU_ITEMS; i++ ) {
-    d = (w-u8g.getStrWidth(menu_strings[i]))/2;
-    u8g.setDefaultForegroundColor();
-    if ( i == menu_current ) {
-      u8g.drawBox(0, i*h+1, w, h);
-      u8g.setDefaultBackgroundColor();
-    }
-    u8g.drawStr(d, i*h, menu_strings[i]);
-  }
+void updateOLED_AWS(float val_temp, float val_humi) {
+display.setTextSize(1);
+display.setTextColor(WHITE);
+display.setCursor(0,0);
+display.clearDisplay();
+display.println("Temp:" + String(val_temp, 1)+ "C");
+display.setCursor(76,0);
+display.println("RH:" + String(val_humi, 1) + "%");
+display.display();
+delay(2000);
 }
 
-void updateMenu(void) {
-  if ( uiKeyCode != KEY_NONE && last_key_code == uiKeyCode ) {
-    return;
-  }
-  last_key_code = uiKeyCode;
-  
-  switch ( uiKeyCode ) {
-    case KEY_NEXT:
-      menu_current++;
-      if ( menu_current >= MENU_ITEMS )
-        menu_current = 0;
-      menu_redraw_required = 1;
-      break;
-    case KEY_PREV:
-      if ( menu_current == 0 )
-        menu_current = MENU_ITEMS;
-      menu_current--;
-      menu_redraw_required = 1;
-      break;
-  }
+void updateOLED_Welcome(void) {
+display.setTextSize(1);
+display.setTextColor(WHITE);
+display.setCursor(0,0);
+display.clearDisplay();
+display.println("Welcome!!");
+display.setCursor(0,15);
+display.println("GS Focus.. Ver." + String(FirmwareNumber));
+display.println("    (" + String(FirmwareDate) + ")");
+display.display();
+delay(1000);
 }
 
-
-void setup() {
-  // rotate screen, if required
-  // u8g.setRot180();
-  
-  uiSetup();                                // setup key detection and debounce algorithm
-  menu_redraw_required = 1;     // force initial redraw
-}
-
-void loop() {  
-
-  uiStep();                                     // check for key press
-    
-  if (  menu_redraw_required != 0 ) {
-    u8g.firstPage();
-    do  {
-      drawMenu();
-    } while( u8g.nextPage() );
-    menu_redraw_required = 0;
-  }
-
-  updateMenu();                            // update menu bar
-  
+void updateSM_AWS(float val_temp, float val_humi) {
+//Print temp and humidity values to serial monitor
+Serial.print("Humidity: ");
+Serial.print(val_humi);
+Serial.print(" %, Temp: ");
+Serial.print(val_temp);
+Serial.println(" Celsius");
+delay(50); //Delay 2 sec.
 }
