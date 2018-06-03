@@ -24,9 +24,7 @@
  *   Kiehyun.Park@gmail.com
  */
 
-// Use Config.xxxxx.h to configure OnStep to your requirements (아직 미확인)
 
-// firmware info, these are returned by the ":GV?#" commands (아직 미확인)
 #define FirmwareDate   "May. 31. 2018"
 #define FirmwareNumber "1.0b"
 #define FirmwareName   "GSFocus"
@@ -36,7 +34,7 @@
 
 //List of Libraries
 #include <Wire.h>
-//#include <Adafruit_GFX.h>
+
 #include <Adafruit_SSD1306.h>
 
 /*
