@@ -55,8 +55,20 @@ Adafruit_SSD1306 display(OLED_RESET);
 int chk;
 float hum; //Stores humidity value
 float temp; //Stores temperature value
+int btn0State = 0; // 스위치 값을 받아 변수에 저장한다.
+int btn1State = 0; // 스위치 값을 받아 변수에 저장한다.
+int btn2State = 0; // 스위치 값을 받아 변수에 저장한다.
+int btn3State = 0; // 스위치 값을 받아 변수에 저장한다.
 
+int ssdelay = 50;
 void setup() { 
+
+pinMode(ledPin, OUTPUT); // LED를 OUTPUT으로 설정한다.
+pinMode(btn0, INPUT_PULLUP); // 버튼0 INPUT_PULLUP으로 설정한다.
+pinMode(btn1, INPUT_PULLUP); // 버튼0 INPUT_PULLUP으로 설정한다.
+pinMode(btn2, INPUT_PULLUP); // 버튼0 INPUT_PULLUP으로 설정한다.
+pinMode(btn3, INPUT_PULLUP); // 버튼0 INPUT_PULLUP으로 설정한다.
+  
 Serial.begin(9600);
 dht.begin();
 
@@ -75,6 +87,19 @@ updateSM();
 updateOLED_AWS();
 updateOLED_AWS1();
 display.clearDisplay();
+
+btn0State = digitalRead(btn0); // 스위치의 값을 읽어서 btnState 변수에 저장한다.
+if (btn0State == LOW) { // 만약, 버튼을 누르면 !
+  digitalWrite(ledPin, HIGH); // LED는 1(5V)를 출력한다.
+  display.println("Button0 is pressed");
+  Serial.print("Button0  1  ");
+}
+else { // 버튼을 누르지 않으면 !
+  digitalWrite(ledPin, LOW); // LED는 0(0V)를 출력한다.
+  display.println("Button0 is unpressed");
+  Serial.println("Button0  0");
+}
+
 }
 
 void updateOLED_AWS(void) {
@@ -88,7 +113,7 @@ display.println("Temp:" + String(val_temp, 1)+ "C");
 display.setCursor(76,0);
 display.println("RH:" + String(val_hum, 1) + "%");
 display.display();
-delay(2000);
+delay(ssdelay);
 }
 
 void updateOLED_AWS1(void) {
@@ -101,7 +126,7 @@ display.println("2abcdefghijklmnopqrstuvwxyz");
 display.println("3abcdefghijklmnopqrstuvwxyz");
 display.println("4abcdefghijklmnopqrstuvwxyz");
 display.display();
-delay(2000);
+delay(ssdelay);
 }
 
 void updateOLED_Welcome(void) {
@@ -114,7 +139,7 @@ display.println("Welcome!!");
 display.println("GS Focus.. Ver." + String(FirmwareNumber));
 display.println("    (" + String(FirmwareDate) + ")");
 display.display();
-delay(1000);
+delay(ssdelay);
 }
 
 void updateSM() {
@@ -127,5 +152,5 @@ Serial.print(val_hum);
 Serial.print(" %, Temp: ");
 Serial.print(val_temp);
 Serial.println(" Celsius");
-delay(50); //Delay 2 sec.
+delay(ssdelay);
 }
