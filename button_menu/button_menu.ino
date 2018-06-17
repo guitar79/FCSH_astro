@@ -34,26 +34,15 @@
 
 //List of Libraries
 #include <Wire.h>
-
-#include <Adafruit_SSD1306.h>
-
-/*
-#include <Arduino.h>
-#ifndef INIT
-#include <Wire.h>
+#include <Adafruit_GFX.h>
+//#include <Adafruit_SSD1306.h>
+//Adafruit_SSD1306 display(OLED);
 #include <U8x8lib.h>
-#endif
-*/
+//#include "U8glib.h"
+U8GLIB_SSD1306_128X64 u8g(U8G_I2C_OPT_NO_ACK);  // Display which does not send ACK
 
 #include <DHT.h>;
 DHT dht(DHTPIN, DHTTYPE); //// Initialize DHT sensor for normal 16mhz Arduino
-
-Adafruit_SSD1306 display(pinOLED);
-
-////// 
-#include "U8glib.h"
-
-U8GLIB_SSD1306_128X64 u8g(U8G_I2C_OPT_NO_ACK);  // Display which does not send ACK
 
 #define KEY_NONE 0
 #define KEY_PREV 1
@@ -82,9 +71,9 @@ dht.begin();
 // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
 display.begin(SSD1306_SWITCHCAPVCC, 0x3C); // initialize with the I2C addr 0x3D (for the 128x64)
 
-welcomeOLED();
+//welcomeOLED();
 display.clearDisplay();
-delay(1000);
+delay(50);
   
 uiSetup();                      // setup key detection and debounce algorithm
   menu_redraw_required = 1;     // force initial redraw
@@ -141,7 +130,7 @@ display.println("RH:" + String(val_hum, 1) + "%");
 display.display();
 delay(2000);
 }
-
+/*
 void welcomeOLED() {
 display.setTextSize(1);
 display.setTextColor(WHITE);
@@ -154,6 +143,7 @@ display.println("    (" + String(FirmwareDate) + ")");
 display.display();
 delay(100);
 }
+*/
 
 void uiStep(void) {
   uiKeyCodeSecond = uiKeyCodeFirst;

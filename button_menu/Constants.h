@@ -36,9 +36,9 @@ unsigned int StepsDRV8825[LEN_DRV8825][2] = { {1,0}, {2,1}, {4,2}, {8,3}, {16,4}
 
 #define pinFAULT A0 //Analog
 
-#define pinL 0
-#define pinU 1
-#define pinD 2
-#define pinR 3
-#define pinOLED 4
+#define pinL 7
+#define pinU 8
+#define pinD 9
+#define pinR 10
+#define OLED 4
 
