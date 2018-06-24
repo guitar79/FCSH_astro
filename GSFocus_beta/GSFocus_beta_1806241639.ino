@@ -47,13 +47,11 @@
 Adafruit_SSD1306 display(OLED);
 */
 
-//#include "U8glib.h"
-//u8g2_SSD1306_128X64 u8g(u8g2_I2C_OPT_DEV_0|u8g2_I2C_OPT_NO_ACK|u8g2_I2C_OPT_FAST); // Fast I2C / TWI 
-
-#include <U8g2lib.h>
-U8G2_SSD1306_128X64_NONAME_1_HW_I2C u8g2(U8G2_R0);
-//U8X8_SSD1306_128X64_NONAME_HW_I2C u8x8(U8X8_PIN_NONE);
-
+//#include <U8g2lib.h>
+#include "U8glib.h"
+//U8GLIB_SSD1306_128X64 u8g(U8G_I2C_OPT_NONE|U8G_I2C_OPT_DEV_0);  // I2C / TWI //okok
+U8GLIB_SSD1306_128X64 u8g(U8G_I2C_OPT_DEV_0|U8G_I2C_OPT_NO_ACK|U8G_I2C_OPT_FAST); // Fast I2C / TWI 
+//U8GLIB_SSD1306_128X64 u8g(U8G_I2C_OPT_NO_ACK);  // Display which does not send AC
 
 #include <Stepper.h>
 #include <DRV8825.h>
@@ -118,7 +116,7 @@ void uiSetup(void) {
   pinMode(uiKeyBack, INPUT_PULLUP);           // set pin to input with pullup
 }
 
-void uiStep(void) {    //버튼 눌렀을 때 동작하는 함수로.. 개선이 필요함.
+void uiStep(void) {
   uiKeyCodeSecond = uiKeyCodeFirst;
   if ( digitalRead(uiKeyPrev) == LOW )
     uiKeyCodeFirst = KEY_PREV;
@@ -137,26 +135,25 @@ void uiStep(void) {    //버튼 눌렀을 때 동작하는 함수로.. 개선이
     uiKeyCode = KEY_NONE;
 }
 
-void updateOLED_AWS(void) {  //OLED 상단에 AWS 값을 출력.. 개선이 필요함 (변수 출력이 안됨)
+void updateOLED_AWS(void) {  //OLED 상단에 AWS 값을 출력  //아직 미완성
   float val_Temp= dht.readTemperature();
   float val_Humi = dht.readHumidity();
-  u8g2.setFontMode(1);
-  u8g2.setFont(u8g2_font_6x13_tf);
-  u8g2.setFontRefHeightText();
-  u8g2.setFontPosTop();
+  u8g.setFont(u8g_font_6x13);
+  u8g.setFontRefHeightText();
+  u8g.setFontPosTop();
   String temp = "aaa";
-  u8g2.drawStr(2, 0, "Temp:");
-  u8g2.drawStr(66, 0, "Humi:");
-  //u8g2.drawStr(2, 0, char(val_Temp, 1));
-  //u8g2.drawStr(66, 0, char(val_Humi, 1));
+  u8g.drawStr(2, 0, "Temp:");
+  u8g.drawStr(66, 0, "Humi:");
+  //u8g.drawStr(2, 0, char(val_Temp, 1));
+  //u8g.drawStr(66, 0, char(val_Humi, 1));
 }
 
 void updateOLED_Welcome(void) {  //OLED 환영 메세지
-  u8g2.setFont(u8g2_font_6x13_tf);
-  u8g2.setFontRefHeightText();
-  u8g2.setFontPosTop();
-  u8g2.drawStr(2, 0, "Welcome!!");
-  //u8g2.drawStr(2, 20, ("GS Focus.. Ver." + String(FirmwareNumber)));
+  u8g.setFont(u8g_font_6x13);
+  u8g.setFontRefHeightText();
+  u8g.setFontPosTop();
+  u8g.drawStr(2, 0, "Welcome!!");
+  //u8g.drawStr(2, 20, ("GS Focus.. Ver." + String(FirmwareNumber)));
   delay(lldelay);
 
 }
@@ -176,100 +173,93 @@ void updateSerialMonitor_AWS() {  //AWS를 시리얼 모니터로 출력
 
 void drawMenu0(void) {
   uint8_t i, h;
-  u8g2_uint_t w, d;
-  //u8g2.setFont(u8g2_font_6x13);
-  //u8g2.setFontRefHeightText();
-  //u8g2.setFontPosTop();
+  u8g_uint_t w, d;
+  //u8g.setFont(u8g_font_6x13);
+  //u8g.setFontRefHeightText();
+  //u8g.setFontPosTop();
 
   updateOLED_AWS();   //OLED 상단에 AWS 값을 출력
     
-  h = u8g2.getFontAscent()-u8g2.getFontDescent()+1;
-  w = u8g2.getWidth();
+  h = u8g.getFontAscent()-u8g.getFontDescent()+1;
+  w = u8g.getWidth();
   for( i = 0; i < MENU0_ITEMS; i++ ) {
-    d = (w-u8g2.getStrWidth(menu0_strings[i]))/2;
-    u8g2.setDrawColor(1);
-    //u8g2.setDefaultForegroundColor();
+    d = (w-u8g.getStrWidth(menu0_strings[i]))/2;
+    u8g.setDefaultForegroundColor();
     if ( i == menu_current ) {
-      u8g2.drawBox(0, (i+2)*h+1, w, h);
-      u8g2.setDrawColor(2);
-      //u8g2.setDefaultBackgroundColor();
+      u8g.drawBox(0, (i+2)*h+1, w, h);
+      u8g.setDefaultBackgroundColor();
     }
-    u8g2.drawStr(d, (i+2)*h, menu0_strings[i]);
+    u8g.drawStr(d, (i+2)*h, menu0_strings[i]);
   }
 }
 
 void drawMenu10(void) {
   uint8_t i, h;
-  u8g2_uint_t w, d;
-  //u8g2.setFont(u8g2_font_6x13);
-  //u8g2.setFontRefHeightText();
-  //u8g2.setFontPosTop();
+  u8g_uint_t w, d;
+  //u8g.setFont(u8g_font_6x13);
+  //u8g.setFontRefHeightText();
+  //u8g.setFontPosTop();
 
   updateOLED_AWS();   //OLED 상단에 AWS 값을 출력
   
-  h = u8g2.getFontAscent()-u8g2.getFontDescent();
-  w = u8g2.getWidth();
+  h = u8g.getFontAscent()-u8g.getFontDescent();
+  w = u8g.getWidth();
   for( i = 0; i < MENU10_ITEMS; i++ ) {
-    d = (w-u8g2.getStrWidth(menu10_strings[i]))/2;
-    u8g2.setDrawColor(1);
-    //u8g2.setDefaultForegroundColor();
+    d = (w-u8g.getStrWidth(menu10_strings[i]))/2;
+    u8g.setDefaultForegroundColor();
     if ( i == (menu_current - 10) ) {
-      u8g2.drawBox(0, (i+2)*h+1, w, h);
-      u8g2.setDrawColor(2);
-      //u8g2.setDefaultBackgroundColor();
+      u8g.drawBox(0, (i+2)*h+1, w, h);
+      u8g.setDefaultBackgroundColor();
     }
-    u8g2.drawStr(d, (i+2)*h, menu10_strings[i]);
+    u8g.drawStr(d, (i+2)*h, menu10_strings[i]);
   }
-  u8g2.drawStr(d, (i+3)*h, "msg");
+  u8g.drawStr(d, (i+3)*h, "msg");
 }
 
 void drawMenu20(void) {
   uint8_t i, h;
-  u8g2_uint_t w, d;
-  //u8g2.setFont(u8g2_font_6x13);
-  //u8g2.setFontRefHeightText();
-  //u8g2.setFontPosTop();
+  u8g_uint_t w, d;
+  //u8g.setFont(u8g_font_6x13);
+  //u8g.setFontRefHeightText();
+  //u8g.setFontPosTop();
 
   updateOLED_AWS();   //OLED 상단에 AWS 값을 출력
   
-  h = u8g2.getFontAscent()-u8g2.getFontDescent();
-  w = u8g2.getWidth();
+  h = u8g.getFontAscent()-u8g.getFontDescent();
+  w = u8g.getWidth();
   for( i = 0; i < MENU20_ITEMS; i++ ) {
-    d = (w-u8g2.getStrWidth(menu20_strings[i]))/2;
-    u8g2.setDrawColor(1);
-    //u8g2.setDefaultForegroundColor();
+    d = (w-u8g.getStrWidth(menu20_strings[i]))/2;
+    u8g.setDefaultForegroundColor();
     if ( i == (menu_current - 20) ) {
-      u8g2.drawBox(0, (i+2)*h+1, w, h);
-      u8g2.setDrawColor(2);
-      //u8g2.setDefaultBackgroundColor();
+      u8g.drawBox(0, (i+2)*h+1, w, h);
+      u8g.setDefaultBackgroundColor();
     }
-    u8g2.drawStr(d, (i+2)*h, menu20_strings[i]);
+    u8g.drawStr(d, (i+2)*h, menu20_strings[i]);
   }
 }
 
 void drawMenu30(void) {
   uint8_t i, h;
-  u8g2_uint_t w, d;
-  //u8g2.setFont(u8g2_font_6x13);
-  //u8g2.setFontRefHeightText();
-  //u8g2.setFontPosTop();
+  u8g_uint_t w, d;
+  //u8g.setFont(u8g_font_6x13);
+  //u8g.setFontRefHeightText();
+  //u8g.setFontPosTop();
 
   updateOLED_AWS();   //OLED 상단에 AWS 값을 출력
   
-  h = u8g2.getFontAscent()-u8g2.getFontDescent();
-  w = u8g2.getWidth();
+  h = u8g.getFontAscent()-u8g.getFontDescent();
+  w = u8g.getWidth();
   for( i = 0; i < MENU30_ITEMS; i++ ) {
-    d = (w-u8g2.getStrWidth(menu30_strings[i]))/2;
-    u8g2.setDrawColor(1);
-    //u8g2.setDefaultForegroundColor();
+    d = (w-u8g.getStrWidth(menu30_strings[i]))/2;
+    u8g.setDefaultForegroundColor();
     if ( i == (menu_current - 30) ) {
-      u8g2.drawBox(0, (i+2)*h+1, w, h);
-      u8g2.setDrawColor(2);
-      //u8g2.setDefaultBackgroundColor();
+      u8g.drawBox(0, (i+2)*h+1, w, h);
+      u8g.setDefaultBackgroundColor();
     }
-    u8g2.drawStr(d, (i+2)*h, menu30_strings[i]);
+    u8g.drawStr(d, (i+2)*h, menu30_strings[i]);
   }
 }
+
 
 void updateMenu(void) {
   if ( uiKeyCode != KEY_NONE && last_key_code == uiKeyCode ) {
@@ -283,24 +273,20 @@ void updateMenu(void) {
         menu_current++;
         if ( menu_current >= MENU0_ITEMS )
           menu_current = 0;
-        Serial.println("Button NEXT is pressed");
         menu_redraw_required = 1;
         break;
       case KEY_PREV:
         if ( menu_current == 0 )
           menu_current = MENU0_ITEMS;
         menu_current--;
-        Serial.println("Button PREV is pressed");
         menu_redraw_required = 1;
         break;
       case KEY_SELECT:
         menu_current = (menu_current + 1) * 10 ;
-        Serial.println("Button SELECT is pressed");
         menu_redraw_required = 1;
         break;
       case KEY_BACK:
         menu_current = uint8_t((menu_current)/10) ;
-        Serial.println("Button BACK is pressed");
         menu_redraw_required = 1;
         break;
     }
@@ -314,7 +300,6 @@ void updateMenu(void) {
           menu_current = ( 10 + MENU10_ITEMS - 1 );
         stepper.rotate(rotateDEG1);
         //const char msg = "Motor is rotated toword inside";
-        Serial.println("Button NEXT is pressed");
         menu_redraw_required = 1;
         break;
       case KEY_PREV:
@@ -323,16 +308,13 @@ void updateMenu(void) {
           menu_current = 10 ;
         stepper.rotate(rotateDEG1);
         //const char msg = "Motor is rotated toword outside";
-        Serial.println("Button PREV is pressed");
         menu_redraw_required = 1;
         break;
       case KEY_SELECT:
-        Serial.println("Button SELECT is pressed");
         menu_redraw_required = 1;
         break;
       case KEY_BACK:
         menu_current = uint8_t((menu_current)/10 - 1) ;
-        Serial.println("Button BACK is pressed");
         menu_redraw_required = 1;
         break;
     }
@@ -344,26 +326,22 @@ void updateMenu(void) {
         menu_current++;
         if ( menu_current >= ( 20 + MENU20_ITEMS - 1 ))
           menu_current = ( 20 + MENU20_ITEMS - 1 );
-        Serial.println("Button NEXT is pressed");
         menu_redraw_required = 1;
         break;
       case KEY_PREV:
         menu_current--;
         if ( menu_current < 20 )
           menu_current = 20 ;
-        Serial.println("Button PREV is pressed");
         menu_redraw_required = 1;
         break;
       case KEY_SELECT:
         menu_current--;
         if ( menu_current == ( 20 + MENU20_ITEMS - 1 ))
           // Set heat auto ;
-        Serial.println("Button SELECT is pressed");
         menu_redraw_required = 1;
         break;
       case KEY_BACK:
         menu_current = uint8_t((menu_current)/10 - 1 ) ;
-        Serial.println("Button BACK is pressed");
         menu_redraw_required = 1;
         break;
     }
@@ -376,23 +354,19 @@ void updateMenu(void) {
         if ( menu_current >= ( 30 + MENU30_ITEMS) )
           menu_current = 30;
         menu_redraw_required = 1;
-        Serial.println("Button NEXT is pressed");
         break;
       case KEY_PREV:
         if ( menu_current == 30 )
           menu_current = ( 30 + MENU30_ITEMS ) ;
         menu_current--;
-        Serial.println("Button PREV is pressed");
         menu_redraw_required = 1;
         break;
       case KEY_SELECT:
         //menu_current = (menu_current+1) * 10 ;
-        Serial.println("Button SELECT is pressed");
         menu_redraw_required = 1;
         break;
       case KEY_BACK:
         menu_current = uint8_t((menu_current)/10 - 1 ) ;
-        Serial.println("Button BACK is pressed");
         menu_redraw_required = 1;
         break;
     }
@@ -400,16 +374,15 @@ void updateMenu(void) {
 }
 
 void clearOLED(){
-    u8g2.firstPage();  
+    u8g.firstPage();  
     do {
-    } while( u8g2.nextPage() );
+    } while( u8g.nextPage() );
 }
 
 void setup() { 
 
   Serial.begin(9600); // 시리얼통신
   dht.begin();  // DHT
-  u8g2.begin();
   
   //pinMode(ledPin, OUTPUT); // LED 테스트할 때만 설정
 
@@ -419,45 +392,76 @@ void setup() {
   // Set target motor RPM to 1RPM and microstepping to 1 (full step mode)
   stepper.begin(1, 1);
   clearOLED(); 
-  u8g2.firstPage();
+  u8g.firstPage();
     do  {
     updateOLED_Welcome();   //OLED 환영 메세지
-    } while ( u8g2.nextPage() );
+    } while ( u8g.nextPage() );
   void clearOLED();
 }
 
 void loop() {
   uiStep();                   // check for key press
   if (  menu_redraw_required != 0 & menu_current < 10 ) {
-    u8g2.firstPage();
+    u8g.firstPage();
     do  {
+      //updateOLED_AWS();   //OLED 상단에 AWS 값을 출력
       drawMenu0();
-    } while ( u8g2.nextPage() );
+    } while ( u8g.nextPage() );
     menu_redraw_required = 1;
   }
   if (  menu_redraw_required != 0 & menu_current >= 10 & menu_current < 20) {
-    u8g2.firstPage();
+    u8g.firstPage();
     do  {
+      //updateOLED_AWS();   //OLED 상단에 AWS 값을 출력
       drawMenu10();
-    } while ( u8g2.nextPage() );
+    } while ( u8g.nextPage() );
     menu_redraw_required = 1;
   }
   if (  menu_redraw_required != 0 & menu_current >= 20 & menu_current < 30) {
-    u8g2.firstPage();
+    u8g.firstPage();
     do  {
+      //updateOLED_AWS();   //OLED 상단에 AWS 값을 출력
       drawMenu20();
-    } while ( u8g2.nextPage() );
+    } while ( u8g.nextPage() );
     menu_redraw_required = 1;
   }
    if (  menu_redraw_required != 0 & menu_current >= 30 & menu_current < 40) {
-    u8g2.firstPage();
+    u8g.firstPage();
     do  {
+      //updateOLED_AWS();   //OLED 상단에 AWS 값을 출력
       drawMenu30();
-    } while ( u8g2.nextPage() );
+    } while ( u8g.nextPage() );
     menu_redraw_required = 1;
   }
   
   updateMenu();  
+  
+  /*
+  // 스위치의 값을 읽어서 btnState 변수에 저장한다.
+  btn0State = digitalRead(btn0); 
+  btn1State = digitalRead(btn1);
+  btn2State = digitalRead(btn2);
+  btn3State = digitalRead(btn3);
+  //updateSerialMonitor_AWS();//AWS를 시리얼 모니터로 출력
+  
+  // Tell motor to rotate any degrees. That's it.
+  if (btn1State == LOW) { // 만약, 버튼0을 누르면 !
+    stepper.rotate(rotateDEG1);
+    display.println("Motor is rotated " + String(rotateDEG1) + " degrees ");
+    Serial.println("Motor is rotated " + String(rotateDEG1) + " degrees ");
+  }
 
+  // Tell motor to rotate any degrees. That's it.
+  if (btn2State == LOW) { // 만약, 버튼0을 누르면 !
+    stepper.rotate(rotateDEG2);
+    display.println("Motor is rotated " + String(rotateDEG2) + " degrees ");
+    Serial.println("Motor is rotated " + String(rotateDEG2) + " degrees ");
+  }
+  
+  //btn_OLED_TEST();  //버튼 동작 테스트 함수
+  
+  display.display();
+  display.clearDisplay();
+  */
 }
 
