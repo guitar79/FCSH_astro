@@ -137,13 +137,17 @@ U8GLIB_SSD1306_128X64 u8g(U8G_I2C_OPT_DEV_0|U8G_I2C_OPT_NO_ACK|U8G_I2C_OPT_FAST)
 #define KEY_NEXT 2
 #define KEY_SELECT 3
 #define KEY_BACK 4
-// DOGS102 shield configuration values
-//uint8_t uiKeyPrev = 2;
-//uint8_t uiKeyNext = 4;
-//uint8_t uiKeySelect = 5;
-//uint8_t uiKeyBack = 3;
-// DOGM128-Shield  configuration values
-// DOGXL60-Shield configuration values
+
+#define ssdelay 100
+
+//Constants
+#define DHTPIN 2 // what pin we're connected to
+#define DHTTYPE DHT22 // DHT 22 (AM2302)
+
+#include <DHT.h>;
+DHT dht(DHTPIN, DHTTYPE); //// Initialize DHT sensor for normal 16mhz Arduino
+
+
 uint8_t uiKeyPrev = 8;
 uint8_t uiKeyNext = 9;
 uint8_t uiKeySelect = 10;
@@ -151,14 +155,15 @@ uint8_t uiKeyBack = 7;
 uint8_t uiKeyCodeFirst = KEY_NONE;
 uint8_t uiKeyCodeSecond = KEY_NONE;
 uint8_t uiKeyCode = KEY_NONE;
+
 void uiSetup(void) {
   // configure input keys 
-  
   pinMode(uiKeyPrev, INPUT_PULLUP);           // set pin to input with pullup
   pinMode(uiKeyNext, INPUT_PULLUP);           // set pin to input with pullup
   pinMode(uiKeySelect, INPUT_PULLUP);           // set pin to input with pullup
   pinMode(uiKeyBack, INPUT_PULLUP);           // set pin to input with pullup
 }
+
 void uiStep(void) {
   uiKeyCodeSecond = uiKeyCodeFirst;
   if ( digitalRead(uiKeyPrev) == LOW )
@@ -177,68 +182,277 @@ void uiStep(void) {
   else
     uiKeyCode = KEY_NONE;
 }
-#define MENU_ITEMS 4
-const char *menu_strings[MENU_ITEMS] = { "First Line", "Second Item", "3333333", "abcdefg" };
+
+#define MENU0_ITEMS 3
+const char *menu0_strings[MENU0_ITEMS] = { "Focus CTL", "Heat CTL", "Setup"};
+#define MENU10_ITEMS 4
+const char *menu10_strings[MENU10_ITEMS] = { "Menu10 - 1", "Menu10 - 2", "Menu10 - 3", "Menu10 - 4"};
+#define MENU20_ITEMS 4
+const char *menu20_strings[MENU20_ITEMS] = { "Menu20 - 1", "Menu20 - 2", "Menu20 - 3", "Menu20 - 4"};
+#define MENU30_ITEMS 4
+const char *menu30_strings[MENU30_ITEMS] = { "Menu30 - 1", "Menu30 - 2", "Menu30 - 3", "Menu30 - 4"};
+
 uint8_t menu_current = 0;
 uint8_t menu_redraw_required = 0;
 uint8_t last_key_code = KEY_NONE;
-void drawMenu(void) {
+
+
+void drawMenu0(void) {
   uint8_t i, h;
   u8g_uint_t w, d;
-  u8g.setFont(u8g_font_6x13);
-  u8g.setFontRefHeightText();
-  u8g.setFontPosTop();
+  //u8g.setFont(u8g_font_6x13);
+  //u8g.setFontRefHeightText();
+  //u8g.setFontPosTop();
+
+  updateOLED_AWS();   //OLED 상단에 AWS 값을 출력
+    
+  h = u8g.getFontAscent()-u8g.getFontDescent()+1;
+  w = u8g.getWidth();
+  for( i = 0; i < MENU0_ITEMS; i++ ) {
+    d = (w-u8g.getStrWidth(menu0_strings[i]))/2;
+    u8g.setDefaultForegroundColor();
+    if ( i == menu_current ) {
+      u8g.drawBox(0, (i+2)*h+1, w, h);
+      u8g.setDefaultBackgroundColor();
+    }
+    u8g.drawStr(d, (i+2)*h, menu0_strings[i]);
+  }
+}
+
+
+void drawMenu10(void) {
+  uint8_t i, h;
+  u8g_uint_t w, d;
+  //u8g.setFont(u8g_font_6x13);
+  //u8g.setFontRefHeightText();
+  //u8g.setFontPosTop();
+
+  updateOLED_AWS();   //OLED 상단에 AWS 값을 출력
   
   h = u8g.getFontAscent()-u8g.getFontDescent();
   w = u8g.getWidth();
-  for( i = 0; i < MENU_ITEMS; i++ ) {
-    d = (w-u8g.getStrWidth(menu_strings[i]))/2;
+  for( i = 0; i < MENU10_ITEMS; i++ ) {
+    d = (w-u8g.getStrWidth(menu10_strings[i]))/2;
     u8g.setDefaultForegroundColor();
-    if ( i == menu_current ) {
-      u8g.drawBox(0, i*h+1, w, h);
+    if ( i == (menu_current - 10) ) {
+      u8g.drawBox(0, (i+2)*h+1, w, h);
       u8g.setDefaultBackgroundColor();
     }
-    u8g.drawStr(d, i*h, menu_strings[i]);
+    u8g.drawStr(d, (i+2)*h, menu10_strings[i]);
   }
 }
+
+void drawMenu20(void) {
+  uint8_t i, h;
+  u8g_uint_t w, d;
+  //u8g.setFont(u8g_font_6x13);
+  //u8g.setFontRefHeightText();
+  //u8g.setFontPosTop();
+
+  updateOLED_AWS();   //OLED 상단에 AWS 값을 출력
+  
+  h = u8g.getFontAscent()-u8g.getFontDescent();
+  w = u8g.getWidth();
+  for( i = 0; i < MENU20_ITEMS; i++ ) {
+    d = (w-u8g.getStrWidth(menu20_strings[i]))/2;
+    u8g.setDefaultForegroundColor();
+    if ( i == (menu_current - 20) ) {
+      u8g.drawBox(0, (i+2)*h+1, w, h);
+      u8g.setDefaultBackgroundColor();
+    }
+    u8g.drawStr(d, (i+2)*h, menu20_strings[i]);
+  }
+}
+
+void drawMenu30(void) {
+  uint8_t i, h;
+  u8g_uint_t w, d;
+  //u8g.setFont(u8g_font_6x13);
+  //u8g.setFontRefHeightText();
+  //u8g.setFontPosTop();
+
+  updateOLED_AWS();   //OLED 상단에 AWS 값을 출력
+  
+  h = u8g.getFontAscent()-u8g.getFontDescent();
+  w = u8g.getWidth();
+  for( i = 0; i < MENU30_ITEMS; i++ ) {
+    d = (w-u8g.getStrWidth(menu30_strings[i]))/2;
+    u8g.setDefaultForegroundColor();
+    if ( i == (menu_current - 30) ) {
+      u8g.drawBox(0, (i+2)*h+1, w, h);
+      u8g.setDefaultBackgroundColor();
+    }
+    u8g.drawStr(d, (i+2)*h, menu30_strings[i]);
+  }
+}
+
+
 void updateMenu(void) {
   if ( uiKeyCode != KEY_NONE && last_key_code == uiKeyCode ) {
     return;
   }
   last_key_code = uiKeyCode;
+
+  if ( menu_current < 10 ) {
+    switch ( uiKeyCode ) {
+      case KEY_NEXT:
+        menu_current++;
+        if ( menu_current >= MENU0_ITEMS )
+          menu_current = 0;
+        menu_redraw_required = 1;
+        break;
+      case KEY_PREV:
+        if ( menu_current == 0 )
+          menu_current = MENU0_ITEMS;
+        menu_current--;
+        menu_redraw_required = 1;
+        break;
+      case KEY_SELECT:
+        menu_current = (menu_current + 1) * 10 ;
+        menu_redraw_required = 1;
+        break;
+      case KEY_BACK:
+        menu_current = uint8_t((menu_current)/10) ;
+        menu_redraw_required = 1;
+        break;
+    }
+  }
   
-  switch ( uiKeyCode ) {
-    case KEY_NEXT:
-      menu_current++;
-      if ( menu_current >= MENU_ITEMS )
-        menu_current = 0;
-      menu_redraw_required = 1;
-      break;
-    case KEY_PREV:
-      if ( menu_current == 0 )
-        menu_current = MENU_ITEMS;
-      menu_current--;
-      menu_redraw_required = 1;
-      break;
+  if ( menu_current >= 10 & menu_current < 20 ) {
+    switch ( uiKeyCode ) {
+      case KEY_NEXT:
+        menu_current++;
+        if ( menu_current >= ( 10 + MENU10_ITEMS) )
+          menu_current = 10;
+        menu_redraw_required = 1;
+        break;
+      case KEY_PREV:
+        if ( menu_current == 10 )
+          menu_current = ( 10 + MENU10_ITEMS ) ;
+        menu_current--;
+        menu_redraw_required = 1;
+        break;
+      case KEY_SELECT:
+        //menu_current = (menu_current+1) * 10 ;
+        menu_redraw_required = 1;
+        break;
+      case KEY_BACK:
+        menu_current = uint8_t((menu_current)/10 - 1) ;
+        menu_redraw_required = 1;
+        break;
+    }
+  }
+
+  if ( menu_current >= 20 & menu_current < 30 ) {
+    switch ( uiKeyCode ) {
+      case KEY_NEXT:
+        menu_current++;
+        if ( menu_current >= ( 20 + MENU20_ITEMS) )
+          menu_current = 20;
+        menu_redraw_required = 1;
+        break;
+      case KEY_PREV:
+        if ( menu_current == 20 )
+          menu_current = ( 20 + MENU20_ITEMS ) ;
+        menu_current--;
+        menu_redraw_required = 1;
+        break;
+      case KEY_SELECT:
+        //menu_current = (menu_current+1) * 10 ;
+        menu_redraw_required = 1;
+        break;
+      case KEY_BACK:
+        menu_current = uint8_t((menu_current)/10 - 1 ) ;
+        menu_redraw_required = 1;
+        break;
+    }
+  }
+
+  if ( menu_current >= 30 & menu_current < 40 ) {
+    switch ( uiKeyCode ) {
+      case KEY_NEXT:
+        menu_current++;
+        if ( menu_current >= ( 30 + MENU30_ITEMS) )
+          menu_current = 30;
+        menu_redraw_required = 1;
+        break;
+      case KEY_PREV:
+        if ( menu_current == 30 )
+          menu_current = ( 30 + MENU30_ITEMS ) ;
+        menu_current--;
+        menu_redraw_required = 1;
+        break;
+      case KEY_SELECT:
+        //menu_current = (menu_current+1) * 10 ;
+        menu_redraw_required = 1;
+        break;
+      case KEY_BACK:
+        menu_current = uint8_t((menu_current)/10 - 1 ) ;
+        menu_redraw_required = 1;
+        break;
+    }
   }
 }
+
+
+void updateOLED_AWS(void) {  //OLED 상단에 AWS 값을 출력  //아직 미완성
+  float val_Temp= dht.readTemperature();
+  float val_Humi = dht.readHumidity();
+  u8g.setFont(u8g_font_6x13);
+  u8g.setFontRefHeightText();
+  u8g.setFontPosTop();
+  u8g.drawStr(2, 0, "Temp:");
+  u8g.drawStr(66, 0, "Humi:");
+  //u8g.drawStr(2, 0, char(val_Temp, 1));
+  //u8g.drawStr(66, 0, char(val_Humi, 1));
+}
+
 void setup() {
   // rotate screen, if required
   // u8g.setRot180();
   
-  uiSetup();                                // setup key detection and debounce algorithm
+  uiSetup();                    // setup key detection and debounce algorithm
   menu_redraw_required = 1;     // force initial redraw
 }
+
+
 void loop() {  
+
   uiStep();                                     // check for key press
-    
-  if (  menu_redraw_required != 0 ) {
+
+  if (  menu_redraw_required != 0 & menu_current < 10 ) {
     u8g.firstPage();
     do  {
-      drawMenu();
-    } while( u8g.nextPage() );
-    menu_redraw_required = 0;
+      //updateOLED_AWS();   //OLED 상단에 AWS 값을 출력
+      drawMenu0();
+    } while ( u8g.nextPage() );
+    menu_redraw_required = 1;
   }
-  updateMenu();                            // update menu bar
+  if (  menu_redraw_required != 0 & menu_current >= 10 & menu_current < 20) {
+    u8g.firstPage();
+    do  {
+      //updateOLED_AWS();   //OLED 상단에 AWS 값을 출력
+      drawMenu10();
+    } while ( u8g.nextPage() );
+    menu_redraw_required = 1;
+  }
+  if (  menu_redraw_required != 0 & menu_current >= 20 & menu_current < 30) {
+    u8g.firstPage();
+    do  {
+      //updateOLED_AWS();   //OLED 상단에 AWS 값을 출력
+      drawMenu20();
+    } while ( u8g.nextPage() );
+    menu_redraw_required = 1;
+  }
+   if (  menu_redraw_required != 0 & menu_current >= 30 & menu_current < 40) {
+    u8g.firstPage();
+    do  {
+      //updateOLED_AWS();   //OLED 상단에 AWS 값을 출력
+      drawMenu30();
+    } while ( u8g.nextPage() );
+    menu_redraw_required = 1;
+  }
   
-}
+  updateMenu();                            // update menu bar 
+  
+  }
