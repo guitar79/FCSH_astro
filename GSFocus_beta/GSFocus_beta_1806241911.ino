@@ -34,8 +34,6 @@
 #define FirmwareName   "GSFocus"
 #define FirmwareTime   "12:00:00"
 
-#include <EEPROM.h>
-
 //상수들은 따로 저장함
 #include "Constants.h"
 
@@ -78,8 +76,6 @@ uint8_t uiKeyCodeFirst = KEY_NONE;
 uint8_t uiKeyCodeSecond = KEY_NONE;
 uint8_t uiKeyCode = KEY_NONE;
 
-//Focus 위치 설정 시작
-int focus_Count;
 
 #define MENU0_ITEMS 3
 const char *menu0_strings[MENU0_ITEMS] = { "Focus CTL", "Heat CTL", "Setup"};
