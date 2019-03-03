@@ -1,8 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 // Pin map for FCS_Teensy3.2
 
-#if defined(__MK20DX256__)
-
 // DHT22 pins
 #define DHTPIN 2 // what pin we're connected to
 #define DHTTYPE DHT22 // DHT 22 (AM2302)
@@ -34,12 +32,36 @@
 // OLED pins
 //#define OLED 4
 
-#else
-#error "Wrong processor for this configuration!"
 
+#define boardtype 1   //select boardtype....
 
+#if boardtype==1  //standrad  4ch
+#define relayPin1  10
+#define relayPin2  8
+#define relayPin3  6
+#define relayPin4  4
+#define relayPin5  9      //only 8ch
+#define relayPin6  10     //only 8ch
+#define relayPin7  11     //only 8ch
+#define relayPin8  12     //only 8ch
 
+#elif boardtype==2  //njp  4ch
+#define relayPin1  9
+#define relayPin2  10
+#define relayPin3  11
+#define relayPin4  12
+#define relayPin5  5      //only 8ch
+#define relayPin6  6      //only 8ch
+#define relayPin7  7      //only 8ch
+#define relayPin8  8      //only 8ch
 
-
-
+#elif boardtype==3  //standrad  8ch
+#define relayPin1  5
+#define relayPin2  6
+#define relayPin3  7
+#define relayPin4  8
+#define relayPin5  9
+#define relayPin6  10
+#define relayPin7  11
+#define relayPin8  12
 #endif

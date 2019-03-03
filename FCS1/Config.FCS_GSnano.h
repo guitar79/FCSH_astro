@@ -12,7 +12,7 @@
 
 // === CONFIGURATION START
 
-#define FCS_teensy3.2_OFF 
-#ifdef  FCS_teensy3.2_ON
-#include "Pins.FCS_teensy3.2.h"
+#define FCS_GSnano_ON
+#ifdef  FCS_GSnano_ON
+#include "Pins.FCS_GSnano.h"
 #endif
