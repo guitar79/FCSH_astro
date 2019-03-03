@@ -1,10 +1,38 @@
+/*
+ * Title       Focuser, Optic Cover, Switch controller
+ * by          Kiehyun Kevin Park
+ *
+  *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Description:
+ *   Full featured stepper motor telescope microcontroller for Equatorial and
+ *   Alt-Azimuth mounts, with the LX200 derived command set.
+ *
+ * Author: Kiehyun Kevin Park
+ *   Kiehyun.Park@gmail.com
+ */
+// Use Config.xxx.h to configure OnStep to your requirements
+
 #define FirmwareDate   "Feb. 18. 2019"
 #define FirmwareNumber "0.1"
-#define FirmwareName   "GSFocus"
+#define FirmwareName   "KevinFCS"
 #define FirmwareTime   "12:00:00"
 
 //상수들은 따로 저장함
 #include "Constants.h"
+#include "Config.FCS_teensy3.2.h"
 
 #include <DHT.h>
 #include <Wire.h>
