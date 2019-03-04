@@ -11,12 +11,12 @@ int Relay_delayTime = 100;
 
 char Key1_0 = 'q';
 char Key1_1 = 'a';
-char Key2_0 = "w";
-char Key2_1 = "s";
-char Key3_0 = "q";
-char Key3_1 = "d";
-char Key4_0 = "r";
-char Key4_1 = "f";
+char Key2_0 = 'w';
+char Key2_1 = 's';
+char Key3_0 = 'q';
+char Key3_1 = 'd';
+char Key4_0 = 'r';
+char Key4_1 = 'f';
 
 
 // Relay pins

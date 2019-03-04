@@ -15,8 +15,8 @@ int pos = 0;
 
 char Key5_0 = 't';
 char Key5_1 = 'g';
-char Key6_0 = "y";
-char Key6_1 = "h";
+char Key6_0 = 'y';
+char Key6_1 = 'h';
 
 // RELAY pins
 #define servoPin1 0

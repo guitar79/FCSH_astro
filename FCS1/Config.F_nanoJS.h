@@ -12,7 +12,7 @@
 
 // === CONFIGURATION START
 
-#define FCS_teensy3.2_OFF 
-#ifdef  FCS_teensy3.2_ON
-#include "Pins.FCS_teensy3.2.h"
+#define FCS_F_nanoJS_OFF 
+#ifdef  FCS_F_nanoJS_ON 
+#include "Pins.F_nanoJS.h"
 #endif

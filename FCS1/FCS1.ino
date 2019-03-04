@@ -40,8 +40,10 @@
 #include "Switch.h"
 
 //pcb 보드별 파일들
+//해당 파일을 열어 하나만 ON으로 설정.
 #include "Config.FCS_teensy3.2.h"
 #include "Config.FCS_GSnano.h"
+#include "Config.F_nanoJS.h"
 
 //사용한 라이브러리들
 #include <DHT.h>
