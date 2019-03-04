@@ -39,7 +39,7 @@
 #include "Cover.h"
 #include "Switch.h"
 
-//기능별 파일들
+//pcb 보드별 파일들
 #include "Config.FCS_teensy3.2.h"
 #include "Config.FCS_GSnano.h"
 
