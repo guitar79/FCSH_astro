@@ -14,6 +14,51 @@
 
 #define FCS_Kevin_touch_ON
 #ifdef  FCS_Kevin_touch_ON
+
+
+// DEFINABLE FEATURES
+// Caution: Do not enable a feature if you have not added the associated hardware circuits to support that feature
+// With this version you can enable or disable specific add-ons and build the controller with the options you want
+// using a single firmware file
+
+// To enable bluetooth, uncomment the next line -  - Do not use with Rotary Encoder
+#define BLUETOOTH 1
+
+// To enable the OLED DISPLAY uncomment the next line
+#define OLEDDISPLAY 1
+
+// To enable temperature probe, uncomment next line
+#define TEMPERATUREPROBE 1
+
+// To enable the buzzer, uncomment the next line
+#define BUZZER 1
+
+// To enable the IN-OUT LEDS, uncomment the next line
+#define INOUTLEDS 1
+
+// do not change
+//#define DEBUG
+
+
+// FIRMWARE START
+#include <Arduino.h>
+#include <myQueue.h>                    // By Steven de Salas
+#include <myEEPROM.h>                   // needed for EEPROM
+#include <myeepromanything.h>           // needed for EEPROM
+#ifdef TEMPERATUREPROBE
+#include <OneWire.h>                    // needed for DS18B20 temperature probe, see https://github.com/PaulStoffregen/OneWire
+#include <myDallasTemperature.h>        // needed for DS18B20 temperature probe, see https://github.com/milesburton/Arduino-Temperature-Control-Library
+#endif
+#ifdef OLEDDISPLAY
+#include <Wire.h>                       // needed for I2C, installed when installing the Arduino IDE
+#include <mySSD1306Ascii.h>             // oled
+#include <mySSD1306AsciiWire.h>         // oled
+#endif
+#ifdef BLUETOOTH
+#include <SoftwareSerial.h>         // needed for bt adapter - this library is already included when you install the Arduino IDE
+#endif
+
+
 // these values saved in EEPROM and restored on boot
 struct config_t {
   byte validdata;                       // if this is 99 then data is valid
@@ -149,4 +194,6 @@ double starttempval;
 long lasttempconversion;            // holds time of last conversion
 byte requesttempflag;
 #endif
+
+
 #endif
