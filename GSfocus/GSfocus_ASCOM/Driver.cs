@@ -279,7 +279,7 @@ namespace ASCOM.GSfocus
         {
             get
             {
-                string name = "GSfocus ASCOM Driver";
+                string name = "GSfocus ASCOM Driver";  //»ù Ãß°¡
                 tl.LogMessage("Name Get", name);
                 return name;
             }
