@@ -50,7 +50,7 @@ struct config_t {
     long updatedisplayintervalNotMoving;  // refresh rate of display - time each page is displayed for
     double stepsize;                      // the step size in microns, ie 7.2
     byte stepmode;                        // indicates stepmode, full, half, 1/4, 1/8. 1/16. 1/32 [1.2.4.8.16.32]
-    byte ds18b20resolution;               // resolution of DS18B20 temperature probe
+    //byte ds18b20resolution;               // resolution of DS18B20 temperature probe
     byte ReverseDirection;                // reverse direction
     byte coilPwr;                         // coil pwr
     byte tempmode;                        // temperature display mode, Celcius=1, Fahrenheit=0
