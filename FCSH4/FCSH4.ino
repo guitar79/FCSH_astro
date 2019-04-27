@@ -4,11 +4,6 @@
 // NO PUSH BUTTONS
 // REQUIRES 12V 3A Power Supply
 
-// IF USING MOONLITE ASCOM DRIVER
-// MAKE SURE THAT POWER ON RESET CIRCUIT IS ENABLED
-// ELSE MOONLITE WILL REPORT A TIMEOUT ERROR
-// TO REPROGRAM THE CONTROLLER DISABLE THE POWER ON RESET PREVENT CIRCUIT
-
 // (c) Copyright Robert Brown 2014-2019. All Rights Reserved.
 // YOU MAY NOT SELL CONTROLLERS OR PCB'S BASED ON THIS PROJECT
 // for commercial gain without express written permission granted from the author.
@@ -26,9 +21,6 @@
 // to user rbb1brown@gmail.com (Robert Brown). All contributions are gratefully accepted.
 
 // ----------------------------------------------------------------------------------------------------------
-
-// Stripboard
-// Not designed, PCB Only
 //
 // ----------------------------------------------------------------------------------------------------------
 

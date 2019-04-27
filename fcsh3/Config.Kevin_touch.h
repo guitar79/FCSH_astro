@@ -1,20 +1,19 @@
 /*
- * === USE AT YOUR OWN RISK ===
- * For more information on setting OnStep up see:
- *   http://www.stellarjourney.com/index.php?r=site/equipment_onstep and 
- * join the OnStep Groups.io at
- *   https://groups.io/g/onstep
- * 
- * See the corresponding Pins.xxx.h file for detailed information on this pin map
- * to be sure it matches your wiring
- *
+   === USE AT YOUR OWN RISK ===
+   For more information on setting OnStep up see:
+     http://www.stellarjourney.com/index.php?r=site/equipment_onstep and
+   join the OnStep Groups.io at
+     https://groups.io/g/onstep
+
+   See the corresponding Pins.xxx.h file for detailed information on this pin map
+   to be sure it matches your wiring
+
 */
 
 // === CONFIGURATION START
 
 #define FCS_Kevin_touch_ON
 #ifdef  FCS_Kevin_touch_ON
-
 
 // DEFINABLE FEATURES
 // Caution: Do not enable a feature if you have not added the associated hardware circuits to support that feature
@@ -37,10 +36,10 @@
 #define BUZZER 1
 
 // To enable the IN-OUT LEDS, uncomment the next line
-#define INOUTLEDS 1
+//#define INOUTLEDS 1
 
 // do not change
-//#define DEBUG
+#define DEBUG
 
 
 // FIRMWARE START
@@ -49,38 +48,38 @@
 #include <myEEPROM.h>                   // needed for EEPROM
 #include <myeepromanything.h>           // needed for EEPROM
 #ifdef DHT22
-#include <DHT.h>                        // needed for DHT22
-#include "DHT.h"
+    #include <DHT.h>                        // needed for DHT22
+    #include "DHT.h"
 #endif
 #ifdef TEMPERATUREPROBE
-#include <OneWire.h>                    // needed for DS18B20 temperature probe, see https://github.com/PaulStoffregen/OneWire
-#include <myDallasTemperature.h>        // needed for DS18B20 temperature probe, see https://github.com/milesburton/Arduino-Temperature-Control-Library
+    #include <OneWire.h>                    // needed for DS18B20 temperature probe, see https://github.com/PaulStoffregen/OneWire
+    #include <myDallasTemperature.h>        // needed for DS18B20 temperature probe, see https://github.com/milesburton/Arduino-Temperature-Control-Library
 #endif
 #ifdef OLEDDISPLAY
-#include <Wire.h>                       // needed for I2C, installed when installing the Arduino IDE
-#include <mySSD1306Ascii.h>             // oled
-#include <mySSD1306AsciiWire.h>         // oled
+    #include <Wire.h>                       // needed for I2C, installed when installing the Arduino IDE
+    #include <mySSD1306Ascii.h>             // oled
+    #include <mySSD1306AsciiWire.h>         // oled
 #endif
 #ifdef BLUETOOTH
-#include <SoftwareSerial.h>         // needed for bt adapter - this library is already included when you install the Arduino IDE
+    #include <SoftwareSerial.h>         // needed for bt adapter - this library is already included when you install the Arduino IDE
 #endif
 
 
 // these values saved in EEPROM and restored on boot
 struct config_t {
-  byte validdata;                       // if this is 99 then data is valid
-  long fposition;                       // last focuser position
-  long maxstep;                         // max steps
-  long updatedisplayintervalNotMoving;  // refresh rate of display - time each page is displayed for
-  double stepsize;                      // the step size in microns, ie 7.2
-  byte stepmode;                        // indicates stepmode, full, half, 1/4, 1/8. 1/16. 1/32 [1.2.4.8.16.32]
-  byte ds18b20resolution;               // resolution of DS18B20 temperature probe
-  byte ReverseDirection;                // reverse direction
-  byte coilPwr;                         // coil pwr
-  byte tempmode;                        // temperature display mode, Celcius=1, Fahrenheit=0
-  byte stepsizeenabled;                 // if 1, controller returns step size
-  byte lcdupdateonmove;                 // update position on lcd when moving
-} myfocuser;
+    byte validdata;                       // if this is 99 then data is valid
+    long fposition;                       // last focuser position
+    long maxstep;                         // max steps
+    long updatedisplayintervalNotMoving;  // refresh rate of display - time each page is displayed for
+    double stepsize;                      // the step size in microns, ie 7.2
+    byte stepmode;                        // indicates stepmode, full, half, 1/4, 1/8. 1/16. 1/32 [1.2.4.8.16.32]
+    byte ds18b20resolution;               // resolution of DS18B20 temperature probe
+    byte ReverseDirection;                // reverse direction
+    byte coilPwr;                         // coil pwr
+    byte tempmode;                        // temperature display mode, Celcius=1, Fahrenheit=0
+    byte stepsizeenabled;                 // if 1, controller returns step size
+    byte lcdupdateonmove;                 // update position on lcd when moving
+} GSfocus;
 
 #define TEMPREFRESHRATE     1000L       // refresh rate between temperature conversions unless an update is requested via serial command
 #define LCDUPDATESTEPCOUNT  15          // the number of steps moved which triggers an lcd update when moving, do not make too small
@@ -93,9 +92,9 @@ struct config_t {
 #define ch1temp             2
 
 #ifdef DHT22
-#define DHTPIN 2
-#define DHTTYPE DHT22
-DHT dht(DHTPIN, DHTTYPE);
+    #define DHTPIN 2
+    #define DHTTYPE DHT22
+    DHT dht(DHTPIN, DHTTYPE);
 #endif
 
 #define myDir               4
@@ -185,18 +184,18 @@ byte lcdupdatestepcount;            // the number of steps moved which triggers 
 int updatecount;                    // loop variable used in updating lcd when moving
 
 #ifdef BLUETOOTH
-char btline[MAXCOMMAND];
-byte bteoc;
-byte btidx;
+    char btline[MAXCOMMAND];
+    byte bteoc;
+    byte btidx;
 SoftwareSerial btSerial( BTTX, BTRX);
 #endif
 
 #ifdef OLEDDISPLAY
-SSD1306AsciiWire myoled;
-char tempString[12];
+    SSD1306AsciiWire myoled;
+    char tempString[12];
 #endif
 
-float dht_humi_read; 
+float dht_humi_read;
 float dht_temp_read;
 
 byte tprobe1;                       // indicate if there is a probe attached to that channel
@@ -204,12 +203,12 @@ double ch1tempval;                  // temperature value for probe
 double lasttempval;                 // holds previous temperature value - used if ismoving and if temp request < 10s apart
 
 #ifdef TEMPERATUREPROBE
-OneWire oneWirech1(ch1temp);        // setup temperature probe 1
-DallasTemperature sensor1(&oneWirech1);
-DeviceAddress tpAddress;            // used to send precision setting to specific sensor
-double starttempval;
-long lasttempconversion;            // holds time of last conversion
-byte requesttempflag;
+    OneWire oneWirech1(ch1temp);        // setup temperature probe 1
+    DallasTemperature sensor1(&oneWirech1);
+    DeviceAddress tpAddress;            // used to send precision setting to specific sensor
+    double starttempval;
+    long lasttempconversion;            // holds time of last conversion
+    byte requesttempflag;
 #endif
 
 
