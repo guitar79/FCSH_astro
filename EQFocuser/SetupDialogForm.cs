@@ -152,5 +152,10 @@ namespace ASCOM.EQFocuser
         {
 
         }
+
+        private void lblInfo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

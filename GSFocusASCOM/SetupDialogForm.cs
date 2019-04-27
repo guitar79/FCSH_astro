@@ -56,9 +56,12 @@ namespace ASCOM.GSfocus
         private void InitUI()
         {
             chkTrace.Checked = Focuser.tl.Enabled;
+            showUI.Checked = Focuser.showUI; //GSGSGS_insert
+
             // set the list of com ports to those that are currently available
             comboBoxComPort.Items.Clear();
             comboBoxComPort.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());      // use System.IO because it's static
+            
             // select the current port if possible
             if (comboBoxComPort.Items.Contains(Focuser.comPort))
             {

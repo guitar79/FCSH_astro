@@ -73,6 +73,7 @@ namespace ASCOM.EQFocuser
             this.lblInfo.Size = new System.Drawing.Size(344, 67);
             this.lblInfo.TabIndex = 2;
             this.lblInfo.Text = "EQFocuser ASCOM Driver version";
+            this.lblInfo.Click += new System.EventHandler(this.lblInfo_Click);
             // 
             // picASCOM
             // 

@@ -70,7 +70,7 @@ namespace ASCOM.GSfocus
         /// <summary>
         /// Driver description that displays in the ASCOM Chooser.
         /// </summary>
-        private static string driverDescription = "ASCOM Focuser Driver for GSfocus.";
+        private static string driverDescription = "GSfocus";
 
         internal static string comPortProfileName = "COM Port"; // Constants used for Profile persistence
         internal static string showUIProfileName = "Show Controller"; // GSGSGS_insert
@@ -119,7 +119,7 @@ namespace ASCOM.GSfocus
 
         private double humidity;
 
-        private int motor;
+        ///private int motor;
 
         /// <summary>
         /// Private variable that hold the reference to the Main Window
@@ -147,6 +147,9 @@ namespace ASCOM.GSfocus
         public Focuser()
         {
             tl = new TraceLogger("", "GSfocus");
+
+            tl.Enabled = traceState;  ///GSGSGS_insert
+
             ReadProfile(); // Read device configuration from the ASCOM Profile store
 
             tl.LogMessage("Focuser", "Starting initialisation");
@@ -160,17 +163,15 @@ namespace ASCOM.GSfocus
         }
 
 
-        ///GSGSGS_start
-        private string message;
-        private string existingMessage;
-        ///GSGSGS_end
-
+        private string message;  //GSGSGS_insert
+        private string existingMessage;   //GSGSGS_insert
+        
         //
         // PUBLIC COM INTERFACE IFocuserV3 IMPLEMENTATION
         //
 
 
-        ///GSGSGS_start
+        //GSGSGS_start
         #region Event Handling
         public virtual void OnFocuserValueChanged(FocuserValueChangedEventArgs e)
         {
@@ -213,7 +214,7 @@ namespace ASCOM.GSfocus
         }
         #endregion
         
-        ///GSGSGS_end
+        //GSGSGS_end
 
 
         #region Common properties and methods.
@@ -283,6 +284,22 @@ namespace ASCOM.GSfocus
             // then all communication calls this function
             // you need something to ensure that only one command is in progress at a time
 
+            //GSGSGS_start
+            if (IsConnected)
+            {
+                serialPort.WriteLine(command + ":" + stepSize);
+                //System.Threading.Thread.Sleep(10);
+            }
+
+            string message = "sent " + command + ":" + stepSize;
+
+            tl.LogMessage("command ", message);
+
+            System.Diagnostics.Debug.WriteLine("message from arduino " + message);
+            return message;
+            //GSGSGS_end
+
+
             throw new ASCOM.MethodNotImplementedException("CommandString");
         }
 
@@ -298,7 +315,7 @@ namespace ASCOM.GSfocus
             astroUtilities = null;
         }
 
-        ///GSGSGS_start
+        //GSGSGS_start
         private void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             try
@@ -351,7 +368,7 @@ namespace ASCOM.GSfocus
 
         }
 
-        ///GSGSGS_end
+        //GSGSGS_end
 
 
 
@@ -362,22 +379,25 @@ namespace ASCOM.GSfocus
         {
             get
             {
-                LogMessage("Connected", "Get {0}", IsConnected);
+                tl.LogMessage("Connected", "Get {0}", IsConnected); 
                 return IsConnected;
             }
             set
             {
                 tl.LogMessage("Connected", "Set {0}", value);
+
+                // well connect to the serial port
+                ReadProfile();  //GSGSGS_insert tl.
                 if (value == IsConnected)
                     return;
 
                 if (value)
                 {
                     connectedState = true;
-                    LogMessage("Connected Set", "Connecting to port {0}", comPort);
+                    LogMessage("Connected Set", "Connecting to port {0}", comPort);  
                     // TODO connect to the device
 
-                    ///GSGSGS_start
+                    //GSGSGS_start
                     try
                     {
                         serialPort = new SerialPort(comPort, 115200);
@@ -496,7 +516,7 @@ namespace ASCOM.GSfocus
         {
             get
             {
-                string name = "Short driver name - please customise";
+                string name = "GSfocus ASCOM driver";
                 tl.LogMessage("Name Get", name);
                 return name;
             }
@@ -534,7 +554,8 @@ namespace ASCOM.GSfocus
             get
             {
                 tl.LogMessage("IsMoving Get", false.ToString());
-                return false; // This focuser always moves instantaneously so no need for IsMoving ever to be True
+                //return false; // This focuser always moves instantaneously so no need for IsMoving ever to be True
+                return this.isMoving; // This focuser always moves instantaneously so no need for IsMoving ever to be True
             }
         }
 
@@ -559,6 +580,13 @@ namespace ASCOM.GSfocus
                 tl.LogMessage("MaxIncrement Get", focuserSteps.ToString());
                 return focuserSteps; // Maximum change in one move
             }
+
+            //GSGSGS_start
+            set
+            {
+                maxIncrement = value;
+            }
+            //GSGSGS_end
 
         }
 
@@ -740,6 +768,7 @@ namespace ASCOM.GSfocus
                 driverProfile.DeviceType = "Focuser";
                 tl.Enabled = Convert.ToBoolean(driverProfile.GetValue(driverID, traceStateProfileName, string.Empty, traceStateDefault));
                 comPort = driverProfile.GetValue(driverID, comPortProfileName, string.Empty, comPortDefault);
+                showUI = Convert.ToBoolean(driverProfile.GetValue(driverID, showUIProfileName, string.Empty, showUIDefault)); //GSGSGS_insert
             }
         }
 
