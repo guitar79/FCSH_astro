@@ -1,24 +1,10 @@
 // GSfocusPro 
 // ONLY FOR USE WITH STEPPER MOTORS ONLY
-// BUZZER, LEDS, TEMPERATURE PROBE, OLED, BT
+// LEDS, TEMPERATURE PROBE, OLED
 // NO PUSH BUTTONS
 // REQUIRES 12V 3A Power Supply
 
-// (c) Copyright Robert Brown 2014-2019. All Rights Reserved.
-// YOU MAY NOT SELL CONTROLLERS OR PCB'S BASED ON THIS PROJECT
-// for commercial gain without express written permission granted from the author.
-// Schematics, Code, Firmware, Ideas, Applications, Layout are protected by International Copyright Law.
-
-// Permission is NOT granted to any person to redistribute, market, manufacture or sell for commercial gain the GSfocus
-// products, ideas, PCB's, circuits, builds, variations and units described or discussed herein or on this site.
-// Permission is granted for personal and Academic/Educational use only.
-
-// THIS MEANS THAT YOU CANNOT RE-DESIGN AND MAKE AVAILABLE KITS OR PCB BASED ON THIS PROJECT AND
-// OFFER THOSE KITS FOR SALE TO OTHERS. THAT IS A BREACH OF COPYRIGHT.
-
-// CONTRIBUTIONS
-// If you wish to make a small contribution in thanks for this project, please use PayPal and send the amount
-// to user rbb1brown@gmail.com (Robert Brown). All contributions are gratefully accepted.
+// (c) Copyright Kiehyun Park 2014-2019. All Rights Reserved.
 
 // ----------------------------------------------------------------------------------------------------------
 //
@@ -31,10 +17,7 @@
 // FIRMWARE CHANGE LOG
 
 // 1.00
-
-// based on some portions of original code by Dave Wells, and orly.andico@gmail.com (moonlite focuser example)
 // ----------------------------------------------------------------------------------------------------------
-
 
 // ----------------------------------------------------------------------------------------------------------
 // CODE START
@@ -47,28 +30,7 @@ void setup()
     byte found;        // did we find any stored values?
   
     Serial.begin(SerialPortSpeed);
-    
-    #ifdef BLUETOOTH
-    btSerial.begin(BTPORTSPEED);                    // start bt adapter
-    clearbtPort();
-    #endif
-    
-    #ifdef DHT22
-    DHT dht(DHTPIN, DHTTYPE);
-    #endif
-    
-    #ifdef BUZZER
-    pinMode(Buzzer, OUTPUT);
-    digitalWrite( Buzzer, 1);
-    #endif
-    
-    #ifdef INOUTLEDS
-    pinMode( bledIN, OUTPUT);
-    pinMode( gledOUT, OUTPUT);
-    digitalWrite( bledIN, 1 );
-    digitalWrite( gledOUT, 1 );
-    #endif
-    
+
     previousMillis = millis();
     
     #ifdef TEMPERATUREPROBE
@@ -115,12 +77,6 @@ void setup()
     myoled.InverseCharOff();
     #endif
     
-    #ifdef BLUETOOTH
-    bteoc = 0;
-    btidx = 0;
-    memset(btline, 0, MAXCOMMAND);
-    #endif
-    
     currentaddr = 0;
     found = 0;
     writenow = 0;
@@ -162,17 +118,15 @@ void setup()
     ch1tempval  = 20.0;
     lasttempval = 20.0;
     tprobe1 = 0;
+
+    #ifdef DHT22
+    DHT dht(DHTPIN, DHTTYPE);
     
-    #ifdef TEMPERATUREPROBE
-    sensor1.begin();                                  // start the temperature sensor1
-    sensor1.getDeviceCount();                         // should return 1 if probe connected
-    findds18b20address();
     if ( tprobe1 == 1 )
     {
-        sensor1.setResolution( tpAddress, GSfocus.ds18b20resolution );  // set probe resolution
-        requesttemp();
+        //requesttemp();
         delay(600 / (1 << (12 - GSfocus.ds18b20resolution)));           // should enough time to wait
-        readtemp();
+        //readtemp();
     }
     requesttempflag = 0;
     #endif
@@ -207,23 +161,11 @@ void setup()
     
     writenow = 0;
     
-    #ifdef INOUTLEDS
-    digitalWrite( bledIN, 0 );
-    digitalWrite( gledOUT, 0 );
-    #endif
-    
-    #ifdef BUZZER
-    digitalWrite( Buzzer, 0);
-    #endif
 }
 
 // Main Loop
 void loop()
 {
-    #ifdef BLUETOOTH
-    btSerialEvent();                          // check for command from bt adapter
-    #endif
-    
     if ( queue.count() >= 1 )                 // check for serial command
     {
         processCommand();
@@ -302,28 +244,25 @@ void loop()
         }
         #endif
 
-        #ifdef TEMPERATUREPROBE
-        // if there is a temperature probe
-        if ( tprobe1 == 1)
-        {
-            long tempnow = millis();
+        #ifdef DHT22
+        long tempnow = millis();
             // see if the temperature needs updating - done automatically every 5s
             if ( ((tempnow - lasttempconversion) > TEMPREFRESHRATE) || (tempnow < lasttempconversion) )
             {
                 lasttempconversion = millis();    // update
                 if ( requesttempflag == 0 )
                 {
-                    readtemp();
+                    readDHT();
                     requesttempflag = 1;
                 }
                 else
                 {
-                    requesttemp();
+                    //requesttemp();
                     requesttempflag = 0;
                 }
             } // end of check to see if it is time to get new temperature reading
-        } // end of check for temperature probe present
         #endif
+        
 
         // is it time to update EEPROM settings?
         if ( writenow == 1 )
@@ -345,64 +284,6 @@ void loop()
             disableoutput();                                    // release the stepper coils to save power
     }  // end of else
 }
-    
-#ifdef BLUETOOTH
-void clearbtPort()
-{
-    while (btSerial.available())
-    {
-        btSerial.read();
-    }
-}
-    
-void btSerialEvent()
-{
-    while (btSerial.available() && (bteoc == 0) )
-    {
-        char btinChar = (char) btSerial.read();
-        if ((btinChar != '#') && (btinChar != ':'))
-        {
-            btline[btidx++] = btinChar;
-            if (btidx >= MAXCOMMAND)
-               btidx = MAXCOMMAND - 1;
-        }
-        else
-        {
-            if (btinChar == '#')
-            {
-                bteoc = 1;
-                btidx = 0;
-                if ( strcmp(line, ":00#") == 0 )   // get current focuser position
-                {
-                    fastreply = "P" + String(currentPosition) + "#";
-                    sendresponsestr(fastreply);
-                }
-                else if ( strcmp( line, ":01#") == 0) // get motor moving status - 01 if moving, 00 otherwise
-                {
-                    if (isMoving == 1)
-                        sendresponsestr("I01#");
-                    else
-                        sendresponsestr("I00#");
-                }
-                else if ( strcmp( line, ":27#") == 0) // Halt
-                {
-                    // :27#   None      stop a move - like a Halt
-                    isMoving = false;
-                    targetPosition = currentPosition;
-                    writenow = 1;             // updating of EEPROM ON
-                    previousMillis = millis();   // start time interval
-                }
-                else
-                {
-                    queue.push(String(btline));
-                }
-                bteoc = 0;
-                memset( btline, 0, MAXCOMMAND);
-            }
-        }
-    }
-}
-#endif
     
 void clearSerialPort()
 {

@@ -50,32 +50,21 @@ void enableoutput()
 // Move stepper anticlockwise
 void anticlockwise()
 {
-#ifdef INOUTLEDS
-    (!GSfocus.ReverseDirection) ? digitalWrite( gledOUT, 1) : digitalWrite( bledIN, 1);
-#endif
+
 (!GSfocus.ReverseDirection) ? digitalWrite(myDir, LOW ) : digitalWrite(myDir, HIGH );
 digitalWrite(myStep, 1 );
 delayMicroseconds(stepontime);
 digitalWrite(myStep, 0 );
 
-#ifdef INOUTLEDS
-    (!GSfocus.ReverseDirection) ? digitalWrite( gledOUT, 0 ) : digitalWrite( bledIN, 0);
-#endif
 }
 
 // Move stepper clockwise
 void clockwise()
 {
-    #ifdef INOUTLEDS
-        (!GSfocus.ReverseDirection) ? digitalWrite( bledIN, 1) : digitalWrite( gledOUT, 1);
-    #endif
         (!GSfocus.ReverseDirection) ? digitalWrite(myDir, HIGH ) : digitalWrite(myDir, LOW );
         digitalWrite(myStep, 1 );
         delayMicroseconds(stepontime);
         digitalWrite(myStep, 0 );
-    #ifdef INOUTLEDS
-        (!GSfocus.ReverseDirection) ? digitalWrite( bledIN, 0 ) : digitalWrite( gledOUT, 0);
-    #endif
 }
 
 
@@ -261,9 +250,6 @@ void sendresponsestr(String str)
         Serial.print(str);
     }
 
-    #ifdef BLUETOOTH
-        btSerial.print(str);
-    #endif
 }
 
 void sendresponsenl()
@@ -272,9 +258,6 @@ void sendresponsenl()
     {
         Serial.println();
     }
-    #ifdef BLUETOOTH
-        btSerial.println();
-    #endif
 }
 
 // Serial Commands
@@ -857,7 +840,7 @@ void findds18b20address()
 #endif
 
 #ifdef DHT22
-void playDHT(void)
+void readDHT(void)
 {
     dht_humi_read = dht.readHumidity();
     dht_temp_read = dht.readTemperature();
