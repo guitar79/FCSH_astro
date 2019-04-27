@@ -9,11 +9,11 @@ using System.Windows.Forms;
 using System.Globalization;
 
 
-namespace ASCOM.EQFocuser
+namespace ASCOM.GSfocus
 {
     public partial class MainWindow : Form
     {
-        ASCOM.EQFocuser.Focuser focuser;
+        ASCOM.GSfocus.Focuser focuser;
         public MainWindow(Focuser focuser)
         {
             this.focuser = focuser;
@@ -21,7 +21,7 @@ namespace ASCOM.EQFocuser
             this.focuser.FocuserStateChanged += FocuserStateChanged;
             this.focuser.FocuserHumidityChanged += FocuserHumidityChanged;
             this.focuser.FocuserTemperatureChanged += FocuserTemperatureChanged;
-            this.focuser.FocuserMotorChanged += FocuserMotorChanged;
+            
             InitializeComponent();
             InitControls();
 
@@ -78,27 +78,7 @@ namespace ASCOM.EQFocuser
             }
         }
 
-        private void SetCurrentMotor(int motorNumber)
-        {
-            if (checkBox1.InvokeRequired || checkBox2.InvokeRequired)
-            {
-                SetCurrentMotorCallBack d = new SetCurrentMotorCallBack(SetCurrentMotor);
-                this.Invoke(d, new Object[] { motorNumber });
-            }
-            else
-            {
-                if (motorNumber == 0)
-                {
-                    checkBox1.Checked = true;
-                    checkBox2.Checked = false;
-                }
-                if (motorNumber == 1)
-                {
-                    checkBox1.Checked = false;
-                    checkBox2.Checked = true;
-                }
-            }
-        }
+        
 
         private void FocuserHumidityChanged(object sender, FocuserHumidityChangedEventArgs e)
         {
@@ -115,10 +95,7 @@ namespace ASCOM.EQFocuser
             SetCurrentState(e.IsMoving);
         }
 
-        private void FocuserMotorChanged(object sender, FocuserMotorChangedEventArgs e)
-        {
-            SetCurrentMotor(e.Motor);
-        }
+       
 
         private void btnFastReverse_Click(object sender, EventArgs e)
         {
@@ -128,7 +105,7 @@ namespace ASCOM.EQFocuser
         private void InitControls()
         {
             textBoxCurrentPosition.Text = focuser.Position.ToString();
-            checkBox1.Checked = true;
+            //checkBox1.Checked = true;
         }
 
         private void btnReverse_Click(object sender, EventArgs e)
@@ -145,11 +122,6 @@ namespace ASCOM.EQFocuser
         private void btnFastForward_Click(object sender, EventArgs e)
         {
             focuser.CommandString("D", true);
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-            focuser.StepSize = Convert.ToDouble(numericUpDown1.Value);
         }
 
         private void btnMoveTo_Click(object sender, EventArgs e)
@@ -206,7 +178,7 @@ namespace ASCOM.EQFocuser
             System.Diagnostics.Debug.WriteLine("Showing Main Window");
             System.Diagnostics.Debug.WriteLine("Height " + this.Height);
             Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
-            this.Text = "EQFocuser v" + String.Format(CultureInfo.InvariantCulture, "{0}.{1}.{2}", version.Major, version.Minor, version.Revision);
+            this.Text = "GSfocus v" + String.Format(CultureInfo.InvariantCulture, "{0}.{1}.{2}", version.Major, version.Minor, version.Revision);
         }
 
         private void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
@@ -246,17 +218,7 @@ namespace ASCOM.EQFocuser
             
         }
 
-        private void checkBox1_Click(object sender, EventArgs e)
-        {
-            checkBox2.Checked = !checkBox1.Checked;
-            focuser.Action("M", "0");
-        }
-
-        private void checkBox2_Click(object sender, EventArgs e)
-        {
-            checkBox1.Checked = !checkBox2.Checked;
-            focuser.Action("M", "1");
-        }
+        
 
         private void lblAction_MouseClick(object sender, MouseEventArgs e)
         {

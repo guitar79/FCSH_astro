@@ -1,4 +1,4 @@
-﻿namespace ASCOM.EQFocuser
+﻿namespace ASCOM.GSfocus
 {
     partial class MainWindow
     {
@@ -43,8 +43,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.numericUpDownBacklash = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
@@ -131,7 +129,8 @@
             0,
             0,
             0});
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            //this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);  ///GSGSGS_edited
+
             // 
             // label1
             // 
@@ -195,8 +194,6 @@
             // 
             this.groupBox1.Controls.Add(this.numericUpDown5);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.numericUpDownBacklash);
             this.groupBox1.Controls.Add(this.label4);
@@ -250,31 +247,6 @@
             this.label10.Size = new System.Drawing.Size(79, 12);
             this.label10.TabIndex = 10;
             this.label10.Text = "Max Position";
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(147, 17);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(57, 22);
-            this.checkBox2.TabIndex = 9;
-            this.checkBox2.Text = "Motor 2";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.Click += new System.EventHandler(this.checkBox2_Click);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(26, 17);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(57, 22);
-            this.checkBox1.TabIndex = 8;
-            this.checkBox1.Text = "Motor 1";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
-            this.checkBox1.Click += new System.EventHandler(this.checkBox1_Click);
             // 
             // label9
             // 
@@ -467,7 +439,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(157, 12);
             this.label8.TabIndex = 19;
-            this.label8.Text = "GS ASCOM Focuser Driver";
+            this.label8.Text = "EQ ASCOM Focuser Driver";
             // 
             // panel1
             // 
@@ -530,7 +502,7 @@
             this.MinimizeBox = false;
             this.Name = "MainWindow";
             this.ShowIcon = false;
-            this.Text = "GS Focus";
+            this.Text = "GSfocus controll window";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);
             this.Load += new System.EventHandler(this.MainWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -579,8 +551,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDownBacklash;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnShowAdvanced;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBoxReverse;
         private System.Windows.Forms.NumericUpDown numericUpDown5;
         private System.Windows.Forms.Label label10;
