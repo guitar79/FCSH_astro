@@ -45,9 +45,9 @@ namespace ASCOM.EQFocuser
             // 
             this.cmdOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.cmdOK.Location = new System.Drawing.Point(224, 137);
+            this.cmdOK.Location = new System.Drawing.Point(261, 126);
             this.cmdOK.Name = "cmdOK";
-            this.cmdOK.Size = new System.Drawing.Size(59, 24);
+            this.cmdOK.Size = new System.Drawing.Size(69, 22);
             this.cmdOK.TabIndex = 0;
             this.cmdOK.Text = "OK";
             this.cmdOK.UseVisualStyleBackColor = true;
@@ -57,9 +57,9 @@ namespace ASCOM.EQFocuser
             // 
             this.cmdCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmdCancel.Location = new System.Drawing.Point(289, 137);
+            this.cmdCancel.Location = new System.Drawing.Point(337, 126);
             this.cmdCancel.Name = "cmdCancel";
-            this.cmdCancel.Size = new System.Drawing.Size(59, 25);
+            this.cmdCancel.Size = new System.Drawing.Size(69, 23);
             this.cmdCancel.TabIndex = 1;
             this.cmdCancel.Text = "Cancel";
             this.cmdCancel.UseVisualStyleBackColor = true;
@@ -68,9 +68,9 @@ namespace ASCOM.EQFocuser
             // lblInfo
             // 
             this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo.Location = new System.Drawing.Point(11, 9);
+            this.lblInfo.Location = new System.Drawing.Point(13, 8);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(295, 73);
+            this.lblInfo.Size = new System.Drawing.Size(344, 67);
             this.lblInfo.TabIndex = 2;
             this.lblInfo.Text = "EQFocuser ASCOM Driver version";
             // 
@@ -79,7 +79,7 @@ namespace ASCOM.EQFocuser
             this.picASCOM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picASCOM.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picASCOM.Image = global::ASCOM.EQFocuser.Properties.Resources.ASCOM;
-            this.picASCOM.Location = new System.Drawing.Point(300, 9);
+            this.picASCOM.Location = new System.Drawing.Point(350, 8);
             this.picASCOM.Name = "picASCOM";
             this.picASCOM.Size = new System.Drawing.Size(48, 56);
             this.picASCOM.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -92,9 +92,9 @@ namespace ASCOM.EQFocuser
             // 
             this.chkTrace.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkTrace.AutoSize = true;
-            this.chkTrace.Location = new System.Drawing.Point(16, 140);
+            this.chkTrace.Location = new System.Drawing.Point(19, 129);
             this.chkTrace.Name = "chkTrace";
-            this.chkTrace.Size = new System.Drawing.Size(69, 17);
+            this.chkTrace.Size = new System.Drawing.Size(75, 16);
             this.chkTrace.TabIndex = 6;
             this.chkTrace.Text = "Trace on";
             this.chkTrace.UseVisualStyleBackColor = true;
@@ -103,9 +103,9 @@ namespace ASCOM.EQFocuser
             // 
             this.comboBoxComPort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.comboBoxComPort.FormattingEnabled = true;
-            this.comboBoxComPort.Location = new System.Drawing.Point(224, 85);
+            this.comboBoxComPort.Location = new System.Drawing.Point(261, 78);
             this.comboBoxComPort.Name = "comboBoxComPort";
-            this.comboBoxComPort.Size = new System.Drawing.Size(124, 21);
+            this.comboBoxComPort.Size = new System.Drawing.Size(144, 20);
             this.comboBoxComPort.TabIndex = 7;
             this.comboBoxComPort.SelectedIndexChanged += new System.EventHandler(this.comboBoxComPort_SelectedIndexChanged);
             // 
@@ -113,9 +113,9 @@ namespace ASCOM.EQFocuser
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 88);
+            this.label3.Location = new System.Drawing.Point(8, 81);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(204, 13);
+            this.label3.Size = new System.Drawing.Size(242, 12);
             this.label3.TabIndex = 8;
             this.label3.Text = "COM port where EQFocuser is connected";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -124,27 +124,28 @@ namespace ASCOM.EQFocuser
             // 
             this.showUI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.showUI.AutoSize = true;
-            this.showUI.Location = new System.Drawing.Point(91, 140);
+            this.showUI.Location = new System.Drawing.Point(106, 129);
             this.showUI.Name = "showUI";
-            this.showUI.Size = new System.Drawing.Size(100, 17);
+            this.showUI.Size = new System.Drawing.Size(114, 16);
             this.showUI.TabIndex = 9;
             this.showUI.Text = "Show Controller";
             this.showUI.UseVisualStyleBackColor = true;
+            this.showUI.CheckedChanged += new System.EventHandler(this.showUI_CheckedChanged);
             // 
             // lblMotorDriver
             // 
             this.lblMotorDriver.AutoSize = true;
-            this.lblMotorDriver.Location = new System.Drawing.Point(7, 112);
+            this.lblMotorDriver.Location = new System.Drawing.Point(8, 103);
             this.lblMotorDriver.Name = "lblMotorDriver";
-            this.lblMotorDriver.Size = new System.Drawing.Size(112, 13);
+            this.lblMotorDriver.Size = new System.Drawing.Size(126, 12);
             this.lblMotorDriver.TabIndex = 10;
             this.lblMotorDriver.Text = "Detected Motor Driver";
             // 
             // btnReScan
             // 
-            this.btnReScan.Location = new System.Drawing.Point(224, 108);
+            this.btnReScan.Location = new System.Drawing.Point(261, 100);
             this.btnReScan.Name = "btnReScan";
-            this.btnReScan.Size = new System.Drawing.Size(122, 23);
+            this.btnReScan.Size = new System.Drawing.Size(142, 21);
             this.btnReScan.TabIndex = 11;
             this.btnReScan.Text = "Re SCAN Ports";
             this.btnReScan.UseVisualStyleBackColor = true;
@@ -152,9 +153,9 @@ namespace ASCOM.EQFocuser
             // 
             // SetupDialogForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(358, 168);
+            this.ClientSize = new System.Drawing.Size(418, 155);
             this.Controls.Add(this.btnReScan);
             this.Controls.Add(this.lblMotorDriver);
             this.Controls.Add(this.showUI);

@@ -147,5 +147,10 @@ namespace ASCOM.EQFocuser
         {
             this.InitUI();
         }
+
+        private void showUI_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

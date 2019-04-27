@@ -1,0 +1,8 @@
+c:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\obj\Debug\GSFocusASCOM.csprojAssemblyReference.cache
+c:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\obj\Debug\ASCOM.EQFocuser.MainWindow.resources
+c:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\obj\Debug\ASCOM.EQFocuser.Properties.Resources.resources
+c:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\obj\Debug\ASCOM.EQFocuser.SetupDialogForm.resources
+c:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\obj\Debug\GSFocusASCOM.csproj.GenerateResource.cache
+c:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\obj\Debug\GSFocusASCOM.csproj.CoreCompileInputs.cache
+c:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\obj\Debug\ASCOM.EQFocuser.Focuser.dll
+c:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\obj\Debug\ASCOM.EQFocuser.Focuser.pdb

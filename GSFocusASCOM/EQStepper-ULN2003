@@ -1,30 +1,18 @@
-﻿// EQ Simple Focuser
-// Arduino code in controlling an absolute focuser
-// using a stepper motor
+// EQFocuserStepper without the Temperature/Humidity Sensor
+// This driver is for ULN2003 Motor Driver
+// Can work with ST35 (12v) Stepper Motor or
+// 28BYJ-48 (5v) Stepper Motor
 
 #include <AccelStepper.h>
-#include <Wire.h>
-#include <Adafruit_MotorShield.h>
-#include <dht.h>
 
-// Define the stepper and the pins it will use
-Adafruit_MotorShield AFMS = Adafruit_MotorShield();
-Adafruit_StepperMotor *motor1 = AFMS.getStepper(200, 1);
-
-// for the temperature and hubmidity sensor
-#define DHT11_PIN 5
-
-
-// you can change these to DOUBLE or INTERLEAVE or MICROSTEP!
-void forwardstep() {  
-  motor1->onestep(FORWARD, MICROSTEP);
-}
-void backwardstep() {  
-  motor1->onestep(BACKWARD, MICROSTEP);
-}
+// motor pins
+#define motorPin5 8 // blue
+#define motorPin6 9 // pink
+#define motorPin7 10 // yellow
+#define motorPin8 11 // orange
 
 // Declaration needed for the AccelStepper Library
-AccelStepper stepper1(forwardstep, backwardstep);
+AccelStepper stepper1(AccelStepper::FULL4WIRE, motorPin5, motorPin7, motorPin6, motorPin8);
 
 // for command purposes
 String inputString = "";
@@ -48,13 +36,7 @@ int oldVariableResistorValue = 10;
 long toPosition;
 bool positionReported = false;
 
-// temperature and humidity sensor
-dht DHT;
-int chkSensor;
-
 void setup() {
-  AFMS.begin();
-  
   Serial.begin(115200);
   Serial.println("EQFOCUSER_STEPPER#");
   
@@ -76,11 +58,20 @@ void loop() {
   ccwVal = digitalRead(ccwPin);
 
   if (ccwVal == LOW || cwVal == LOW) {
+    //    if (oldVariableResistorValue < variableResistorValue - 5 || oldVariableResistorValue > variableResistorValue + 5 ){
+    //      // set the max acceleration
+    //      stepper1.setAcceleration(variableResistorValue / 102.4);
+    //      oldVariableResistorValue = variableResistorValue;
+    //      Serial.print("Changing Value of acceleration");
+    //      Serial.println(oldVariableResistorValue);
+    //    }
+    // the PULLUP Pins are pressed
     Serial.print("MOVING:");
     if (ccwVal == LOW) {
       toPosition = stepper1.currentPosition() - variableResistorValue / 10;
       Serial.print(toPosition);
       applyBacklashStep(toPosition, lastDirection, "INWARD");
+//      stepper1.moveTo(toPosition);
       lastDirection = "INWARD";
       
     }
@@ -201,7 +192,7 @@ void serialCommand(String commandString) {
     break;
   case 'k': // GET TEMPERATURE / HUMIDITY
     _newPosition = _currentPosition; // non move command
-    humidityTemperatureReport();
+//    humidityTemperatureReport();
     break;
   case 'L' :
   case 'l' :
@@ -270,48 +261,5 @@ void serialEvent() {
       serialCommand(inputString);
       inputString = "";
     }
-  }
-}
-
-/**
-* for DHT routine
-*/
-void humidityTemperatureReport() {
-  chkSensor = DHT.read11(DHT11_PIN);
-  switch (chkSensor) {
-  case DHTLIB_OK:
-    Serial.print("TEMPERATURE:");
-    Serial.print(DHT.temperature, 1);
-    Serial.println("#");
-    delay(50);
-    Serial.print("HUMIDITY:");
-    Serial.print(DHT.humidity, 1);
-    Serial.println("#");
-    delay(50);
-    break;
-  case DHTLIB_ERROR_CHECKSUM:
-    Serial.print("TEMPERATURE:");
-    Serial.print("CHECKSUMERROR");
-    Serial.println("#");
-    Serial.print("HUMIDITY:");
-    Serial.print("CHECKSUMERROR");
-    Serial.println("#");
-    break;
-  case DHTLIB_ERROR_TIMEOUT:
-    Serial.print("TEMPERATURE:");
-    Serial.print("TIMEOUTERROR");
-    Serial.println("#");
-    Serial.print("HUMIDITY:");
-    Serial.print("TIMEOUTERROR");
-    Serial.println("#");
-    break;
-  default:
-    Serial.print("TEMPERATURE:");
-    Serial.print("UNKNOWNERROR");
-    Serial.println("#");
-    Serial.print("HUMIDITY:");
-    Serial.print("UNKNOWNERROR");
-    Serial.println("#");
-    break;
   }
 }
