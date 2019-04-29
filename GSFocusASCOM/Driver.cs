@@ -135,7 +135,6 @@ namespace ASCOM.GSfocus
 
         public event EventHandler<FocuserHumidityChangedEventArgs> FocuserHumidityChanged;
 
-        public event EventHandler<FocuserMotorChangedEventArgs> FocuserMotorChanged;
 
         ///GSGSGS_end
 
@@ -205,13 +204,6 @@ namespace ASCOM.GSfocus
             }
         }
 
-        public virtual void OnFocuserMotorChanged(FocuserMotorChangedEventArgs e)
-        {
-            if (FocuserMotorChanged != null)
-            {
-                FocuserMotorChanged(this, e);
-            }
-        }
         #endregion
         
         //GSGSGS_end
@@ -389,7 +381,15 @@ namespace ASCOM.GSfocus
                 // well connect to the serial port
                 ReadProfile();  //GSGSGS_insert tl.
                 if (value == IsConnected)
+                {
+                    if (!mainWindow.Visible && showUI)
+                    {
+                        mainWindow = new MainWindow(this);
+                        mainWindow.Show();
+                    }
+                    connectedState = true;
                     return;
+                }
 
                 if (value)
                 {

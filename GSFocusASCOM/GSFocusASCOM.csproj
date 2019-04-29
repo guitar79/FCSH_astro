@@ -100,7 +100,6 @@
     <Compile Include="Driver.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="FocuserHumidityChangedEventArgs.cs" />
-    <Compile Include="FocuserMotorChangedEventArgs.cs" />
     <Compile Include="FocuserStateChangedEventArgs.cs" />
     <Compile Include="FocuserTemperatureChangedEventArgs.cs" />
     <Compile Include="FocuserValueChangedEventArgs.cs" />
