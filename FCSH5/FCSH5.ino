@@ -1,4 +1,4 @@
-// GSfocusPro 
+// myfocuserPro 
 // ONLY FOR USE WITH STEPPER MOTORS ONLY
 // BUZZER, LEDS, TEMPERATURE PROBE, OLED, BT
 // PUSH BUTTONS
@@ -9,7 +9,7 @@
 // for commercial gain without express written permission granted from the author.
 // Schematics, Code, Firmware, Ideas, Applications, Layout are protected by International Copyright Law.
 
-// Permission is NOT granted to any person to redistribute, market, manufacture or sell for commercial gain the GSfocus
+// Permission is NOT granted to any person to redistribute, market, manufacture or sell for commercial gain the myfocuser
 // products, ideas, PCB's, circuits, builds, variations and units described or discussed herein or on this site.
 // Permission is granted for personal and Academic/Educational use only.
 
@@ -43,7 +43,7 @@
 void setup()
 {
     int nlocations;    // number of storage locations available in EEPROM
-    byte datasize;     // will hold size of the struct GSfocus - 6 bytes
+    byte datasize;     // will hold size of the struct myfocuser - 6 bytes
     byte found;        // did we find any stored values?
   
     Serial.begin(SerialPortSpeed);
@@ -124,15 +124,15 @@ void setup()
     currentaddr = 0;
     found = 0;
     writenow = 0;
-    datasize = sizeof( GSfocus );
+    datasize = sizeof( myfocuser );
     nlocations = EEPROMSIZE / datasize;
     
     for (int lp1 = 0; lp1 < nlocations; lp1++ )
     {
         int addr = lp1 * datasize;
-        EEPROM_readAnything( addr, GSfocus );
+        EEPROM_readAnything( addr, myfocuser );
         // check to see if the data is valid
-        if ( GSfocus.validdata == 99 )
+        if ( myfocuser.validdata == 99 )
         {
             // data was erased so write some default values
             currentaddr = addr;
@@ -141,23 +141,23 @@ void setup()
     }
     if ( found == 1 )
     {
-        EEPROM_readAnything( currentaddr, GSfocus );
-        GSfocus.validdata = 0;
-        EEPROM_writeAnything(currentaddr, GSfocus);
+        EEPROM_readAnything( currentaddr, myfocuser );
+        myfocuser.validdata = 0;
+        EEPROM_writeAnything(currentaddr, myfocuser);
         currentaddr += datasize;
         if ( currentaddr >= (nlocations * datasize) )
             currentaddr = 0;
-        GSfocus.validdata = 99;
-        EEPROM_writeAnything(currentaddr, GSfocus);
+        myfocuser.validdata = 99;
+        EEPROM_writeAnything(currentaddr, myfocuser);
     }
     else
     {
         ResetFocuserDefaults();
     }
 
-    currentPosition = GSfocus.fposition;  // Set focuser defaults from saved values in EEPROM.
-    targetPosition = GSfocus.fposition;
-    maxSteps = GSfocus.maxstep;
+    currentPosition = myfocuser.fposition;  // Set focuser defaults from saved values in EEPROM.
+    targetPosition = myfocuser.fposition;
+    maxSteps = myfocuser.maxstep;
     
     ch1tempval  = 20.0;
     lasttempval = 20.0;
@@ -169,9 +169,9 @@ void setup()
     findds18b20address();
     if ( tprobe1 == 1 )
     {
-        sensor1.setResolution( tpAddress, GSfocus.ds18b20resolution );  // set probe resolution
+        sensor1.setResolution( tpAddress, myfocuser.ds18b20resolution );  // set probe resolution
         requesttemp();
-        delay(600 / (1 << (12 - GSfocus.ds18b20resolution)));           // should enough time to wait
+        delay(600 / (1 << (12 - myfocuser.ds18b20resolution)));           // should enough time to wait
         readtemp();
     }
     requesttempflag = 0;
@@ -188,22 +188,22 @@ void setup()
     digitalWrite( myDir, 0 );
     digitalWrite( myStep, 0 );
     pinMode( myEnable, OUTPUT );
-    if ( GSfocus.coilPwr == 1 )
+    if ( myfocuser.coilPwr == 1 )
         enableoutput();
     else
         disableoutput();
     stepontime = PULSETIME;
     TSWTHRESHOLD = MTRTHRESHHOLD;
     motorspeedchange = 0;
-    setstepmode(GSfocus.stepmode);
+    setstepmode(myfocuser.stepmode);
     motorSpeed = FAST;
     savedmotorSpeed = FAST;
     updatemotorSpeedDelay();
     
-    if ( GSfocus.updatedisplayintervalNotMoving < 2000 )
-        GSfocus.updatedisplayintervalNotMoving = 2000;
-    if ( GSfocus.updatedisplayintervalNotMoving > 4000 )
-        GSfocus.updatedisplayintervalNotMoving = 4000;
+    if ( myfocuser.updatedisplayintervalNotMoving < 2000 )
+        myfocuser.updatedisplayintervalNotMoving = 2000;
+    if ( myfocuser.updatedisplayintervalNotMoving > 4000 )
+        myfocuser.updatedisplayintervalNotMoving = 4000;
     
     writenow = 0;
     
@@ -269,7 +269,7 @@ void loop()
         }
 
         #ifdef OLEDDISPLAY                          // check if lcd needs updating during move
-        if ( GSfocus.lcdupdateonmove == 1 )
+        if ( myfocuser.lcdupdateonmove == 1 )
         {
             updatecount++;
             if ( updatecount > LCDUPDATESTEPCOUNT )
@@ -295,7 +295,7 @@ void loop()
         #ifdef OLEDDISPLAY
         // see if the display needs updating
         long currentMillis = millis();
-        if ( ((currentMillis - olddisplaytimestampNotMoving) > GSfocus.updatedisplayintervalNotMoving) || (currentMillis < olddisplaytimestampNotMoving) )
+        if ( ((currentMillis - olddisplaytimestampNotMoving) > myfocuser.updatedisplayintervalNotMoving) || (currentMillis < olddisplaytimestampNotMoving) )
         {
             olddisplaytimestampNotMoving = currentMillis;    // update the timestamp
             displaylcd();                         // update ALL the display values - takes about 2s
@@ -334,14 +334,14 @@ void loop()
            {
                 previousMillis = currentMillis;
                 // copy current settings and write the data to EEPROM
-                GSfocus.validdata = 99;
-                GSfocus.fposition = currentPosition;
-                GSfocus.maxstep = maxSteps;
-                EEPROM_writeAnything(currentaddr, GSfocus);     // update values in EEPROM
+                myfocuser.validdata = 99;
+                myfocuser.fposition = currentPosition;
+                myfocuser.maxstep = maxSteps;
+                EEPROM_writeAnything(currentaddr, myfocuser);     // update values in EEPROM
                 writenow = 0;
             }
         }
-        if ( GSfocus.coilPwr == 0 )
+        if ( myfocuser.coilPwr == 0 )
             disableoutput();                                    // release the stepper coils to save power
     }  // end of else
 }
