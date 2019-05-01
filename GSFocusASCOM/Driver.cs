@@ -153,7 +153,7 @@ namespace ASCOM.GSfocus
 
             tl.LogMessage("Focuser", "Starting initialisation");
 
-            connectedState = false; // Initialise connected to false
+            //connectedState = false; // Initialise connected to false
             utilities = new Util(); //Initialise util object
             astroUtilities = new AstroUtils(); // Initialise astro utilities object
             //TODO: Implement your additional construction here
@@ -376,7 +376,8 @@ namespace ASCOM.GSfocus
             }
             set
             {
-                tl.LogMessage("Connected", "Set {0}", value);
+                //tl.LogMessage("Connected", "Set {0}", value);  //GSGSGS_edit
+                tl.LogMessage("Connected Set", value.ToString());  //GSGSGS_edit
 
                 // well connect to the serial port
                 ReadProfile();  //GSGSGS_insert tl.
@@ -406,13 +407,13 @@ namespace ASCOM.GSfocus
                         {
                             serialPort.Open();
                         }
-                        Action("F", "");    // GET POSITION
-                        Action("k", "");    // GET TEMPERATURE AND HUMIDITY
+                        Action("GP", "");    // GET POSITION
+                        Action("GT", "");    // GET TEMPERATURE AND HUMIDITY
 
                         // when we establish connection, set up the increment, step and speed
-                        Action("I", "300"); // SET SPEED
-                        Action("J", "300"); // SET MAXSPEED
-                        Action("H", "300"); // SET ACCELERATION
+                        Action("MR", "300"); // SET SPEED
+                        //Action("J", "300"); // SET MAXSPEED
+                        //Action("H", "300"); // SET ACCELERATION
 
                         // Show the Window for the EQFocuser here
                         if (showUI)
