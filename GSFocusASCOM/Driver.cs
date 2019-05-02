@@ -407,8 +407,8 @@ namespace ASCOM.GSfocus
                         {
                             serialPort.Open();
                         }
-                        Action("GP", "");    // GET POSITION
-                        Action("GT", "");    // GET TEMPERATURE AND HUMIDITY
+                        Action(":GP#", "");    // GET POSITION
+                        Action(":GT#", "");    // GET TEMPERATURE AND HUMIDITY
 
                         // when we establish connection, set up the increment, step and speed
                         Action("MR", "300"); // SET SPEED
