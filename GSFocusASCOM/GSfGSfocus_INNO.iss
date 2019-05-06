@@ -46,8 +46,6 @@ Filename: "{dotnet4032}\regasm.exe"; Parameters: "/codebase ""{app}\ASCOM.GSfocu
 Filename: "{dotnet4064}\regasm.exe"; Parameters: "/codebase ""{app}\ASCOM.GSfocus.Focuser.dll"""; Flags: runhidden 64bit; Check: IsWin64
 
 
-
-
 ; Only if driver is .NET
 [UninstallRun]
 ; Only for .NET assembly/in-proc drivers
