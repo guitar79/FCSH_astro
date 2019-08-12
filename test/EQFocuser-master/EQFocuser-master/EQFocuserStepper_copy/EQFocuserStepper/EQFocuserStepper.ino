@@ -13,9 +13,12 @@
 
 // motor pins
 #define motorPin5 8 // blue
-#define motorPin6 9 // pink
-#define motorPin7 10 // yellow
-#define motorPin8 11 // orange
+#define DIR 4
+#define STEP 3
+#define MS0 15
+#define MS1 12
+#define MS2 13
+#define motorInterfaceType 1
 
 // for the temperature and hubmidity sensor
   #ifdef DHT22_
@@ -25,7 +28,8 @@
   #endif
 
 // Declaration needed for the AccelStepper Library
-AccelStepper stepper1(AccelStepper::FULL4WIRE, motorPin5, motorPin7, motorPin6, motorPin8);
+//AccelStepper stepper1(AccelStepper::FULL4WIRE, motorPin5, motorPin7, motorPin6, motorPin8);
+  AccelStepper stepper(motorInterfaceType, STEP, DIR);
 
 // for command purposes
 String inputString = "";
@@ -59,9 +63,9 @@ void setup() {
   Serial.begin(115200);
   Serial.println("EQFOCUSER_STEPPER#");
   
-  stepper1.setMaxSpeed(100.0);
-  stepper1.setAcceleration(100.0);
-  stepper1.setSpeed(100);
+  stepper.setMaxSpeed(100.0);
+  stepper.setAcceleration(100.0);
+  stepper.setSpeed(100);
 
   inputString.reserve(200);
 
@@ -79,7 +83,7 @@ void loop() {
   if (ccwVal == LOW || cwVal == LOW) {
     //    if (oldVariableResistorValue < variableResistorValue - 5 || oldVariableResistorValue > variableResistorValue + 5 ){
     //      // set the max acceleration
-    //      stepper1.setAcceleration(variableResistorValue / 102.4);
+    //      stepper.setAcceleration(variableResistorValue / 102.4);
     //      oldVariableResistorValue = variableResistorValue;
     //      Serial.print("Changing Value of acceleration");
     //      Serial.println(oldVariableResistorValue);
@@ -87,35 +91,35 @@ void loop() {
     // the PULLUP Pins are pressed
     Serial.print("MOVING:");
     if (ccwVal == LOW) {
-      toPosition = stepper1.currentPosition() - variableResistorValue / 10;
+      toPosition = stepper.currentPosition() - variableResistorValue / 10;
       Serial.print(toPosition);
       applyBacklashStep(toPosition, lastDirection, "INWARD");
-//      stepper1.moveTo(toPosition);
+//      stepper.moveTo(toPosition);
       lastDirection = "INWARD";
       
     }
     if (cwVal == LOW) {
-      toPosition = stepper1.currentPosition() + variableResistorValue / 10;
+      toPosition = stepper.currentPosition() + variableResistorValue / 10;
       Serial.print(toPosition);
       applyBacklashStep(toPosition, lastDirection, "OUTWARD");
-//      stepper1.moveTo(toPosition);
+//      stepper.moveTo(toPosition);
       lastDirection = "OUTWARD";
     }
     Serial.println("#");
-    stepper1.run();
+    stepper.run();
 
-    if (toPosition == stepper1.currentPosition()) {
+    if (toPosition == stepper.currentPosition()) {
       // the stepper is not really moving here so just report the posiiton
       reportPosition();
     }
   }
   else {
-    if (stepper1.distanceToGo() != 0) {
+    if (stepper.distanceToGo() != 0) {
       // let the stepper finish the movement
-      stepper1.run();
+      stepper.run();
       positionReported = false;
     }
-    if (stepper1.distanceToGo() == 0 && !positionReported) {
+    if (stepper.distanceToGo() == 0 && !positionReported) {
       reportPosition();
       delay(500);
       positionReported = true;
@@ -125,7 +129,7 @@ void loop() {
 
 void reportPosition() {
   Serial.print("POSITION:");
-  Serial.print(stepper1.currentPosition());
+  Serial.print(stepper.currentPosition());
   Serial.println("#");
 }
 
@@ -134,12 +138,12 @@ void reportPosition() {
 void applyBacklashStep(int toPosition, String lastDirection, String currentDirection){
   if (lastDirection == currentDirection){
     // no backlash
-    stepper1.moveTo(toPosition);
+    stepper.moveTo(toPosition);
   }
   else {
     // apply backlash
-    stepper1.moveTo(toPosition + backlashStep);
-    stepper1.setCurrentPosition(toPosition - backlashStep);
+    stepper.moveTo(toPosition + backlashStep);
+    stepper.setCurrentPosition(toPosition - backlashStep);
   }
 }
 
@@ -152,7 +156,7 @@ void serialCommand(String commandString) {
   char _command = commandString.charAt(0);
   int _step = commandString.substring(2).toInt();
   String _answer = "";
-  int _currentPosition = stepper1.currentPosition();
+  int _currentPosition = stepper.currentPosition();
   int _newPosition = _currentPosition;
   int _backlashStep;
 
@@ -184,28 +188,28 @@ void serialCommand(String commandString) {
   case 'G':  // SET POSITION TO 0
   case 'g': _newPosition = 0;
     _currentPosition = 0;
-    stepper1.setCurrentPosition(0);
+    stepper.setCurrentPosition(0);
     break;
   case 'H':  // SET ACCELERATION
   case 'h': _newPosition = _currentPosition; // non move command
-    stepper1.setAcceleration(_step);
+    stepper.setAcceleration(_step);
     _answer += "SET-ACCELERATION:";
     _answer += _step;
     break;
   case 'I':  // SET SPEED
     _newPosition = _currentPosition; // non move command
-    stepper1.setSpeed(_step);
+    stepper.setSpeed(_step);
     _answer += "SET-SPEED:";
     _answer += _step;
     break;
   case 'i':  // GET SPEED
     _newPosition = _currentPosition; // non move command
     _answer += "GET-SPEED:";
-    _answer += stepper1.speed();
+    _answer += stepper.speed();
     break;
   case 'J':  // SET MAX SPEED
   case 'j':  _newPosition = _currentPosition; // non move command
-    stepper1.setMaxSpeed(_step);
+    stepper.setMaxSpeed(_step);
     _answer += "SET-MAXSPEED:";
     _answer += _step;
     break;
@@ -223,7 +227,7 @@ void serialCommand(String commandString) {
     break;
   case 'X':  // GET STATUS - may not be needed
   case 'x':
-    stepper1.stop();
+    stepper.stop();
     break;
   case 'Z':  // IDENTIFY
   case 'z':  _answer += "EQFOCUSER_STEPPER";
@@ -235,11 +239,11 @@ void serialCommand(String commandString) {
 
   if (_newPosition != _currentPosition) {
     if (lastDirection != "NONE"){
-      if (stepper1.currentPosition() < _newPosition){
+      if (stepper.currentPosition() < _newPosition){
         // moving forward
         currentDirection == "OUTWARD";
       }
-      if (stepper1.currentPosition() > _newPosition){
+      if (stepper.currentPosition() > _newPosition){
         // moving backward
         currentDirection == "INWARD";
       }
@@ -257,12 +261,12 @@ void serialCommand(String commandString) {
     Serial.print("MOVING:");
     Serial.print(_newPosition);
     Serial.println("#");
-    //    stepper1.runToNewPosition(_newPosition);  // this will block the execution
-    stepper1.moveTo(_newPosition);
-    stepper1.runSpeedToPosition();
+    //    stepper.runToNewPosition(_newPosition);  // this will block the execution
+    stepper.moveTo(_newPosition);
+    stepper.runSpeedToPosition();
     lastDirection = currentDirection;
     _answer += "POSITION:";
-    _answer += stepper1.currentPosition();
+    _answer += stepper.currentPosition();
   }
 
 
