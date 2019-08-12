@@ -225,10 +225,7 @@ void serialCommand(String commandString) {
     _answer += "SET-BACKLASHSTEP:";
     _answer += _step;
     break;
-  case 'X':  // GET STATUS - may not be needed
-  case 'x':
-    stepper.stop();
-    break;
+
   case 'Z':  // IDENTIFY
   case 'z':  _answer += "EQFOCUSER_STEPPER";
     break;
@@ -298,11 +295,11 @@ void serialEvent() {
     switch (chkSensor) {
     case 1:
       Serial.print("TEMPERATURE:");
-      Serial.print(String(dht.readTemperature,1));
+      Serial.print(String(dht.readTemperature(),1));
       Serial.println("#");
       delay(50);
       Serial.print("HUMIDITY:");
-      Serial.print(String(dht.readTemperature,1));
+      Serial.print(String(dht.readHumidity(),1));
       Serial.println("#");
       delay(50);
       break;
