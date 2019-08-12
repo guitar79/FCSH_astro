@@ -1,4 +1,4 @@
-﻿// EQ Simple Focuser : copy
+// EQ Simple Focuser : copy
 // Arduino code in controlling an absolute focuser
 // using a stepper motor
 //https://github.com/adafruit/AccelStepper
@@ -225,7 +225,10 @@ void serialCommand(String commandString) {
     _answer += "SET-BACKLASHSTEP:";
     _answer += _step;
     break;
-
+  case 'X':  // GET STATUS - may not be needed
+  case 'x':
+    stepper.stop();
+    break;
   case 'Z':  // IDENTIFY
   case 'z':  _answer += "EQFOCUSER_STEPPER";
     break;
@@ -322,3 +325,4 @@ void serialEvent() {
     }
   }
 #endif
+
