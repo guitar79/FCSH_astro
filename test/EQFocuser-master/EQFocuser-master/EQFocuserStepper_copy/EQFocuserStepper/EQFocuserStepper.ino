@@ -5,6 +5,7 @@
 
 #define DHT22_ 1
 #define MSmode 1
+#define D_OLED 1
 
 #include <AccelStepper.h>
   #ifdef DHT22_
