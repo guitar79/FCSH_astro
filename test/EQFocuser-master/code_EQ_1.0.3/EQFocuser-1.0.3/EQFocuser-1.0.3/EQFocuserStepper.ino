@@ -1,38 +1,21 @@
-// EQ Simple Focuser : copy
+﻿// EQ Simple Focuser
 // Arduino code in controlling an absolute focuser
 // using a stepper motor
-//https://github.com/adafruit/AccelStepper
-
-#define DHT22_ 1
-#define MSmode 1
 
 #include <AccelStepper.h>
-  #ifdef DHT22_
-   //#include <dht.h>
-   #include <DHT.h>
-  #endif
+#include <dht.h>
 
 // motor pins
-#define motorInterfaceType 1
-#define DIR 4
-#define STEP 3
-  #ifdef MSmode
-    #define MS0 15
-    #define MS1 12
-    #define MS2 13
-    short stepmode = 1;
-  #endif
+#define motorPin5 8 // blue
+#define motorPin6 9 // pink
+#define motorPin7 10 // yellow
+#define motorPin8 11 // orange
 
 // for the temperature and hubmidity sensor
-  #ifdef DHT22_
-   #define DHT22_PIN 2
-   #define DHTTYPE DHT22
-   DHT dht(DHT22_PIN,DHTTYPE);
-  #endif
+#define DHT11_PIN 5
 
 // Declaration needed for the AccelStepper Library
-//AccelStepper stepper1(AccelStepper::FULL4WIRE, motorPin5, motorPin7, motorPin6, motorPin8);
-  AccelStepper stepper(motorInterfaceType, STEP, DIR);
+AccelStepper stepper1(AccelStepper::FULL4WIRE, motorPin5, motorPin7, motorPin6, motorPin8);
 
 // for command purposes
 String inputString = "";
@@ -57,18 +40,16 @@ long toPosition;
 bool positionReported = false;
 
 // temperature and humidity sensor
-  #ifdef DHT22
-   //dht DHT;
-   int chkSensor;
-  #endif
+dht DHT;
+int chkSensor;
 
 void setup() {
   Serial.begin(115200);
   Serial.println("EQFOCUSER_STEPPER#");
   
-  stepper.setMaxSpeed(100.0);
-  stepper.setAcceleration(100.0);
-  stepper.setSpeed(100);
+  stepper1.setMaxSpeed(100.0);
+  stepper1.setAcceleration(100.0);
+  stepper1.setSpeed(100);
 
   inputString.reserve(200);
 
@@ -86,7 +67,7 @@ void loop() {
   if (ccwVal == LOW || cwVal == LOW) {
     //    if (oldVariableResistorValue < variableResistorValue - 5 || oldVariableResistorValue > variableResistorValue + 5 ){
     //      // set the max acceleration
-    //      stepper.setAcceleration(variableResistorValue / 102.4);
+    //      stepper1.setAcceleration(variableResistorValue / 102.4);
     //      oldVariableResistorValue = variableResistorValue;
     //      Serial.print("Changing Value of acceleration");
     //      Serial.println(oldVariableResistorValue);
@@ -94,35 +75,35 @@ void loop() {
     // the PULLUP Pins are pressed
     Serial.print("MOVING:");
     if (ccwVal == LOW) {
-      toPosition = stepper.currentPosition() - variableResistorValue / 10;
+      toPosition = stepper1.currentPosition() - variableResistorValue / 10;
       Serial.print(toPosition);
       applyBacklashStep(toPosition, lastDirection, "INWARD");
-//      stepper.moveTo(toPosition);
+//      stepper1.moveTo(toPosition);
       lastDirection = "INWARD";
       
     }
     if (cwVal == LOW) {
-      toPosition = stepper.currentPosition() + variableResistorValue / 10;
+      toPosition = stepper1.currentPosition() + variableResistorValue / 10;
       Serial.print(toPosition);
       applyBacklashStep(toPosition, lastDirection, "OUTWARD");
-//      stepper.moveTo(toPosition);
+//      stepper1.moveTo(toPosition);
       lastDirection = "OUTWARD";
     }
     Serial.println("#");
-    stepper.run();
+    stepper1.run();
 
-    if (toPosition == stepper.currentPosition()) {
+    if (toPosition == stepper1.currentPosition()) {
       // the stepper is not really moving here so just report the posiiton
       reportPosition();
     }
   }
   else {
-    if (stepper.distanceToGo() != 0) {
+    if (stepper1.distanceToGo() != 0) {
       // let the stepper finish the movement
-      stepper.run();
+      stepper1.run();
       positionReported = false;
     }
-    if (stepper.distanceToGo() == 0 && !positionReported) {
+    if (stepper1.distanceToGo() == 0 && !positionReported) {
       reportPosition();
       delay(500);
       positionReported = true;
@@ -132,7 +113,7 @@ void loop() {
 
 void reportPosition() {
   Serial.print("POSITION:");
-  Serial.print(stepper.currentPosition());
+  Serial.print(stepper1.currentPosition());
   Serial.println("#");
 }
 
@@ -141,12 +122,12 @@ void reportPosition() {
 void applyBacklashStep(int toPosition, String lastDirection, String currentDirection){
   if (lastDirection == currentDirection){
     // no backlash
-    stepper.moveTo(toPosition);
+    stepper1.moveTo(toPosition);
   }
   else {
     // apply backlash
-    stepper.moveTo(toPosition + backlashStep);
-    stepper.setCurrentPosition(toPosition - backlashStep);
+    stepper1.moveTo(toPosition + backlashStep);
+    stepper1.setCurrentPosition(toPosition - backlashStep);
   }
 }
 
@@ -159,7 +140,7 @@ void serialCommand(String commandString) {
   char _command = commandString.charAt(0);
   int _step = commandString.substring(2).toInt();
   String _answer = "";
-  int _currentPosition = stepper.currentPosition();
+  int _currentPosition = stepper1.currentPosition();
   int _newPosition = _currentPosition;
   int _backlashStep;
 
@@ -191,52 +172,44 @@ void serialCommand(String commandString) {
   case 'G':  // SET POSITION TO 0
   case 'g': _newPosition = 0;
     _currentPosition = 0;
-    stepper.setCurrentPosition(0);
+    stepper1.setCurrentPosition(0);
     break;
   case 'H':  // SET ACCELERATION
   case 'h': _newPosition = _currentPosition; // non move command
-    stepper.setAcceleration(_step);
+    stepper1.setAcceleration(_step);
     _answer += "SET-ACCELERATION:";
     _answer += _step;
     break;
   case 'I':  // SET SPEED
     _newPosition = _currentPosition; // non move command
-    stepper.setSpeed(_step);
+    stepper1.setSpeed(_step);
     _answer += "SET-SPEED:";
     _answer += _step;
     break;
   case 'i':  // GET SPEED
     _newPosition = _currentPosition; // non move command
     _answer += "GET-SPEED:";
-    _answer += stepper.speed();
+    _answer += stepper1.speed();
     break;
   case 'J':  // SET MAX SPEED
   case 'j':  _newPosition = _currentPosition; // non move command
-    stepper.setMaxSpeed(_step);
+    stepper1.setMaxSpeed(_step);
     _answer += "SET-MAXSPEED:";
     _answer += _step;
     break;
-      #ifdef DHT22
-        case 'k': // GET TEMPERATURE / HUMIDITY
-          _newPosition = _currentPosition; // non move command
-          humidityTemperatureReport();
-          break;
-      #endif
+  case 'k': // GET TEMPERATURE / HUMIDITY
+    _newPosition = _currentPosition; // non move command
+    humidityTemperatureReport();
+    break;
   case 'L' :
   case 'l' :
     backlashStep = _step;
     _answer += "SET-BACKLASHSTEP:";
     _answer += _step;
     break;
-      #ifdef MSmode
-        case 'M' : // SET MICROSTEPPING
-        case 'm' : 
-          stepmode = _step;
-          setstep();
-      #endif
   case 'X':  // GET STATUS - may not be needed
   case 'x':
-    stepper.stop();
+    stepper1.stop();
     break;
   case 'Z':  // IDENTIFY
   case 'z':  _answer += "EQFOCUSER_STEPPER";
@@ -248,11 +221,11 @@ void serialCommand(String commandString) {
 
   if (_newPosition != _currentPosition) {
     if (lastDirection != "NONE"){
-      if (stepper.currentPosition() < _newPosition){
+      if (stepper1.currentPosition() < _newPosition){
         // moving forward
         currentDirection == "OUTWARD";
       }
-      if (stepper.currentPosition() > _newPosition){
+      if (stepper1.currentPosition() > _newPosition){
         // moving backward
         currentDirection == "INWARD";
       }
@@ -270,12 +243,12 @@ void serialCommand(String commandString) {
     Serial.print("MOVING:");
     Serial.print(_newPosition);
     Serial.println("#");
-    //    stepper.runToNewPosition(_newPosition);  // this will block the execution
-    stepper.moveTo(_newPosition);
-    stepper.runSpeedToPosition();
+    //    stepper1.runToNewPosition(_newPosition);  // this will block the execution
+    stepper1.moveTo(_newPosition);
+    stepper1.runSpeedToPosition();
     lastDirection = currentDirection;
     _answer += "POSITION:";
-    _answer += stepper.currentPosition();
+    _answer += stepper1.currentPosition();
   }
 
 
@@ -301,37 +274,42 @@ void serialEvent() {
 /**
 * for DHT routine
 */
-#ifdef DHT22_
-  void humidityTemperatureReport() {
-    chkSensor = digitalRead(DHT22_PIN);
-    switch (chkSensor) {
-    case 1:
-      Serial.print("TEMPERATURE:");
-      Serial.print(String(dht.readTemperature(),1));
-      Serial.println("#");
-      delay(50);
-      Serial.print("HUMIDITY:");
-      Serial.print(String(dht.readHumidity(),1));
-      Serial.println("#");
-      delay(50);
-      break;
-    case 0:
-      Serial.print("TEMPERATURE:");
-      Serial.print("CHECKSUMERROR");
-      Serial.println("#");
-      Serial.print("HUMIDITY:");
-      Serial.print("CHECKSUMERROR");
-      Serial.println("#");
-      break;
-    default:
-      Serial.print("TEMPERATURE:");
-      Serial.print("UNKNOWNERROR");
-      Serial.println("#");
-      Serial.print("HUMIDITY:");
-      Serial.print("UNKNOWNERROR");
-      Serial.println("#");
-      break;
-    }
+void humidityTemperatureReport() {
+  chkSensor = DHT.read11(DHT11_PIN);
+  switch (chkSensor) {
+  case DHTLIB_OK:
+    Serial.print("TEMPERATURE:");
+    Serial.print(DHT.temperature, 1);
+    Serial.println("#");
+    delay(50);
+    Serial.print("HUMIDITY:");
+    Serial.print(DHT.humidity, 1);
+    Serial.println("#");
+    delay(50);
+    break;
+  case DHTLIB_ERROR_CHECKSUM:
+    Serial.print("TEMPERATURE:");
+    Serial.print("CHECKSUMERROR");
+    Serial.println("#");
+    Serial.print("HUMIDITY:");
+    Serial.print("CHECKSUMERROR");
+    Serial.println("#");
+    break;
+  case DHTLIB_ERROR_TIMEOUT:
+    Serial.print("TEMPERATURE:");
+    Serial.print("TIMEOUTERROR");
+    Serial.println("#");
+    Serial.print("HUMIDITY:");
+    Serial.print("TIMEOUTERROR");
+    Serial.println("#");
+    break;
+  default:
+    Serial.print("TEMPERATURE:");
+    Serial.print("UNKNOWNERROR");
+    Serial.println("#");
+    Serial.print("HUMIDITY:");
+    Serial.print("UNKNOWNERROR");
+    Serial.println("#");
+    break;
   }
-#endif
-
+}
