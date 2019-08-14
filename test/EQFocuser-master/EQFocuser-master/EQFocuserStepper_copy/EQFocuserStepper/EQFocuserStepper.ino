@@ -232,7 +232,8 @@ void serialCommand(String commandString) {
       #ifdef MSmode
         case 'M' : // SET MICROSTEPPING
         case 'm' : 
-          stepmode = _step;
+          if(1<=_step && _step<=4) stepmode = _step;
+          else Serial.println("Microstepping mode should be from 1 to 4");
           setstep();
       #endif
   case 'X':  // GET STATUS - may not be needed
