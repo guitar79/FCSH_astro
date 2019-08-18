@@ -167,6 +167,9 @@ void serialCommand(String commandString) {
 
   
   switch (_command) {
+  case 'A':  // FAST REVERSE "<<"
+  case 'a': _newPosition = _currentPosition - ( _step * 2 );
+            currentDirection = "INWARD";
     break;
   case 'B':  // REVERSE "<"
   case 'b': _newPosition = _currentPosition - _step;
@@ -176,16 +179,20 @@ void serialCommand(String commandString) {
   case 'c': _newPosition = _currentPosition + _step;
             currentDirection = "OUTWARD";
     break;
+  case 'D':  // FAST FORWARD ">>"
+  case 'd': _newPosition = _currentPosition + ( _step * 2 );
+            currentDirection = "OUTWARD";
+    break;
   case 'E':  // MOVE TO POSITION
   case 'e': _newPosition = _step;
     break;
   case 'F':  // GET CURRENT POSITION
   case 'f': _answer += _currentPosition;
     break;
-  case 'G':  // SET POSITION TO _step
-  case 'g': _newPosition = _step;
-    _currentPosition = _step;
-    stepper.setCurrentPosition(_step);
+  case 'G':  // SET POSITION TO 0
+  case 'g': _newPosition = 0;
+    _currentPosition = 0;
+    stepper.setCurrentPosition(0);
     break;
   case 'H':  // SET ACCELERATION
   case 'h': _newPosition = _currentPosition; // non move command
@@ -226,7 +233,7 @@ void serialCommand(String commandString) {
         case 'M' : // SET MICROSTEPPING
         case 'm' : 
           if(1<=_step && _step<=4) stepmode = _step;
-          else Serial.println("stepmode should be from 1 to 4");
+          else Serial.println("Microstepping mode should be from 1 to 4");
           setstep();
       #endif
   case 'X':  // GET STATUS - may not be needed
