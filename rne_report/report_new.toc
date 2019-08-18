@@ -29,26 +29,26 @@
 \contentsline {subsection}{\numberline {III.2}사용한 망원경}{8}
 \contentsline {subsection}{\numberline {III.3}천체망원경 모터 초점 조절 장치 컨트롤러 제작}{8}
 \contentsline {subsubsection}{\numberline {III.3.1}회로도 제작}{8}
-\contentsline {subsubsection}{\numberline {III.3.2}회로도 제작 시 주의 사항}{9}
-\contentsline {subsubsection}{\numberline {III.3.3}펌웨어 개발}{9}
-\contentsline {subsection}{\numberline {III.4}무선통신}{10}
-\contentsline {subsubsection}{\numberline {III.4.1}블루투스}{10}
+\contentsline {subsubsection}{\numberline {III.3.2}회로도 제작 시 주의 사항}{8}
+\contentsline {subsubsection}{\numberline {III.3.3}펌웨어 개발}{10}
+\contentsline {subsection}{\numberline {III.4}무선통신}{11}
+\contentsline {subsubsection}{\numberline {III.4.1}블루투스}{11}
 \contentsline {subsubsection}{\numberline {III.4.2}WIFI}{11}
-\contentsline {subsection}{\numberline {III.5}ASCOM Protocol}{11}
-\contentsline {section}{\numberline {IV}결과 및 토의}{12}
-\contentsline {subsection}{\numberline {IV.1}모터 초점 조절 장치 컨트롤러 및 펌웨어}{12}
-\contentsline {subsection}{\numberline {IV.2}무선통신 개발}{12}
-\contentsline {subsection}{\numberline {IV.3}ASCOM 드라이버 개발}{12}
-\contentsline {section}{\numberline {V}결론}{13}
-\contentsline {section}{\numberline {VI}추후 연구}{14}
-\contentsline {subsection}{\numberline {VI.1}카메라(또는 CCD) 제어 Software 개발}{14}
-\contentsline {subsection}{\numberline {VI.2}자동 초점 조절 알고리즘 구현}{14}
-\contentsline {subsection}{\numberline {VI.3}추가 가능한 여러 가지 기능}{15}
-\contentsline {subsubsection}{\numberline {VI.3.1}STM32L432KC}{15}
-\contentsline {subsubsection}{\numberline {VI.3.2}열선 설치}{15}
-\contentsline {subsubsection}{\numberline {VI.3.3}PID 알고리즘}{15}
-\contentsline {subsubsection}{\numberline {VI.3.4}EEPROM}{15}
-\contentsline {subsubsection}{\numberline {VI.3.5}모터의 연결 상태}{16}
-\contentsline {section}{\numberline {VII}부록}{17}
-\contentsline {subsection}{\numberline {VII.1}초점 조절 장치 코드}{17}
-\contentsline {section}{References}{27}
+\contentsline {subsection}{\numberline {III.5}ASCOM Protocol}{12}
+\contentsline {section}{\numberline {IV}결과 및 토의}{13}
+\contentsline {subsection}{\numberline {IV.1}모터 초점 조절 장치 컨트롤러 및 펌웨어}{13}
+\contentsline {subsection}{\numberline {IV.2}무선통신 개발}{13}
+\contentsline {subsection}{\numberline {IV.3}ASCOM 드라이버 개발}{13}
+\contentsline {section}{\numberline {V}결론}{14}
+\contentsline {section}{\numberline {VI}추후 연구}{15}
+\contentsline {subsection}{\numberline {VI.1}카메라(또는 CCD) 제어 Software 개발}{15}
+\contentsline {subsection}{\numberline {VI.2}자동 초점 조절 알고리즘 구현}{15}
+\contentsline {subsection}{\numberline {VI.3}추가 가능한 여러 가지 기능}{16}
+\contentsline {subsubsection}{\numberline {VI.3.1}STM32L432KC}{16}
+\contentsline {subsubsection}{\numberline {VI.3.2}열선 설치}{16}
+\contentsline {subsubsection}{\numberline {VI.3.3}PID 알고리즘}{16}
+\contentsline {subsubsection}{\numberline {VI.3.4}EEPROM}{16}
+\contentsline {subsubsection}{\numberline {VI.3.5}모터의 연결 상태}{17}
+\contentsline {section}{\numberline {VII}부록}{18}
+\contentsline {subsection}{\numberline {VII.1}초점 조절 장치 코드}{18}
+\contentsline {section}{References}{28}

@@ -1,6 +1,6 @@
 % -*- TeX:UTF-8 -*-
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{gshs_report}
+\ProvidesClass{new_report}
 %[2018/07/29 v.1.30]
 % [2014/09/02 v0.1 Standard GSHS report document class, ko.TeX version] 
 % initiated by 정민석(2014년도 경기과학고 수학과 전문교원)
@@ -376,7 +376,7 @@
 %\renewcommand{\listtablename}{\begin{center}List of Tables\end{center}}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cfttoctitlefont}{\hspace*{\fill}\huge\bfseries}
-\renewcommand{\cftaftertoctitle}{\hspace*{\fill}}{.}
+\renewcommand{\cftaftertoctitle}{\hspace*{\fill}}
 \renewcommand{\cftlottitlefont}{\hspace*{\fill}\huge\bfseries}
 \renewcommand{\cftafterlottitle}{\hspace*{\fill}}
 \renewcommand{\cftloftitlefont}{\hspace*{\fill}\huge\bfseries}
