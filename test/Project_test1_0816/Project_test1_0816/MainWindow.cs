@@ -14,6 +14,7 @@ namespace ASCOM.test0816
     {
         
         ASCOM.test0816.Focuser focuser;
+        
         public MainWindow(Focuser focuser)
         {
             this.focuser = focuser;
@@ -113,9 +114,12 @@ namespace ASCOM.test0816
             }
         }
 
+        private ResetForm resetForm;
         private void button_Reset_Click(object sender, EventArgs e)
         {
-
+            resetForm = new ResetForm(this);
+            resetForm.Show();
+            InitControls();
         }
 
         private void button_Advanced_Click(object sender, EventArgs e)

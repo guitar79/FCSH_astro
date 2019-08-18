@@ -34,9 +34,10 @@ namespace ASCOM.test0816
             }
             else
             {
-                focuser.CommandString("G", true);
+                focuser.Action("G", textBox_ResetPosition.Text);
                 mainWindow.SetCurrentPosition(Convert.ToInt32(textBox_ResetPosition));
                 Focuser.MicroSteppingMode = Convert.ToInt32(textBox_ResetMS.Text);
+                this.Close();
             }
         }
 

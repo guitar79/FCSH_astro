@@ -44,22 +44,22 @@
             this.textBox_MoveTo = new System.Windows.Forms.TextBox();
             this.label_Moving = new System.Windows.Forms.Label();
             this.groupBox_Advanced = new System.Windows.Forms.GroupBox();
+            this.label_MS = new System.Windows.Forms.Label();
+            this.numericUpDown_Acceleration = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_Speed = new System.Windows.Forms.NumericUpDown();
+            this.textBox_Humidity = new System.Windows.Forms.TextBox();
+            this.textBox_Temperature = new System.Windows.Forms.TextBox();
+            this.label_Acceleration = new System.Windows.Forms.Label();
+            this.label_Speed = new System.Windows.Forms.Label();
+            this.label_Humidity = new System.Windows.Forms.Label();
+            this.label_Temperature = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel_Advanced = new System.Windows.Forms.Panel();
-            this.label_Temperature = new System.Windows.Forms.Label();
-            this.label_Humidity = new System.Windows.Forms.Label();
-            this.label_Speed = new System.Windows.Forms.Label();
-            this.label_Acceleration = new System.Windows.Forms.Label();
-            this.textBox_Temperature = new System.Windows.Forms.TextBox();
-            this.textBox_Humidity = new System.Windows.Forms.TextBox();
-            this.numericUpDown_Speed = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown_Acceleration = new System.Windows.Forms.NumericUpDown();
-            this.label_MS = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_SingleStep)).BeginInit();
             this.groupBox_Advanced.SuspendLayout();
-            this.panel_Advanced.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Speed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Acceleration)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Speed)).BeginInit();
+            this.panel_Advanced.SuspendLayout();
             this.SuspendLayout();
             // 
             // label_CurrentPosition
@@ -77,7 +77,7 @@
             // 
             this.button_Reset.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.button_Reset.Font = new System.Drawing.Font("굴림", 10F);
-            this.button_Reset.Location = new System.Drawing.Point(12, 345);
+            this.button_Reset.Location = new System.Drawing.Point(12, 155);
             this.button_Reset.Name = "button_Reset";
             this.button_Reset.Size = new System.Drawing.Size(240, 46);
             this.button_Reset.TabIndex = 4;
@@ -139,7 +139,7 @@
             // button_Advanced
             // 
             this.button_Advanced.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button_Advanced.Location = new System.Drawing.Point(12, 396);
+            this.button_Advanced.Location = new System.Drawing.Point(12, 206);
             this.button_Advanced.Name = "button_Advanced";
             this.button_Advanced.Size = new System.Drawing.Size(75, 23);
             this.button_Advanced.TabIndex = 10;
@@ -151,7 +151,7 @@
             // 
             this.labe_T_FOCUSER.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labe_T_FOCUSER.AutoSize = true;
-            this.labe_T_FOCUSER.Location = new System.Drawing.Point(102, 402);
+            this.labe_T_FOCUSER.Location = new System.Drawing.Point(102, 212);
             this.labe_T_FOCUSER.Name = "labe_T_FOCUSER";
             this.labe_T_FOCUSER.Size = new System.Drawing.Size(150, 12);
             this.labe_T_FOCUSER.TabIndex = 11;
@@ -234,95 +234,14 @@
             this.groupBox_Advanced.Text = "Advanced";
             this.groupBox_Advanced.Enter += new System.EventHandler(this.groupBox_Advanced_Enter);
             // 
-            // timer1
+            // label_MS
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 3000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // panel_Advanced
-            // 
-            this.panel_Advanced.Controls.Add(this.groupBox_Advanced);
-            this.panel_Advanced.Location = new System.Drawing.Point(10, 155);
-            this.panel_Advanced.Name = "panel_Advanced";
-            this.panel_Advanced.Size = new System.Drawing.Size(252, 177);
-            this.panel_Advanced.TabIndex = 22;
-            this.panel_Advanced.Visible = false;
-            // 
-            // label_Temperature
-            // 
-            this.label_Temperature.AutoSize = true;
-            this.label_Temperature.Location = new System.Drawing.Point(2, 52);
-            this.label_Temperature.Name = "label_Temperature";
-            this.label_Temperature.Size = new System.Drawing.Size(77, 12);
-            this.label_Temperature.TabIndex = 0;
-            this.label_Temperature.Text = "Temperature";
-            // 
-            // label_Humidity
-            // 
-            this.label_Humidity.AutoSize = true;
-            this.label_Humidity.Location = new System.Drawing.Point(25, 79);
-            this.label_Humidity.Name = "label_Humidity";
-            this.label_Humidity.Size = new System.Drawing.Size(54, 12);
-            this.label_Humidity.TabIndex = 1;
-            this.label_Humidity.Text = "Humidity";
-            // 
-            // label_Speed
-            // 
-            this.label_Speed.AutoSize = true;
-            this.label_Speed.Location = new System.Drawing.Point(38, 110);
-            this.label_Speed.Name = "label_Speed";
-            this.label_Speed.Size = new System.Drawing.Size(41, 12);
-            this.label_Speed.TabIndex = 2;
-            this.label_Speed.Text = "Speed";
-            // 
-            // label_Acceleration
-            // 
-            this.label_Acceleration.AutoSize = true;
-            this.label_Acceleration.Location = new System.Drawing.Point(4, 137);
-            this.label_Acceleration.Name = "label_Acceleration";
-            this.label_Acceleration.Size = new System.Drawing.Size(75, 12);
-            this.label_Acceleration.TabIndex = 3;
-            this.label_Acceleration.Text = "Acceleration";
-            // 
-            // textBox_Temperature
-            // 
-            this.textBox_Temperature.Location = new System.Drawing.Point(85, 46);
-            this.textBox_Temperature.Name = "textBox_Temperature";
-            this.textBox_Temperature.ReadOnly = true;
-            this.textBox_Temperature.Size = new System.Drawing.Size(154, 21);
-            this.textBox_Temperature.TabIndex = 4;
-            // 
-            // textBox_Humidity
-            // 
-            this.textBox_Humidity.Location = new System.Drawing.Point(85, 73);
-            this.textBox_Humidity.Name = "textBox_Humidity";
-            this.textBox_Humidity.ReadOnly = true;
-            this.textBox_Humidity.Size = new System.Drawing.Size(154, 21);
-            this.textBox_Humidity.TabIndex = 5;
-            // 
-            // numericUpDown_Speed
-            // 
-            this.numericUpDown_Speed.Location = new System.Drawing.Point(85, 105);
-            this.numericUpDown_Speed.Maximum = new decimal(new int[] {
-            300,
-            0,
-            0,
-            0});
-            this.numericUpDown_Speed.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numericUpDown_Speed.Name = "numericUpDown_Speed";
-            this.numericUpDown_Speed.Size = new System.Drawing.Size(154, 21);
-            this.numericUpDown_Speed.TabIndex = 6;
-            this.numericUpDown_Speed.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDown_Speed.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
+            this.label_MS.AutoSize = true;
+            this.label_MS.Location = new System.Drawing.Point(25, 22);
+            this.label_MS.Name = "label_MS";
+            this.label_MS.Size = new System.Drawing.Size(198, 12);
+            this.label_MS.TabIndex = 8;
+            this.label_MS.Text = "MicroStepping Mode : 1 (full step)";
             // 
             // numericUpDown_Acceleration
             // 
@@ -347,21 +266,102 @@
             0,
             0});
             // 
-            // label_MS
+            // numericUpDown_Speed
             // 
-            this.label_MS.AutoSize = true;
-            this.label_MS.Location = new System.Drawing.Point(25, 22);
-            this.label_MS.Name = "label_MS";
-            this.label_MS.Size = new System.Drawing.Size(198, 12);
-            this.label_MS.TabIndex = 8;
-            this.label_MS.Text = "MicroStepping Mode : 1 (full step)";
+            this.numericUpDown_Speed.Location = new System.Drawing.Point(85, 105);
+            this.numericUpDown_Speed.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.numericUpDown_Speed.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDown_Speed.Name = "numericUpDown_Speed";
+            this.numericUpDown_Speed.Size = new System.Drawing.Size(154, 21);
+            this.numericUpDown_Speed.TabIndex = 6;
+            this.numericUpDown_Speed.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDown_Speed.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // textBox_Humidity
+            // 
+            this.textBox_Humidity.Location = new System.Drawing.Point(85, 73);
+            this.textBox_Humidity.Name = "textBox_Humidity";
+            this.textBox_Humidity.ReadOnly = true;
+            this.textBox_Humidity.Size = new System.Drawing.Size(154, 21);
+            this.textBox_Humidity.TabIndex = 5;
+            // 
+            // textBox_Temperature
+            // 
+            this.textBox_Temperature.Location = new System.Drawing.Point(85, 46);
+            this.textBox_Temperature.Name = "textBox_Temperature";
+            this.textBox_Temperature.ReadOnly = true;
+            this.textBox_Temperature.Size = new System.Drawing.Size(154, 21);
+            this.textBox_Temperature.TabIndex = 4;
+            // 
+            // label_Acceleration
+            // 
+            this.label_Acceleration.AutoSize = true;
+            this.label_Acceleration.Location = new System.Drawing.Point(4, 137);
+            this.label_Acceleration.Name = "label_Acceleration";
+            this.label_Acceleration.Size = new System.Drawing.Size(75, 12);
+            this.label_Acceleration.TabIndex = 3;
+            this.label_Acceleration.Text = "Acceleration";
+            // 
+            // label_Speed
+            // 
+            this.label_Speed.AutoSize = true;
+            this.label_Speed.Location = new System.Drawing.Point(38, 110);
+            this.label_Speed.Name = "label_Speed";
+            this.label_Speed.Size = new System.Drawing.Size(41, 12);
+            this.label_Speed.TabIndex = 2;
+            this.label_Speed.Text = "Speed";
+            // 
+            // label_Humidity
+            // 
+            this.label_Humidity.AutoSize = true;
+            this.label_Humidity.Location = new System.Drawing.Point(25, 79);
+            this.label_Humidity.Name = "label_Humidity";
+            this.label_Humidity.Size = new System.Drawing.Size(54, 12);
+            this.label_Humidity.TabIndex = 1;
+            this.label_Humidity.Text = "Humidity";
+            // 
+            // label_Temperature
+            // 
+            this.label_Temperature.AutoSize = true;
+            this.label_Temperature.Location = new System.Drawing.Point(2, 52);
+            this.label_Temperature.Name = "label_Temperature";
+            this.label_Temperature.Size = new System.Drawing.Size(77, 12);
+            this.label_Temperature.TabIndex = 0;
+            this.label_Temperature.Text = "Temperature";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 3000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // panel_Advanced
+            // 
+            this.panel_Advanced.Controls.Add(this.groupBox_Advanced);
+            this.panel_Advanced.Location = new System.Drawing.Point(10, 155);
+            this.panel_Advanced.Name = "panel_Advanced";
+            this.panel_Advanced.Size = new System.Drawing.Size(252, 177);
+            this.panel_Advanced.TabIndex = 22;
+            this.panel_Advanced.Visible = false;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(264, 431);
+            this.ClientSize = new System.Drawing.Size(264, 241);
             this.Controls.Add(this.label_Moving);
             this.Controls.Add(this.textBox_MoveTo);
             this.Controls.Add(this.numericUpDown_SingleStep);
@@ -383,9 +383,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_SingleStep)).EndInit();
             this.groupBox_Advanced.ResumeLayout(false);
             this.groupBox_Advanced.PerformLayout();
-            this.panel_Advanced.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Speed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Acceleration)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Speed)).EndInit();
+            this.panel_Advanced.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

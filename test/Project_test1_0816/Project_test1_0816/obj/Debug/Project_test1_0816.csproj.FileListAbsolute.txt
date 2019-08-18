@@ -30,6 +30,8 @@ C:\Users\user\Desktop\History\190816\Project_test1_0816\Project_test1_0816\obj\D
 C:\Users\user\Desktop\전람회\Kevin_FCSH_controller\test\Project_test1_0816\Project_test1_0816\bin\Debug\ASCOM.test0816.Focuser.dll.config
 C:\Users\user\Desktop\전람회\Kevin_FCSH_controller\test\Project_test1_0816\Project_test1_0816\bin\Debug\ASCOM.test0816.Focuser.dll
 C:\Users\user\Desktop\전람회\Kevin_FCSH_controller\test\Project_test1_0816\Project_test1_0816\bin\Debug\ASCOM.test0816.Focuser.pdb
+C:\Users\user\Desktop\전람회\Kevin_FCSH_controller\test\Project_test1_0816\Project_test1_0816\bin\Debug\ASCOM.test0816.Focuser.dll.CodeAnalysisLog.xml
+C:\Users\user\Desktop\전람회\Kevin_FCSH_controller\test\Project_test1_0816\Project_test1_0816\bin\Debug\ASCOM.test0816.Focuser.dll.lastcodeanalysissucceeded
 C:\Users\user\Desktop\전람회\Kevin_FCSH_controller\test\Project_test1_0816\Project_test1_0816\bin\Debug\ASCOM.Astrometry.dll
 C:\Users\user\Desktop\전람회\Kevin_FCSH_controller\test\Project_test1_0816\Project_test1_0816\bin\Debug\ASCOM.Attributes.dll
 C:\Users\user\Desktop\전람회\Kevin_FCSH_controller\test\Project_test1_0816\Project_test1_0816\bin\Debug\ASCOM.Controls.dll
