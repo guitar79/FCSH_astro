@@ -12,8 +12,8 @@ namespace ASCOM.test0816
     public partial class ResetForm : Form
     {
         ASCOM.test0816.Focuser focuser;
-        ASCOM.test0816.MainWindow mainWindow;
-        public ResetForm(Focuser focuser)
+        private ASCOM.test0816.MainWindow mainWindow;
+        public ResetForm(MainWindow mainWindow)
         {
             InitializeComponent();
             textBox_ResetPosition.Text = focuser.Position.ToString();
