@@ -79,6 +79,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Driver.cs" />
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -90,6 +96,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="ResetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResetForm.Designer.cs">
+      <DependentUpon>ResetForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SetupDialogForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,10 +110,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResetForm.resx">
+      <DependentUpon>ResetForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SetupDialogForm.resx">
       <DependentUpon>SetupDialogForm.cs</DependentUpon>

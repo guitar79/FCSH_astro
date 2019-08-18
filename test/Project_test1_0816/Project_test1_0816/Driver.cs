@@ -44,6 +44,61 @@ using System.IO.Ports;
 
 namespace ASCOM.test0816
 {
+
+    #region Event Handling Libraries
+
+    public class FocuserHumidityChangedEventArgs : EventArgs
+    {
+        public readonly string Humidity;
+
+        public FocuserHumidityChangedEventArgs(string humidity)
+        {
+            this.Humidity = humidity;
+        }
+    }
+
+    public class FocuserMotorChangedEventArgs : EventArgs
+    {
+        public readonly int Motor;
+
+        public FocuserMotorChangedEventArgs(int motor)
+        {
+            this.Motor = motor;
+        }
+    }
+
+    public class FocuserStateChangedEventArgs : EventArgs
+    {
+        public readonly bool IsMoving;
+
+        public FocuserStateChangedEventArgs(bool isMoving)
+        {
+            this.IsMoving = isMoving;
+        }
+    }
+
+    public class FocuserTemperatureChangedEventArgs : EventArgs
+    {
+        public readonly string Temperature;
+
+        public FocuserTemperatureChangedEventArgs(string temperature)
+        {
+            this.Temperature = temperature;
+        }
+    }
+
+    public class FocuserValueChangedEventArgs : EventArgs
+    {
+        public readonly int LastValue;
+        public readonly int NewValue;
+
+        public FocuserValueChangedEventArgs(int LastValue, int NewValue)
+        {
+            this.LastValue = LastValue;
+            this.NewValue = NewValue;
+        }
+    }
+    #endregion
     //
     // Your driver's DeviceID is ASCOM.test0816.Focuser
     //
@@ -77,6 +132,7 @@ namespace ASCOM.test0816
         internal static string stepperMotor = "stepper";
         internal static bool traceState;
         internal static bool showUI;
+        internal static int MicroSteppingMode = 1;
         internal static string motorDriver;
 
         internal static string comPort; // Variables to hold the currrent device configuration
@@ -111,6 +167,7 @@ namespace ASCOM.test0816
         private string existingMessage;
         #endregion
 
+        #region Focuser Setting
         public Focuser()
         {
             ReadProfile(); // Read device configuration from the ASCOM Profile store
@@ -126,62 +183,9 @@ namespace ASCOM.test0816
 
             tl.LogMessage("Focuser", "Completed initialisation");
         }
+        #endregion
 
         #region Event Handling
-        #region Event Handling Libraries
-
-        public class FocuserHumidityChangedEventArgs : EventArgs
-        {
-            public readonly string Humidity;
-
-            public FocuserHumidityChangedEventArgs(string humidity)
-            {
-                this.Humidity = humidity;
-            }
-        }
-
-        public class FocuserMotorChangedEventArgs : EventArgs
-        {
-            public readonly int Motor;
-
-            public FocuserMotorChangedEventArgs(int motor)
-            {
-                this.Motor = motor;
-            }
-        }
-
-        public class FocuserStateChangedEventArgs : EventArgs
-        {
-            public readonly bool IsMoving;
-
-            public FocuserStateChangedEventArgs(bool isMoving)
-            {
-                this.IsMoving = isMoving;
-            }
-        }
-
-        public class FocuserTemperatureChangedEventArgs : EventArgs
-        {
-            public readonly string Temperature;
-
-            public FocuserTemperatureChangedEventArgs(string temperature)
-            {
-                this.Temperature = temperature;
-            }
-        }
-
-        public class FocuserValueChangedEventArgs : EventArgs
-        {
-            public readonly int LastValue;
-            public readonly int NewValue;
-
-            public FocuserValueChangedEventArgs(int LastValue, int NewValue)
-            {
-                this.LastValue = LastValue;
-                this.NewValue = NewValue;
-            }
-        }
-        #endregion
         #region Event Handling Declaration + Mainwindow Declaration
         private MainWindow mainWindow;
         public event EventHandler<FocuserValueChangedEventArgs> FocuserValueChanged;
@@ -384,7 +388,7 @@ namespace ASCOM.test0816
                         if(showUI)
                         {
                             mainWindow = new MainWindow(this);
-                            mainWindow,Show();
+                            mainWindow.Show();
                             System.Diagnostics.Debug.WriteLine("Connected " + IsConnected.ToString());
                         }
 
@@ -611,6 +615,17 @@ namespace ASCOM.test0816
             }
         }
 
+        public int MicroStepMode
+        {
+            get
+            {
+                return MicroSteppingMode; // Return microstepping mode
+            }
+            set
+            {
+                MicroSteppingMode = value;
+            }
+        }
         public double StepSize
         {
             get

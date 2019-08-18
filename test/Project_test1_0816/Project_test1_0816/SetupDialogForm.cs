@@ -8,6 +8,12 @@ using System.Windows.Forms;
 using ASCOM.Utilities;
 using ASCOM.test0816;
 
+using System.IO.Ports;
+using System.Diagnostics;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Linq;
+
 namespace ASCOM.test0816
 {
     [ComVisible(false)]					// Form not registered for COM!
@@ -25,7 +31,11 @@ namespace ASCOM.test0816
             // Place any validation constraint checks here
             // Update the state variables with results from the dialogue
             Focuser.comPort = (string)comboBoxComPort.SelectedItem;
-            Focuser.tl.Enabled = chkTrace.Checked;
+            Focuser.showUI = showUI.Checked;
+
+            String modeString = comboBoxMS.SelectedIndex.ToString().Substring(0,0);
+            int mode = Convert.ToInt32(modeString);
+            Focuser.MicroSteppingMode = mode;
         }
 
         private void cmdCancel_Click(object sender, EventArgs e) // Cancel button event handler
@@ -52,15 +62,90 @@ namespace ASCOM.test0816
 
         private void InitUI()
         {
-            chkTrace.Checked = Focuser.tl.Enabled;
+            chkTrace.Checked = Focuser.traceState;
+            showUI.Checked = Focuser.showUI;
+
             // set the list of com ports to those that are currently available
             comboBoxComPort.Items.Clear();
+
+            String[] ports = SerialPort.GetPortNames();
+            foreach(string port in ports)
+            {
+                Debug.WriteLine("Port here " + port);
+                if(Detect_TFocuser(port))
+                {
+                    comboBoxComPort.Items.Add(port);
+                }
+            }
+
             comboBoxComPort.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());      // use System.IO because it's static
             // select the current port if possible
             if (comboBoxComPort.Items.Contains(Focuser.comPort))
             {
                 comboBoxComPort.SelectedItem = Focuser.comPort;
             }
+
+            comboBoxMS.Items.Add("1 (full step)");
+            comboBoxMS.Items.Add("2 (1/2 step)");
+            comboBoxMS.Items.Add("3 (1/4 step)");
+            comboBoxMS.Items.Add("4 (1/8 step)");
+        }
+
+        private bool Detect_TFocuser(string portName)
+        {
+            SerialPort testPort = new SerialPort(portName, 115200);
+            try
+            {
+                testPort.Open();
+                testPort.WriteLine("Z");
+
+                Thread.Sleep(100);
+                string returnMessage = testPort.ReadExisting().ToString();
+
+                testPort.Close();
+                Debug.WriteLine(returnMessage);
+
+                if (returnMessage.Contains("EQEQFOCUSER_STEPPER") || returnMessage.Contains("POSITION"))
+                {
+                    Focuser.motorDriver = Focuser.stepperMotor;
+                    Detect.Visible = true;
+                    return true;
+                }
+                else return false;
+
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                return false;
+            }
+        }
+
+        private void chkTrace_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void showUI_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Reconnect_Click(object sender, EventArgs e)
+        {
+            String[] ports = SerialPort.GetPortNames();
+            foreach (string port in ports)
+            {
+                if (Detect_TFocuser(port))
+                {
+                    comboBoxComPort.Items.Add(port);
+                }
+            }
+        }
+
+        private void MS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
