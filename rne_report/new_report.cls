@@ -74,7 +74,7 @@
 \usepackage{titlesec}
 \usepackage{cite}   % citation [1,2,3] --> [1-3]
 
-\bibliographystyle{gshs_report}
+\bibliographystyle{new_report}
 %\usepackage[numbers,sort&compress]{natbib}
 %\setlength{\bibsep}{0em}
 %\bibliographystyle{gshs_thesisnat}
