@@ -5,7 +5,7 @@
 
 #define DHT22_ 1
 #define MSmode 1
-#define D_OLED 1
+#define S_OLED 1
 
 #include <AccelStepper.h>
   #ifdef DHT22_
@@ -43,8 +43,8 @@ String lastDirection = "NONE"; //"OUTWARD"
 String currentDirection = "NONE";
 
 // for pin values
-int ccwPin = 7;
-int cwPin = 6;
+int ccwPin = 0;
+int cwPin = 0;
 int ccwVal = 0;
 int cwVal = 0;
 
@@ -61,7 +61,10 @@ bool positionReported = false;
   #ifdef DHT22
    //dht DHT;
    int chkSensor;
+   String Temperature;
+   String Humidity;
   #endif
+  
 
 void setup() {
   Serial.begin(115200);
@@ -75,10 +78,21 @@ void setup() {
 
   pinMode(ccwPin, INPUT_PULLUP);
   pinMode(cwPin, INPUT_PULLUP);
+
 }
 
 
 void loop() {
+
+  #ifdef DHT22_
+    Temperature = String(dht.readTemperature(),1);
+    Humidity = String(dht.readHumidity(),1);
+  #endif
+  
+  #ifdef S_OLED
+    U8G_startFMenu();
+  #endif
+  
   variableResistorValue = analogRead(potpin);
 
   cwVal = digitalRead(cwPin);
@@ -299,14 +313,16 @@ void serialEvent() {
 #ifdef DHT22_
   void humidityTemperatureReport() {
     chkSensor = digitalRead(DHT22_PIN);
+    Temperature = String(dht.readTemperature(),1);
+    Humidity = String(dht.readHumidity(),1);
     switch (chkSensor) {
     case 1:
       Serial.print("TEMPERATURE:");
-      Serial.print(String(dht.readTemperature(),1));
+      Serial.print(Temperature);
       Serial.println("#");
       delay(50);
       Serial.print("HUMIDITY:");
-      Serial.print(String(dht.readHumidity(),1));
+      Serial.print(Humidity);
       Serial.println("#");
       delay(50);
       break;
