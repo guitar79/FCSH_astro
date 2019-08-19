@@ -3,9 +3,9 @@
 // using a stepper motor
 //https://github.com/adafruit/AccelStepper
 
-#define DHT22_ 1
-#define MSmode 1
-#define S_OLED 1
+#define DHT22_
+#define MSmode 
+#define S_OLED 
 
 #include <AccelStepper.h>
   #ifdef DHT22_

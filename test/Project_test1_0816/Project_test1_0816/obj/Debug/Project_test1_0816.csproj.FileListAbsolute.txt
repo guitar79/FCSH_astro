@@ -47,7 +47,6 @@ C:\Users\user\Desktop\전람회\Kevin_FCSH_controller\test\Project_test1_0816\Pr
 C:\Users\user\Desktop\전람회\Kevin_FCSH_controller\test\Project_test1_0816\Project_test1_0816\bin\Debug\ASCOM.SettingsProvider.xml
 C:\Users\user\Desktop\전람회\Kevin_FCSH_controller\test\Project_test1_0816\Project_test1_0816\bin\Debug\ASCOM.Utilities.xml
 C:\Users\user\Desktop\전람회\Kevin_FCSH_controller\test\Project_test1_0816\Project_test1_0816\bin\Debug\ASCOM.Internal.Extensions.xml
-C:\Users\user\Desktop\전람회\Kevin_FCSH_controller\test\Project_test1_0816\Project_test1_0816\obj\Debug\Project_test1_0816.csprojAssemblyReference.cache
 C:\Users\user\Desktop\전람회\Kevin_FCSH_controller\test\Project_test1_0816\Project_test1_0816\obj\Debug\ASCOM.test0816.MainWindow.resources
 C:\Users\user\Desktop\전람회\Kevin_FCSH_controller\test\Project_test1_0816\Project_test1_0816\obj\Debug\ASCOM.test0816.Properties.Resources.resources
 C:\Users\user\Desktop\전람회\Kevin_FCSH_controller\test\Project_test1_0816\Project_test1_0816\obj\Debug\ASCOM.test0816.ResetForm.resources

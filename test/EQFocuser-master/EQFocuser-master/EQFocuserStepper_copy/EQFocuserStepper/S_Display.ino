@@ -10,10 +10,10 @@
     //U8G_DRAW;
     u8g.firstPage();   
       do {      
-        u8g.drawStr(40,20,"Position"); u8g.drawStr(64,20,": "+stepper.currentPosition());
-        u8g.drawStr(40,40,"MicroStepping Mode"); u8g.drawStr(64,40,": "+stepmode);
-        u8g.drawStr(40,80,"Temperature"); //u8g.drawStr(Temperature);
-        u8g.drawStr(40,100,"Humidity"); //u8g.drawStr(Humidity);
+        u8g.drawStr(0,24,"Position"); u8g.drawStr(64,24,": "+stepper.currentPosition());
+        u8g.drawStr(0,34,"MicroStepping Mode"); u8g.drawStr(64,34,": "+stepmode);
+        u8g.drawStr(0,44,"Temperature"); //u8g.drawStr(Temperature);
+        u8g.drawStr(0,54,"Humidity"); //u8g.drawStr(Humidity);
       } while( u8g.nextPage() ); 
   }
 
