@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.8.13)  19 AUG 2019 14:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.8.14)  30 AUG 2019 16:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1880,23 +1880,24 @@ LUC/nanummj/m/n/10.95/c8 ^^D\LUC/nanummj/m/n/10.95/c6 Ð\LUC/nanummj/m/n/10.95/a
 c ü \LUC/nanummj/m/n/10.95/ba ¨\LUC/nanummj/m/n/10.95/d1 0
  []
 
-<images/Schematic_Prints.pdf, id=128, 844.15375pt x 597.23125pt>
-File: images/Schematic_Prints.pdf Graphic file (type pdf)
-<use images/Schematic_Prints.pdf>
-Package pdftex.def Info: images/Schematic_Prints.pdf  used on input line 27.
-(pdftex.def)             Requested size: 472.03123pt x 333.96422pt.
+<images/Schematic_Prints_color.pdf, id=128, 845.1575pt x 597.45204pt>
+File: images/Schematic_Prints_color.pdf Graphic file (type pdf)
+<use images/Schematic_Prints_color.pdf>
+Package pdftex.def Info: images/Schematic_Prints_color.pdf  used on input line 
+27.
+(pdftex.def)             Requested size: 472.03123pt x 333.69568pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 32--33
 
  []
 
-[7] [8 <./images/Schematic_Prints.pdf>]
-<images/circuit1.png, id=150, 371.88937pt x 380.17032pt>
+[7] [8 <./images/Schematic_Prints_color.pdf, page is rotated 90 degrees>]
+<images/circuit1.png, id=146, 371.88937pt x 380.17032pt>
 File: images/circuit1.png Graphic file (type png)
 <use images/circuit1.png>
 Package pdftex.def Info: images/circuit1.png  used on input line 43.
 (pdftex.def)             Requested size: 212.41608pt x 142.26767pt.
-<images/pcbcircuit.png, id=151, 283.81032pt x 313.9228pt>
+<images/pcbcircuit.png, id=147, 283.81032pt x 313.9228pt>
 File: images/pcbcircuit.png Graphic file (type png)
 <use images/pcbcircuit.png>
 Package pdftex.def Info: images/pcbcircuit.png  used on input line 48.
@@ -1906,12 +1907,12 @@ Overfull \hbox (2.08049pt too wide) in paragraph at lines 42--52
 []$[]$ $[]$ 
  []
 
-<images/function.pdf, id=152, 642.4pt x 385.44pt>
+<images/function.pdf, id=148, 642.4pt x 385.44pt>
 File: images/function.pdf Graphic file (type pdf)
 <use images/function.pdf>
 Package pdftex.def Info: images/function.pdf  used on input line 67.
 (pdftex.def)             Requested size: 212.41415pt x 142.26357pt.
-<images/algorithm.png, id=153, 357.335pt x 265.99374pt>
+<images/algorithm.png, id=149, 357.335pt x 265.99374pt>
 File: images/algorithm.png Graphic file (type png)
 <use images/algorithm.png>
 Package pdftex.def Info: images/algorithm.png  used on input line 72.
@@ -1922,14 +1923,14 @@ Overfull \hbox (2.08049pt too wide) in paragraph at lines 66--76
  []
 
 [9 <./images/circuit1.png> <./images/pcbcircuit.png>]
-<images/HC06.png, id=158, 170.88844pt x 316.18124pt>
+<images/HC06.png, id=154, 170.88844pt x 316.18124pt>
 File: images/HC06.png Graphic file (type png)
 <use images/HC06.png>
 Package pdftex.def Info: images/HC06.png  used on input line 85.
 (pdftex.def)             Requested size: 70.8018pt x 131.00049pt.
  [10 <./images/function.pdf> <./images/algorithm.png (PNG copy)> <./images/HC06
 .png>]
-<images/ESP8266.png, id=170, 113.92563pt x 170.13562pt>
+<images/ESP8266.png, id=166, 113.92563pt x 170.13562pt>
 File: images/ESP8266.png Graphic file (type png)
 <use images/ESP8266.png>
 Package pdftex.def Info: images/ESP8266.png  used on input line 96.
@@ -1944,7 +1945,7 @@ Overfull \hbox (12.44592pt too wide) in paragraph at lines 97--97
 \T1/ptm/m/n/10.95 ESP8266 
  []
 
-<images/telescope.png, id=171, 963.6pt x 722.7pt>
+<images/telescope.png, id=167, 963.6pt x 722.7pt>
 File: images/telescope.png Graphic file (type png)
 <use images/telescope.png>
 Package pdftex.def Info: images/telescope.png  used on input line 114.
@@ -2205,15 +2206,12 @@ LaTeX Font Info:    Font shape `LUC/nanummj/m/it' in size <10.95> not available
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 43171 strings out of 492642
- 990249 string characters out of 6133162
- 1139158 words of memory out of 5000000
- 46196 multiletter control sequences out of 15000+600000
+ 43170 strings out of 492642
+ 990263 string characters out of 6133162
+ 1139144 words of memory out of 5000000
+ 46195 multiletter control sequences out of 15000+600000
  651872 words of font info for 285 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,9n,138p,1593b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2318,10 +2316,10 @@ e/2018/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd6.pfb><c:/texlive/2018
 -dist/fonts/type1/uhc/umj/umj01.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw
 /times/utmb8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
 <c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on new_report.pdf (34 pages, 4892265 bytes).
+Output written on new_report.pdf (34 pages, 4890526 bytes).
 PDF statistics:
- 590 PDF objects out of 1000 (max. 8388607)
- 421 compressed objects within 5 object streams
+ 586 PDF objects out of 1000 (max. 8388607)
+ 418 compressed objects within 5 object streams
  0 named destinations out of 1000 (max. 500000)
  78 words of extra memory for PDF output out of 10000 (max. 10000000)
 
