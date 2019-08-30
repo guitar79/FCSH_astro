@@ -4,9 +4,9 @@
 
 \subsubsection{사용한 부품}
 
-%%박기현샘 선정한 부품들의 특징은 무엇이며 왜 아래 부품들을 선정하였는가?
+%%박기현샘 선정한 부품들의 특징은 무엇이며 왜 아래 부품들을 선정하였는지 추가할 것
 
-천체망원경 모터 초점 조절 장치 컨트롤러를 제작하기 위해서 필요한 부품들을 선정하였다. 
+천체망원경 모터 초점 조절 장치 컨트롤러를 제작하기 위해서 필요한 부품들을 선정하였다. 각각의 부품의 특징과 스펙을 아래에 정리하였다. 
 
 \begin{description}[font=$\bullet$~\normalfont\scshape\color{red!50!black}]
 	\item [ARDUINO NANO] 모터 초점 조절 장치 컨트롤러를 만드는 데 있어 가장 중요한 부품으로, 일종의 작은 컴퓨터와 같은 역할을 한다. Arduino는 마이크로 컨트롤러를 달고 있는 기판으로, Arduino의 여러 가지 핀에 전선을 연결한 뒤에 코딩하여 Arduino에 올리면 Arduino가 코딩된 내용을 그대로 실행할 수 있도록 하는 hardware이다. 내부에 컴퓨터 역할을 하는 MPU인 ATmega328가 탑재되어 있으며, 5V를 공급할 시에 작동한다. 크기는 45mm x 18mm이다.
@@ -39,19 +39,23 @@
 \subsubsection{회로도 작성}
 
 
-
-\begin{figure}
-	\includegraphics[width=1\linewidth]{Schematic_Prints_color}
-	\caption{회로도}
-	\label{fig:Schematic_Prints}
-\end{figure}
-
 생각보다 Circuitmaker 프로그램의 사용법을 숙지하는 데 오랜 시간이 걸렸기 때문에, 그사이에 진행된 연구에서는 만능기판에 여러 가지 부품들을 전선으로 연결하여 사용하는 방법을 택하였고, 연구가 진행되어 만능기판이 복잡해짐에 따라서 여러 프로그램의 도움을 받게 되었다.\\
 
 연구 초기과정에서는 Arduino와 직접 연동이 가능한 ‘Fritzing’이라는 프로그램을 사용하였지만, 연구가 진행될수록 다른 부품들과 실제로 구현이 가능한 PCB 회로기판을 만들 수 있어야 했기 때문에 보편화한 PCB 회로제작 프로그램이면서 ‘협업’ 기능을 이용하여 동시에 수정이 가능한 ‘Circuitmaker’라는 프로그램을 사용하게 되었다.
 
 각 부품을 사용할 때에는 각 부품의 허용 전류와 같은 여러 가지 특징들을 생각하여 회로를 배선해야 한다. 예를 들어 WIFI 모듈인 ESP8266과 같은 경우 그 입력전압이 Arduino의 출력 전압인 5V가 아닌 3.3V이기 때문에 주의하여야 한다. 또한, 각 부품의 칩별로 제조한 회사의 data sheet를 참조하여 부품을 사용하면서 여러 가지 문제점들을 미리 방지하였다.\\
 특히 5V를 3.3V로 바꾸는 과정에서는 전압 나눔 회로를 이용하여 전압을 나눌 수 있으나, 12V를 5V로 바꾸는 과정에서는 전류를 제어하는 것이 필요하므로 부득이하게 regulator를 사용하게 되었다.
+
+
+Figure \ref{fig:Schematic_Prints}\는 최종 완성한 기판의 회로도이다.
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=1\linewidth]{Schematic_Prints_color}
+	\caption{회로도}
+	\label{fig:Schematic_Prints}
+	\end{center}
+\end{figure}
+
 
 \subsubsection{기판 제작}
 

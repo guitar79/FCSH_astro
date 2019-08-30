@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.8.14)  30 AUG 2019 11:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.8.14)  30 AUG 2019 11:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1896,38 +1896,38 @@ LUC/nanummj/m/n/10.95/c8 ^^D\LUC/nanummj/m/n/10.95/c6 Ð\LUC/nanummj/m/n/10.95/a
 c ü \LUC/nanummj/m/n/10.95/ba ¨\LUC/nanummj/m/n/10.95/d1 0
  []
 
-<images/prototype.jpg, id=138, 5617.98875pt x 2682.02pt>
+<images/prototype.jpg, id=138, 5208.45876pt x 2577.63pt>
 File: images/prototype.jpg Graphic file (type jpg)
 <use images/prototype.jpg>
 Package pdftex.def Info: images/prototype.jpg  used on input line 32.
-(pdftex.def)             Requested size: 424.82523pt x 202.77979pt.
+(pdftex.def)             Requested size: 424.82523pt x 210.22641pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/Schematic_Prints_color.pdf, id=139, 845.1575pt x 597.45204pt>
-File: images/Schematic_Prints_color.pdf Graphic file (type pdf)
-<use images/Schematic_Prints_color.pdf>
-Package pdftex.def Info: images/Schematic_Prints_color.pdf  used on input line 
-44.
-(pdftex.def)             Requested size: 472.03123pt x 333.69568pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--50
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
 
  []
 
 [9]
+<images/Schematic_Prints_color.pdf, id=143, 845.1575pt x 597.45204pt>
+File: images/Schematic_Prints_color.pdf Graphic file (type pdf)
+<use images/Schematic_Prints_color.pdf>
+Package pdftex.def Info: images/Schematic_Prints_color.pdf  used on input line 
+53.
+(pdftex.def)             Requested size: 472.03123pt x 333.69568pt.
 <images/circuit1.png, id=144, 371.88937pt x 380.17032pt>
 File: images/circuit1.png Graphic file (type png)
 <use images/circuit1.png>
-Package pdftex.def Info: images/circuit1.png  used on input line 60.
+Package pdftex.def Info: images/circuit1.png  used on input line 64.
 (pdftex.def)             Requested size: 212.41608pt x 142.26767pt.
 <images/pcbcircuit.png, id=145, 283.81032pt x 313.9228pt>
 File: images/pcbcircuit.png Graphic file (type png)
 <use images/pcbcircuit.png>
-Package pdftex.def Info: images/pcbcircuit.png  used on input line 65.
+Package pdftex.def Info: images/pcbcircuit.png  used on input line 69.
 (pdftex.def)             Requested size: 212.41982pt x 142.26028pt.
 
-Overfull \hbox (2.08049pt too wide) in paragraph at lines 59--69
+Overfull \hbox (2.08049pt too wide) in paragraph at lines 63--73
 []$[]$ $[]$ 
  []
 
@@ -1937,15 +1937,15 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <images/function.pdf, id=146, 642.4pt x 385.44pt>
 File: images/function.pdf Graphic file (type pdf)
 <use images/function.pdf>
-Package pdftex.def Info: images/function.pdf  used on input line 84.
+Package pdftex.def Info: images/function.pdf  used on input line 88.
 (pdftex.def)             Requested size: 212.41415pt x 142.26357pt.
 <images/algorithm.png, id=147, 357.335pt x 265.99374pt>
 File: images/algorithm.png Graphic file (type png)
 <use images/algorithm.png>
-Package pdftex.def Info: images/algorithm.png  used on input line 89.
+Package pdftex.def Info: images/algorithm.png  used on input line 93.
 (pdftex.def)             Requested size: 212.41249pt x 142.26668pt.
 
-Overfull \hbox (2.08049pt too wide) in paragraph at lines 83--93
+Overfull \hbox (2.08049pt too wide) in paragraph at lines 87--97
 []$[]$ $[]$ 
  []
 
@@ -1957,10 +1957,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <images/HC06.png, id=163, 170.88844pt x 316.18124pt>
 File: images/HC06.png Graphic file (type png)
 <use images/HC06.png>
-Package pdftex.def Info: images/HC06.png  used on input line 102.
+Package pdftex.def Info: images/HC06.png  used on input line 106.
 (pdftex.def)             Requested size: 70.8018pt x 131.00049pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 103--103
+Underfull \hbox (badness 10000) in paragraph at lines 107--107
 []\T1/ptm/m/n/10.95 Figure 11.
  []
 
@@ -1968,15 +1968,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 103--103
 <images/ESP8266.png, id=167, 113.92563pt x 170.13562pt>
 File: images/ESP8266.png Graphic file (type png)
 <use images/ESP8266.png>
-Package pdftex.def Info: images/ESP8266.png  used on input line 113.
+Package pdftex.def Info: images/ESP8266.png  used on input line 117.
 (pdftex.def)             Requested size: 28.32071pt x 42.29236pt.
 
-Overfull \hbox (16.03738pt too wide) in paragraph at lines 114--114
+Overfull \hbox (16.03738pt too wide) in paragraph at lines 118--118
 []\T1/ptm/m/n/10.95 Figure 12.
  []
 
 
-Overfull \hbox (12.44592pt too wide) in paragraph at lines 114--114
+Overfull \hbox (12.44592pt too wide) in paragraph at lines 118--118
 \T1/ptm/m/n/10.95 ESP8266 
  []
 
@@ -1985,7 +1985,7 @@ png> <./images/ESP8266.png>]
 <images/telescope.png, id=180, 963.6pt x 722.7pt>
 File: images/telescope.png Graphic file (type png)
 <use images/telescope.png>
-Package pdftex.def Info: images/telescope.png  used on input line 131.
+Package pdftex.def Info: images/telescope.png  used on input line 135.
 (pdftex.def)             Requested size: 66.08408pt x 49.55757pt.
 ) [14 <./images/telescope.png>]
 \openout2 = `sub/result_and_discussion.aux'.
@@ -2353,7 +2353,7 @@ e/2018/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd6.pfb><c:/texlive/2018
 -dist/fonts/type1/uhc/umj/umj01.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw
 /times/utmb8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
 <c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on new_report.pdf (38 pages, 14032877 bytes).
+Output written on new_report.pdf (38 pages, 12940926 bytes).
 PDF statistics:
  604 PDF objects out of 1000 (max. 8388607)
  429 compressed objects within 5 object streams
