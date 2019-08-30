@@ -1,5 +1,4 @@
-
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.8.13)  30 AUG 2019 20:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.8.14)  30 AUG 2019 11:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1825,37 +1824,41 @@ Overfull \hbox (2.08049pt too wide) in paragraph at lines 30--40
 []$[]$ $[]$ 
  []
 
-[3 <./images/before.png> <./images/after.png>]) [4]
+) [3 <./images/before.png> <./images/after.png>] [4]
 \openout2 = `sub/theoritical_background.aux'.
 
 
 (./sub/theoritical_background.tex
-<images/microtouch_3.jpg, id=114, 652.4375pt x 652.4375pt>
+<images/microtouch_3.jpg, id=108, 652.4375pt x 652.4375pt>
 File: images/microtouch_3.jpg Graphic file (type jpg)
 <use images/microtouch_3.jpg>
-Package pdftex.def Info: images/microtouch_3.jpg  used on input line 14.
+Package pdftex.def Info: images/microtouch_3.jpg  used on input line 22.
 (pdftex.def)             Requested size: 283.22162pt x 283.2306pt.
-<images/DHT22.png, id=115, 176.91093pt x 331.99031pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/DHT22.png, id=109, 176.91093pt x 331.99031pt>
 File: images/DHT22.png Graphic file (type png)
 <use images/DHT22.png>
-Package pdftex.def Info: images/DHT22.png  used on input line 30.
+Package pdftex.def Info: images/DHT22.png  used on input line 38.
 (pdftex.def)             Requested size: 23.603pt x 44.28992pt.
 
-Overfull \hbox (15.2801pt too wide) in paragraph at lines 31--31
+Overfull \hbox (15.2801pt too wide) in paragraph at lines 39--39
 []\T1/ptm/m/n/10.95 Figure 5.
  []
 
 
-Overfull \hbox (9.84912pt too wide) in paragraph at lines 31--31
+Overfull \hbox (9.84912pt too wide) in paragraph at lines 39--39
 \T1/ptm/m/n/10.95 DHT22 
  []
 
 [5
 
 
- <./images/microtouch_3.jpg>]
+]
 ! Misplaced alignment tab character &.
-l.41 ...otioncontrol.co.kr/default/news/?nwsid=n3&
+l.49 ...otioncontrol.co.kr/default/news/?nwsid=n3&
                                                   uid=5002
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1864,111 +1867,127 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-<images/stepmotor.png, id=123, 963.6pt x 722.7pt>
+[6 <./images/microtouch_3.jpg> <./images/DHT22.png>]
+<images/stepmotor.png, id=128, 963.6pt x 722.7pt>
 File: images/stepmotor.png Graphic file (type png)
 <use images/stepmotor.png>
-Package pdftex.def Info: images/stepmotor.png  used on input line 49.
+Package pdftex.def Info: images/stepmotor.png  used on input line 57.
 (pdftex.def)             Requested size: 236.01561pt x 177.0024pt.
-[6 <./images/DHT22.png> <./images/stepmotor.png>]) [7]
+) [7 <./images/stepmotor.png>]
 \openout2 = `sub/method_of_the_study.aux'.
 
-
-(./sub/method_of_the_study.tex
+ (./sub/method_of_the_study.tex
 
 LaTeX Font Warning: Font shape `LUC/nanummj/m/sc' undefined
-(Font)              using `LUC/nanummj/m/n' instead on input line 11.
+(Font)              using `LUC/nanummj/m/n' instead on input line 15.
 
 [8
 
 
 ]
-LaTeX Font Info:    Try loading font information for LUC+uhcmj on input line 15
+LaTeX Font Info:    Try loading font information for LUC+uhcmj on input line 19
 .
  (c:/texlive/2018/texmf-dist/tex/latex/kotex-utf/lucuhcmj.fd
 File: lucuhcmj.fd 2013/09/26 UHC Myeongjo font definitions
 )
-Overfull \hbox (3.78638pt too wide) in paragraph at lines 19--20
-[]\T1/ptm/m/n/10.95 12V \LUC/nanummj/m/n/10.95/c6 x\LUC/nanummj/m/n/10.95/bd ï¿½\
-LUC/nanummj/m/n/10.95/c8 ^^D\LUC/nanummj/m/n/10.95/c6 ï¿½\LUC/nanummj/m/n/10.95/a
-c ï¿½ \LUC/nanummj/m/n/10.95/ba ï¿½\LUC/nanummj/m/n/10.95/d1 0
+Overfull \hbox (3.78638pt too wide) in paragraph at lines 23--24
+[]\T1/ptm/m/n/10.95 12V \LUC/nanummj/m/n/10.95/c6 x\LUC/nanummj/m/n/10.95/bd €\
+LUC/nanummj/m/n/10.95/c8 ^^D\LUC/nanummj/m/n/10.95/c6 Ð\LUC/nanummj/m/n/10.95/a
+c ü \LUC/nanummj/m/n/10.95/ba ¨\LUC/nanummj/m/n/10.95/d1 0
  []
 
-<images/Schematic_Prints_color.pdf, id=138, 845.1575pt x 597.45204pt>
+<images/prototype.jpg, id=138, 5617.98875pt x 2682.02pt>
+File: images/prototype.jpg Graphic file (type jpg)
+<use images/prototype.jpg>
+Package pdftex.def Info: images/prototype.jpg  used on input line 32.
+(pdftex.def)             Requested size: 424.82523pt x 202.77979pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/Schematic_Prints_color.pdf, id=139, 845.1575pt x 597.45204pt>
 File: images/Schematic_Prints_color.pdf Graphic file (type pdf)
 <use images/Schematic_Prints_color.pdf>
 Package pdftex.def Info: images/Schematic_Prints_color.pdf  used on input line 
-27.
+44.
 (pdftex.def)             Requested size: 472.03123pt x 333.69568pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 32--33
+Underfull \hbox (badness 10000) in paragraph at lines 49--50
 
  []
 
-[9] [10 <./images/Schematic_Prints_color.pdf, page is rotated 90 degrees>]
-<images/circuit1.png, id=154, 371.88937pt x 380.17032pt>
+[9]
+<images/circuit1.png, id=144, 371.88937pt x 380.17032pt>
 File: images/circuit1.png Graphic file (type png)
 <use images/circuit1.png>
-Package pdftex.def Info: images/circuit1.png  used on input line 43.
+Package pdftex.def Info: images/circuit1.png  used on input line 60.
 (pdftex.def)             Requested size: 212.41608pt x 142.26767pt.
-<images/pcbcircuit.png, id=155, 283.81032pt x 313.9228pt>
+<images/pcbcircuit.png, id=145, 283.81032pt x 313.9228pt>
 File: images/pcbcircuit.png Graphic file (type png)
 <use images/pcbcircuit.png>
-Package pdftex.def Info: images/pcbcircuit.png  used on input line 48.
+Package pdftex.def Info: images/pcbcircuit.png  used on input line 65.
 (pdftex.def)             Requested size: 212.41982pt x 142.26028pt.
 
-Overfull \hbox (2.08049pt too wide) in paragraph at lines 42--52
+Overfull \hbox (2.08049pt too wide) in paragraph at lines 59--69
 []$[]$ $[]$ 
  []
 
-<images/function.pdf, id=156, 642.4pt x 385.44pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/function.pdf, id=146, 642.4pt x 385.44pt>
 File: images/function.pdf Graphic file (type pdf)
 <use images/function.pdf>
-Package pdftex.def Info: images/function.pdf  used on input line 67.
+Package pdftex.def Info: images/function.pdf  used on input line 84.
 (pdftex.def)             Requested size: 212.41415pt x 142.26357pt.
-<images/algorithm.png, id=157, 357.335pt x 265.99374pt>
+<images/algorithm.png, id=147, 357.335pt x 265.99374pt>
 File: images/algorithm.png Graphic file (type png)
 <use images/algorithm.png>
-Package pdftex.def Info: images/algorithm.png  used on input line 72.
+Package pdftex.def Info: images/algorithm.png  used on input line 89.
 (pdftex.def)             Requested size: 212.41249pt x 142.26668pt.
 
-Overfull \hbox (2.08049pt too wide) in paragraph at lines 66--76
+Overfull \hbox (2.08049pt too wide) in paragraph at lines 83--93
 []$[]$ $[]$ 
  []
 
-[11 <./images/circuit1.png> <./images/pcbcircuit.png>]
-<images/HC06.png, id=162, 170.88844pt x 316.18124pt>
+[10 <./images/prototype.jpg>] [11 <./images/Schematic_Prints_color.pdf, page is
+ rotated 90 degrees>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/HC06.png, id=163, 170.88844pt x 316.18124pt>
 File: images/HC06.png Graphic file (type png)
 <use images/HC06.png>
-Package pdftex.def Info: images/HC06.png  used on input line 85.
+Package pdftex.def Info: images/HC06.png  used on input line 102.
 (pdftex.def)             Requested size: 70.8018pt x 131.00049pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--86
-[]\T1/ptm/m/n/10.95 Figure 10.
- []
-
-[12 <./images/function.pdf> <./images/algorithm.png (PNG copy)> <./images/HC06.
-png>]
-<images/ESP8266.png, id=174, 113.92563pt x 170.13562pt>
-File: images/ESP8266.png Graphic file (type png)
-<use images/ESP8266.png>
-Package pdftex.def Info: images/ESP8266.png  used on input line 96.
-(pdftex.def)             Requested size: 28.32071pt x 42.29236pt.
-
-Overfull \hbox (16.03738pt too wide) in paragraph at lines 97--97
+Underfull \hbox (badness 10000) in paragraph at lines 103--103
 []\T1/ptm/m/n/10.95 Figure 11.
  []
 
+[12 <./images/circuit1.png> <./images/pcbcircuit.png>]
+<images/ESP8266.png, id=167, 113.92563pt x 170.13562pt>
+File: images/ESP8266.png Graphic file (type png)
+<use images/ESP8266.png>
+Package pdftex.def Info: images/ESP8266.png  used on input line 113.
+(pdftex.def)             Requested size: 28.32071pt x 42.29236pt.
 
-Overfull \hbox (12.44592pt too wide) in paragraph at lines 97--97
+Overfull \hbox (16.03738pt too wide) in paragraph at lines 114--114
+[]\T1/ptm/m/n/10.95 Figure 12.
+ []
+
+
+Overfull \hbox (12.44592pt too wide) in paragraph at lines 114--114
 \T1/ptm/m/n/10.95 ESP8266 
  []
 
-<images/telescope.png, id=175, 963.6pt x 722.7pt>
+[13 <./images/function.pdf> <./images/algorithm.png (PNG copy)> <./images/HC06.
+png> <./images/ESP8266.png>]
+<images/telescope.png, id=180, 963.6pt x 722.7pt>
 File: images/telescope.png Graphic file (type png)
 <use images/telescope.png>
-Package pdftex.def Info: images/telescope.png  used on input line 114.
+Package pdftex.def Info: images/telescope.png  used on input line 131.
 (pdftex.def)             Requested size: 66.08408pt x 49.55757pt.
-) [13 <./images/ESP8266.png> <./images/telescope.png>] [14]
+) [14 <./images/telescope.png>]
 \openout2 = `sub/result_and_discussion.aux'.
 
 
@@ -2226,11 +2245,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 43182 strings out of 492642
- 990605 string characters out of 6133162
- 1139168 words of memory out of 5000000
- 46205 multiletter control sequences out of 15000+600000
- 651872 words of font info for 285 fonts, out of 8000000 for 9000
+ 43187 strings out of 492642
+ 990711 string characters out of 6133162
+ 1139180 words of memory out of 5000000
+ 46209 multiletter control sequences out of 15000+600000
+ 651580 words of font info for 284 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,9n,138p,1593b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2018/texm
@@ -2334,14 +2353,10 @@ e/2018/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd6.pfb><c:/texlive/2018
 -dist/fonts/type1/uhc/umj/umj01.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw
 /times/utmb8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
 <c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-<<<<<<< HEAD
-Output written on new_report.pdf (36 pages, 5148434 bytes).
-=======
-Output written on new_report.pdf (38 pages, 5161941 bytes).
->>>>>>> 53c21029b7bcbf409f1a60ff177059758a92c9b2
+Output written on new_report.pdf (38 pages, 14032877 bytes).
 PDF statistics:
- 603 PDF objects out of 1000 (max. 8388607)
+ 604 PDF objects out of 1000 (max. 8388607)
  429 compressed objects within 5 object streams
  0 named destinations out of 1000 (max. 500000)
- 88 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
