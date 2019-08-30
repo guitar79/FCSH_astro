@@ -64,12 +64,12 @@ Figure \ref{fig:Schematic_Prints}\는 최종 완성한 기판의 회로도이다
 
 \begin{figure}[h]
 	\begin{center}
-	\begin{subfigure}{0.5\textwidth}
+	\begin{subfigure}{0.45\textwidth}
 		\includegraphics[width=0.9\linewidth]{pcbfront_3d} 
 		\caption{Front}
 		\label{fig:pcbfront_3d}
 	\end{subfigure}
-	\begin{subfigure}{0.5\textwidth}
+	\begin{subfigure}{0.45\textwidth}
 		\includegraphics[width=0.9\linewidth]{pcbback_3d}
 		\caption{Back}
 		\label{fig:pcbback_3d}
@@ -97,43 +97,7 @@ Figure \ref{fig:pcbcircuit}\은 처음 제작한 PCB Version 1 이다. PCB Versi
 Arduino를 이용하여 모터 초점 조절 장치를 만드는 데 필요한 기술들은 크게 4가지이다. 먼저, Arduino와 모터 드라이버(DRV8825)를 이용하여 모터를 돌릴 수 있어야 한다. 두 번째로, 스위치를 활용하여 모터의 움직임을 조절할 수 있게 하였다. 세 번째로, 모터를 조절한 것을 노트북에 연결되지 않고 12V의 외부전원만 연결된 상황에서도 모터가 얼마나 돌아갔는지를 확인할 수 있도록 모터가 얼마나 돌아가 있는지, 혹은 이로 인해 늘어난 경통의 길이가 얼마나 되는지 확인할 수 있도록 Arduino를 이용하여 OLED 판을 실행시켜 진행 상황을 확인할 수 있게 하여야 한다. 마지막으로, 모터가 너무 많이 돌아간 경우나 새로운 모터에 모터 컨트롤러를 사용하는 경우 이를 복원시키기 위해 표시된 숫자를 초기화하는 과정이 필요하다.\\
 펌웨어를 개발하는 과정에서 위의 4가지 기능들이 들어갈 수 있도록 하였으며, 추가로 모터의 step을 옮기는 과정에서 다른 모터 포커서 컨트롤러들의 장점을 융합하여 편리하게 사용할 수 있도록 하였다.\\
 먼저, 메뉴 기능을 통해 자신이 원하는 기능을 직접 선택할 수 있도록 하였다. 이를 통하여 모터를 연속적으로 돌리는 기능과 미리 설정한 일정 값 정보를 돌릴 수 있도록 지원한다. 특히 연속적으로 돌리는 기능은 버튼을 오래 누를수록 더 빠르게 돌 수 있도록 하여 효율성을 높였다. 또한, 모터를 돌리는 것뿐만이 아니라 자신이 얼마나 돌렸는지 표시하는 기능을 포함하였다.
-\begin{figure}[h]
-	\begin{subfigure}{0.5\textwidth}
-		\includegraphics[width=0.9\linewidth, height=5cm]{function} 
-		\caption{가속 기능}
-		\label{fig:function}
-	\end{subfigure}
-	\begin{subfigure}{0.5\textwidth}
-		\includegraphics[width=0.9\linewidth, height=5cm]{algorithm}
-		\caption{알고리즘}
-		\label{fig:algorithm}
-	\end{subfigure}
-	\caption{펌웨어 설명}
-	\label{fig:image3}
-\end{figure}
 
-\subsection{무선통신}
-
-\subsubsection{블루투스}
-
-\begin{wrapfigure}{l}{0.15\textwidth}
-	\includegraphics[width=1\linewidth]{HC06}
-	\caption{HC06}
-	\label{fig:HC06}
-\end{wrapfigure}
-블루투스는 보통 Arduino와 master-slave 관계를 맺어 정보를 서로 전달한다. OLED와 비슷하게 I2C 방식의 통신을 지원하는데, RX, TX 핀을 이용한 통신을 여러 가지를 실행하기 위해서는 “SoftwareSerial.h” 라이브러리를 이용하여 RX, TX 통신 핀을 여러 개로 따로 지정해주어야 한다.\\
-본 연구에서 사용하는 모듈인 HC06 모델은 제품 스스로가 master가 될 수도 있고, slave로 설정될 수도 있다. (이와 비슷한 모델은 HC05는 slave 설정만 지원하기 때문에 아래에 서술할 방법을 사용하지 못함) 이를 발전시키면, 여러 개의 HC06을 활용하여서 한 모터 초점 조절 장치 컨트롤러에서 다른 모터 초점 조절 장치 컨트롤러로 정보를 서로 주고받을 수 있다.\\
-블루투스는 페어링을 시키면 언제든지 사용할 수 있다는 장점이 있다.
-
-\subsubsection{WIFI}
-
-\begin{wrapfigure}{l}{0.06\textwidth}
-	\includegraphics[width=1\linewidth]{ESP8266}
-	\caption{ESP8266}
-	\label{fig:ESP8266}
-\end{wrapfigure}
-가장 잘 알려져 있으며, 본 연구에서 사용하는 WIFI module인 ESP8266는 아두이노와 WIFI 연결을 가능하게 하여 준다. WIFI의 연결은 블루투스와 다르게 WIFI에 연결되어 있으면 언제든지 조절할 수 있다는 것이 큰 장점이며, IoT의 초기 모델로도 사용할 수 있다.\\
-대부분의 WIFI module을 사용하려면 컴퓨터의 펌웨어를 업데이트해야 하므로 일반적으로 블루투스보다 사용이 어렵다. 
 
 \subsection{ASCOM Protocol}
 
@@ -143,9 +107,5 @@ Arduino를 이용하여 모터 초점 조절 장치를 만드는 데 필요한 �
 
 \subsection{사용한 망원경}
 
-\begin{wrapfigure}{l}{0.14\textwidth}
-	\includegraphics[width=1\linewidth]{telescope}
-	\caption{사용한 망원경}
-	\label{fig:telescope}
-\end{wrapfigure}
-TEC140 광학계에는 Starlight Instruments에서 제작한 3.5" Feather Touch Focuser가 장착되어 있다. Starlight Instruments에서는 3.5" Feather Touch Focuser에 장착할 수 있는 STEPPER MOTOR와 MICRO TOUCH FOCUSING SYSTEM을 제작하여 판매하고 있으며, 이 외에도 다른 망원경의 모터 초점 조절 장치에도 사용할 수 있도록 컨트롤러를 구현하는 것을 목표로 삼는다.
+
+
