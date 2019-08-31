@@ -75,14 +75,11 @@
 \usepackage{cite}   % citation [1,2,3] --> [1-3]
 
 \bibliographystyle{new_report}
-%\usepackage[numbers,sort&compress]{natbib}
-%\setlength{\bibsep}{0em}
-%\bibliographystyle{gshs_thesisnat}
+
 
 \usepackage{etoolbox}
 \apptocmd{\thebibliography}{\setlength{\itemsep}{0pt}}{}{}
 %\setstretch{1.5}
-
 
 %% SI Unit 을 사용하기 위한 설정. \SI{1}{\meter\per\sec}는 m/s 와 같이 나옴.
 \usepackage[per-mode=symbol]{siunitx}
@@ -107,17 +104,13 @@
 \DeclareOption{fleqn}  {\PassOptionsToClass{fleqn}  {article}}
 \DeclareOption{openbib}{\PassOptionsToClass{openbib}{article}}
 
-
 \ExecuteOptions{english,final}         % doctor,korean,final이 기본값
 \ProcessOptions
 
 %% 12pt,a4paper,onecolumn,oneside 옵션으로 report 클래스 불러오기
 
 %% Kevin
-%%\LoadClass[12pt, a4paper, onecolumn, oneside,titlepage]{article}
-
-
-%%들여쓰기
+%\LoadClass[12pt, a4paper, onecolumn, oneside,titlepage]{article}
 
 
 %%%% Hangul-ucs preamble.......
@@ -164,13 +157,13 @@
 
 \pagestyle{gshs}
 
-%% 연구 타입
+% 연구 타입
 \newcommand{\researchtype}[1]{
 	\newcommand{\@type}{#1}}
 \@onlypreamble{\researchtype}
 
 
-%% 보고서 타입 (중간보고서,결과보고서)
+% 보고서 타입 (중간보고서,결과보고서)
 \newcommand{\reporttype}[1]{%
 	\newcommand{\@reporttype}{#1}%
 }
@@ -260,9 +253,9 @@
 \newcommand{\makecover}{%
 	\renewcommand{\baselinestretch}{1.3}%
 	\thispagestyle{empty} \noindent%
-	\@summitYear \newline
+	%\@summitYear \newline
 	%\@summitYear 학년도\newline
-	{\sf \textbf{전국과학전람회 \@type \@reporttype 작품설명서}}
+	{\sf \textbf{전국과학전람회 작품설명서}}
 
 	\vskip 3cm
 	\noindent\begin{minipage}[t]{\textwidth}
@@ -274,22 +267,22 @@
 	\vskip 3.6604cm %3cm + 12pt*1.3*1.2
 	\noindent\begin{minipage}[c]{\textwidth}
 		\begin{center}
-			\@summitYear. \@summitMonth. \@summitDate
+			%\@summitYear. \@summitMonth. \@summitDate
 		\end{center}
 	\end{minipage}
 	\vskip 3.6604cm %3cm + 12pt*1.3*1.2
 	\noindent\begin{minipage}[c]{\textwidth}
 		\begin{center}
-			\large \@firstAuthor\@firstAuthorEmail\\ 
+			%\large \@firstAuthor\@firstAuthorEmail\\ 
 			%\large 연구참여자 : \@firstAuthor(\@firstAuthorEmail)\\ 
-			\ifthenelse{\equal{\@secondAuthor}{}}{} {\hskip 7pc 
-				\@secondAuthor(\@secondAuthorEmail)\\ }%
-			\ifthenelse{\equal{\@thirdAuthor}{}}{}{\hskip 7pc 
-				\@thirdAuthor(\@thirdAuthorEmail)\\ }%
-			\ifthenelse{\equal{\@forthAuthor}{}}{}{\hskip 7pc 
-				\@forthAuthor(\@forthAuthorEmail)\\ }%
-			\ifthenelse{\equal{\@fifthAuthor}{}}{}{\hskip 7pc 
-				\@fifthAuthor(\@fifthAuthorEmail)\\ }%
+			%\ifthenelse{\equal{\@secondAuthor}{}}{} {\hskip 7pc 
+			%	\@secondAuthor(\@secondAuthorEmail)\\ }%
+			%\ifthenelse{\equal{\@thirdAuthor}{}}{}{\hskip 7pc 
+			%	\@thirdAuthor(\@thirdAuthorEmail)\\ }%
+			%\ifthenelse{\equal{\@forthAuthor}{}}{}{\hskip 7pc 
+			%	\@forthAuthor(\@forthAuthorEmail)\\ }%
+			%\ifthenelse{\equal{\@fifthAuthor}{}}{}{\hskip 7pc 
+			%	\@fifthAuthor(\@fifthAuthorEmail)\\ }%
 		\end{center}
 	\end{minipage}
 	\vskip 3.56pc %3pc + 12pt*1.3*1.2
@@ -311,8 +304,6 @@
 			%{\normalfont\fontsize{18}{18}\selectfont\bfseries 과학영재학교}
 			%~
 			%{\normalfont\fontsize{24}{24}\selectfont\bfseries 경기과학고등학교}
-			{\normalfont\fontsize{18}{18}\selectfont\bfseries }
-			{\normalfont\fontsize{24}{24}\selectfont\bfseries }
 		\end{center}
 	\end{minipage}
 	\newpage

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.10.25)  31 AUG 2019 15:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.10.25)  31 AUG 2019 19:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -759,7 +759,7 @@ Package: amsthm 2017/10/31 v2.20.4
 \thm@headsep=\skip104
 \dth@everypar=\toks34
 )
-LaTeX Info: Redefining \textgt on input line 135.
+LaTeX Info: Redefining \textgt on input line 128.
 
 (c:/texlive/2018/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2018/03/24 v5.7 Page Geometry
@@ -1724,12 +1724,7 @@ LaTeX Font Info:    Try loading font information for LUC+nanumgt on input line
 
 (c:/texlive/2018/texmf-dist/tex/latex/nanumtype1/lucnanumgt.fd
 File: lucnanumgt.fd 2013/02/12 v0.1 Nanum Gothic font definitions
-)
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <18> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 2.
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 2.
- [1
+) [1
 
 
 
@@ -1770,7 +1765,7 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
  (./sub/introduction.tex
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 3.
-<images/Andromeda_Galaxy.jpg, id=69, 963.6pt x 727.71875pt>
+<images/Andromeda_Galaxy.jpg, id=68, 963.6pt x 727.71875pt>
 File: images/Andromeda_Galaxy.jpg Graphic file (type jpg)
 <use images/Andromeda_Galaxy.jpg>
 Package pdftex.def Info: images/Andromeda_Galaxy.jpg  used on input line 8.
