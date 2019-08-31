@@ -75,11 +75,14 @@
 \usepackage{cite}   % citation [1,2,3] --> [1-3]
 
 \bibliographystyle{new_report}
-
+%\usepackage[numbers,sort&compress]{natbib}
+%\setlength{\bibsep}{0em}
+%\bibliographystyle{gshs_thesisnat}
 
 \usepackage{etoolbox}
 \apptocmd{\thebibliography}{\setlength{\itemsep}{0pt}}{}{}
 %\setstretch{1.5}
+
 
 %% SI Unit 을 사용하기 위한 설정. \SI{1}{\meter\per\sec}는 m/s 와 같이 나옴.
 \usepackage[per-mode=symbol]{siunitx}
@@ -104,13 +107,17 @@
 \DeclareOption{fleqn}  {\PassOptionsToClass{fleqn}  {article}}
 \DeclareOption{openbib}{\PassOptionsToClass{openbib}{article}}
 
+
 \ExecuteOptions{english,final}         % doctor,korean,final이 기본값
 \ProcessOptions
 
 %% 12pt,a4paper,onecolumn,oneside 옵션으로 report 클래스 불러오기
 
 %% Kevin
-%\LoadClass[12pt, a4paper, onecolumn, oneside,titlepage]{article}
+%%\LoadClass[12pt, a4paper, onecolumn, oneside,titlepage]{article}
+
+
+%%들여쓰기
 
 
 %%%% Hangul-ucs preamble.......
@@ -157,13 +164,13 @@
 
 \pagestyle{gshs}
 
-% 연구 타입
+%% 연구 타입
 \newcommand{\researchtype}[1]{
 	\newcommand{\@type}{#1}}
 \@onlypreamble{\researchtype}
 
 
-% 보고서 타입 (중간보고서,결과보고서)
+%% 보고서 타입 (중간보고서,결과보고서)
 \newcommand{\reporttype}[1]{%
 	\newcommand{\@reporttype}{#1}%
 }
@@ -254,16 +261,13 @@
 	\renewcommand{\baselinestretch}{1.3}%
 	\thispagestyle{empty} \noindent%
 	%\@summitYear \newline
-	%\@summitYear 학년도\newline
 	{\sf \textbf{전국과학전람회 작품설명서}}
-
 	\vskip 3cm
 	\noindent\begin{minipage}[t]{\textwidth}
 		\begin{center}
 			\fontsize{21pt}{21pt}\selectfont  \@title \\[21pt]
 		\end{center}
 	\end{minipage}
-
 	\vskip 3.6604cm %3cm + 12pt*1.3*1.2
 	\noindent\begin{minipage}[c]{\textwidth}
 		\begin{center}
@@ -295,7 +299,8 @@
 	\vskip 2pc
 	\noindent\begin{minipage}[c]{\textwidth}
 		\begin{center}
-			%\large \ifthenelse{\equal{\@type}{심화}}{지도교수: \@professor(\@professorEmail)}{}
+			%\large \ifthenelse{\equal{\@type}{심화}}{지도교수: 
+			%\@professor(\@professorEmail)}{}
 		\end{center}
 	\end{minipage}
 	\vskip 5pc
@@ -304,19 +309,21 @@
 			%{\normalfont\fontsize{18}{18}\selectfont\bfseries 과학영재학교}
 			%~
 			%{\normalfont\fontsize{24}{24}\selectfont\bfseries 경기과학고등학교}
+			%{\normalfont\fontsize{18}{18}\selectfont\bfseries }
+			%{\normalfont\fontsize{24}{24}\selectfont\bfseries }
 		\end{center}
 	\end{minipage}
 	\newpage
 }
 
-%% %한글초록
-%% \newenvironment{abstractkor}{%
-%% 	\pagenumbering{roman}                        % 로마자 페이지 시작
-%% 	\thispagestyle{plain}%
-%% 	\vspace*{5cm}
-%% 	\begin{center} \Large \textbf{초~~~~~록} \end{center}  % 초록명 -> Abstract
-%% 	\hspace*{5mm}
-%% 	\if@PDFdoc\phantomsection\fi\addcontentsline{toc}{content}{초록}% 초록을 목차(TOC)에 삽입
+%한글초록
+\newenvironment{abstractkor}{%
+ 	\pagenumbering{roman}                        % 로마자 페이지 시작
+ 	\thispagestyle{plain}%
+ 	\vspace*{5cm}
+ 	\begin{center} \Large \textbf{초~~~~~록} \end{center}  % 초록명 -> Abstract
+ 	\hspace*{5mm}
+	\if@PDFdoc\phantomsection\fi\addcontentsline{toc}{content}{초록}% 초록을 목차(TOC)에 삽입
 
 
 
@@ -337,12 +344,11 @@
 	%{\begin{spacing}{1.0}\LARGE\bfseries\@engtitle\end{spacing}}
     \end{center}
   \end{minipage}
-  %\par\vspace{35mm}
   \par\vspace{30mm}
   %{\LARGE \bfseries  Abstract}
   \end{center}
-  \par\vspace{0.5cm}
-}{\end{alwayssingle}}
+  \par\vspace{0.5cm}}
+{\end{alwayssingle}}
 
 \newenvironment{abstractskor} {\begin{alwayssingle} \thispagestyle{plain}
   \begin{center}
@@ -356,7 +362,8 @@
   \par\vspace{35mm}
   %{\LARGE \bfseries{\@korabstract}}
   \end{center}
-  \par\vspace{0.5cm}}{\end{alwayssingle}}
+  \par\vspace{0.5cm}}
+{\end{alwayssingle}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -450,9 +457,9 @@
 \titleformat{\section}[hang]
 {\LARGE\bfseries}{\Roman{section}.}{1em}{}{}
 \titleformat{\subsection}[hang]
-{\Large\bfseries}{\Roman{section}.\arabic{subsection}.}{1em}{}{}
+{\Large\bfseries}{\arabic{section}.\arabic{subsection}}{1em}{}{}
 \titleformat{\subsubsection}[hang]
-{\large}{\Roman{section}.\arabic{subsection}.\arabic{subsubsection}.}{1em}{}{}
+{\large}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}{1em}{}{}
 \titleformat{\paragraph}[hang]
 {\normalfont\fontsize{12}{12}\selectfont\it}{}{1em}{}{}
 
