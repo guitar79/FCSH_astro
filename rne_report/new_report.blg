@@ -7,13 +7,9 @@ A level-1 auxiliary file: sub/introduction.aux
 A level-1 auxiliary file: sub/theoritical_background.aux
 I found no \bibdata command---while reading file new_report.aux
 Warning--I didn't find a database entry for "persha2001temperature"
-Warning--I didn't find a database entry for "leedukgu2014"
-Warning--I didn't find a database entry for "yunjonghwan2011lcd"
-Warning--I didn't find a database entry for "parksukhui2009Median"
-Warning--I didn't find a database entry for "leeseonghee1998Median"
 You've used 0 entries,
             2759 wiz_defined-function locations,
-            614 strings with 4907 characters,
+            608 strings with 4795 characters,
 and the built_in function-call counts, 19 in all, are:
 = -- 0
 > -- 0

@@ -260,36 +260,33 @@
 \newcommand{\makecover}{%
 	\renewcommand{\baselinestretch}{1.3}%
 	\thispagestyle{empty} \noindent%
-	\@summitYear \newline
-	%\@summitYear 학년도\newline
-	{\sf \textbf{전국과학전람회 \@type \@reporttype 작품설명서}}
-
+	%\@summitYear \newline
+	{\sf \textbf{전국과학전람회 작품설명서}}
 	\vskip 3cm
 	\noindent\begin{minipage}[t]{\textwidth}
 		\begin{center}
 			\fontsize{21pt}{21pt}\selectfont  \@title \\[21pt]
 		\end{center}
 	\end{minipage}
-
 	\vskip 3.6604cm %3cm + 12pt*1.3*1.2
 	\noindent\begin{minipage}[c]{\textwidth}
 		\begin{center}
-			\@summitYear. \@summitMonth. \@summitDate
+			%\@summitYear. \@summitMonth. \@summitDate
 		\end{center}
 	\end{minipage}
 	\vskip 3.6604cm %3cm + 12pt*1.3*1.2
 	\noindent\begin{minipage}[c]{\textwidth}
 		\begin{center}
-			\large \@firstAuthor\@firstAuthorEmail\\ 
+			%\large \@firstAuthor\@firstAuthorEmail\\ 
 			%\large 연구참여자 : \@firstAuthor(\@firstAuthorEmail)\\ 
-			\ifthenelse{\equal{\@secondAuthor}{}}{} {\hskip 7pc 
-				\@secondAuthor(\@secondAuthorEmail)\\ }%
-			\ifthenelse{\equal{\@thirdAuthor}{}}{}{\hskip 7pc 
-				\@thirdAuthor(\@thirdAuthorEmail)\\ }%
-			\ifthenelse{\equal{\@forthAuthor}{}}{}{\hskip 7pc 
-				\@forthAuthor(\@forthAuthorEmail)\\ }%
-			\ifthenelse{\equal{\@fifthAuthor}{}}{}{\hskip 7pc 
-				\@fifthAuthor(\@fifthAuthorEmail)\\ }%
+			%\ifthenelse{\equal{\@secondAuthor}{}}{} {\hskip 7pc 
+			%	\@secondAuthor(\@secondAuthorEmail)\\ }%
+			%\ifthenelse{\equal{\@thirdAuthor}{}}{}{\hskip 7pc 
+			%	\@thirdAuthor(\@thirdAuthorEmail)\\ }%
+			%\ifthenelse{\equal{\@forthAuthor}{}}{}{\hskip 7pc 
+			%	\@forthAuthor(\@forthAuthorEmail)\\ }%
+			%\ifthenelse{\equal{\@fifthAuthor}{}}{}{\hskip 7pc 
+			%	\@fifthAuthor(\@fifthAuthorEmail)\\ }%
 		\end{center}
 	\end{minipage}
 	\vskip 3.56pc %3pc + 12pt*1.3*1.2
@@ -302,7 +299,8 @@
 	\vskip 2pc
 	\noindent\begin{minipage}[c]{\textwidth}
 		\begin{center}
-			%\large \ifthenelse{\equal{\@type}{심화}}{지도교수: \@professor(\@professorEmail)}{}
+			%\large \ifthenelse{\equal{\@type}{심화}}{지도교수: 
+			%\@professor(\@professorEmail)}{}
 		\end{center}
 	\end{minipage}
 	\vskip 5pc
@@ -311,21 +309,21 @@
 			%{\normalfont\fontsize{18}{18}\selectfont\bfseries 과학영재학교}
 			%~
 			%{\normalfont\fontsize{24}{24}\selectfont\bfseries 경기과학고등학교}
-			{\normalfont\fontsize{18}{18}\selectfont\bfseries }
-			{\normalfont\fontsize{24}{24}\selectfont\bfseries }
+			%{\normalfont\fontsize{18}{18}\selectfont\bfseries }
+			%{\normalfont\fontsize{24}{24}\selectfont\bfseries }
 		\end{center}
 	\end{minipage}
 	\newpage
 }
 
-%% %한글초록
-%% \newenvironment{abstractkor}{%
-%% 	\pagenumbering{roman}                        % 로마자 페이지 시작
-%% 	\thispagestyle{plain}%
-%% 	\vspace*{5cm}
-%% 	\begin{center} \Large \textbf{초~~~~~록} \end{center}  % 초록명 -> Abstract
-%% 	\hspace*{5mm}
-%% 	\if@PDFdoc\phantomsection\fi\addcontentsline{toc}{content}{초록}% 초록을 목차(TOC)에 삽입
+%한글초록
+\newenvironment{abstractkor}{%
+ 	\pagenumbering{roman}                        % 로마자 페이지 시작
+ 	\thispagestyle{plain}%
+ 	\vspace*{5cm}
+ 	\begin{center} \Large \textbf{초~~~~~록} \end{center}  % 초록명 -> Abstract
+ 	\hspace*{5mm}
+	\if@PDFdoc\phantomsection\fi\addcontentsline{toc}{content}{초록}% 초록을 목차(TOC)에 삽입
 
 
 
@@ -346,12 +344,11 @@
 	%{\begin{spacing}{1.0}\LARGE\bfseries\@engtitle\end{spacing}}
     \end{center}
   \end{minipage}
-  %\par\vspace{35mm}
   \par\vspace{30mm}
   %{\LARGE \bfseries  Abstract}
   \end{center}
-  \par\vspace{0.5cm}
-}{\end{alwayssingle}}
+  \par\vspace{0.5cm}}
+{\end{alwayssingle}}
 
 \newenvironment{abstractskor} {\begin{alwayssingle} \thispagestyle{plain}
   \begin{center}
@@ -365,7 +362,8 @@
   \par\vspace{35mm}
   %{\LARGE \bfseries{\@korabstract}}
   \end{center}
-  \par\vspace{0.5cm}}{\end{alwayssingle}}
+  \par\vspace{0.5cm}}
+{\end{alwayssingle}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -459,9 +457,9 @@
 \titleformat{\section}[hang]
 {\LARGE\bfseries}{\Roman{section}.}{1em}{}{}
 \titleformat{\subsection}[hang]
-{\Large\bfseries}{\Roman{section}.\arabic{subsection}.}{1em}{}{}
+{\Large\bfseries}{\arabic{section}.\arabic{subsection}}{1em}{}{}
 \titleformat{\subsubsection}[hang]
-{\large}{\Roman{section}.\arabic{subsection}.\arabic{subsubsection}.}{1em}{}{}
+{\large}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}{1em}{}{}
 \titleformat{\paragraph}[hang]
 {\normalfont\fontsize{12}{12}\selectfont\it}{}{1em}{}{}
 

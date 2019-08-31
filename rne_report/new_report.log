@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.8.13)  31 AUG 2019 18:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.8.13)  31 AUG 2019 21:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -784,10 +784,19 @@ Package ifvtex Info: VTeX not detected.
 \Gm@layouthoffset=\dimen191
 \Gm@layoutvoffset=\dimen192
 \Gm@dimlist=\toks35
-)
-\mylenfig=\skip105
-\mylentab=\skip106
-)
+))
+Runaway argument?
+{\pagenumbering {roman} \thispagestyle {plain}\vspace *{5cm} \begin {\ETC.
+! File ended while scanning use of \@newenv.
+<inserted text> 
+                \par 
+l.4 \graphicspath
+                 {{images/}}
+I suspect you have forgotten a `}', causing me
+to read past where you wanted me to stop.
+I'll try to recover; but if the error is serious,
+you'd better type `E' or `X' now and fix your file.
+
 (c:/texlive/2018/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks36
@@ -1066,9 +1075,9 @@ Package: tabularx 2016/02/03 v2.11b `tabularx' package (DPC)
 )
 (c:/texlive/2018/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2018/08/03 v2.3 Span multiple rows of a table
-\multirow@colwidth=\skip107
+\multirow@colwidth=\skip105
 \multirow@cntb=\count316
-\multirow@dima=\skip108
+\multirow@dima=\skip106
 \bigstrutjot=\dimen300
 )
 (c:/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
@@ -1093,10 +1102,10 @@ Package: booktabs 2016/04/27 v1.618033 publication quality tables
 )
 (c:/texlive/2018/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
-\LTleft=\skip109
-\LTright=\skip110
-\LTpre=\skip111
-\LTpost=\skip112
+\LTleft=\skip107
+\LTright=\skip108
+\LTpre=\skip109
+\LTpost=\skip110
 \LTchunksize=\count321
 \LTcapwidth=\dimen314
 \LT@head=\box72
@@ -1120,6 +1129,254 @@ Package: gensymb 2003/07/02 v1.0 (WaS)
 \WF@everypar=\toks54
 Package: wrapfig 2003/01/31  v 3.6
 )
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex/biblatex.sty
+Package: biblatex 2018/03/04 v3.11 programmable bibliographies (PK/MW)
+
+(c:/texlive/2018/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/01/30 v0.27 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(c:/texlive/2018/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(c:/texlive/2018/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(c:/texlive/2018/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(c:/texlive/2018/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(c:/texlive/2018/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(c:/texlive/2018/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(c:/texlive/2018/texmf-dist/tex/latex/logreq/logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count327
+
+(c:/texlive/2018/texmf-dist/tex/latex/logreq/logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+))
+(c:/texlive/2018/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(c:/texlive/2018/texmf-dist/tex/generic/xstring/xstring.sty
+(c:/texlive/2018/texmf-dist/tex/generic/xstring/xstring.tex
+\@xs@message=\write4
+\integerpart=\count328
+\decimalpart=\count329
+)
+Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
+)
+\c@tabx@nest=\count330
+\c@listtotal=\count331
+\c@listcount=\count332
+\c@liststart=\count333
+\c@liststop=\count334
+\c@citecount=\count335
+\c@citetotal=\count336
+\c@multicitecount=\count337
+\c@multicitetotal=\count338
+\c@instcount=\count339
+\c@maxnames=\count340
+\c@minnames=\count341
+\c@maxitems=\count342
+\c@minitems=\count343
+\c@citecounter=\count344
+\c@savedcitecounter=\count345
+\c@uniquelist=\count346
+\c@uniquename=\count347
+\c@refsection=\count348
+\c@refsegment=\count349
+\c@maxextratitle=\count350
+\c@maxextratitleyear=\count351
+\c@maxextradate=\count352
+\c@maxextraalpha=\count353
+\c@abbrvpenalty=\count354
+\c@highnamepenalty=\count355
+\c@lownamepenalty=\count356
+\c@maxparens=\count357
+\c@parenlevel=\count358
+\blx@tempcnta=\count359
+\blx@tempcntb=\count360
+\blx@tempcntc=\count361
+\blx@maxsection=\count362
+\blx@maxsegment@0=\count363
+\blx@notetype=\count364
+\blx@parenlevel@text=\count365
+\blx@parenlevel@foot=\count366
+\blx@sectionciteorder@0=\count367
+\labelnumberwidth=\skip111
+\labelalphawidth=\skip112
+\biblabelsep=\skip113
+\bibitemsep=\skip114
+\bibnamesep=\skip115
+\bibinitsep=\skip116
+\bibparsep=\skip117
+\bibhang=\skip118
+\blx@bcfin=\read4
+\blx@bcfout=\write5
+\c@mincomprange=\count368
+\c@maxcomprange=\count369
+\c@mincompwidth=\count370
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex/blx-dm.def
+File: blx-dm.def 2018/03/04 v3.11 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex style data model...
+Package biblatex Info: ... file 'authoryear.dbx' not found.
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count371
+\c@savedafterword=\count372
+\c@annotator=\count373
+\c@savedannotator=\count374
+\c@author=\count375
+\c@savedauthor=\count376
+\c@bookauthor=\count377
+\c@savedbookauthor=\count378
+\c@commentator=\count379
+\c@savedcommentator=\count380
+\c@editor=\count381
+\c@savededitor=\count382
+\c@editora=\count383
+\c@savededitora=\count384
+\c@editorb=\count385
+\c@savededitorb=\count386
+\c@editorc=\count387
+\c@savededitorc=\count388
+\c@foreword=\count389
+\c@savedforeword=\count390
+\c@holder=\count391
+\c@savedholder=\count392
+\c@introduction=\count393
+\c@savedintroduction=\count394
+\c@namea=\count395
+\c@savednamea=\count396
+\c@nameb=\count397
+\c@savednameb=\count398
+\c@namec=\count399
+\c@savednamec=\count400
+\c@translator=\count401
+\c@savedtranslator=\count402
+\c@shortauthor=\count403
+\c@savedshortauthor=\count404
+\c@shorteditor=\count405
+\c@savedshorteditor=\count406
+\c@labelname=\count407
+\c@savedlabelname=\count408
+\c@institution=\count409
+\c@savedinstitution=\count410
+\c@lista=\count411
+\c@savedlista=\count412
+\c@listb=\count413
+\c@savedlistb=\count414
+\c@listc=\count415
+\c@savedlistc=\count416
+\c@listd=\count417
+\c@savedlistd=\count418
+\c@liste=\count419
+\c@savedliste=\count420
+\c@listf=\count421
+\c@savedlistf=\count422
+\c@location=\count423
+\c@savedlocation=\count424
+\c@organization=\count425
+\c@savedorganization=\count426
+\c@origlocation=\count427
+\c@savedoriglocation=\count428
+\c@origpublisher=\count429
+\c@savedorigpublisher=\count430
+\c@publisher=\count431
+\c@savedpublisher=\count432
+\c@language=\count433
+\c@savedlanguage=\count434
+\c@origlanguage=\count435
+\c@savedoriglanguage=\count436
+\c@pageref=\count437
+\c@savedpageref=\count438
+\shorthandwidth=\skip119
+\shortjournalwidth=\skip120
+\shortserieswidth=\skip121
+\shorttitlewidth=\skip122
+\shortauthorwidth=\skip123
+\shorteditorwidth=\skip124
+\locallabelnumberwidth=\skip125
+\locallabelalphawidth=\skip126
+\localshorthandwidth=\skip127
+\localshortjournalwidth=\skip128
+\localshortserieswidth=\skip129
+\localshorttitlewidth=\skip130
+\localshortauthorwidth=\skip131
+\localshorteditorwidth=\skip132
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex/blx-compat.def
+File: blx-compat.def 2018/03/04 v3.11 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex/biblatex.def
+File: biblatex.def 2018/03/04 v3.11 biblatex compatibility (PK/MW)
+\c@textcitecount=\count439
+\c@textcitetotal=\count440
+\c@textcitemaxnames=\count441
+\c@biburlnumpenalty=\count442
+\c@biburlucpenalty=\count443
+\c@biburllcpenalty=\count444
+\c@smartand=\count445
+)
+Package biblatex Info: Trying to load bibliography style 'authoryear'...
+Package biblatex Info: ... file 'authoryear.bbx' found.
+
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex/bbx/authoryear.bbx
+File: authoryear.bbx 2018/03/04 v3.11 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+File: standard.bbx 2018/03/04 v3.11 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count446
+\c@bbx:relatedtotal=\count447
+))
+Package biblatex Info: Trying to load citation style 'authoryear'...
+Package biblatex Info: ... file 'authoryear.cbx' found.
+
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex/cbx/authoryear.cbx
+File: authoryear.cbx 2018/03/04 v3.11 biblatex citation style (PK/MW)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex/biblatex.cfg
+File: biblatex.cfg 
+))
 (c:/texlive/2018/texmf-dist/tex/latex/pgfplots/pgfplots.sty
 (c:/texlive/2018/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
 Package: pgfplots 2018/03/28 v1.16 Data Visualization (1.16)
@@ -1130,8 +1387,8 @@ Package: pgfplots 2018/03/28 v1.16 Data Visualization (1.16)
 \t@pgfplots@tokb=\toks56
 \t@pgfplots@tokc=\toks57
 \pgfplots@tmpa=\dimen317
-\c@pgfplots@coordindex=\count327
-\c@pgfplots@scanlineindex=\count328
+\c@pgfplots@coordindex=\count448
+\c@pgfplots@scanlineindex=\count449
 
 (c:/texlive/2018/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.te
 x))
@@ -1146,7 +1403,7 @@ Package pgfplots: loading complementary arithmetics for your pgf version...
 upp_pgflibraryfpu.code.tex)
 (c:/texlive/2018/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfs
 upp_pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count329
+\c@pgfmathroundto@lastzeros=\count450
 )
 (c:/texlive/2018/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfs
 upp_leq.code.tex))
@@ -1157,13 +1414,13 @@ cture.code.tex)
 ctureext.code.tex)
 (c:/texlive/2018/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.co
 de.tex
-\c@pgfplotsarray@tmp=\count330
+\c@pgfplotsarray@tmp=\count451
 )
 (c:/texlive/2018/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.c
 ode.tex)
 (c:/texlive/2018/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.c
 ode.tex
-\c@pgfplotstable@counta=\count331
+\c@pgfplotstable@counta=\count452
 \t@pgfplotstable@a=\toks58
 )
 (c:/texlive/2018/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.co
@@ -1175,7 +1432,7 @@ tex))
 x)
 (c:/texlive/2018/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfsh
 ading.code.tex
-\c@pgfplotslibrarysurf@no=\count332
+\c@pgfplotslibrarysurf@no=\count453
 
 (c:/texlive/2018/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfsha
 ding.pgfsys-pdftex.def)))
@@ -1203,7 +1460,7 @@ ex
 \pgfdecoratedinputsegmentcompleteddistance=\dimen320
 \pgfdecoratedinputsegmentremainingdistance=\dimen321
 \pgf@decorate@distancetomove=\dimen322
-\pgf@decorate@repeatstate=\count333
+\pgf@decorate@repeatstate=\count454
 \pgfdecorationsegmentamplitude=\dimen323
 \pgfdecorationsegmentlength=\dimen324
 )
@@ -1217,7 +1474,7 @@ orations.pathmorphing.code.tex))
 brarydecorations.pathreplacing.code.tex
 (c:/texlive/2018/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydec
 orations.pathreplacing.code.tex))
-\pgfplots@numplots=\count334
+\pgfplots@numplots=\count455
 \pgfplots@xmin@reg=\dimen325
 \pgfplots@xmax@reg=\dimen326
 \pgfplots@ymin@reg=\dimen327
@@ -1306,23 +1563,23 @@ File: pgflibraryshapes.multipart.code.tex 2010/01/07 v3.0.1a (rcs-revision 1.2)
 \pgfnodepartfivebox=\box97
 )))
 (c:/texlive/2018/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count335
+\lst@mode=\count456
 \lst@gtempboxa=\box98
 \lst@token=\toks59
-\lst@length=\count336
+\lst@length=\count457
 \lst@currlwidth=\dimen331
-\lst@column=\count337
-\lst@pos=\count338
+\lst@column=\count458
+\lst@pos=\count459
 \lst@lostspace=\dimen332
 \lst@width=\dimen333
-\lst@newlines=\count339
-\lst@lineno=\count340
+\lst@newlines=\count460
+\lst@lineno=\count461
 \lst@maxwidth=\dimen334
 
 (c:/texlive/2018/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-\c@lstnumber=\count341
-\lst@skipnumbers=\count342
+\c@lstnumber=\count462
+\lst@skipnumbers=\count463
 \lst@framebox=\box99
 )
 (c:/texlive/2018/texmf-dist/tex/latex/listings/listings.cfg
@@ -1333,45 +1590,16 @@ Package: listings 2015/06/04 1.6 (Carsten Heinz)
 (c:/texlive/2018/texmf-dist/tex/generic/oberdiek/hologo.sty
 Package: hologo 2017/05/01 v1.13 A logo collection with bookmark support (HO)
 
-(c:/texlive/2018/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-)
-(c:/texlive/2018/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-)
-(c:/texlive/2018/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
-
-(c:/texlive/2018/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
-
-(c:/texlive/2018/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-))
 (c:/texlive/2018/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-)
-(c:/texlive/2018/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2018/01/30 v0.27 Utility functions of pdfTeX for LuaTeX (HO
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
 ))
 (c:/texlive/2018/texmf-dist/tex/latex/makecell/makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 \rotheadsize=\dimen335
-\c@nlinenum=\count343
+\c@nlinenum=\count464
 \TeXr@lab=\toks60
 ))
-\c@definition=\count344
+\c@definition=\count465
 
 (c:/texlive/2018/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2017/04/05 v2.0i Standard LaTeX package
@@ -1531,6 +1759,25 @@ Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
 
+! Package biblatex Error: Incompatible package 'cite'.
+
+See the biblatex package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.17 \begin{document}
+                     
+The 'cite' package and biblatex are incompatible.
+
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+(c:/texlive/2018/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2018/03/04 v3.11 biblatex localization (PK/MW)
+)
+\@quotelevel=\count466
+\@quotereset=\count467
+
+
 LaTeX Warning: Unused global option(s):
     [pdftex].
 
@@ -1572,25 +1819,22 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 (c:/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count345
+\scratchcounter=\count468
 \scratchdimen=\dimen336
 \scratchbox=\box100
-\nofMPsegments=\count346
-\nofMParguments=\count347
+\nofMPsegments=\count469
+\nofMParguments=\count470
 \everyMPshowfont=\toks61
-\MPscratchCnt=\count348
+\MPscratchCnt=\count471
 \MPscratchDim=\dimen337
-\MPnumerator=\count349
-\makeMPintoPDFobject=\count350
+\MPnumerator=\count472
+\makeMPintoPDFobject=\count473
 \everyMPtoPDFconversion=\toks62
 ) (c:/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
 (c:/texlive/2018/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
-)
-(c:/texlive/2018/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 38.
@@ -1668,11 +1912,33 @@ LaTeX Info: Redefining \ohm on input line 17.
 Package gensymb Info: Using \textohm for \ohm on input line 17.
 LaTeX Info: Redefining \micro on input line 17.
 Package gensymb Info: Using \textmu for \micro on input line 17.
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout5 = `new_report.bcf'.
 
+Package biblatex Info: Trying to load bibliographic data...
+
+
+! Package biblatex Error: File 'new_report.bbl' not created by biblatex.
+
+See the biblatex package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.17 \begin{document}
+                     ^^M
+This file was apparently not created by biblatex. Rename it or
+move it to a location were TeX will not find it. If this error
+persists, consider redefining \blxauxsuffix.See the biblatex
+manual for details.
+
+Package biblatex Info: Reference section=0 on input line 17.
+Package biblatex Info: Reference segment=0 on input line 17.
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.16}).
 
-\c@lstlisting=\count351
+\c@lstlisting=\count474
 LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 17
 .
 (c:/texlive/2018/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
@@ -1725,124 +1991,123 @@ LaTeX Font Info:    Try loading font information for LUC+nanumgt on input line
 
 (c:/texlive/2018/texmf-dist/tex/latex/nanumtype1/lucnanumgt.fd
 File: lucnanumgt.fd 2013/02/12 v0.1 Nanum Gothic font definitions
-)
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <18> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 2.
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 2.
- [1
+) [1
 
 
 
 
 {c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <20.74> not available
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 15.
  (./new_report.toc)
-\tf@toc=\write4
-\openout4 = `new_report.toc'.
+\tf@toc=\write6
+\openout6 = `new_report.toc'.
 
  [1
 
 ]
 (./new_report.lof)
-\tf@lof=\write5
-\openout5 = `new_report.lof'.
+\tf@lof=\write7
+\openout7 = `new_report.lof'.
 
  [2
 
 
 ] (./new_report.lot)
-\tf@lot=\write6
-\openout6 = `new_report.lot'.
+\tf@lot=\write8
+\openout8 = `new_report.lot'.
 
  [3
 
 
 ]
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 46.
- [4
+
+! LaTeX Error: Environment abstractskor undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.46 \begin{abstractskor}
+                         
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
 
 
-])
+! LaTeX Error: \begin{document} ended by \end{abstractskor}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.51 \end{abstractskor}
+                       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+) [4
+
+
+]
 \openout2 = `sub/introduction.aux'.
 
  (./sub/introduction.tex
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 3.
-<images/Andromeda_Galaxy.jpg, id=69, 963.6pt x 727.71875pt>
+<images/Andromeda_Galaxy.jpg, id=66, 963.6pt x 727.71875pt>
 File: images/Andromeda_Galaxy.jpg Graphic file (type jpg)
 <use images/Andromeda_Galaxy.jpg>
-Package pdftex.def Info: images/Andromeda_Galaxy.jpg  used on input line 8.
+Package pdftex.def Info: images/Andromeda_Galaxy.jpg  used on input line 9.
 (pdftex.def)             Requested size: 448.42822pt x 338.6522pt.
-
-[1
-
-
-
-
- <./images/Andromeda_Galaxy.jpg>]
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 18.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 10.
+ [1
 
 
-LaTeX Warning: Citation `persha2001temperature' on page 2 undefined on input li
-ne 18.
 
-) [2]
+
+ <./images/Andromeda_Galaxy.jpg>]) [2]
 \openout2 = `sub/theoritical_background.aux'.
 
- (./sub/theoritical_background.tex
-<images/observing_system.jpg, id=89, 963.6pt x 542.025pt>
+
+(./sub/theoritical_background.tex
+<images/observing_system.jpg, id=88, 963.6pt x 542.025pt>
 File: images/observing_system.jpg Graphic file (type jpg)
 <use images/observing_system.jpg>
 Package pdftex.def Info: images/observing_system.jpg  used on input line 11.
-(pdftex.def)             Requested size: 377.62642pt x 212.41444pt.
+(pdftex.def)             Requested size: 424.82523pt x 238.96315pt.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 29.
 
 
-LaTeX Warning: Citation `leedukgu2014' on page 3 undefined on input line 21.
-
-
-LaTeX Warning: Citation `yunjonghwan2011lcd' on page 3 undefined on input line 
-22.
-
-
-LaTeX Warning: Citation `parksukhui2009Median' on page 3 undefined on input lin
-e 23.
-
-
-LaTeX Warning: Citation `leeseonghee1998Median' on page 3 undefined on input li
-ne 24.
-
-[3
-
-
- <./images/observing_system.jpg>]
-
-LaTeX Warning: Reference `fig:microtouch' on page 4 undefined on input line 29.
+LaTeX Warning: Reference `fig:microtouch' on page 3 undefined on input line 29.
 
 
 
-LaTeX Warning: Reference `fig:microtouch_3' on page 4 undefined on input line 2
+LaTeX Warning: Reference `fig:microtouch_3' on page 3 undefined on input line 2
 9.
 
 
-LaTeX Warning: Reference `fig:microtouch_3' on page 4 undefined on input line 2
+LaTeX Warning: Reference `fig:microtouch_3' on page 3 undefined on input line 2
 9.
 
 LaTeX Font Info:    Try loading font information for LUC+uhcmj on input line 30
 .
 (c:/texlive/2018/texmf-dist/tex/latex/kotex-utf/lucuhcmj.fd
 File: lucuhcmj.fd 2013/09/26 UHC Myeongjo font definitions
-)
-<images/microtouch_3.jpg, id=99, 652.4375pt x 652.4375pt>
+) [3
+
+
+ <./images/observing_system.jpg>]
+<images/microtouch_3.jpg, id=98, 652.4375pt x 652.4375pt>
 File: images/microtouch_3.jpg Graphic file (type jpg)
 <use images/microtouch_3.jpg>
-Package pdftex.def Info: images/microtouch_3.jpg  used on input line 36.
+Package pdftex.def Info: images/microtouch_3.jpg  used on input line 35.
 (pdftex.def)             Requested size: 191.17004pt x 191.17319pt.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 37.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 36.
 
 !pdfTeX error: pdflatex.exe (file ./images/microtouch_4.jpg): reading JPEG imag
 e failed (no JPEG header found)
