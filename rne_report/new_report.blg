@@ -5,11 +5,11 @@ The style file: new_report.bst
 A level-1 auxiliary file: sub/abstract.aux
 A level-1 auxiliary file: sub/introduction.aux
 A level-1 auxiliary file: sub/theoritical_background.aux
+I found no \citation commands---while reading file new_report.aux
 I found no \bibdata command---while reading file new_report.aux
-Warning--I didn't find a database entry for "persha2001temperature"
 You've used 0 entries,
             2759 wiz_defined-function locations,
-            608 strings with 4795 characters,
+            607 strings with 4774 characters,
 and the built_in function-call counts, 19 in all, are:
 = -- 0
 > -- 0
@@ -48,4 +48,4 @@ warning$ -- 0
 while$ -- 0
 width$ -- 0
 write$ -- 2
-(There was 1 error message)
+(There were 2 error messages)

@@ -317,13 +317,13 @@
 }
 
 %한글초록
-\newenvironment{abstractkor}{%
- 	\pagenumbering{roman}                        % 로마자 페이지 시작
- 	\thispagestyle{plain}%
- 	\vspace*{5cm}
- 	\begin{center} \Large \textbf{초~~~~~록} \end{center}  % 초록명 -> Abstract
- 	\hspace*{5mm}
-	\if@PDFdoc\phantomsection\fi\addcontentsline{toc}{content}{초록}% 초록을 목차(TOC)에 삽입
+%\newenvironment{abstractkor}{%
+% 	\pagenumbering{roman}                        % 로마자 페이지 시작
+% 	\thispagestyle{plain}%
+% 	\vspace*{5cm}
+% 	\begin{center} \Large \textbf{초~~~~~록} \end{center}  % 초록명 -> Abstract
+% 	\hspace*{5mm}
+%	\if@PDFdoc\phantomsection\fi\addcontentsline{toc}{content}{초록}% 초록을 목차(TOC)에 삽입
 
 
 
@@ -347,8 +347,8 @@
   \par\vspace{30mm}
   %{\LARGE \bfseries  Abstract}
   \end{center}
-  \par\vspace{0.5cm}}
-{\end{alwayssingle}}
+  \par\vspace{0.5cm}
+{\end{alwayssingle}
 
 \newenvironment{abstractskor} {\begin{alwayssingle} \thispagestyle{plain}
   \begin{center}
@@ -362,8 +362,8 @@
   \par\vspace{35mm}
   %{\LARGE \bfseries{\@korabstract}}
   \end{center}
-  \par\vspace{0.5cm}}
-{\end{alwayssingle}}
+  \par\vspace{0.5cm}
+{\end{alwayssingle}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
