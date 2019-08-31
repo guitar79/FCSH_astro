@@ -32,17 +32,15 @@
 \LoadClass[pdftex, 11pt]{article}
 \fi 
 
-\usepackage[left=25mm,right=25mm,top=30mm,bottom=30mm]{geometry}
 %\usepackage{geometry}
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage[margin=10pt,font=small,labelfont=bf]{caption}
-%\usepackage{subcaption}
+\usepackage{subcaption}
 \usepackage{fancyhdr}
 \usepackage[nottoc]{tocbibind}
 \usepackage{titlesec}
-\usepackage{cite}   % citation [1,2,3] --> [1-3]
 \usepackage{tocloft}
 \usepackage[toc,page]{appendix}
 
@@ -56,22 +54,15 @@
 \usepackage{array}
 \usepackage{setspace}
 
+
 \usepackage{enumitem} % itemize, enumerate 환경 여백 조절
 \setitemize{noitemsep} % 여백이 너무 넓어서 기본 여백으로 만듦
 \setenumerate{noitemsep} % 여백이 너무 넓어서 기본 여백으로 만듦
 
-\bibliographystyle{new_report}
-%\usepackage[numbers,sort&compress]{natbib}
-%\setlength{\bibsep}{0em}
-%\bibliographystyle{gshs_thesisnat}
-
-\usepackage{etoolbox}
-\apptocmd{\thebibliography}{\setlength{\itemsep}{0pt}}{}{}
-%\setstretch{1.5}
-
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thefootnote}{\fnsymbol{footnote}} 
 % 주석 번호와 참고문헌 번호의 혼동을 막기 위해 arabic 대신 fnsymbol 사용(asterisk, dagger, double dagger, ...)
+
 
 \usepackage{indentfirst}
 \setlength\parindent{2.0em}
@@ -79,6 +70,16 @@
 \RequirePackage{ifthen}       % 추가 패키지 설정
 \RequirePackage{tabu}
 
+\usepackage[nottoc]{tocbibind}
+\usepackage{titlesec}
+\usepackage{cite}   % citation [1,2,3] --> [1-3]
+
+\bibliographystyle{new_report}
+
+
+\usepackage{etoolbox}
+\apptocmd{\thebibliography}{\setlength{\itemsep}{0pt}}{}{}
+%\setstretch{1.5}
 
 %% SI Unit 을 사용하기 위한 설정. \SI{1}{\meter\per\sec}는 m/s 와 같이 나옴.
 \usepackage[per-mode=symbol]{siunitx}
@@ -128,7 +129,7 @@
 %%%% end of Hangul-ucs preamble
 
 %% 편집용지 설정
-%\usepackage[left=25mm,right=25mm,top=30mm,bottom=30mm]{geometry}
+\usepackage[left=25mm,right=25mm,top=30mm,bottom=30mm]{geometry}
 
 \usepackage{setspace}
 

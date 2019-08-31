@@ -1,25 +1,11 @@
 \documentclass{new_report}
+% 아래의 함수를 사용하면 이미지 파일들을 같은 디렉토리 내에 images 라는 이름을 가진 폴더를 생성한 후, 그 폴더 안에 넣어 사용할 수 있습니다.
+% 사용하고자 한다면 주석을 푸십시오.
 \graphicspath{{images/}}
 % 이곳에 필요한 별도의 패키지들을 적어넣으시오.
 \usepackage{verbatim} % for commment, verbatim environment
 \usepackage{spverbatim} % automatic linebreak verbatim environment
-%\usepacakge{indentfirst}
 \usepackage{tikz}
-\usepackage{pgfplots}
-\usetikzlibrary{patterns}
-%\tikzset{
-%	image label/.style={
-%		every node/.style={
-%fill=black,
-%text=white,
-%			font=\sffamily\scriptsize,
-%			anchor=south west,
-%			xshift=0,
-%			yshift=0,
-%			at={(0,0)}
-%		}
-%	}
-%}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -30,10 +16,7 @@
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{gensymb}
-%\usepackage{subfigure}
-\usepackage{subcaption}
-%\usepackage{floatrow}
-%\usepackage{pict2e}
+\usepackage{wrapfig}
 
 \usepackage{pgfplots}
 \pgfplotsset{
