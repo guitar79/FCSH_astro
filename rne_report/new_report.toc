@@ -6,28 +6,37 @@
 \contentsline {subsection}{\numberline {I.1}연구의 필요성}{1}
 \contentsline {subsection}{\numberline {I.2}연구 목적}{2}
 \contentsline {subsection}{\numberline {I.3}연구 문제}{2}
-\contentsline {section}{\numberline {II}연구 과정}{3}
-\contentsline {subsection}{\numberline {II.1}하드웨어 제작}{3}
-\contentsline {subsubsection}{\numberline {II.1.1}사용한 부품}{3}
-\contentsline {subsubsection}{\numberline {II.1.2}프로토타입(Prototype) 기판 제작}{4}
-\contentsline {subsubsection}{\numberline {II.1.3}회로도 작성}{5}
-\contentsline {subsubsection}{\numberline {II.1.4}기판 제작}{6}
-\contentsline {subsection}{\numberline {II.2}펌웨어 개발}{6}
-\contentsline {subsection}{\numberline {II.3}ASCOM driver 개발}{8}
-\contentsline {section}{\numberline {III}결과 및 토의}{9}
-\contentsline {subsection}{\numberline {III.1}모터 초점 조절 장치 컨트롤러 및 펌웨어}{9}
-\contentsline {subsection}{\numberline {III.2}ASCOM 드라이버 개발}{10}
-\contentsline {section}{\numberline {IV}결론 및 제언}{12}
-\contentsline {subsection}{\numberline {IV.1}결론}{12}
-\contentsline {subsection}{\numberline {IV.2}제언}{12}
-\contentsline {subsection}{\numberline {IV.3}추후 연구}{12}
-\contentsline {subsubsection}{\numberline {IV.3.1}태양, 행성, 달 등의 자동초점조절 알고리즘 개발}{12}
-\contentsline {subsection}{\numberline {IV.4}추가 가능한 여러 가지 기능}{12}
-\contentsline {subsubsection}{\numberline {IV.4.1}STM32L432KC}{12}
-\contentsline {subsubsection}{\numberline {IV.4.2}열선 설치}{12}
-\contentsline {subsubsection}{\numberline {IV.4.3}PID 알고리즘}{13}
-\contentsline {subsubsection}{\numberline {IV.4.4}EEPROM}{13}
-\contentsline {subsubsection}{\numberline {IV.4.5}모터의 연결 상태}{13}
-\contentsline {section}{\numberline {V}부록}{15}
-\contentsline {subsection}{\numberline {V.1}아두이노 펌웨어}{15}
-\contentsline {section}{References}{25}
+\contentsline {section}{\numberline {II}이론적 배경}{3}
+\contentsline {subsection}{\numberline {II.1}천체 관측 시스템}{3}
+\contentsline {subsection}{\numberline {II.2}자동 초점 조절}{4}
+\contentsline {subsection}{\numberline {II.3}기존 제품 분석}{4}
+\contentsline {subsection}{\numberline {II.4}제품 설계}{4}
+\contentsline {subsubsection}{\numberline {II.4.1}컨트롤러}{4}
+\contentsline {subsubsection}{\numberline {II.4.2}스테핑 모터}{5}
+\contentsline {section}{\numberline {III}연구 과정}{8}
+\contentsline {subsection}{\numberline {III.1}하드웨어 제작}{8}
+\contentsline {subsubsection}{\numberline {III.1.1}사용한 부품}{8}
+\contentsline {subsubsection}{\numberline {III.1.2}프로토타입(Prototype) 기판 제작}{9}
+\contentsline {subsubsection}{\numberline {III.1.3}회로도 작성}{10}
+\contentsline {subsubsection}{\numberline {III.1.4}기판 제작}{12}
+\contentsline {subsection}{\numberline {III.2}펌웨어 개발}{12}
+\contentsline {subsubsection}{\numberline {III.2.1}아두이노 라이브러리}{12}
+\contentsline {subsubsection}{\numberline {III.2.2}serialPort 통신}{14}
+\contentsline {subsection}{\numberline {III.3}ASCOM driver 개발}{15}
+\contentsline {section}{\numberline {IV}결과 및 토의}{16}
+\contentsline {subsection}{\numberline {IV.1}모터 초점 조절 장치 컨트롤러 및 펌웨어}{16}
+\contentsline {subsection}{\numberline {IV.2}ASCOM 드라이버 개발}{17}
+\contentsline {section}{\numberline {V}결론 및 제언}{19}
+\contentsline {subsection}{\numberline {V.1}결론}{19}
+\contentsline {subsection}{\numberline {V.2}제언}{19}
+\contentsline {subsection}{\numberline {V.3}추후 연구}{19}
+\contentsline {subsubsection}{\numberline {V.3.1}태양, 행성, 달 등의 자동초점조절 알고리즘 개발}{19}
+\contentsline {subsection}{\numberline {V.4}추가 가능한 여러 가지 기능}{19}
+\contentsline {subsubsection}{\numberline {V.4.1}STM32L432KC}{19}
+\contentsline {subsubsection}{\numberline {V.4.2}열선 설치}{19}
+\contentsline {subsubsection}{\numberline {V.4.3}PID 알고리즘}{20}
+\contentsline {subsubsection}{\numberline {V.4.4}EEPROM}{20}
+\contentsline {subsubsection}{\numberline {V.4.5}모터의 연결 상태}{20}
+\contentsline {section}{\numberline {VI}부록}{22}
+\contentsline {subsection}{\numberline {VI.1}아두이노 펌웨어}{22}
+\contentsline {section}{References}{32}
