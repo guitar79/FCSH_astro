@@ -262,14 +262,15 @@
 	\thispagestyle{empty} \noindent%
 	\@summitYear \newline
 	%\@summitYear 학년도\newline
-	{\sf \textbf{경기도과학전람회 \@type \@reporttype 작품설명서}}
-	%{\sf \textbf{경기과학고등학교 \@type R\&E \@reporttype 보고서}}
+	{\sf \textbf{전국과학전람회 \@type \@reporttype 작품설명서}}
+
 	\vskip 3cm
 	\noindent\begin{minipage}[t]{\textwidth}
 		\begin{center}
 			\fontsize{21pt}{21pt}\selectfont  \@title \\[21pt]
 		\end{center}
 	\end{minipage}
+
 	\vskip 3.6604cm %3cm + 12pt*1.3*1.2
 	\noindent\begin{minipage}[c]{\textwidth}
 		\begin{center}
@@ -294,15 +295,14 @@
 	\vskip 3.56pc %3pc + 12pt*1.3*1.2
 	\noindent\begin{minipage}[c]{\textwidth}
 		\begin{center}
-			\large \@advisor\@advisorEmail
+			%\large \@advisor\@advisorEmail
 			%\large 지도교사: \@advisor(\@advisorEmail)
 		\end{center}
 	\end{minipage}
 	\vskip 2pc
 	\noindent\begin{minipage}[c]{\textwidth}
 		\begin{center}
-			\large \ifthenelse{\equal{\@type}{심화}}{지도교수: 
-			\@professor(\@professorEmail)}{}
+			%\large \ifthenelse{\equal{\@type}{심화}}{지도교수: \@professor(\@professorEmail)}{}
 		\end{center}
 	\end{minipage}
 	\vskip 5pc
@@ -459,9 +459,9 @@
 \titleformat{\section}[hang]
 {\LARGE\bfseries}{\Roman{section}.}{1em}{}{}
 \titleformat{\subsection}[hang]
-{\Large\bfseries}{\arabic{section}.\arabic{subsection}}{1em}{}{}
+{\Large\bfseries}{\Roman{section}.\arabic{subsection}.}{1em}{}{}
 \titleformat{\subsubsection}[hang]
-{\large}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}{1em}{}{}
+{\large}{\Roman{section}.\arabic{subsection}.\arabic{subsubsection}.}{1em}{}{}
 \titleformat{\paragraph}[hang]
 {\normalfont\fontsize{12}{12}\selectfont\it}{}{1em}{}{}
 

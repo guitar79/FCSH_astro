@@ -23,9 +23,9 @@
 	\item [TE Connectivity/AMP 5525258-3 및 Wurth Elektronik 694106301002] 12V 외부전원과 모터를 연결하는 선을 연결할 수 있게 하는 module이다.
 \end{description}
 
-\subsubsection{프로토 타입 회로 제작}
+\subsubsection{프로토타입(Prototype) 기판 제작}
 
-주어진 부품들을 하나하나 연결하여 만능기판에 와이어로 납땜을 하여 Figure \ref{fig:prototype}\과 같은 프로토 타입을 회로를 제작하였다. 
+주어진 부품들을 하나하나 연결하여 만능기판에 와이어로 납땜을 하여 Figure \ref{fig:prototype}\과 같은 프로토 타입을 회로를 제작하였다. 부품의 갯수가 많아지면서 배선을 하는데 어려움이 있었지만 회로가 정상적으로 동작하는 것을 확인할 수 있었고, 모터 회전, OLED 디스플레이, 시리얼 통신 등의 코드를 연습할 수 있었다.
 
 \begin{figure}[h]
 	\begin{center}
@@ -37,7 +37,6 @@
 
 
 \subsubsection{회로도 작성}
-
 
 생각보다 Circuitmaker 프로그램의 사용법을 숙지하는 데 오랜 시간이 걸렸기 때문에, 그사이에 진행된 연구에서는 만능기판에 여러 가지 부품들을 전선으로 연결하여 사용하는 방법을 택하였고, 연구가 진행되어 만능기판이 복잡해짐에 따라서 여러 프로그램의 도움을 받게 되었다.\\
 
@@ -79,14 +78,12 @@ Figure \ref{fig:Schematic_Prints}\는 최종 완성한 기판의 회로도이다
 	\end{center}
 \end{figure}
 
-Figure \ref{fig:pcbcircuit}\은 처음 제작한 PCB Version 1 이다. PCB Version 1은 크기가 너무 크게 제작되었다.
+Figure \ref{fig:pcbcircuit}\은 처음 제작한 PCB Ver. 1 이다. PCB Version 1은 크기가 너무 크게 제작되었다.
 \begin{figure}[h]
 	\begin{center}
-	\begin{figure}{0.9\textwidth}
-		\includegraphics[width=0.9\linewidth]{pcbcircuit}
+		\includegraphics[width=0.6\linewidth]{pcbcircuit}
 		\caption{PCB Ver. 1로 완성한 회로}
 		\label{fig:pcbcircuit}
-	\end{figure}
 	\end{center}
 \end{figure}
 
@@ -99,13 +96,14 @@ Arduino를 이용하여 모터 초점 조절 장치를 만드는 데 필요한 �
 먼저, 메뉴 기능을 통해 자신이 원하는 기능을 직접 선택할 수 있도록 하였다. 이를 통하여 모터를 연속적으로 돌리는 기능과 미리 설정한 일정 값 정보를 돌릴 수 있도록 지원한다. 특히 연속적으로 돌리는 기능은 버튼을 오래 누를수록 더 빠르게 돌 수 있도록 하여 효율성을 높였다. 또한, 모터를 돌리는 것뿐만이 아니라 자신이 얼마나 돌렸는지 표시하는 기능을 포함하였다.
 
 
-\subsection{ASCOM Protocol}
+\subsection{ASCOM driver 개발}
 
-모터 초점 조절 장치를 활용하기 위해서는 별의 크기를 분석해서 돌려야 하므로 컴퓨터와의 연동을 위하여 초점 조절 장치의 ASCOM 드라이버를 C\# 코딩을 이용하여 제작한다. ASCOM 드라이버를 이용하면 카메라로부터 정보를 컴퓨터가 받아서 데이터를 분석하고, 이 분석한 데이터를 이용하여 모터를 어떻게 조절해야 할지 명령을 내리면 ASCOM 드라이버를 통해 정보를 전달하여 모터를 제어한 대로 조절이 가능하다.\\
+모터 초점 조절 장치를 활용하기 위해서는 별의 크기를 분석해서 돌려야 하므로 컴퓨터와의 연동을 위하여 초점 조절 장치의 ASCOM 드라이버를 C\# 코딩을 이용하여 제작한다. ASCOM 드라이버를 이용하면 카메라로부터 정보를 컴퓨터가 받아서 데이터를 분석하고, 이 분석한 데이터를 이용하여 모터를 어떻게 조절해야 할지 명령을 내리면 ASCOM 드라이버를 통해 정보를 전달하여 모터를 제어한 대로 조절이 가능하다.
+
+
 현재 우리가 사용하는 프로그램은 ASCOM에서 만든 프로그램이고, ASCOM의 프로그램 대부분은 그 회사만의 표준 Protocol을 사용한다. 따라서 우리가 만드는 모터 초점 조절 장치 컨트롤러를 ASCOM Protocol에 따라 정보를 전달할 수 있도록 하면 일반 컴퓨터에 있는 ASCOM 프로그램을 이용하여 우리가 제작한 모터 초점 조절 장치 컨트롤러를 사용할 수 있도록 하는 것이 핵심이라고 할 수 있다.
 
 
-\subsection{사용한 망원경}
 
 
 
