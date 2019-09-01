@@ -184,7 +184,7 @@ C\#만으로 개발을 진행할 경우 빌드에 성공했을 시에 release에
 드라이버를 32bit환경에서 사용하는지, 혹은 64bit환경에서 사용하는지에 따라 변경되어야 할 요소들이 존재한다. 본 연구에서는 MaximDL이 32bit 환경의 드라이버만 실행할 수 있으므로 32bit를 기본으로 개발하였다. 이를 바꾸기 위해서는 구성 관리자>구성을 Release로 바꾸고, 사용하는 환경에 따라서 '활성 솔루션 플랫폼'과 '플랫폼'을 x86과 x64로 '새로 만들기'를 이용하여 설정하면 된다.
 
 %%http://www.jrsoftware.org/isinfo.php inno setup 홈페이지
-setup파일을 생성하기 위해서는 setup파일을 생성할 수 있는 프로그램이 필요하다. 본 연구에서는 'inno setup'이라는 프로그램을 사용하였으며, ASCOM Developer Components>Installer Generator>Resources에 들어있는 DriverInstallTemplate.iss파일을 참고하여 inno setup 파일을 생성 후 실행파일에 (bin>x86>Release 혹은 bin>x64>Release 파일 속에 있는) ASCOM.(드라이버 이름).Focuser.dll으로 설정한 뒤 컴파일을 진행하면 setup파일을 통해 ASCOM에 드라이버를 등록하여 사용할 수 있다.
+setup.exe 파일을 생성하기 위해서는 setup파일을 생성할 수 있는 프로그램이 필요하다. 본 연구에서는 'inno setup'이라는 프로그램을 사용하였으며, ASCOM Developer Components>Installer Generator>Resources에 들어있는 DriverInstallTemplate.iss파일을 참고하여 inno setup 파일을 생성 후 실행파일에 (bin>x86>Release 혹은 bin>x64>Release 파일 속에 있는) ASCOM.(드라이버 이름).Focuser.dll으로 설정한 뒤 컴파일을 진행하면 setup파일을 통해 ASCOM에 드라이버를 등록하여 사용할 수 있다.
 
 \subsubsection{드라이버 구동 확인}
 

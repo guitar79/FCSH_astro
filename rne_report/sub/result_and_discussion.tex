@@ -30,6 +30,23 @@ Driver.cs는 serialPort를 이용하여 펌웨어와 직접적으로 통신하�
 
 SetupDialogForm.cs는 ASCOM 드라이버를 선택하는 과정에서 직접적으로 연결을 진행하기 전에(직접적인 연결은 Connect를 눌러야 시작된다) 필요한 설정들을 확인하는 절차이다. 이 파일에서는 드라이버와 펌웨어 사이에 연결되어있는 COM port(serial 통신을 하기 위해 usb로 연결되어 있는 포트)를 지정하며, 모터의 microstepping을 설정한다. microstepping설정을 모터를 움직이는 도중에 직접 설정하게 되면 한 스텝당 이동하는 position이 달라지기 때문에 정확한 거리를 계산할 수 없게 되며, 측정을 한 번 진행할 때마다 Position 사이의 거리가 달라진다. 따라서 직접 연결을 진행하기 전에 microstepping을 다시 확인하게 된다.
 
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=0.6\linewidth]{setupdialogform_capture}
+	\end{center}
+	\begin{tikzpicture} [remember picture, overlay]
+	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (3.3, 1.7) {(a)};
+	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (7.4, 3.15) {(b)};
+	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 3.7) {(c)};
+	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 3.0) {(d)};
+	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 2.1) {(e)};
+	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 1.45) {(f)};
+	\end{tikzpicture}
+	\caption{SetupDialogForm : (a)basic settings; checked show UI allows to show mainWindow when connected, (b)Reconnect; try to find COM Port, (c)COM Port; find TFocuser, (d)Microstepping; set Microstepping mode, (e)}
+	\label{fig:setupdialogform_capture}	
+\end{figure}
+
+
 MainWindow.cs는 직접 연결을 실행했을 때 우리 눈에 직접 들어오는 컨트롤 창의 정보에 대한 파일이다. MainWindow의 버튼들은 각각 펌웨어에서 설정한 serialcommand와 연결되어있어 버튼이 눌릴 때마다 Driver.cs에서 serialcommand를 통해 자료를 주고받으며, 새로 업데이트된 정보는 다시 MainWindow 창에 표시되는 작업이 반복되게 된다. 
 
 펌웨어보다 자유로운 설정이 가능하기 때문에 보다 많은 기능들을 탑재할 수 있다. 기본적인 기능인 스텝당 움직이는 기능과 더불어 한번에 이동할 single step을 얼마나 크게 할지 직접 설정할 수 있고, 원한다면 모터를 그 상태에서 정지시킬 수도 있으며, 원하는 position을 입력하면 모터가 그 position으로 자동으로 이동하게 할 수도 있다(Move to). 부가적으로는 microstepping과 온도 및 습도를 실시간으로 확인할 수 있으며, 모터가 움직이는 속도와 가속도를 범위 내에서 직접 설정할 수도 있다.
@@ -41,28 +58,13 @@ Fig. \ref{fig:focuserchooser}\은 ASCOM에서
 		\includegraphics[width=0.6\linewidth]{focuserchooser}
 	\end{center}
 	\begin{tikzpicture} [remember picture, overlay]
-	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (3.3, 3.4) {(a)};
-	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 3.4) {(b)};
+	\node[rectangle, draw, fill=black!10, minimum size=0.2] at (3.3, 4.4) {(a)};
+	\node[rectangle, draw, fill=black!10, minimum size=0.5, font=\fontsize{60}{60}] at (3.3, 3.4) {(a)};
+	\node[rectangle, draw, fill=black!10, minimum size=0.5, font=\fontsize{20}{20}] at (13.4, 3.4) {(b)};
 	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 2.35) {(c)};
 	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 1.55) {(d)};
 	\end{tikzpicture}
 	\caption{Focuser chooser windows : (a)choosing focuser, (b)Properties; excute SetupDialogForm.cs, (c)OK; apply results, (d)Cancel; close Form}
 	\label{fig:focuserchooser}	
-\end{figure}
-
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=0.6\linewidth]{setupdialogform_capture}
-	\end{center}
-	\begin{tikzpicture} [remember picture, overlay]
-	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (3.3, 1.7) {(a)};
-	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (7.4, 3.15) {(b)}
-	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 3.7) {(c)};
-	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 3.0) {(d)};
-	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 2.1) {(e)};
-	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 1.45) {(f)};
-	\end{tikzpicture}
-	\caption{SetupDialogForm : (a)basic settings; checked show UI allows to show mainWindow when connected, (b)Reconnect; try to find COM Port, (c)COM Port; find TFocuser, (d)Microstepping; set Microstepping mode, (e)}
-	\label{fig:setupdialogform_capture}	
 \end{figure}
 
