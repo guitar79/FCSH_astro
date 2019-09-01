@@ -41,12 +41,46 @@ Fig. \ref{fig:focuserchooser}\은 ASCOM에서
 		\includegraphics[width=0.6\linewidth]{focuserchooser}
 	\end{center}
 	\begin{tikzpicture} [remember picture, overlay]
-	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (1.5, 2.5) {(a)};
-	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (2.5, 2.5) {(b)};
-	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (2.5, 3.5) {(c)};
-	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (2.5, 3.5) {(d)};
+	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (3.3, 3.4) {(a)};
+	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 3.4) {(b)};
+	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 2.35) {(c)};
+	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 1.55) {(d)};
 	\end{tikzpicture}
-	\caption{Focuser chooser windows}
-	\label{fig:focuserchooser}
-	
+	\caption{Focuser chooser windows : (a)choosing focuser, (b)Properties; excute SetupDialogForm.cs, (c)OK; apply results, (d)Cancel; close Form}
+	\label{fig:focuserchooser}	
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.6\linewidth]{setupdialogform_capture}
+	\end{center}
+	\begin{tikzpicture} [remember picture, overlay]
+	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (3.3, 1.7) {(a)};
+	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (7.4, 3.15) {(b)}
+	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 3.7) {(c)};
+	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 3.0) {(d)};
+	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 2.1) {(e)};
+	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 1.45) {(f)};
+	\end{tikzpicture}
+	\caption{SetupDialogForm : (a)basic settings; checked show UI allows to show mainWindow when connected, (b)Reconnect; try to find COM Port, (c)COM Port; find TFocuser, (d)Microstepping; set Microstepping mode, (e)}
+	\label{fig:setupdialogform_capture}	
+\end{figure}
+
+\begin{figure}[H]
+		\begin{subfigure}{0.5\textwidth}
+	\begin{center}
+		\includegraphics[width=0.6\linewidth]{mainwindow1} 
+	\end{center}			
+	\caption{Briefly mainWindow}
+	\label{fig:mainwindow1}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+	\begin{center}			
+		\includegraphics[width=0.6\linewidth]{mainwindow2}
+	\end{center}
+	\caption{Advanced setting mainWindow}
+	\label{fig:mainwindow2}
+\end{subfigure}
+\caption{Starizona사에서 개발하여 판매하는 Micro touch 제품}
+\label{fig:mainwindow}
 \end{figure}
