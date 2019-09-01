@@ -111,14 +111,6 @@
 \ExecuteOptions{english,final}         % doctor,korean,final이 기본값
 \ProcessOptions
 
-%% 12pt,a4paper,onecolumn,oneside 옵션으로 report 클래스 불러오기
-
-%% Kevin
-%%\LoadClass[12pt, a4paper, onecolumn, oneside,titlepage]{article}
-
-
-%%들여쓰기
-
 
 %%%% Hangul-ucs preamble.......
 \RequirePackage[nonfrench]{kotex}
@@ -129,16 +121,12 @@
 \RequirePackage{graphicx,xcolor}
 %\usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{setspace}
 
 %% for compatability to HLaTeX
 \let\gt\sffamily
 \DeclareTextFontCommand{\textgt}{\gt}
 %%%% end of Hangul-ucs preamble
-
-%% 편집용지 설정
-\usepackage[left=25mm,right=25mm,top=30mm,bottom=30mm]{geometry}
-
-\usepackage{setspace}
 
 %% 줄간격 설정
 %\renewcommand{\baselinestretch}{1.3}
