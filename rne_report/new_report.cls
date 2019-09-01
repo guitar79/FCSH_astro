@@ -32,7 +32,7 @@
 \LoadClass[pdftex, 11pt]{article}
 \fi 
 
-%\usepackage{geometry}
+\usepackage[left=25mm,right=25mm,top=30mm,bottom=30mm]{geometry}
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{graphicx}
@@ -125,9 +125,9 @@
 %\RequirePackage[default]{dhucs-interword}
 
 %수학 패키지
-\RequirePackage{amsmath}
+%\RequirePackage{amsmath}
 \RequirePackage{graphicx,xcolor}
-\usepackage{amssymb}
+%\usepackage{amssymb}
 \usepackage{amsthm}
 
 %% for compatability to HLaTeX
@@ -317,53 +317,16 @@
 }
 
 %한글초록
-%\newenvironment{abstractkor}{%
-% 	\pagenumbering{roman}                        % 로마자 페이지 시작
-% 	\thispagestyle{plain}%
-% 	\vspace*{5cm}
-% 	\begin{center} \Large \textbf{초~~~~~록} \end{center}  % 초록명 -> Abstract
-% 	\hspace*{5mm}
-%	\if@PDFdoc\phantomsection\fi\addcontentsline{toc}{content}{초록}% 초록을 목차(TOC)에 삽입
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%
-%%% Abstract layout %%%
-%%%%%%%%%%%%%%%%%%%%%%%
-\newenvironment{alwayssingle}{%
-	\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn
-	\else\newpage\fi}
-{\if@restonecol\twocolumn\else\newpage\fi}
-
-\newenvironment{abstracts}{\begin{alwayssingle} \thispagestyle{plain}
-  \vspace*{20mm}
-  \begin{center}
-  \begin{minipage}[h][35mm][c]{\textwidth}
-    \begin{center}
-    {\begin{spacing}{1.0}\LARGE\bfseries\textbf{Abstract}\end{spacing}}
-	%{\begin{spacing}{1.0}\LARGE\bfseries\@engtitle\end{spacing}}
-    \end{center}
-  \end{minipage}
-  \par\vspace{30mm}
-  %{\LARGE \bfseries  Abstract}
-  \end{center}
-  \par\vspace{0.5cm}
-{\end{alwayssingle}
-
-\newenvironment{abstractskor} {\begin{alwayssingle} \thispagestyle{plain}
-  \begin{center}
-  \vspace*{20mm}
-  \begin{minipage}[h][35mm][c]{\textwidth}
-    \begin{center}
-	{\begin{spacing}{1.5}\LARGE\bfseries\textbf{초~~~~~록}\end{spacing}}
-    %{\begin{spacing}{1.5}\LARGE\bfseries\@title\end{spacing}}
-    \end{center}
-  \end{minipage}
-  \par\vspace{35mm}
-  %{\LARGE \bfseries{\@korabstract}}
-  \end{center}
-  \par\vspace{0.5cm}
-{\end{alwayssingle}
+\newenvironment{abstractkor}{%
+ 	\pagenumbering{roman}                        % 로마자 페이지 시작
+ 	\thispagestyle{plain} %
+ 	\vspace*{5cm}
+ 	\begin{center} 
+ 		\Large \textbf{초~~~~~록} 
+ 	\end{center}  % 초록명 -> Abstract
+ 	\hspace*{5mm}
+	\if@PDFdoc\phantomsection\fi\addcontentsline{toc}{content}{초록}% 초록을 목차(TOC)에 삽입
+}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -415,30 +378,28 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%
-%% 헤딩 재설정
-%%  
-%%  \renewcommand{\contentsname}{%
-%%  	\if@isKorean 목 차       \else Contents        \fi}
-%%  \renewcommand{\listfigurename}{%
-%%  	\if@isKorean 그 림 목 차 \else List of Figures \fi}
-%%  \renewcommand{\listtablename}{%
-%%  	%\if@isKorean 표 목 차    \else List of Tables  \fi}
-%%  	\if@isKorean 표 목 차    \else 표 목 차  \fi}
-%%  %\renewcommand{\bibname}{%
-%%  	%\if@isKorean 참 고 문 헌 \else References      \fi}
-%%  %	\if@isKorean 참 고 문 헌 \else 참 고 문 헌      \fi}
-%%  
-%%  
-%%  \renewcommand \thefigure {\@arabic\c@figure}
-%%  \renewcommand \thetable {\@arabic\c@table}
-%%  %\def\fnum@table{\thetable}
-%%  %\def\fnum@figure{\thefigure}
 
-%%  \renewcommand\figurename{Fig.}%{\sf Fig.}
-%%  \renewcommand\tablename{Table}%{\sf Tab.}
-%%  %\def\fnum@figure{\figurename\nobreakspace\thefigure}
-%%  %\def\fnum@table{\tablename\nobreakspace\thetable}
+%%헤딩 재설정
+  
+  \renewcommand{\contentsname}{%
+  	\if@isKorean 목 차       \else Contents        \fi}
+  \renewcommand{\listfigurename}{%
+  	\if@isKorean 그 림 목 차 \else List of Figures \fi}
+  \renewcommand{\listtablename}{%
+  	\if@isKorean 표 목 차    \else List of Tables  \fi}
+%  \renewcommand{\bibname}{%
+%  	\if@isKorean 참 고 문 헌 \else References      \fi}
+  
+  
+  \renewcommand \thefigure {\@arabic\c@figure}
+  \renewcommand \thetable {\@arabic\c@table}
+  %\def\fnum@table{\thetable}
+  %\def\fnum@figure{\thefigure}
+
+  \renewcommand\figurename{Fig.}%{\sf Fig.}
+  \renewcommand\tablename{Table}%{\sf Tab.}
+  %\def\fnum@figure{\figurename\nobreakspace\thefigure}
+  %\def\fnum@table{\tablename\nobreakspace\thetable}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -452,14 +413,12 @@
 
 \usepackage{titlesec}
 
-%\titleformat{command}[shape]{format}{label}{sep}{before-code}{after-code}
-
 \titleformat{\section}[hang]
 {\LARGE\bfseries}{\Roman{section}.}{1em}{}{}
 \titleformat{\subsection}[hang]
-{\Large\bfseries}{\arabic{section}.\arabic{subsection}}{1em}{}{}
+{\Large\bfseries}{\Roman{section}.\arabic{subsection}}{1em}{}{}
 \titleformat{\subsubsection}[hang]
-{\large}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}{1em}{}{}
+{\large}{\Roman{section}.\arabic{subsection}.\arabic{subsubsection}}{1em}{}{}
 \titleformat{\paragraph}[hang]
 {\normalfont\fontsize{12}{12}\selectfont\it}{}{1em}{}{}
 

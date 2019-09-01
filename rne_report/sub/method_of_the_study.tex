@@ -64,7 +64,7 @@ Figure \ref{fig:Schematic_Prints}\는 최종 완성한 기판의 회로도이다
 %%예를 들면 서킷메이커로 작업한 것을 순서대로 기술해 주면 좋겠어..
 %% 부품 선정, 와이어링, pcb 제작, 폴리곤 푸어 등등
 
-회로도에 따라 부품들이 와이어로 연결되어 있으므로 적절하게 배치하여 ......    PCB를 제작하였다. Figure \ref{fig:prototype}\은 서킷 메이커로 디자인한 PCB의 삼차원 모습을 나타낸다.
+회로도에 따라 부품들이 와이어로 연결되어 있으므로 적절하게 배치하여 ......    PCB를 제작하였다. Fig. \ref{fig:prototype}\은 서킷 메이커로 디자인한 PCB의 삼차원 모습을 나타낸다.
 
 \begin{figure}[h]
 	\begin{center}
@@ -74,7 +74,7 @@ Figure \ref{fig:Schematic_Prints}\는 최종 완성한 기판의 회로도이다
 		\label{fig:pcbfront_3d}
 	\end{subfigure}
 	\begin{subfigure}{0.45\textwidth}
-		\includegraphics[width=0.9\linewidth]{pcbback_3d}
+		\includegraphics[width=0.85\linewidth]{pcbback_3d}
 		\caption{Back}
 		\label{fig:pcbback_3d}
 	\end{subfigure}
@@ -83,16 +83,45 @@ Figure \ref{fig:Schematic_Prints}\는 최종 완성한 기판의 회로도이다
 	\end{center}
 \end{figure}
 
-Figure \ref{fig:pcbcircuit}\은 처음 제작한 PCB Ver. 1 이다. PCB Version 1은 크기가 너무 크게 제작되었다.
-\begin{figure}[h]
+Fig. \ref{fig:pcbcircuit}\은 처음 제작한 PCB Ver. 1 이다. PCB Version 1은 크기가 너무 크게 제작되었다.
+\begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=0.6\linewidth]{pcbcircuit}
+		\includegraphics[width=0.5\linewidth]{pcbcircuit}
 		\caption{PCB Ver. 1로 완성한 회로}
 		\label{fig:pcbcircuit}
 	\end{center}
 \end{figure}
 
 %%박기현 샘  이후 PCB는 어떤 점을 개선하였는지
+
+
+
+\subsubsection{케이스 제작}
+
+Fusion 360으로 케이스 제작 및 3D 프린터 출력
+
+
+Fig. \ref{fig:stl}\은 제작한 케이스의 stl 파일이다. 
+
+\begin{figure}[h]
+	\begin{center}
+		\begin{subfigure}{0.45\textwidth}
+			\includegraphics[width=0.95\linewidth]{stldown} 
+			\caption{아래쪽}
+			\label{fig:stldown}
+		\end{subfigure}
+		\begin{subfigure}{0.45\textwidth}
+			\includegraphics[width=0.95\linewidth]{stlup}
+			\caption{윗쪽}
+			\label{fig:stlup}
+		\end{subfigure}
+		\caption{Fusion 360으로 디자인한 케이스의 stl 파일}
+		\label{fig:stl}
+	\end{center}
+\end{figure}
+
+
+
 
 \subsection{펌웨어 개발}
 
