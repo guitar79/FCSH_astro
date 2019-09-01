@@ -28,13 +28,13 @@
 \contentsline {section}{\numberline {IV}결과 및 토의}{17}
 \contentsline {subsection}{\numberline {IV.1}모터 초점 조절 장치 컨트롤러 및 펌웨어}{17}
 \contentsline {subsection}{\numberline {IV.2}ASCOM 드라이버 개발}{18}
-\contentsline {section}{\numberline {V}결론 및 제언}{20}
-\contentsline {subsection}{\numberline {V.1}결론}{20}
-\contentsline {subsection}{\numberline {V.2}제언}{20}
-\contentsline {subsection}{\numberline {V.3}추후 연구}{20}
-\contentsline {subsubsection}{\numberline {V.3.1}태양, 행성, 달 등의 자동초점조절 알고리즘 개발}{20}
-\contentsline {subsubsection}{\numberline {V.3.2}기능 개선}{20}
-\contentsline {section}{\numberline {VI}부록}{22}
-\contentsline {subsection}{\numberline {VI.1}아두이노 펌웨어 code}{22}
-\contentsline {subsection}{\numberline {VI.2}ASCOM driver Code}{31}
-\contentsline {section}{References}{32}
+\contentsline {section}{\numberline {V}결론 및 제언}{21}
+\contentsline {subsection}{\numberline {V.1}결론}{21}
+\contentsline {subsection}{\numberline {V.2}제언}{21}
+\contentsline {subsection}{\numberline {V.3}추후 연구}{21}
+\contentsline {subsubsection}{\numberline {V.3.1}태양, 행성, 달 등의 자동초점조절 알고리즘 개발}{21}
+\contentsline {subsubsection}{\numberline {V.3.2}기능 개선}{21}
+\contentsline {section}{\numberline {VI}부록}{23}
+\contentsline {subsection}{\numberline {VI.1}아두이노 펌웨어 code}{23}
+\contentsline {subsection}{\numberline {VI.2}ASCOM driver Code}{32}
+\contentsline {section}{References}{33}
