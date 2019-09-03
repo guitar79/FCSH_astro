@@ -6,7 +6,7 @@
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=0.95\linewidth]{Andromeda_Galaxy}
+		\includegraphics[width=0.8\linewidth]{Andromeda_Galaxy}
 		\caption{The Andromeda galaxy : L 600s X 14 frames, RGB 400s X 6 frames each (Takahashi FSQ106-ED with 0.73X Reducer QE, Sbig ST-8300M, Takahashi EM-200 Temma 2).}
 		\label{fig:The_Andromeda_Galaxy}
 	\end{center}
@@ -25,3 +25,10 @@
 \subsection{연구 문제}
 
 %% 박기현샘 : 연구문제의 답이 결론에 제시되어야 함. 둘이 호응관계가 되도록 기술
+연구 목적에 맞게 펌웨어 및 ASCOM 드라이버를 개발하기 위해서 필요한 기능들과 기술들을 생각해보았으며, 이는 다음과 같다.
+
+1. 펌웨어에서 버튼과 디스플레이의 메뉴를 이용하여 모터를 조절할 수 있도록 한다.
+
+2. 펌웨어에서 serialPort를 통해 버튼과 디스플레이에서 할 수 있는 기능들을 실행할 수 있도록 한다.
+
+3. ASCOM driver이 펌웨어와 통신이 가능하도록 하고, 드라이버에서 버튼을 클릭하는 것으로 펌웨어와 같은 기능을 할 수 있도록 한다.
