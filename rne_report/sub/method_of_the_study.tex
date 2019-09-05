@@ -1,6 +1,6 @@
 \section{연구 과정}
 
-\subsection{하드웨어 제작}
+\subsection{GS-focus 하드웨어 제작}
 
 \subsubsection{사용한 부품}
 
@@ -181,25 +181,7 @@ C\#만으로 개발을 진행할 경우 빌드에 성공했을 시에 release에
 그외에 regasm.exe를 사용하여 COM Interop에 등록하여야 하는 경우가 있는데, 프로그램의 자체 속성>빌드>COM Interop 등록 박스를 체크한 뒤에 도구>GUID 만들기>5번을 이용하여 형식에 맞게 Assembly.cs파일에 바꾸어주면 오류가 해결된다.
 
 \subsubsection{dll 파일 출력 및 setup파일 생성}
-드라이버를 32bit환경에서 사용하는지, 혹은 64bit환경에서 사용하는지에 따라 변경되어야 할 요소들이 존재한다. 본 연구에서는 MaximDL이 32bit 환경의 드라이버만 실행할 수 있으므로 32bit를 기본으로 개발하였다. 이를 바꾸기 위해서는 구성 관리자>구성을 Release로 바꾸고, 사용하는 환경에 따라서 '활성 솔루션 플랫폼'과 '플랫폼'을 x86과 x64로 '새로 만들기'를 이용하여 설정하면 된다.
+드라이버를 32bit 환경에서 사용하는지, 혹은 64bit 환경에서 사용하는지에 따라 변경되어야 할 요소들이 존재한다. 본 연구에서는 MaximDL이 32bit 환경의 드라이버만 실행할 수 있으므로 32bit를 기본으로 개발하였다. 이를 바꾸기 위해서는 구성 관리자>구성을 Release로 바꾸고, 사용하는 환경에 따라서 '활성 솔루션 플랫폼'과 '플랫폼'을 x86과 x64로 '새로 만들기'를 이용하여 설정하면 된다.
 
 %%http://www.jrsoftware.org/isinfo.php inno setup 홈페이지
 setup.exe 파일을 생성하기 위해서는 setup파일을 생성할 수 있는 프로그램이 필요하다. 본 연구에서는 'inno setup'이라는 프로그램을 사용하였으며, ASCOM Developer Components>Installer Generator>Resources에 들어있는 DriverInstallTemplate.iss파일을 참고하여 inno setup 파일을 생성 후 실행파일에 (bin>x86>Release 혹은 bin>x64>Release 파일 속에 있는) ASCOM.(드라이버 이름).Focuser.dll으로 설정한 뒤 컴파일을 진행하면 setup파일을 통해 ASCOM에 드라이버를 등록하여 사용할 수 있다.
-
-\subsubsection{드라이버 구동 확인}
-
-Fig. \ref{fig:focuserchooser}\은 ASCOM에서 지원하는 focuser chooser 화면을 띄웠을 때 나타나게 되는 창이다. 창 자체는 ASCOM Diagnostic을 통해서도 실행할 수 있지만, ASCOM Diagnostic은 어디까지나 connection test 프로그램이기 때문에 오직 ASCOM을 통해 연결이 되는지만 확인이 (본 연구에서는 mainWindow.cs가 보이지 않는 현상이 있었다.) 따라서 실제로 모터가 움직이는 것까지 확인하기 위해서는 MaximDL이나 FocuserMax와 같은 다른 프로그램을 활용해야한다.
-
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[width=0.6\linewidth]{focuserchooser}
-	\end{center}
-	\begin{tikzpicture} [remember picture, overlay]
-	\node[rectangle, draw, fill=black!10, minimum size=0.5, font=\fontsize{60}{60}] at (3.3, 3.3) {(a)};
-	\node[rectangle, draw, fill=black!10, minimum size=0.5, font=\fontsize{20}{20}] at (13.4, 3.3) {(b)};
-	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 2.28) {(c)};
-	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 1.5) {(d)};
-	\end{tikzpicture}
-	\caption{Focuser chooser windows : (a)choosing focuser, (b)Properties; excute SetupDialogForm.cs, (c)OK; apply results, (d)Cancel; close Form}
-	\label{fig:focuserchooser}	
-\end{figure}
