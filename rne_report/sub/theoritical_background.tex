@@ -7,18 +7,19 @@ Fig. \ref{fig:observing_system}\은 관측 환경이 좋은 곳으로 망원경�
 앞서 제시한 Fig. \ref{fig:The_Andromeda_Galaxy}의 안드로메다 은하 사진은 Fig. \ref{fig:observing_system}\을 이용하여 촬영한 것이다. 상세 정보를 보면 Sbig(Santa Barbara Instrument Group)사의  ST-8300M이라는 모노크롬 CCD(Charge-coupled device)를 이용하여 촬영하였으며, 노출 정보를 보면 L(Luminence) 채널의 경우 600 sec의 노출로 14 frame을 촬영하여 합성하였으며, R(Red), G(Green), B(Blue) 각각의 채널에서 400 sec의 노출로 6 frame씩 촬영하여 합성한 것이다. 이처럼 고품질의 천체사진 한 장을 촬영하기 위해서 많은 시간과 노력이 필요하다. 
 
 \begin{figure}[h]
-	\begin{center}
-		\includegraphics[width=0.9\linewidth]{observing_system}
-	\end{center}
-		\begin{tikzpicture} [remember picture, overlay]
-		\node[rectangle, draw, fill=black!10, minimum size=0.5] at (1.5, 2.5) {(a)};
-		\node[rectangle, draw, fill=black!10, minimum size=0.5] at (2.5, 2.5) {(b)};
-		\node[rectangle, draw, fill=black!10, minimum size=0.5] at (2.5, 3.5) {(c)};
-		\node[rectangle, draw, fill=black!10, minimum size=0.5] at (2.5, 3.5) {(d)};
-		\end{tikzpicture}
-		\caption{A Small Telescope observing system for astrophotography : (a) main optic, (b) CCD, (c) guide optic, (d) guide CCD}
-		\label{fig:observing_system}
-
+	\begin{tikzpicture}
+		\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{observing_system}};
+		\draw[->, -stealth, draw=red, line width=0.7mm] (14.0, 4.0) --++ (-1.5, 0.7);
+		\node[rectangle, draw, fill=black!10, minimum size=0.5] at (14.0, 4.0) {(a)};
+		\draw[->, -stealth, draw=red, line width=0.7mm] (12.4, 8.1) --++ (-1.5, 0.2);
+		\node[rectangle, draw, fill=black!10, minimum size=0.5] at (12.4, 8.1) {(c)};
+		\draw[->, -stealth, draw=red, line width=0.7mm] (1.8, 3.5) --++ (1.2, 0.2);
+		\node[rectangle, draw, fill=black!10, minimum size=0.5] at (1.8, 3.5) {(b)};
+		\draw[->, -stealth, draw=red, line width=0.7mm] (3.5, 6.5) --++ (1.2, -0.2);
+		\node[rectangle, draw, fill=black!10, minimum size=0.5] at (3.5, 6.5) {(d)};
+	\end{tikzpicture}
+	\caption{A Small Telescope observing system for astrophotography : (a) main optic, (b) CCD, (c) guide optic, (d) guide CCD}
+	\label{fig:observing_system}
 \end{figure}
 
 점 광원(Point light source)인 별빛은 대기
