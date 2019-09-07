@@ -72,7 +72,7 @@ namespace ASCOM.GS_touch
             foreach (string port in ports)
             {
                 Debug.WriteLine("Port here " + port);
-                if (Detect_TFocuser(port))
+                if (Detect_GStouch(port))
                 {
                     comboBoxComPort.Items.Add(port);
                 }
@@ -92,7 +92,7 @@ namespace ASCOM.GS_touch
             comboBoxMS.SelectedIndex = Focuser.MicroSteppingMode;
         }
 
-        private bool Detect_TFocuser(string portName)
+        private bool Detect_GStouch(string portName)
         {
             SerialPort testPort = new SerialPort(portName, 115200);
             try
@@ -106,7 +106,7 @@ namespace ASCOM.GS_touch
                 testPort.Close();
                 Debug.WriteLine(returnMessage);
 
-                if (returnMessage.Contains("EQEQFOCUSER_STEPPER") || returnMessage.Contains("POSITION"))
+                if (returnMessage.Contains("GStouch") || returnMessage.Contains("POSITION"))
                 {
                     Focuser.motorDriver = Focuser.stepperMotor;
                     return true;
@@ -143,7 +143,7 @@ namespace ASCOM.GS_touch
             foreach (string port in ports)
             {
                 Debug.WriteLine("Port here " + port);
-                if (Detect_TFocuser(port))
+                if (Detect_GStouch(port))
                 {
                     comboBoxComPort.Items.Add(port);
                 }
