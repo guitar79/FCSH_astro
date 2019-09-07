@@ -1,21 +1,11 @@
 \section{연구 과정}
 
-\subsection{GS-focus 하드웨어 제작}
+\subsection{GS-touch 하드웨어 제작}
 
 \subsubsection{사용한 부품}
 
-%%박기현샘 선정한 부품들의 특징은 무엇이며 왜 아래 부품들을 선정하였는지 추가할 것
 
 천체망원경 모터 초점 조절 장치 컨트롤러를 제작하기 위해서 필요한 부품들을 선정하였다. Fig. \ref{fig:parts}은 주요 부품들의 모습이고, 모든 부품의 스펙(specifications)을 아래에 정리하였다. 
-%\begin{figure}[h]
-%	\subfloat{\includegraphics[width = 5.5cm]{arduino_nano-1}} 
-%	\subfloat{\includegraphics[width = 3.5cm]{DRV8825-1}}
-%	\subfloat{\includegraphics[width = 3.5cm]{DHT22-1}}
-%	\subfloat{\includegraphics[width = 3.5cm]{OLED-1}} 
-%	\caption{GS-touch 제작에 사용된 부품들}
-%	\label{fig:parts}
-%\end{figure}
-
 
 \begin{figure}[h]
 	\begin{center}
@@ -229,10 +219,9 @@ IDE에서 새로운 라이브러리를 추가하기 위해서는 상단의 도�
 
 \subsection{ASCOM driver 개발}
 
-%% 아스콤 드라이버를 개발하기 위해서 ASCOM faltfrom을 설치하고, 개발자 예제를 설치하고, 
-%%visual studio 2017을 설치하고, 템플릿 불러온 후, 어떤 부분을 수정해서 만들었는지 자세히 기술.
+ASCOM standard는 망원경을 움직이기 위하여 지원하는 시스템 중 하나로, 현재 제작되고 사용되는 많은 망원경들이 ASCOM standard를 따르고 있기 때문에 이를 사용하여 망원경을 움직이는 프로그램을 만들게 되면 여러 망원경에도 같이 사용할 수 있게 되어 호환성에 있어 큰 이점을 가지게 된다. 이것이 가능한 이유는 ASCOM standard 만의 프로토콜(protocol)이 존재하기 때문인데, 드리아버를 사용하여 이를 펌웨어와 연결시켜 통신을 할 때, ASCOM standard protocol을 사용하면 펌웨어와의 통신이 원활하게 이루어질 수 있게 되고, 다른 드라이버와도 연결할 수 있게 만들 수 있게 된다.
 
-%% 펌웨어와 ASCOM 간에 통신 프로토콜은 무엇으로 정했는지, 컴퓨터에서 어떤 명령을 주면 어떻게 동작하는지 등등
+ASCOM은 Visual Studio를 이용한 여러 가지 예제나 개발 환경을 제공하는데, developer 버전을 제공하여 아이콘이나, 실행 배경 등 Visual Studio를 이용한 ASCOM 드라이버의 개발에 필요한 여러 작업 환경들을 지원고 있어 ASCOM driver는 Visual Studio를 사용하여 개발하였다. Visual Studio는 Microsoft에서 제공하는 통합 개발 환경으로, Visual Basic, Visual C\# 등 여러 가지 언어를 제공하며, Windows .NET환경에서 개발을 진행할 수 있다는 큰 장점이 있다. 본 드라이버의 언어 또한 Windows. NET을 기반으로 하고 있으므로 Windows. NET 기반의 개발 환경을 제공하는 Visual Studio를 사용하여 개발할 수 있었다. 추후 개발이 원활하게 진행되면, MFC 라이브러리를 이용한 드라이버의 개발을 진행하여 개발의 직관성을 더 높일 수도 있을 것이며, MFC 라이브러리를 이용하며 만든 드라이버 또한 Visual Studio를 통한 원활한 개발이 가능하다. 이를 위해서는 C\#으로 개발된 프로그램을 regasm.exe로 활성화시킬 필요가 있다.
 
 \subsubsection{드라이버 파일 생성 및 설정}
 기본적으로 ASCOM에서는 개발자들을 위한 Platform 6 Developer Components를 지원하게 된다. 사이트에서 직접 다운로드 받을 수 있는 파일 속에는 C\# 형식으로 들어있는 Driver.cs와 SetupDialogForm.cs를 지원하여 ASCOM과 미리 연결할 수 있도록 할 뿐만이 아니라 아이콘과 라이센스 등 개발 시 주의점이나 필요한 요소들을 지원해준다.
