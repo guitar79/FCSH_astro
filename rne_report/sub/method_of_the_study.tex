@@ -6,15 +6,36 @@
 
 %%박기현샘 선정한 부품들의 특징은 무엇이며 왜 아래 부품들을 선정하였는지 추가할 것
 
-천체망원경 모터 초점 조절 장치 컨트롤러를 제작하기 위해서 필요한 부품들을 선정하였다. 각각의 부품의 특징과 스펙을 아래에 정리하였다. 
+천체망원경 모터 초점 조절 장치 컨트롤러를 제작하기 위해서 필요한 부품들을 선정하였다. Fig. \ref{fig:parts}은 주요 부품들의 모습이고, 모든 부품의 스펙(specifications)을 아래에 정리하였다. 
+%\begin{figure}[h]
+%	\subfloat{\includegraphics[width = 5.5cm]{arduino_nano-1}} 
+%	\subfloat{\includegraphics[width = 3.5cm]{DRV8825-1}}
+%	\subfloat{\includegraphics[width = 3.5cm]{DHT22-1}}
+%	\subfloat{\includegraphics[width = 3.5cm]{OLED-1}} 
+%	\caption{GS-touch 제작에 사용된 부품들}
+%	\label{fig:parts}
+%\end{figure}
+
+
 \begin{figure}[h]
-	\subfloat{\includegraphics[width = 5cm]{arduino_nano}} 
-	\subfloat{\includegraphics[width = 3cm]{DRV8825}}
-	\subfloat{\includegraphics[width = 2cm]{DHT22}}
-	\subfloat{\includegraphics[width = 4cm]{OLED}} 
-	\caption{GS-touch 제작에 사용된 부품들}
+	\begin{center}
+	\begin{tikzpicture}
+	\node[anchor=south west,inner sep=0] at (0,0) {
+		{\includegraphics[width = 5.5cm]{arduino_nano-1}} 
+		{\includegraphics[width = 3.5cm]{DRV8825-1}}
+		{\includegraphics[width = 3.5cm]{DHT22-1}}
+		{\includegraphics[width = 3.5cm]{OLED-1}} };
+	\draw (0.5, 3.0) node {(a)};
+	\draw (6.0, 3.0) node {(b)};
+	\draw (10.0, 3.0) node {(c)};
+	\draw (12.8, 3.0) node {(d)};
+	\end{tikzpicture}
+	\end{center}
+	\caption{GS-touch 제작에 사용된 주요 부품들: (a) Arduino nano, (b) DRV8825, (c) DHT22, (d) OLED displayer.}
 	\label{fig:parts}
 \end{figure}
+
+
 
 \begin{description}[font=$\bullet$~\normalfont\scshape\color{red!50!black}]
 	\item [ARDUINO NANO] 모터 초점 조절 장치 컨트롤러를 만드는 데 있어 가장 중요한 부품으로, 일종의 작은 컴퓨터와 같은 역할을 한다. Arduino는 마이크로 컨트롤러를 달고 있는 기판으로, Arduino의 여러 가지 핀에 전선을 연결한 뒤에 코딩하여 Arduino에 올리면 Arduino가 코딩된 내용을 그대로 실행할 수 있도록 하는 hardware이다. 내부에 컴퓨터 역할을 하는 MPU인 ATmega328가 탑재되어 있으며, 5V를 공급할 시에 작동한다. 크기는 45mm x 18mm이다.
@@ -34,12 +55,21 @@
 
 \subsubsection{프로토타입(Prototype) 기판 제작}
 
-주어진 부품들을 하나하나 연결하여 만능기판에 와이어로 납땜을 하여 Figure \ref{fig:prototype}\과 같은 프로토 타입(prototype) 회로를 제작하였다. 부품의 갯수가 많아지면서 배선을 하는데 어려움이 있었지만 회로가 정상적으로 동작하는 것을 확인할 수 있었고, 모터 회전, OLED 디스플레이, 시리얼 통신 등의 코드를 연습할 수 있었다.
+주어진 부품들을 하나 하나 연결하여 만능기판에 와이어로 납땜을 하여 Fig. \ref{fig:prototype}\과 같은 프로토 타입(prototype) 회로를 제작하였다. 각 부품을 사용할 때에는 각 부품의 동작 전압, 허용 전류와 같은 여러 가지 스펙들을 생각하여 회로를 구성해야 한다. 예를 들어 WIFI 모듈인 ESP8266과 같은 경우 그 동작 전압이 5V가 아닌 3.3V이기 때문에 주의하여야 한다. 또한, 각 부품 별로 제조사의 data sheet를 참조하여 여러 가지 문제점들을 미리 방지하였다. 일부 부품은 극성에 유의해야 하며, 
+
+특히 5V를 3.3V로 바꾸는 과정에서는 전압 나눔 회로를 이용하여 전압을 나눌 수 있으나, 12V를 5V로 바꾸는 과정에서는 충분한 전류를 확보하기 위하여 LM7805 regulator를 사용하였다. 부품의 갯수가 많아지면서 배선을 하는데 어려움이 있었지만 회로가 정상적으로 동작하는 것을 확인할 수 있었고, 모터 회전, OLED 디스플레이, 시리얼 통신 등의 코드를 연습할 수 있었다.
 
 \begin{figure}[h]
 	\begin{center}
-		\includegraphics[width=0.9\linewidth]{prototype} 
-		\caption{만능 기판으로 제작한 프로토타입 하드웨어}
+		\begin{tikzpicture}
+		\node[anchor=south west,inner sep=0] at (0,0) 
+		{
+			{\includegraphics[width=1.0\linewidth]{prototype}} 
+		};
+		\draw (0.3, 7.8) node {(a)};
+		\draw (8.3, 7.8) node {(b)};
+		\end{tikzpicture}
+		\caption{만능 기판으로 제작한 프로토타입 하드웨어 (a) 앞면과 (b) 뒷면}
 		\label{fig:prototype}
 	\end{center}
 \end{figure}
@@ -47,15 +77,40 @@
 
 \subsubsection{회로도 작성}
 
-Circuitmaker 프로그램의 사용법을 숙지하는 데 오랜 시간이 걸렸기 때문에, 그사이에 진행된 연구에서는 만능기판에 여러 가지 부품들을 전선으로 연결하여 사용하는 방법을 택하였고, 연구가 진행되어 만능기판이 복잡해짐에 따라서 여러 프로그램의 도움을 받게 되었다.
+연구 초반에는 Arduino와 직접 연동이 가능한 Fritzing(https://fritzing.org/home/)을 사용하였지만, 연구가 진행될수록 다른 부품들과 실제로 구현이 가능한 PCB 회로기판을 만들 수 있어야 했기 때문에 무료로 사용 가능한 PCB 회로 제작 프로그램이면서 협업 기능을 사용할 수 있는 Circuitmaker(https://circuitmaker.com/)를 사용하게 되었다. 
 
-연구 초기과정에서는 Arduino와 직접 연동이 가능한 ‘Fritzing’이라는 프로그램을 사용하였지만, 연구가 진행될수록 다른 부품들과 실제로 구현이 가능한 PCB 회로기판을 만들 수 있어야 했기 때문에 보편화한 PCB 회로제작 프로그램이면서 ‘협업’ 기능을 이용하여 동시에 수정이 가능한 ‘Circuitmaker’라는 프로그램을 사용하게 되었다.
+Fig. \ref{fig:circuit_maker}\는 Circuit maker를 실행한 화면을 나타낸 것이다. Circuit maker 사용법은 유투브 강좌를 통해 익혔다. Circuit maker 사용법을 익히는데 숙지하는 데 오랜 시간이 걸렸기 때문에, 그 사이에 진행된 연구에서는 Fig. \ref{fig:prototype}의 프로토 타입 하드웨어를 이용하여 펌웨어 개발을 수행하였다. 
 
-각 부품을 사용할 때에는 각 부품의 허용 전류와 같은 여러 가지 특징들을 생각하여 회로를 배선해야 한다. 예를 들어 WIFI 모듈인 ESP8266과 같은 경우 그 입력전압이 Arduino의 출력 전압인 5V가 아닌 3.3V이기 때문에 주의하여야 한다. 또한, 각 부품의 칩별로 제조한 회사의 data sheet를 참조하여 부품을 사용하면서 여러 가지 문제점들을 미리 방지하였다.\\
-특히 5V를 3.3V로 바꾸는 과정에서는 전압 나눔 회로를 이용하여 전압을 나눌 수 있으나, 12V를 5V로 바꾸는 과정에서는 전류를 제어하는 것이 필요하므로 부득이하게 regulator를 사용하게 되었다.
+Circuit maker로 하나의 PCB를 디자인 하기까지 다음의 과정을 거치게 된다. 부품 선택, 라우팅(routing) 
 
 
-Figure \ref{fig:Schematic_Prints}\는 최종 완성한 기판의 회로도이다.
+%\begin{figure}[h]
+%	\begin{center}
+%		\includegraphics[width=0.5\linewidth]{circuit_maker2}
+%		\includegraphics[width=0.5\linewidth]{circuit_maker}
+%		\caption{(a) Circuit maker 공식 사이트와 (b) 실행 화면}
+%		\label{fig:circuit_maker}
+%	\end{center}
+%\end{figure}
+
+
+\begin{figure}[h]
+	\begin{center}
+		\begin{tikzpicture}
+		\node[anchor=south west,inner sep=0] at (0,0) {
+			{\includegraphics[width=0.42\linewidth]{circuit_maker2}} 
+			{\includegraphics[width=0.56\linewidth]{circuit_maker}} 
+		};
+		\draw (0.3, 5.1) node {(a)};
+		\draw (7.3, 5.1) node {(b)};
+		\end{tikzpicture}
+	\end{center}
+	\caption{(a) Circuit maker 공식 사이트와 (b) 실행 화면.}
+	\label{fig:circuit_maker}
+\end{figure}
+
+
+Fig. \ref{fig:Schematic_Prints}\는 최종 완성한 기판의 회로도이다.
 \begin{figure}
 	\begin{center}
 	\includegraphics[width=1\linewidth]{Schematic_Prints_color}
@@ -140,16 +195,15 @@ Fig. \ref{fig:stl}\은 제작한 케이스의 stl 파일이다.
 
 \subsubsection{아두이노 라이브러리}
 펌웨어에 필요한 기본적인 기능들을 구현하기 위해서는 연결되어있는 부품들을 컨트롤할 수 있는 방법이 필요했고, 이들을 단순화시켜 함수로 정리한 라이브러리를 사용하여 효율적으로 개발을 진행할 수 있었다.
-IDE에서 새로운 라이브러리를 추가하기 위해서는 상단의 도구 창에서 스케치>라이브러리 포함하기>라이브러리 관리 또는 .ZIP 라이브러리 추가...를 선택하여 관련 작업을 진행할 수 있다.\\
-본 연구에서 사용한 라이브러리는 다음과 같다.
+IDE에서 새로운 라이브러리를 추가하기 위해서는 상단의 도구 창에서 스케치>라이브러리 포함하기>라이브러리 관리 또는 .ZIP 라이브러리 추가...를 선택하여 관련 작업을 진행할 수 있다.
+
+본 연구에서 사용한 라이브러리는 다음과 같다. 
 \begin{description}[font=$\bullet$~\normalfont\scshape\color{red!50!black}]
-	\item [AccelStepper.h] 모터의 전반적인 움직임에 있어 필요한 라이브러리다. 스테핑모터를 컨트롤할 수 있도록 하는 기능을 포함하며, 모터의 객체를 생성할 때 스테핑모터 드라이버가 없는 경우는 각각의 핀을 아두이노와 연결하여 객체를 만들 수 있도록 하며, 본 연구와 같이 스테핑모터 드라이버가 있는 경우에는 드라이버의 DIR핀과 STEP핀만을 이용하여 객체를 생성할 수도 있다. 중요한 함수들을 몇가지 나열하자면, \\
-	
+	\item [AccelStepper.h] 모터의 전반적인 움직임에 있어 필요한 라이브러리다. 스테핑모터를 컨트롤할 수 있도록 하는 기능을 포함하며, 모터의 객체를 생성할 때 스테핑모터 드라이버가 없는 경우는 각각의 핀을 아두이노와 연결하여 객체를 만들 수 있도록 하며, 본 연구와 같이 스테핑모터 드라이버가 있는 경우에는 드라이버의 DIR핀과 STEP핀만을 이용하여 객체를 생성할 수도 있다. 중요한 함수들을 몇가지 나열하자면, 
 	
 	AccelStepper::currentPosition() : 현재 position에 있는 값을 반환한다.\\
 	AccelStepper::setCurrentPosition(int p) : p를 현재 position으로 한다.\\
-	AccelStepper::moveTo(int p) : p위치의 position으로 이동한다.\\
-	
+	AccelStepper::moveTo(int p) : p위치의 position으로 이동한다.
 	
 	등이 존재한다. AccelStepper.h 라이브러리의 단점은 그 자체로 microstepping을 지원하지 않기 때문에 이를 바꾸기 위해서는 드라이버를 통해 강제로 바꾸어야하며, 이로 인해 바뀌는 step당 position을 적용시키기 어렵기 때문에 microstepping을 변환하기 위해서는 setCurrentPosition함수가 반드시 동반되어야 한다는 점이다.
 	
