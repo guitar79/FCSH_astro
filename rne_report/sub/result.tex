@@ -45,14 +45,14 @@ Driver.cs는 serial Port를 이용하여 펌웨어와 직접적으로 통신하�
 	\begin{center}
 	\begin{tikzpicture}
 	\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=0.6\linewidth]{focuserchooser}};
-	\draw[draw=red, line width=0.5mm] (0.3,2.05) rectangle (6.8,2.6);
-	\draw[draw=red] (-0.2, 2.3) node {(a)};
-	\draw[draw=red, line width=0.5mm] (7.2,2.05) rectangle (12.2,2.6);
-	\draw[draw=red] (12.5, 2.3) node {(b)};
-	\draw[draw=red, line width=0.5mm] (7.0,2.05) rectangle (2.8,2.6);
-	\draw[draw=red] (9.0, 2.3) node {(c)};
-	\draw[draw=red, line width=0.5mm] (7.0,2.05) rectangle (2.8,2.6);
-	\draw[draw=red] (9.0, 2.3) node {(d)};
+	\draw[draw=red, line width=0.5mm] (0.4, 2.05) rectangle (6.8, 2.61);
+	\draw[text=red] (0.1, 2.3) node {(a)};
+	\draw[draw=red, line width=0.5mm] (7.2, 2.05) rectangle (9.6, 2.61);
+	\draw[text=red] (10.0, 2.30) node {(b)};
+	\draw[draw=red, line width=0.5mm] (7.2, 1.04) rectangle (9.6, 1.55);
+	\draw[text=red] (10.0, 1.29) node {(c)};
+	\draw[draw=red, line width=0.5mm] (7.2, 0.33) rectangle (9.6, 0.84);
+	\draw[text=red] (10.0, 0.58) node {(d)};
 	\end{tikzpicture}
 	\end{center}
 	\caption{Focuser chooser windows : (a) choosing focuser, (b) Properties; excute SetupDialogForm.cs, (c) OK; apply results, (d) Cancel; close Form}
@@ -61,24 +61,30 @@ Driver.cs는 serial Port를 이용하여 펌웨어와 직접적으로 통신하�
 
 SetupDialogForm.cs는 ASCOM 드라이버를 선택하는 과정에서 직접적으로 연결을 진행하기 전에(직접적인 연결은 Connect를 눌러야 시작된다) 필요한 설정들을 확인하는 절차이다. 이 파일에서는 드라이버와 펌웨어 사이에 연결되어있는 COM port(serial 통신을 하기 위해 usb로 연결되어 있는 포트)를 지정하며, 모터의 microstepping을 설정한다. microstepping설정을 모터를 움직이는 도중에 직접 설정하게 되면 한 스텝당 이동하는 position이 달라지기 때문에 정확한 거리를 계산할 수 없게 되며, 측정을 한 번 진행할 때마다 Position 사이의 거리가 달라진다. 따라서 직접 연결을 진행하기 전에 microstepping을 다시 확인하게 된다.
 
-
-
-
-\begin{figure}[ht]
+\begin{figure}[h]
 	\begin{center}
-		\includegraphics[width=0.6\linewidth]{setupdialogform_capture}
+		\begin{tikzpicture}
+		\node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=0.6\linewidth]{setupdialogform_capture}};
+		\draw[draw=red, line width=0.5mm] (0.4, 0.7) rectangle (3.20, 1.2);
+		\draw[text=red] (0.10, 0.95) node {(a)};
+		\draw[draw=red, line width=0.5mm] (0.4, 0.15) rectangle (3.2, 0.65);
+		\draw[text=red] (0.10, 0.40) node {(b)};
+		\draw[draw=red, line width=0.5mm] (9.8, 2.4) rectangle (6.4, 2.9);
+		\draw[text=red] (10.2, 2.6) node {(c)};
+		\draw[draw=red, line width=0.5mm] (9.8, 1.75) rectangle (6.4, 2.25);
+		\draw[text=red] (10.2, 2.05) node {(d)};
+		\draw[draw=red, line width=0.5mm] (7.8, 0.1) rectangle (5.65, 1.4);
+		\draw[text=red] (5.3, 0.8) node {(e)};
+		\draw[draw=red, line width=0.5mm] (9.8, 0.8) rectangle (8.0, 1.4);
+		\draw[text=red] (10.2, 1.05) node {(f)};		
+		\draw[draw=red, line width=0.5mm] (9.8, 0.1) rectangle (8.0, 0.7);
+		\draw[text=red] (10.2, 0.35) node {(g)};		
+		\end{tikzpicture}
 	\end{center}
-	\begin{tikzpicture} [remember picture, overlay]
-	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (3.3, 1.7) {(a)};
-	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (8.6, 1.65) {(b)};
-	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 3.6) {(c)};
-	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 2.95) {(d)};
-	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 2.0) {(e)};
-	\node[rectangle, draw, fill=black!10, minimum size=0.5] at (13.4, 1.27) {(f)};
-	\end{tikzpicture}
-	\caption{SetupDialogForm : (a)basic settings; checked show UI allows to show mainWindow when connected, (b)Reconnect; try to find COM Port, (c)COM Port; find TFocuser, (d)Microstepping; set Microstepping mode, (e)}
+	\caption{SetupDialogForm : (a) show controller; checked show User Interface allows to show mainWindow when connected, (b) trace on; save log file (c) Reconnect; try to find COM Port, (c) COM Port; find TFocuser, (d) Microstepping; set Microstepping mode, (e) , (f) , (g) }
 	\label{fig:setupdialogform_capture}	
 \end{figure}
+
 
 
 MainWindow.cs는 직접 연결을 실행했을 때 우리 눈에 직접 들어오는 컨트롤 창의 정보에 대한 파일이다. MainWindow의 버튼들은 각각 펌웨어에서 설정한 serialcommand와 연결되어있어 버튼이 눌릴 때마다 Driver.cs에서 serialcommand를 통해 자료를 주고받으며, 새로 업데이트된 정보는 다시 MainWindow 창에 표시되는 작업이 반복되게 된다. 
