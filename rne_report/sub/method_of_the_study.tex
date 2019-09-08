@@ -1,21 +1,11 @@
 \section{연구 과정}
 
-\subsection{GS-focus 하드웨어 제작}
+\subsection{GS-touch 하드웨어 제작}
 
 \subsubsection{사용한 부품}
 
-%%박기현샘 선정한 부품들의 특징은 무엇이며 왜 아래 부품들을 선정하였는지 추가할 것
 
 천체망원경 모터 초점 조절 장치 컨트롤러를 제작하기 위해서 필요한 부품들을 선정하였다. Fig. \ref{fig:parts}은 주요 부품들의 모습이고, 모든 부품의 스펙(specifications)을 아래에 정리하였다. 
-%\begin{figure}[h]
-%	\subfloat{\includegraphics[width = 5.5cm]{arduino_nano-1}} 
-%	\subfloat{\includegraphics[width = 3.5cm]{DRV8825-1}}
-%	\subfloat{\includegraphics[width = 3.5cm]{DHT22-1}}
-%	\subfloat{\includegraphics[width = 3.5cm]{OLED-1}} 
-%	\caption{GS-touch 제작에 사용된 부품들}
-%	\label{fig:parts}
-%\end{figure}
-
 
 \begin{figure}[h]
 	\begin{center}
@@ -25,17 +15,15 @@
 		{\includegraphics[width = 3.5cm]{DRV8825-1}}
 		{\includegraphics[width = 3.5cm]{DHT22-1}}
 		{\includegraphics[width = 3.5cm]{OLED-1}} };
-	\draw (0.5, 3.0) node {(a)};
-	\draw (6.0, 3.0) node {(b)};
-	\draw (10.0, 3.0) node {(c)};
-	\draw (12.8, 3.0) node {(d)};
+	\draw (0.5, 2.6) node {(a)};
+	\draw (6.0, 2.6) node {(b)};
+	\draw (10.0, 2.6) node {(c)};
+	\draw (12.8, 2.6) node {(d)};
 	\end{tikzpicture}
 	\end{center}
 	\caption{GS-touch 제작에 사용된 주요 부품들: (a) Arduino nano, (b) DRV8825, (c) DHT22, (d) OLED displayer.}
 	\label{fig:parts}
 \end{figure}
-
-
 
 \begin{description}[font=$\bullet$~\normalfont\scshape\color{red!50!black}]
 	\item [ARDUINO NANO] 모터 초점 조절 장치 컨트롤러를 만드는 데 있어 가장 중요한 부품으로, 일종의 작은 컴퓨터와 같은 역할을 한다. Arduino는 마이크로 컨트롤러를 달고 있는 기판으로, Arduino의 여러 가지 핀에 전선을 연결한 뒤에 코딩하여 Arduino에 올리면 Arduino가 코딩된 내용을 그대로 실행할 수 있도록 하는 hardware이다. 내부에 컴퓨터 역할을 하는 MPU인 ATmega328가 탑재되어 있으며, 5V를 공급할 시에 작동한다. 크기는 45mm x 18mm이다.
@@ -45,14 +33,15 @@
 	\item [Apem MJTP1230B 버튼스위치] 누르는 버튼의 일종으로, 다리가 4개 달린 상태에서 같은 방향에 있는 2개의 전선이 연결된 방식의 버튼이다. 내부의 pull-up 저항을 활용하면 Arduino와 직접 연결하는 것으로 작동시킬 수 있다.
 	\item [BP5277-90] 모터를 돌리기 위해서는 12V의 전압이 필요하다. 즉, 12V의 전압을 이용하여 모터를 돌리면서 Arduino를 실행시키기 위해서는 12V를 Arduino의 입력전압인 5V까지 낮출 필요가 있다. 이에 regulator와 축전기를 활용하여 가장 안전하게 5V까지 전압을 낮출 수 있는 regulator를 선택하였다.
 	\item [HC-06 bluetooth] 무선통신 장치이다. 여러 가지 무선통신 장치 중에서 블루투스 module의 역할을 하고 있다.
-	\item [LED 3mm 90', Ohmite OD473JE] 전원이 여러 개가 존재할 수 있으므로, 모터가 돌아갈 수 있는 전압인 12V의 외부전압이 들어왔을 때만 LED가 깜빡일 수 있게 하여 모터가 돌아갈 수 있는 전압이 되었는지 확인할 수 있도록 하는 역할을 하고 있다.
+	\item [LED 3mm 90$\deg$, Ohmite OD473JE] 전원이 여러 개가 존재할 수 있으므로, 모터가 돌아갈 수 있는 전압인 12V의 외부전압이 들어왔을 때만 LED가 깜빡일 수 있게 하여 모터가 돌아갈 수 있는 전압이 되었는지 확인할 수 있도록 하는 역할을 하고 있다.
 	\item [Panasonic EEA-GA1C100H] 모터를 돌리는 상황에서 큰 전류를 사용하기 때문에 전류가 역방향으로 흐르는 등의 문제를 방지하기 위하여 100μF의 축전기를 사용하였다.
 	\item [SparkFun WRL-13678 (ESP8266, ESP01)] 무선통신 장치이다. 여러 가지 무선통신 장치 중에서 WIFI 모듈을 담당한다. 입력전압이 5V가 아닌 3.3V이다.
 	\item [Sprague 1C10X7R104K050B] 부품별로 각각 연결된 축전기로, 모두 같은 전압 차를 가지고 있지만, 전류의 noise filtering을 하는 역할로, 필수적으로 사용되었다.
 
-	\item [TE Connectivity/AMP 5525258-3 및 Wurth Elektronik 694106301002] 12V 외부전원과 모터를 연결하는 선을 연결할 수 있게 하는 module이다.
+	\item [TE Connectivity/AMP 5525258-3 및 Wurth Elektronik 694106301002] 12V 외부 전원과 모터를 연결하는 선을 연결할 수 있게 하는 module이다.
 \end{description}
 
+\clearpage
 \subsubsection{프로토타입(Prototype) 기판 제작}
 
 주어진 부품들을 하나 하나 연결하여 만능기판에 와이어로 납땜을 하여 Fig. \ref{fig:prototype}\과 같은 프로토 타입(prototype) 회로를 제작하였다. 각 부품을 사용할 때에는 각 부품의 동작 전압, 허용 전류와 같은 여러 가지 스펙들을 생각하여 회로를 구성해야 한다. 예를 들어 WIFI 모듈인 ESP8266과 같은 경우 그 동작 전압이 5V가 아닌 3.3V이기 때문에 주의하여야 한다. 또한, 각 부품 별로 제조사의 data sheet를 참조하여 여러 가지 문제점들을 미리 방지하였다. 일부 부품은 극성에 유의해야 하며, 
@@ -64,134 +53,121 @@
 		\begin{tikzpicture}
 		\node[anchor=south west,inner sep=0] at (0,0) 
 		{
-			{\includegraphics[width=1.0\linewidth]{prototype}} 
+			{\includegraphics[width=0.7\linewidth]{prototype}} 
 		};
-		\draw (0.3, 7.8) node {(a)};
-		\draw (8.3, 7.8) node {(b)};
+		\draw (0.3, 5.4) node {(a)};
+		\draw (6.1, 5.4) node {(b)};
 		\end{tikzpicture}
 		\caption{만능 기판으로 제작한 프로토타입 하드웨어 (a) 앞면과 (b) 뒷면}
 		\label{fig:prototype}
 	\end{center}
 \end{figure}
 
+\subsubsection{회로도 작성 및 PCB 제작}
 
-\subsubsection{회로도 작성}
-
-연구 초반에는 Arduino와 직접 연동이 가능한 Fritzing(https://fritzing.org/home/)을 사용하였지만, 연구가 진행될수록 다른 부품들과 실제로 구현이 가능한 PCB 회로기판을 만들 수 있어야 했기 때문에 무료로 사용 가능한 PCB 회로 제작 프로그램이면서 협업 기능을 사용할 수 있는 Circuitmaker(https://circuitmaker.com/)를 사용하게 되었다. 
-
-Fig. \ref{fig:circuit_maker}\는 Circuit maker를 실행한 화면을 나타낸 것이다. Circuit maker 사용법은 유투브 강좌를 통해 익혔다. Circuit maker 사용법을 익히는데 숙지하는 데 오랜 시간이 걸렸기 때문에, 그 사이에 진행된 연구에서는 Fig. \ref{fig:prototype}의 프로토 타입 하드웨어를 이용하여 펌웨어 개발을 수행하였다. 
-
-Circuit maker로 하나의 PCB를 디자인 하기까지 다음의 과정을 거치게 된다. 부품 선택, 라우팅(routing) 
-
-
-%\begin{figure}[h]
-%	\begin{center}
-%		\includegraphics[width=0.5\linewidth]{circuit_maker2}
-%		\includegraphics[width=0.5\linewidth]{circuit_maker}
-%		\caption{(a) Circuit maker 공식 사이트와 (b) 실행 화면}
-%		\label{fig:circuit_maker}
-%	\end{center}
-%\end{figure}
-
+연구 초반에는 Arduino와 직접 연동이 가능한 Fritzing (https://fritzing.org/home/)을 사용하였지만, 연구가 진행될수록 다른 부품들과 실제로 구현이 가능한 PCB 회로기판을 만들기 위해서 무료로 사용 가능한 PCB 회로 제작 프로그램이면서 협업 기능을 사용할 수 있는 Circuit maker (https://circuitmaker.com/)를 사용하게 되었다. 
 
 \begin{figure}[h]
 	\begin{center}
 		\begin{tikzpicture}
-		\node[anchor=south west,inner sep=0] at (0,0) {
-			{\includegraphics[width=0.42\linewidth]{circuit_maker2}} 
-			{\includegraphics[width=0.56\linewidth]{circuit_maker}} 
+		\node[anchor=south west,inner sep=0] at (0,0) 
+		{
+			\includegraphics[width=0.42\linewidth]{circuit_maker2}
+			\includegraphics[width=0.56\linewidth]{circuit_maker} 
 		};
-		\draw (0.3, 5.1) node {(a)};
-		\draw (7.3, 5.1) node {(b)};
+		\draw (0.3, 5.6) node {(a)};
+		\draw (7.3, 5.6) node {(b)};
 		\end{tikzpicture}
 	\end{center}
 	\caption{(a) Circuit maker 공식 사이트와 (b) 실행 화면.}
 	\label{fig:circuit_maker}
 \end{figure}
 
+Fig. \ref{fig:circuit_maker}\는 Circuit maker를 실행한 화면을 나타낸 것이다. Circuit maker 사용법은 유투브 강좌를 통해 익혔다. Circuit maker 사용법을 익히는데 숙지하는 데 오랜 시간이 걸렸기 때문에, 그 사이에 진행된 연구에서는 Fig. \ref{fig:prototype}의 프로토 타입 하드웨어를 이용하여 펌웨어 개발을 수행하였다. Circuit maker로 하나의 PCB를 완성하기까지 다음의 과정을 거치게 된다.
 
-Fig. \ref{fig:Schematic_Prints}\는 최종 완성한 기판의 회로도이다.
-\begin{figure}
-	\begin{center}
-	\includegraphics[width=1\linewidth]{Schematic_Prints_color}
-	\caption{회로도}
-	\label{fig:Schematic_Prints}
-	\end{center}
-\end{figure}
+1. 원하는 기능과 모양의 부품을 선택한다.
 
+2. 부품들 사이에 배선을 하여 회로도를 완성한다.
 
-\subsubsection{기판 제작}
-서킷 메이커 프로그램으로 회로를 그린 후 PCB를 디자인 하였다. 
+3. 배선에 이상이 없으면 컴파일 과정을 거쳐 PCB에 부품을 배치한다. 
 
-%%박기현 샘  PCB를 디자인하기 위해 와이어링, 부품 배치, 폴리곤 푸어 등을 한 과정을 추가할 것
-%%아까 말한데로, 누구나 이 보고서를 보고 따라만들수 있을 정도로 자세하게 적으면 좋겠다.
-%%예를 들면 서킷메이커로 작업한 것을 순서대로 기술해 주면 좋겠어..
-%% 부품 선정, 와이어링, pcb 제작, 폴리곤 푸어 등등
+4. 배치된 부품들 간에 실제 라우팅 (routing) 과정으로 배선을 연결한다. 
 
-회로도에 따라 부품들이 와이어로 연결되어 있으므로 적절하게 배치하여 ......    PCB를 제작하였다. Fig. \ref{fig:pcb}\은 서킷 메이커로 디자인한 PCB의 삼차원 모습을 나타낸다.
+5. 모든 작업이 완료되면 거버 포멧 (gerber format)으로 저장하여 업체에 제작을 의뢰한다.
+
+제작한 PCB는 총 3가지 종류가 있는데, Fig. \ref{fig:Schematic_Prints}\는 최종 완성한 기판의 회로도이며, Fig. \ref{fig:pcb}\은 서킷 메이커로 디자인한 PCB의 삼차원 모습을 나타낸다.
 
 \begin{figure}[h]
 	\begin{center}
-	\begin{subfigure}{0.45\textwidth}
-		\includegraphics[width=0.9\linewidth]{pcbfront_3d} 
-		\caption{Front}
-		\label{fig:pcbfront_3d}
-	\end{subfigure}
-	\begin{subfigure}{0.45\textwidth}
-		\includegraphics[width=0.85\linewidth]{pcbback_3d}
-		\caption{Back}
-		\label{fig:pcbback_3d}
-	\end{subfigure}
-	\caption{Circuit maker로 디자인한 PCB}
-	\label{fig:pcb}
+		\includegraphics[width=0.75\linewidth]{Schematic_Prints_color}
+		\caption{Circuit maker로 작성한 회로}
+		\label{fig:Schematic_Prints}
 	\end{center}
 \end{figure}
 
-Fig. \ref{fig:pcbcircuit}\은 처음 제작한 PCB Ver. 1 이다. PCB Version 1은 크기가 너무 크게 제작되었다.
-\begin{figure}[H]
+\begin{figure}[h]
 	\begin{center}
-		\includegraphics[width=0.5\linewidth]{pcbcircuit}
-		\caption{PCB Ver. 1로 완성한 회로}
+		\begin{tikzpicture}
+		\node[anchor=south west, inner sep=0] at (0,0) 
+		{
+		\includegraphics[width=0.35\linewidth]{pcbfront_3d}  
+		\includegraphics[width=0.34\linewidth]{pcbback_3d}
+		};
+		\draw (0.1, 8.2) node {(a)};  
+		\draw (6.5, 8.2) node {(b)};
+		\end{tikzpicture}
+	\end{center}
+		\caption{Circuit maker로 디자인한 PCB (a) 앞면, (b) 뒷면}
+	\label{fig:pcb}
+\end{figure}
+
+\clearpage
+
+Fig. \ref{fig:pcbcircuit}\은 처음 제작한 PCB Ver. 1.0\과 개선된 Ver. 1.1\이다. Ver. 1.0\은 크기가 너무 크게 제작되어 Ver. 1.2에서 부품의 배치를 달리하여 크기를 줄여 보았다.
+
+\begin{figure}[h]
+	\begin{center}
+		\begin{tikzpicture}
+		\node[anchor=south west,inner sep=0] at (0,0) 
+		{
+			\includegraphics[width=0.362\linewidth]{pcbcircuit}
+			\includegraphics[width=0.272\linewidth]{pcbcircuit-12}
+			\includegraphics[width=0.313\linewidth]{pcbcircuit-13}
+		};
+		\draw (0.2, 6.4) node {(a)};
+		\draw (6.3, 6.4) node {(b)};
+		\draw (11.1, 6.4) node {(c)};
+		\end{tikzpicture}
+		\caption{제작한 PCB (a) Ver. 1.0, (b) Ver. 1.1, (c) Ver. 1.2.}
 		\label{fig:pcbcircuit}
 	\end{center}
 \end{figure}
 
-%%박기현 샘  이후 PCB는 어떤 점을 개선하였는지
+\subsubsection{엔클로저(encloser) 제작}
 
-
-
-\subsubsection{케이스 제작}
-
-Fusion 360으로 케이스 제작 및 3D 프린터 출력
-
-
-Fig. \ref{fig:stl}\은 제작한 케이스의 stl 파일이다. 
+Autodesk 사의 Fusion 360 (https://www.autodesk.com/products/fusion-360/) 을 이용하여 전용 엔클로져를 디자인하였고 그 모습은 Fig. \ref{fig:stl}\와 같다. 디자인한 엔틀로저를 stl (stereolithography) 파일 포멧으로 저장한 후에 3D 프린터 출력하여 저렴하게 하드웨어의 엔클로저를 만들었다. 아ㄱ직갯개선할 부분들이 많지만 엔클로저를 직접 디자인 할 수 있으므로 얼마든지 개선이 가능하다. 
 
 \begin{figure}[h]
 	\begin{center}
-		\begin{subfigure}{0.45\textwidth}
-			\includegraphics[width=0.95\linewidth]{stldown} 
-			\caption{아래쪽}
-			\label{fig:stldown}
-		\end{subfigure}
-		\begin{subfigure}{0.45\textwidth}
-			\includegraphics[width=0.95\linewidth]{stlup}
-			\caption{윗쪽}
-			\label{fig:stlup}
-		\end{subfigure}
-		\caption{Fusion 360으로 디자인한 케이스의 stl 파일}
+		\begin{tikzpicture}
+		\node[anchor=south west,inner sep=0] at (0,0) 
+		{
+			\includegraphics[width=0.5\linewidth]{stldown}
+			\includegraphics[width=0.5\linewidth]{stlup}
+		};
+		\draw (0.5, 4.8) node {(a)};
+		\draw (8.5, 4.8) node {(b)};
+		\end{tikzpicture}
+			\caption{Fusion 360으로 디자인한 엔클로저 모습}
 		\label{fig:stl}
 	\end{center}
 \end{figure}
 
+\clearpage
 
+\subsection{펌웨어(firmware) 개발}
 
-
-\subsection{펌웨어 개발}
-
-%% 아두이노 IDE 실행해서, 어떤 라이브러리를 사용했는지, 라이브러리 설치하는 방법 등을 자세히 기술하면 좋겠다. 
-개발하는 ASCOM driver와 MCU간의 통신은 어떤 방식을 사용하던지 상관없으나, 비교적 쉽게 통신이 가능하며 개발이 가능한 serialPort를 사용하여 드라이버-펌웨어 간 통신을 진행하였다.
-
+펌웨어란 아두이노에 저장되어 MCU를 통해 하드웨어를 제어하는 프로그램이다. GS-touch는 이 펌웨어에 의해 구동되는 것이며 본 연구의 핵심이라고 할수 있다. 펌웨어 개발은 아두이노 IDE\를 이용하였으며 여러 라이브러리를 이용하였다. 또한 추후 개발할 ASCOM driver를 호환성을 고려하여 여러 번의 수정 과정을 거쳐 완성하였으며, 본 연구에서 가장 오랜 시간이 걸린 부분이다. 
 
 \subsubsection{아두이노 라이브러리}
 펌웨어에 필요한 기본적인 기능들을 구현하기 위해서는 연결되어있는 부품들을 컨트롤할 수 있는 방법이 필요했고, 이들을 단순화시켜 함수로 정리한 라이브러리를 사용하여 효율적으로 개발을 진행할 수 있었다.
@@ -227,12 +203,11 @@ IDE에서 새로운 라이브러리를 추가하기 위해서는 상단의 도�
 \end{description}
 
 
-\subsection{ASCOM driver 개발}
+\subsection{ASCOM driver 및 컨트롤 프로그램 개발}
 
-%% 아스콤 드라이버를 개발하기 위해서 ASCOM faltfrom을 설치하고, 개발자 예제를 설치하고, 
-%%visual studio 2017을 설치하고, 템플릿 불러온 후, 어떤 부분을 수정해서 만들었는지 자세히 기술.
+ASCOM standard는 망원경을 움직이기 위하여 지원하는 시스템 중 하나로, 현재 제작되고 사용되는 많은 망원경들이 ASCOM standard를 따르고 있기 때문에 이를 사용하여 망원경을 움직이는 프로그램을 만들게 되면 여러 망원경에도 같이 사용할 수 있게 되어 호환성에 있어 큰 이점을 가지게 된다. 이것이 가능한 이유는 ASCOM standard 만의 프로토콜(protocol)이 존재하기 때문인데, 드리아버를 사용하여 이를 펌웨어와 연결시켜 통신을 할 때, ASCOM standard protocol을 사용하면 펌웨어와의 통신이 원활하게 이루어질 수 있게 되고, 다른 드라이버와도 연결할 수 있게 만들 수 있게 된다.
 
-%% 펌웨어와 ASCOM 간에 통신 프로토콜은 무엇으로 정했는지, 컴퓨터에서 어떤 명령을 주면 어떻게 동작하는지 등등
+ASCOM은 Visual Studio를 이용한 여러 가지 예제나 개발 환경을 제공하는데, developer 버전을 제공하여 아이콘이나, 실행 배경 등 Visual Studio를 이용한 ASCOM 드라이버의 개발에 필요한 여러 작업 환경들을 지원고 있어 ASCOM driver는 Visual Studio를 사용하여 개발하였다. Visual Studio는 Microsoft에서 제공하는 통합 개발 환경으로, Visual Basic, Visual C\# 등 여러 가지 언어를 제공하며, Windows .NET환경에서 개발을 진행할 수 있다는 큰 장점이 있다. 본 드라이버의 언어 또한 Windows. NET을 기반으로 하고 있으므로 Windows. NET 기반의 개발 환경을 제공하는 Visual Studio를 사용하여 개발할 수 있었다. 추후 개발이 원활하게 진행되면, MFC 라이브러리를 이용한 드라이버의 개발을 진행하여 개발의 직관성을 더 높일 수도 있을 것이며, MFC 라이브러리를 이용하며 만든 드라이버 또한 Visual Studio를 통한 원활한 개발이 가능하다. 이를 위해서는 C\#으로 개발된 프로그램을 regasm.exe로 활성화시킬 필요가 있다.
 
 \subsubsection{드라이버 파일 생성 및 설정}
 기본적으로 ASCOM에서는 개발자들을 위한 Platform 6 Developer Components를 지원하게 된다. 사이트에서 직접 다운로드 받을 수 있는 파일 속에는 C\# 형식으로 들어있는 Driver.cs와 SetupDialogForm.cs를 지원하여 ASCOM과 미리 연결할 수 있도록 할 뿐만이 아니라 아이콘과 라이센스 등 개발 시 주의점이나 필요한 요소들을 지원해준다.
