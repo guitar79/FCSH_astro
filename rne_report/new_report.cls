@@ -59,7 +59,7 @@
 \setitemize{noitemsep} % 여백이 너무 넓어서 기본 여백으로 만듦
 \setenumerate{noitemsep} % 여백이 너무 넓어서 기본 여백으로 만듦
 
-\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesection}{\arabic{section}}
 \renewcommand{\thefootnote}{\fnsymbol{footnote}} 
 % 주석 번호와 참고문헌 번호의 혼동을 막기 위해 arabic 대신 fnsymbol 사용(asterisk, dagger, double dagger, ...)
 
@@ -306,7 +306,7 @@
 
 %한글초록
 \newenvironment{abstractkor}{%
- 	\pagenumbering{roman}                        % 로마자 페이지 시작
+ 	%\pagenumbering{roman}                        % 로마자 페이지 시작
  	\thispagestyle{plain} %
  	\vspace*{5cm}
  	\begin{center} 
@@ -402,11 +402,11 @@
 \usepackage{titlesec}
 
 \titleformat{\section}[hang]
-{\LARGE\bfseries}{\Roman{section}.}{1em}{}{}
+{\LARGE\bfseries}{\arabic{section}.}{1em}{}{}
 \titleformat{\subsection}[hang]
-{\Large\bfseries}{\Roman{section}.\arabic{subsection}}{1em}{}{}
+{\Large\bfseries}{\arabic{section}.\arabic{subsection}}{1em}{}{}
 \titleformat{\subsubsection}[hang]
-{\large}{\Roman{section}.\arabic{subsection}.\arabic{subsubsection}}{1em}{}{}
+{\large}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}{1em}{}{}
 \titleformat{\paragraph}[hang]
 {\normalfont\fontsize{12}{12}\selectfont\it}{}{1em}{}{}
 
