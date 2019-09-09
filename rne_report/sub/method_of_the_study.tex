@@ -27,7 +27,7 @@
 
 \begin{description}[font=$\bullet$~\normalfont\scshape\color{red!50!black}]
 	\item [ARDUINO NANO] 모터 초점 조절 장치 컨트롤러를 만드는 데 있어 가장 중요한 부품으로, 일종의 작은 컴퓨터와 같은 역할을 한다. Arduino는 마이크로 컨트롤러를 달고 있는 기판으로, Arduino의 여러 가지 핀에 전선을 연결한 뒤에 코딩하여 Arduino에 올리면 Arduino가 코딩된 내용을 그대로 실행할 수 있도록 하는 hardware이다. 내부에 컴퓨터 역할을 하는 MPU인 ATmega328가 탑재되어 있으며, 5V를 공급할 시에 작동한다. 크기는 45mm x 18mm이다.
-	\item [DRV8825] 스테핑 모터를 돌리는 데 있어서 전류를 쉽게 조절할 수 있게 해주는 module이다. 이뿐만이 아니라 모터를 좀 더 세밀하게 돌릴 수 있게 해주는(스텝 당 돌아가는 각도를 줄여주는) 마이크로 스텝을 구현 가능한데, DRV8825의 핀 중 M1, M2, M3의 up, down을 조절하여 full step을 원래 각도와 비교하면 얼마나 적게 돌릴 것인지 결정할 수 있게 한다. 본 모델은 최대 1/32까지의 마이크로 스텝이 가능하다.
+	\item [DRV8825] 스테핑 모터를 돌리는 데 있어서 전류를 쉽게 조절할 수 있게 해주는 module이다. 또한 microstepping을 구현 가능한데, DRV8825의 핀 중 M1, M2, M3의 up, down을 조절하여 full step을 원래 각도와 비교하여 얼마나 적게 돌릴 것인지 결정할 수 있게 한다. 본 모델은 최대 1/32까지의 microstepping을 지원한다.
 	\item [DHT22] 온도와 습도를 측정할 수 있는 감지기로, -40~80℃의 넓은 온도 측정범위와 약 0.5℃밖에 없는 오차를 가지고 있다. 이를 통해 온도나, 렌즈의 온도 상태를 볼 수 있으며, 이를 사용하면 좀 더 정밀한 측정이 가능할 것이다.
 	\item [0.96" oled screen I2C] Arduino와 I2C 방법으로 통신을 할 수 있는 OLED 디스플레이어이다. 여러 가지 정보가 전달되며, 모터를 얼마나 돌릴 것인지, 혹은 얼마나 돌려져 있는지 등이 표현될 수 있다.
 	\item [Apem MJTP1230B 버튼스위치] 누르는 버튼의 일종으로, 다리가 4개 달린 상태에서 같은 방향에 있는 2개의 전선이 연결된 방식의 버튼이다. 내부의 pull-up 저항을 활용하면 Arduino와 직접 연결하는 것으로 작동시킬 수 있다.
@@ -35,9 +35,7 @@
 	\item [HC-06 bluetooth] 무선통신 장치이다. 여러 가지 무선통신 장치 중에서 블루투스 module의 역할을 하고 있다.
 	\item [LED 3mm 90$\deg$, Ohmite OD473JE] 전원이 여러 개가 존재할 수 있으므로, 모터가 돌아갈 수 있는 전압인 12V의 외부전압이 들어왔을 때만 LED가 깜빡일 수 있게 하여 모터가 돌아갈 수 있는 전압이 되었는지 확인할 수 있도록 하는 역할을 하고 있다.
 	\item [Panasonic EEA-GA1C100H] 모터를 돌리는 상황에서 큰 전류를 사용하기 때문에 전류가 역방향으로 흐르는 등의 문제를 방지하기 위하여 100μF의 축전기를 사용하였다.
-	\item [SparkFun WRL-13678 (ESP8266, ESP01)] 무선통신 장치이다. 여러 가지 무선통신 장치 중에서 WIFI 모듈을 담당한다. 입력전압이 5V가 아닌 3.3V이다.
 	\item [Sprague 1C10X7R104K050B] 부품별로 각각 연결된 축전기로, 모두 같은 전압 차를 가지고 있지만, 전류의 noise filtering을 하는 역할로, 필수적으로 사용되었다.
-
 	\item [TE Connectivity/AMP 5525258-3 및 Wurth Elektronik 694106301002] 12V 외부 전원과 모터를 연결하는 선을 연결할 수 있게 하는 module이다.
 \end{description}
 
@@ -145,7 +143,7 @@ Fig. \ref{fig:pcbcircuit}\은 처음 제작한 PCB Ver. 1.0\과 개선된 Ver. 1
 
 \subsubsection{엔클로저(encloser) 제작}
 
-Autodesk 사의 Fusion 360 (https://www.autodesk.com/products/fusion-360/) 을 이용하여 전용 엔클로져를 디자인하였고 그 모습은 Fig. \ref{fig:stl}\와 같다. 디자인한 엔틀로저를 stl (stereolithography) 파일 포멧으로 저장한 후에 3D 프린터 출력하여 저렴하게 하드웨어의 엔클로저를 만들었다. 아ㄱ직갯개선할 부분들이 많지만 엔클로저를 직접 디자인 할 수 있으므로 얼마든지 개선이 가능하다. 
+Autodesk 사의 Fusion 360 (https://www.autodesk.com/products/fusion-360/) 을 이용하여 전용 엔클로져를 디자인하였고 그 모습은 Fig. \ref{fig:stl}\와 같다. 디자인한 엔틀로저를 stl (stereolithography) 파일 포멧으로 저장한 후에 3D 프린터 출력하여 저렴하게 하드웨어의 엔클로저를 만들었다. 아직 개선할 부분들이 많지만 엔클로저를 직접 디자인 할 수 있으므로 얼마든지 개선이 가능하다. 
 
 \begin{figure}[h]
 	\begin{center}
@@ -200,7 +198,19 @@ IDE에서 새로운 라이브러리를 추가하기 위해서는 상단의 도�
 	\item [Serial.print(String s)] String형 변수 s의 값을 컴퓨터로 송신한다. 비슷한 함수로 Serial.println(String s)가 있는 데, 이는 값을 수신한 이후 줄을 띄게 한다.
 	\item [Serial.available()] 시리얼 통신이 진행되고 있는지를 bool 형태로 반환한다. 이를 응용하면 다음과 같은 예제로 수신된 String을 미리 선언된 inputString에 저장할 수 있다.
 	%%P_serialEvent사진 첨부
-\end{description}
+
+\begin{figure}[h]
+	\begin{center}
+		\begin{tikzpicture}
+		\node[anchor=south west,inner sep=0] at (0,0) 
+		{
+			{\includegraphics[width=0.7\linewidth]{P_serialEvent}} 
+		};
+		\end{tikzpicture}
+		\caption{Serial.Available()을 활용한 시리얼 예제}
+		\label{fig:serialEvent}
+	\end{center}
+\end{figure}
 
 
 \subsection{ASCOM driver 및 컨트롤 프로그램 개발}
@@ -222,4 +232,4 @@ C\#만으로 개발을 진행할 경우 빌드에 성공했을 시에 release에
 드라이버를 32bit 환경에서 사용하는지, 혹은 64bit 환경에서 사용하는지에 따라 변경되어야 할 요소들이 존재한다. 본 연구에서는 MaximDL이 32bit 환경의 드라이버만 실행할 수 있으므로 32bit를 기본으로 개발하였다. 이를 바꾸기 위해서는 구성 관리자>구성을 Release로 바꾸고, 사용하는 환경에 따라서 '활성 솔루션 플랫폼'과 '플랫폼'을 x86과 x64로 '새로 만들기'를 이용하여 설정하면 된다.
 
 %%http://www.jrsoftware.org/isinfo.php inno setup 홈페이지
-setup.exe 파일을 생성하기 위해서는 setup파일을 생성할 수 있는 프로그램이 필요하다. 본 연구에서는 'inno setup'이라는 프로그램을 사용하였으며, ASCOM Developer Components>Installer Generator>Resources에 들어있는 DriverInstallTemplate.iss파일을 참고하여 inno setup 파일을 생성 후 실행파일에 (bin>x86>Release 혹은 bin>x64>Release 파일 속에 있는) ASCOM.(드라이버 이름).Focuser.dll으로 설정한 뒤 컴파일을 진행하면 setup파일을 통해 ASCOM에 드라이버를 등록하여 사용할 수 있다.
+setup.exe 파일을 생성하기 위해서는 setup파일을 생성할 수 있는 프로그램이 필요하다. 본 연구에서는 inno setup (http://www.jrsoftware.org/isinfo.php)이라는 프로그램을 사용하였으며, ASCOM Developer Components>Installer Generator>Resources에 들어있는 DriverInstallTemplate.iss파일을 참고하여 inno setup 파일을 생성 후 실행파일에 (bin>x86>Release 혹은 bin>x64>Release 파일 속에 있는) ASCOM.(드라이버 이름).Focuser.dll으로 설정한 뒤 컴파일을 진행하면 setup파일을 통해 ASCOM에 드라이버를 등록하여 사용할 수 있다.
