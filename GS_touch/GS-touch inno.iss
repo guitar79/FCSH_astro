@@ -20,8 +20,7 @@ DefaultDirName={pf}\ASCOM\GS_touch
 DisableDirPage=yes
 DisableProgramGroupPage=yes
 OutputDir=C:\Users\user\Desktop\GS_touch\GS_touch
-;OutputBaseFilename=JSFoucser 1.0.1(64bit) setup
-OutputBaseFilename=GS-touch 1.0.1(32bit) setup
+OutputBaseFilename=GS-touch 1.0.1(64bit) setup
 Compression=lzma
 SolidCompression=yes
 
@@ -37,11 +36,11 @@ UninstallFilesDir="{cf}\ASCOM\Uninstall\Focuser\GS-touch"
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Dirs]
-Name: "{cf}\ASCOM\Uninstall\Focuser\JSFocuser"
+Name: "{cf}\ASCOM\Uninstall\Focuser\GS_touch"
 
 [Files]
-Source: "C:\Users\user\Desktop\GS_touch\GS_touch\GS_touch\bin\x86\Release\ASCOM.GS_touch.Focuser.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\user\Desktop\GS_touch\GS_touch\GS_touch\ReadMe.htm"; DestDir: "{app}"; Flags: isreadme
+Source: "C:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GS_touch\GS_touch\bin\x64\Release\ASCOM.GS_touch.Focuser.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GS_touch\GS_touch\ReadMe.htm"; DestDir: "{app}"; Flags: isreadme
 
 [Run]
 Filename: "{dotnet4032}\regasm.exe"; Parameters: "/codebase ""{app}\GS_touch.sln"""; Flags: runhidden 32bit
