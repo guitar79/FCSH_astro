@@ -1,9 +1,8 @@
-
 int ct=0;
 int pt=0;
+
 void motorControl()
 {
-
   int stp = 0;
   switch(power)
   {

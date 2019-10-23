@@ -1,10 +1,21 @@
+#define PCB_ 2
+// PCB variables
+// 1: JS, 2:Kevin_touch 
 
 
 //스위치 핀 번호
-#define UPpin 8
-#define DOWNpin 9
-#define RIGHTpin 7
-#define LEFTpin 10
+#ifdef PCB_ == 1
+  #define UPpin 8
+  #define DOWNpin 9
+  #define RIGHTpin 7
+  #define LEFTpin 10
+#elif PCB_ == 2
+  #define UPpin 8
+  #define DOWNpin 9
+  #define RIGHTpin 10
+  #define LEFTpin 7
+#endif
+
 
 //about button switch
 short S[4]={0}; short now[4]={1}; short was[4]={0};

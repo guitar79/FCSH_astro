@@ -1,4 +1,4 @@
-  void setstep()
+void setstep()
   {
     switch(stepmode)
     {
@@ -30,4 +30,4 @@
       Serial.println("Microstepping mode should be from 1 to 4");
     }
         Serial.print("Microstepping mode:"); Serial.print(stepmode);
-  }
+}

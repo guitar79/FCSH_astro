@@ -13,10 +13,10 @@ bool PCMODE = false;
 #define DHT22_ 1
 
 #include <AccelStepper.h>
-  #ifdef DHT22_
-   //#include <dht.h>
-   #include <DHT.h>
-  #endif
+#ifdef DHT22_
+ //#include <dht.h>
+ #include <DHT.h>
+#endif
 
 // motor pins
 #define motorInterfaceType 1
@@ -61,24 +61,21 @@ void setup() {
   inputString.reserve(200);
 
   pinset();
-
 }
-
 
 void loop() {
-
   #ifdef DHT22_
-  if(stepper.distanceToGo() == 0 || subm!=2)
-  {
-    Temperature = String(dht.readTemperature(),1);
-    Humidity = String(dht.readHumidity(),1);
-    humidityTemperatureReport();
-    buttonRead();
-    draw();
-  }
+    if(stepper.distanceToGo() == 0 || subm!=2)
+    {
+      Temperature = String(dht.readTemperature(),1);
+      Humidity = String(dht.readHumidity(),1);
+      humidityTemperatureReport();
+      buttonRead();
+      draw();
+    }
   #endif
   
-}
+  }
 
 void reportPosition() {
   Serial.print("POSITION:");
@@ -173,7 +170,6 @@ void serialCommand(String commandString) {
     _answer += stepper.currentPosition();
   }
 
-
   Serial.print(_answer);
   Serial.println("#");
 }
@@ -231,4 +227,3 @@ void serialEvent() {
     }
   }
 #endif
-

@@ -1,4 +1,3 @@
-
 //https://github.com/olikraus/u8glib/wiki/fontsize
 //https://github.com/olikraus/u8glib/wiki/userreference#setprintpos
 
@@ -6,7 +5,7 @@
 U8GLIB_SSD1306_128X64 u8g(U8G_I2C_OPT_NONE|U8G_I2C_OPT_DEV_0);  // I2C / TWI 
 //U8GLIB_SSD1306_128X64 u8g(U8G_I2C_OPT_DEV_0|U8G_I2C_OPT_NO_ACK|U8G_I2C_OPT_FAST);
 
-  void U8G_start()
+void U8G_start()
   {
     u8g.setFont(u8g_font_5x8);
     u8g.setColorIndex(1);
@@ -15,7 +14,7 @@ U8GLIB_SSD1306_128X64 u8g(U8G_I2C_OPT_NONE|U8G_I2C_OPT_DEV_0);  // I2C / TWI
     //draw();
   }
 
-  void draw()
+void draw()
   {
     Serial.println(subm);
     u8g.firstPage();   
@@ -102,5 +101,4 @@ U8GLIB_SSD1306_128X64 u8g(U8G_I2C_OPT_NONE|U8G_I2C_OPT_DEV_0);  // I2C / TWI
         }
         
     } while( u8g.nextPage() ); 
-  }
-
+}
