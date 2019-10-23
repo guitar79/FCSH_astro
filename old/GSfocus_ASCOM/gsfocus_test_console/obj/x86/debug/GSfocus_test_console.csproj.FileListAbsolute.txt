@@ -1,0 +1,16 @@
+D:\NaverCloud\2019년\kevin_fcsh_controller\GSfocus\GSfocus_test_console\bin\Debug\ASCOM.GSfocus.Test.exe.config
+D:\NaverCloud\2019년\kevin_fcsh_controller\GSfocus\GSfocus_test_console\bin\Debug\ASCOM.GSfocus.Test.exe
+D:\NaverCloud\2019년\kevin_fcsh_controller\GSfocus\GSfocus_test_console\bin\Debug\ASCOM.GSfocus.Test.pdb
+D:\NaverCloud\2019년\kevin_fcsh_controller\GSfocus\GSfocus_test_console\bin\Debug\ASCOM.DeviceInterfaces.dll
+D:\NaverCloud\2019년\kevin_fcsh_controller\GSfocus\GSfocus_test_console\bin\Debug\ASCOM.DriverAccess.dll
+D:\NaverCloud\2019년\kevin_fcsh_controller\GSfocus\GSfocus_test_console\bin\Debug\ASCOM.Utilities.dll
+D:\NaverCloud\2019년\kevin_fcsh_controller\GSfocus\GSfocus_test_console\bin\Debug\ASCOM.Exceptions.dll
+D:\NaverCloud\2019년\kevin_fcsh_controller\GSfocus\GSfocus_test_console\bin\Debug\ASCOM.DeviceInterfaces.xml
+D:\NaverCloud\2019년\kevin_fcsh_controller\GSfocus\GSfocus_test_console\bin\Debug\ASCOM.DriverAccess.xml
+D:\NaverCloud\2019년\kevin_fcsh_controller\GSfocus\GSfocus_test_console\bin\Debug\ASCOM.Utilities.xml
+D:\NaverCloud\2019년\kevin_fcsh_controller\GSfocus\GSfocus_test_console\bin\Debug\ASCOM.Exceptions.xml
+D:\NaverCloud\2019년\kevin_fcsh_controller\GSfocus\GSfocus_test_console\obj\x86\Debug\GSfocus_test_console.csprojAssemblyReference.cache
+D:\NaverCloud\2019년\kevin_fcsh_controller\GSfocus\GSfocus_test_console\obj\x86\Debug\GSfocus_test_console.csproj.CoreCompileInputs.cache
+D:\NaverCloud\2019년\kevin_fcsh_controller\GSfocus\GSfocus_test_console\obj\x86\Debug\GSfocus_test_console.csproj.CopyComplete
+D:\NaverCloud\2019년\kevin_fcsh_controller\GSfocus\GSfocus_test_console\obj\x86\Debug\ASCOM.GSfocus.Test.exe
+D:\NaverCloud\2019년\kevin_fcsh_controller\GSfocus\GSfocus_test_console\obj\x86\Debug\ASCOM.GSfocus.Test.pdb

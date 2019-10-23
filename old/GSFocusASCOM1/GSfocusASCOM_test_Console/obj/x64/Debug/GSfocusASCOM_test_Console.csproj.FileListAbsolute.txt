@@ -1,0 +1,16 @@
+C:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\GSfocusASCOM_test_Console\bin\x64\Debug\ASCOM.GSfocus.Test.exe.config
+C:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\GSfocusASCOM_test_Console\bin\x64\Debug\ASCOM.GSfocus.Test.exe
+C:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\GSfocusASCOM_test_Console\bin\x64\Debug\ASCOM.GSfocus.Test.pdb
+C:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\GSfocusASCOM_test_Console\bin\x64\Debug\ASCOM.DeviceInterfaces.dll
+C:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\GSfocusASCOM_test_Console\bin\x64\Debug\ASCOM.DriverAccess.dll
+C:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\GSfocusASCOM_test_Console\bin\x64\Debug\ASCOM.Utilities.dll
+C:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\GSfocusASCOM_test_Console\bin\x64\Debug\ASCOM.Exceptions.dll
+C:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\GSfocusASCOM_test_Console\bin\x64\Debug\ASCOM.DeviceInterfaces.xml
+C:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\GSfocusASCOM_test_Console\bin\x64\Debug\ASCOM.DriverAccess.xml
+C:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\GSfocusASCOM_test_Console\bin\x64\Debug\ASCOM.Utilities.xml
+C:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\GSfocusASCOM_test_Console\bin\x64\Debug\ASCOM.Exceptions.xml
+C:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\GSfocusASCOM_test_Console\obj\x64\Debug\GSfocusASCOM_test_Console.csprojAssemblyReference.cache
+C:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\GSfocusASCOM_test_Console\obj\x64\Debug\GSfocusASCOM_test_Console.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\GSfocusASCOM_test_Console\obj\x64\Debug\GSfocusASCOM_test_Console.csproj.CopyComplete
+C:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\GSfocusASCOM_test_Console\obj\x64\Debug\ASCOM.GSfocus.Test.exe
+C:\Users\user\Documents\GitHub\Kevin_FCSH_controller\GSFocusASCOM\GSfocusASCOM_test_Console\obj\x64\Debug\ASCOM.GSfocus.Test.pdb

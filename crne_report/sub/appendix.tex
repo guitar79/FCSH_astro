@@ -1,0 +1,2238 @@
+\section{부록}
+
+\subsection{아두이노 펌웨어 code}
+\begin{verbbox}
+{\tiny
+\noindent\#include <DHT.h>\\
+\#include <Wire.h>\\
+\#include <Adafruit\_GFX.h>\\
+\#include <Adafruit\_SSD1306.h>\\
+\#include "DHT.h"\\
+\#include <BasicStepperDriver.h>\\
+\#include <DRV8825.h>\\
+\#include <SyncDriver.h>\\
+\#include <Stepper.h>\\
+\#include <EEPROM.h>\\
+\\
+\#define DHTPIN 2\\
+\#define DHTTYPE DHT22\\
+DHT dht(DHTPIN, DHTTYPE);\\
+\#define OLED\_RESET 4\\
+Adafruit\_SSD1306 display(OLED\_RESET);\\
+\#define MOTOR\_STEPS 200\\
+\\
+\#define LOGO16\_GLCD\_HEIGHT 16 \\
+\#define LOGO16\_GLCD\_WIDTH 16\\
+\#define NUMFLAKES 10\\
+\#define XPOS 0\\
+\#define YPOS 1\\
+\#define DELTAY 2\\
+\\
+\#define UPpin 8//9\\
+\#define DOWNpin 9//11\\
+\#define RIGHTpin 10\\
+\#define LEFTpin 7//12\\
+\\
+\#define DIR 4\\
+\#define STEP 3\\
+\#define MS0 15\\
+\#define MS1 12\\
+\#define MS2 13\\
+DRV8825 stepper(MOTOR\_STEPS, DIR, STEP, MS0, MS1, MS2);\\
+\\
+short S[4]={0}; short now[4]={1}; short was[4]={0};\\
+unsigned long MOTOR\_ANGLE,ANGLE;\\
+float hum; float temp;\\
+unsigned long P\_MT=0,P\_MT2=0; unsigned long C\_MT=millis();\\
+int copystate=0;\\
+\\
+int state=1;\\
+int change;\\
+int cstate=0;\\
+\\
+void step32()\\
+{\\
+	digitalWrite(MS0,LOW);\\
+	digitalWrite(MS1,LOW);\\
+	digitalWrite(MS2,HIGH);\\
+}\\
+void setup()\\
+{\\
+	Serial.begin(9600);\\
+	dht.begin();\\
+	display.begin(SSD1306\_SWITCHCAPVCC,0x3C);\\
+	pinMode(UPpin,INPUT\_PULLUP);\\
+	pinMode(DOWNpin,INPUT\_PULLUP);\\
+	pinMode(RIGHTpin,INPUT\_PULLUP);\\
+	pinMode(LEFTpin,INPUT\_PULLUP);\\
+	display.clearDisplay();\\
+	display.setTextColor(WHITE);\\
+	display.setTextSize(1);\\
+	display.setCursor(0,8);\\
+	display.print("    Stepping Motor");\\
+	display.setTextSize(2);\\
+	display.setCursor(0,16);\\
+	display.print(" Controler");\\
+	display.display();\\
+	delay(5000);\\
+	Serial.print("start!");\\
+	stepper.setRPM(60);\\
+	display.setTextSize(1);\\
+}\\
+void playDHT(void)\\
+{\\
+	hum = dht.readHumidity();\\
+	temp= dht.readTemperature();\\
+}\\
+void menu()\\
+{\\
+	display.setCursor(6,0); display.println("T: " + String(temp, 2));\\
+	display.setCursor(70,0); display.println("H: " + String(hum, 2));\\
+	if(state==1||state==2) \\
+	{display.setCursor(46,8); display.println("<MENU>");}\\
+	else if(state==11) display.print("   rotating analog");\\
+	else if(state==12)\\
+	{display.setCursor(32,8); display.print("MOTOR RESET");}\\
+	else if(state==21) \\
+	{display.setCursor(16,8); display.print("rotating digital");}\\
+	display.setCursor(0,16);\\
+	if(state==1||state==2) display.print("   motor control");\\
+	else if(state==12) display.print("   press R to RESET");\\
+	if(state==1) {display.setCursor(0,16);display.print(" >");}\\
+	if(state==11) \\
+	{display.setCursor(10,16); display.print("up,down to control");}\\
+	else if(state==21)\\
+	{display.setCursor(0,16); display.print("changing step: "); display.print(change);}\\
+	display.setCursor(0,24);\\
+	if(state==1||state==2) display.print("   MOTOR RESET");\\
+	else if(state==11||state==12||state==21) {display.print("<                   >"); \\
+		display.setCursor(46,24); if(state!=12) display.print(MOTOR\_ANGLE);\\
+		else display.print(ANGLE);}\\
+	if(state==2) {display.setCursor(0,24);display.print(" >");}\\
+	if(state==22)\\
+	{  display.setCursor(8,12); display.print("RESET DONE to ");\\
+		display.setCursor(90,12); display.print(ANGLE);\\
+		display.setCursor(10,20); display.print("press L to go back");\\
+		MOTOR\_ANGLE=ANGLE;}\\
+}\\
+\\
+void state11()\\
+{\\
+	if(now[0]==0\&\&MOTOR\_ANGLE<500000\&\&MOTOR\_ANGLE>9999)\\
+	{\\
+		if(copystate==0) {P\_MT=C\_MT;copystate=1;MOTOR\_ANGLE++;stepper.rotate(1.8);}\\
+		else if(C\_MT-P\_MT<600) MOTOR\_ANGLE;\\
+		else if(C\_MT-P\_MT<2000) {MOTOR\_ANGLE+=3;stepper.setRPM(240);stepper.rotate(5.4);}\\
+		else if(C\_MT-P\_MT<4000) {MOTOR\_ANGLE+=33;stepper.setRPM(300);stepper.rotate(59.4);}\\
+		else if(C\_MT-P\_MT<6000) {MOTOR\_ANGLE+=83;stepper.setRPM(600);stepper.rotate(149.4);}\\
+		else {MOTOR\_ANGLE+=333;stepper.setRPM(800);stepper.rotate(599.4);}\\
+	}\\
+	else if(now[1]==0\&\&MOTOR\_ANGLE<500000\&\&MOTOR\_ANGLE>9999)\\
+	{\\
+		if(copystate==0) {P\_MT=C\_MT;copystate=1;MOTOR\_ANGLE--;stepper.rotate(-1.8);}\\
+		else if(C\_MT-P\_MT<600) MOTOR\_ANGLE;\\
+		else if(C\_MT-P\_MT<2000) {MOTOR\_ANGLE-=3;stepper.setRPM(240);stepper.rotate(-5.4);}\\
+		else if(C\_MT-P\_MT<4000) {MOTOR\_ANGLE-=33;stepper.setRPM(300);stepper.rotate(-59.4);}\\
+		else if(C\_MT-P\_MT<6000) {MOTOR\_ANGLE-=83;stepper.setRPM(600);stepper.rotate(-149.4);}\\
+		else {MOTOR\_ANGLE-=333;stepper.setRPM(800);stepper.rotate(-599.4);}\\
+	}\\
+	else copystate=0;\\
+	if(MOTOR\_ANGLE>=500000) MOTOR\_ANGLE=499999;\\
+	if(MOTOR\_ANGLE<=10000) MOTOR\_ANGLE=10000;\\
+}\\
+void changeit()\\
+{
+	if(cstate==1) change=30;\\
+	else if(cstate==2) change=100;\\
+	else if(cstate==3) change=400;\\
+	else if(cstate==4) change=1600;\\
+	else if(cstate==5) change=3200;\\
+	else if(cstate==6) change=9600;\\
+	else if(cstate==7) change=32000;\\
+	else if(cstate==0) change=-30;\\
+	else if(cstate==-1) change=-100;\\
+	else if(cstate==-2) change=-400;\\
+	else if(cstate==-3) change=-1600;\\
+	else if(cstate==-4) change=-3200;\\
+	else if(cstate==-5) change=-9600;\\
+	else if(cstate==-6) change=-32000;\\
+}\\
+void playmotor()\\
+{\\
+	step32();\\
+	stepper.setRPM(1800);\\
+	if(cstate==-6||cstate==7) stepper.setRPM(3200);\\
+	stepper.rotate(1.8*change);\\
+	MOTOR\_ANGLE+=change;\\
+	delay(300);\\
+}\\
+void state21()\\
+{\\
+	changeit();\\
+	if(S[0]==1) cstate++;\\
+	else if(S[1]==1) cstate--;\\
+	if(cstate==-7) cstate=7;\\
+	else if(cstate==8) cstate=-6;\\
+	if(S[2]==1\&\&MOTOR\_ANGLE<500000\&\&MOTOR\_ANGLE>9999) playmotor();\\
+	if(MOTOR\_ANGLE>=500000) MOTOR\_ANGLE=499999;\\
+	if(MOTOR\_ANGLE<=10000) MOTOR\_ANGLE=10000;\\
+}\\
+void state12()\\
+{\\
+	if(now[0]==0\&\&ANGLE<500000\&\&ANGLE>9999)\\
+	{\\
+		if(copystate==0) {P\_MT=C\_MT;copystate=1;ANGLE++;}\\
+		else if(C\_MT-P\_MT<600) ANGLE;\\
+		else if(C\_MT-P\_MT<2000) ANGLE+=3;\\
+		else if(C\_MT-P\_MT<4000) ANGLE+=33;\\
+		else if(C\_MT-P\_MT<6000) ANGLE+=83;\\
+		else ANGLE+=333;\\
+	}\\
+	else if(now[1]==0\&\&ANGLE<500000\&\&ANGLE>9999)\\
+	{\\
+		if(copystate==0) {P\_MT=C\_MT;copystate=1;ANGLE--;}\\
+		else if(C\_MT-P\_MT<600) ANGLE;\\
+		else if(C\_MT-P\_MT<2000) ANGLE-=3;\\
+		else if(C\_MT-P\_MT<4000) ANGLE-=33;\\
+		else if(C\_MT-P\_MT<6000) ANGLE-=83;\\
+		else ANGLE-=333;\\
+	}\\
+	else copystate=0;\\
+	if(ANGLE>=500000) ANGLE=499999;\\
+	if(ANGLE<=10000) ANGLE=10000;\\
+}\\
+void buttonRead()\\
+{\\
+	controljudge();\\
+	if(state==11) state11(); \\
+	else if (state==21) state21();\\
+	else if (state==12) state12();\\
+	if(S[0]\&\&state<10\&\&state>1) state--;\\
+	if(S[1]\&\&state<2) state++;\\
+	if(S[2]\&\&state<20) state+=10;\\
+	if(S[3]\&\&state==22) {state=1;ANGLE=100000;}\\
+	if(S[3]\&\&state>10) state-=10;\\
+	\\
+}\\
+void controljudge()\\
+{\\
+	for(int i=0;i<4;i++)\\
+	{\\
+		if(i==0) now[i]=digitalRead(UPpin);\\
+		else if(i==1) now[i]=digitalRead(DOWNpin);\\
+		else if(i==2) now[i]=digitalRead(RIGHTpin);\\
+		else if(i==3) now[i]=digitalRead(LEFTpin);\\
+		if(now[i]!=was[i]\&\&now[i]==0) S[i]=1;\\
+		else S[i]=0;\\
+		was[i]=now[i];\\
+	}\\
+}\\
+void loop()\\
+{\\
+	Serial.println(MOTOR\_ANGLE);\\
+	C\_MT=millis();\\
+	if(state<10)playDHT();\\
+	buttonRead();\\
+	display.clearDisplay();\\
+	menu();\\
+	display.display();\\
+}\\
+
+}
+\end{verbbox}
+
+\subsection{ASCOM driver Code}
+\subsubsection{Driver.cs}
+
+
+\begin{lstlisting}
+//tabs=4
+// --------------------------------------------------------------------------------
+// TODO fill in this information for your driver, then remove this line!
+//
+// ASCOM Focuser driver for GS_touch
+//
+// Description:	Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
+//				nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam 
+//				erat, sed diam voluptua. At vero eos et accusam et justo duo 
+//				dolores et ea rebum. Stet clita kasd gubergren, no sea takimata 
+//				sanctus est Lorem ipsum dolor sit amet.
+//
+// Implements:	ASCOM Focuser interface version: <To be completed by driver developer>
+// Author:		(XXX) Your N. Here <your@email.here>
+//
+// Edit Log:
+//
+// Date			Who	Vers	Description
+// -----------	---	-----	-------------------------------------------------------
+// dd-mmm-yyyy	XXX	6.0.0	Initial edit, created from ASCOM driver template
+// --------------------------------------------------------------------------------
+//
+
+
+// This is used to define code in the template that is specific to one class implementation
+// unused code canbe deleted and this definition removed.
+#define Focuser
+
+
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+
+using System.Windows.Forms;
+using System.Runtime.InteropServices;
+
+using ASCOM;
+using ASCOM.Astrometry;
+using ASCOM.Astrometry.AstroUtils;
+using ASCOM.Utilities;
+using ASCOM.DeviceInterface;
+using System.Globalization;
+using System.Collections;
+using System.IO.Ports;
+
+namespace ASCOM.GS_touch
+{
+	#region Event Handling Libraries
+	
+	public class FocuserHumidityChangedEventArgs : EventArgs
+	{
+		public readonly string Humidity;
+		
+		public FocuserHumidityChangedEventArgs(string humidity)
+		{
+			this.Humidity = humidity;
+		}
+	}
+	
+	
+	public class FocuserStateChangedEventArgs : EventArgs
+	{
+		public readonly bool IsMoving;
+		
+		public FocuserStateChangedEventArgs(bool isMoving)
+		{
+			this.IsMoving = isMoving;
+		}
+	}
+	
+	public class FocuserTemperatureChangedEventArgs : EventArgs
+	{
+		public readonly string Temperature;
+		
+		public FocuserTemperatureChangedEventArgs(string temperature)
+		{
+			this.Temperature = temperature;
+		}
+	}
+	
+	public class FocuserValueChangedEventArgs : EventArgs
+	{
+		public readonly int LastValue;
+		public readonly int NewValue;
+		
+		public FocuserValueChangedEventArgs(int LastValue, int NewValue)
+		{
+			this.LastValue = LastValue;
+			this.NewValue = NewValue;
+		}
+	}
+	#endregion
+	//
+	// Your driver's DeviceID is ASCOM.GS_touch.Focuser
+	//
+	// The Guid attribute sets the CLSID for ASCOM.GS_touch.Focuser
+	// The ClassInterface/None addribute prevents an empty interface called
+	// _GS_touch from being created and used as the [default] interface
+	//
+	// TODO Replace the not implemented exceptions with code to implement the function or
+	// throw the appropriate ASCOM exception.
+	//
+	
+	/// <summary>
+	/// ASCOM Focuser Driver for GS_touch.
+	/// </summary>
+	[Guid("92161BAA-FB3B-4A67-A120-0948F98AB1CB")]
+	[ClassInterface(ClassInterfaceType.None)]
+	public class Focuser : IFocuserV3
+	{
+		/// <summary>
+		/// ASCOM DeviceID (COM ProgID) for this driver.
+		/// The DeviceID is used by ASCOM applications to load the driver at runtime.
+		/// </summary>
+		internal static string driverID = "ASCOM.GS_touch.Focuser";
+		// TODO Change the descriptive string for your driver then remove this line
+		/// <summary>
+		/// Driver description that displays in the ASCOM Chooser.
+		/// </summary>
+		private static string driverDescription = "ASCOM Focuser Driver for GS-touch";
+		
+		internal static string comPortProfileName = "COM Port"; 
+		// Constants used for Profile persistence
+		internal static string comPortDefault = "COM4";
+		internal static string traceStateProfileName = "Trace Level";
+		internal static string traceStateDefault = "false";
+		
+		internal static string comPort; 
+		// Variables to hold the currrent device configuration
+		
+		internal static string showUIProfileName = "Show Controller";
+		internal static string showUIDefault = "true";
+		internal static string stepperMotor = "stepper";
+		internal static bool traceState;
+		internal static bool showUI;
+		internal static int MicroSteppingMode = 1;
+		internal static string motorDriver;
+		
+		private bool connectedState;
+		private Util utilities;
+		private AstroUtils astroUtilities;
+		internal static TraceLogger tl;
+		
+		private SerialPort serialPort;
+		private bool isMoving = false;
+		private double temperature;
+		private double humidity;
+		private string message;
+		private string existingMessage;
+		
+		private int focuserPosition = 0; 
+		// Class level variable to hold the current focuser position
+		private const int focuserSteps = 10000;
+		private double stepSize = 500;
+		private int maxIncrement = 1000;
+		
+		/// <summary>
+		/// Initializes a new instance of the <see cref="GS_touch"/> class.
+		/// Must be public for COM registration.
+		/// </summary>
+		public Focuser()
+		{
+			ReadProfile();
+			tl = new TraceLogger("", "GS_touch");
+			tl.Enabled = traceState;
+			tl.LogMessage("Focuser", "Starting initialisation");
+			
+			connectedState = false; // Initialise connected to false
+			utilities = new Util(); //Initialise util object
+			astroUtilities = new AstroUtils(); // Initialise astro utilities object
+			//TODO: Implement your additional construction here
+			
+			tl.LogMessage("Focuser", "Completed initialisation");
+		}
+		
+		#region Event Handling
+		#region Event Handling Declaration + Mainwindow Declaration
+		private MainWindow mainWindow;
+		public event EventHandler<FocuserValueChangedEventArgs> FocuserValueChanged;
+		public event EventHandler<FocuserStateChangedEventArgs> FocuserStateChanged;
+		public event EventHandler<FocuserTemperatureChangedEventArgs> FocuserTemperatureChanged;
+		public event EventHandler<FocuserHumidityChangedEventArgs> FocuserHumidityChanged;
+		#endregion 
+		#region Event Handling Functions
+		public virtual void OnFocuserValueChanged(FocuserValueChangedEventArgs e)
+		{
+			if (FocuserValueChanged != null)
+			{
+				FocuserValueChanged(this, e);
+			}
+		}
+		
+		public virtual void OnFocuserStateChanged(FocuserStateChangedEventArgs e)
+		{
+			if (FocuserStateChanged != null)
+			{
+				FocuserStateChanged(this, e);
+			}
+		}
+		
+		public virtual void OnFocuserTemperatureChanged(FocuserTemperatureChangedEventArgs e)
+		{
+			if (FocuserTemperatureChanged != null)
+			{
+				FocuserTemperatureChanged(this, e);
+			}
+		}
+		
+		public virtual void OnFocuserHumidityChanged(FocuserHumidityChangedEventArgs e)
+		{
+			if (FocuserHumidityChanged != null)
+			{
+				FocuserHumidityChanged(this, e);
+			}
+		}
+		
+		#endregion
+		#endregion
+		
+		#region Common properties and methods.
+		
+		/// <summary>
+		/// Displays the Setup Dialog form.
+		/// If the user clicks the OK button to dismiss the form, then
+		/// the new settings are saved, otherwise the old values are reloaded.
+		/// THIS IS THE ONLY PLACE WHERE SHOWING USER INTERFACE IS ALLOWED!
+		/// </summary>
+		public void SetupDialog()
+		{
+			// consider only showing the setup dialog if not connected
+			// or call a different dialog if connected
+			if (IsConnected)
+			System.Windows.Forms.MessageBox.Show("Already connected, just press OK");
+			
+			using (SetupDialogForm F = new SetupDialogForm())
+			{
+				var result = F.ShowDialog();
+				if (result == System.Windows.Forms.DialogResult.OK)
+				{
+					WriteProfile(); // Persist device configuration values to the ASCOM Profile store
+				}
+			}
+		}
+		
+		public ArrayList SupportedActions
+		{
+			get
+			{
+				tl.LogMessage("SupportedActions Get", "Returning empty arraylist");
+				return new ArrayList();
+			}
+		}
+		
+		public string Action(string actionName, string actionParameters)
+		{
+			CheckConnected("Action");
+			if (IsConnected)
+			{
+				serialPort.WriteLine(actionName + ":" + actionParameters);
+			}
+			return "";
+		}
+		
+		public void CommandBlind(string command, bool raw)
+		{
+			CheckConnected("CommandBlind");
+			// Call CommandString and return as soon as it finishes
+			this.CommandString(command, raw);
+			// or
+			throw new ASCOM.MethodNotImplementedException("CommandBlind");
+			// DO NOT have both these sections!  One or the other
+		}
+		
+		public bool CommandBool(string command, bool raw)
+		{
+			CheckConnected("CommandBool");
+			string ret = CommandString(command, raw);
+			// TODO decode the return string and return true or false
+			// or
+			throw new ASCOM.MethodNotImplementedException("CommandBool");
+			// DO NOT have both these sections!  One or the other
+		}
+		
+		public string CommandString(string command, bool raw)
+		{
+			CheckConnected("CommandString");
+			// it's a good idea to put all the low level communication with the device here,
+			// then all communication calls this function
+			// you need something to ensure that only one command is in progress at a time
+			
+			if (IsConnected)
+			{
+				serialPort.WriteLine(command + ":" + stepSize);
+				//System.Threading.Thread.Sleep(10);
+			}
+			
+			string message = "sent " + command + ":" + stepSize;
+			
+			tl.LogMessage("command ", message);
+			
+			System.Diagnostics.Debug.WriteLine("messaage from arduino " + message);
+			return message;
+		}
+		
+		public void Dispose()
+		{
+			// Clean up the tracelogger and util objects
+			tl.Enabled = false;
+			tl.Dispose();
+			tl = null;
+			utilities.Dispose();
+			utilities = null;
+			astroUtilities.Dispose();
+			astroUtilities = null;
+		}
+		
+		public bool Connected
+		{
+			get
+			{
+				tl.LogMessage("Connected Get", IsConnected.ToString());
+				return IsConnected;
+			}
+			set
+			{
+				tl.LogMessage("Connected Set", value.ToString());
+				
+				ReadProfile();
+				
+				if (value == IsConnected)
+				{
+					if (!mainWindow.Visible && showUI)
+					{
+						mainWindow = new MainWindow(this);
+						mainWindow.Show();
+					}
+				}
+				
+				if (value)
+				{
+					connectedState = true;
+					tl.LogMessage("Connected Set", "Connecting to port " + comPort);
+					// TODO connect to the device
+					try
+					{
+						serialPort = new SerialPort(comPort, 115200);
+						serialPort.DataReceived += new SerialDataReceivedEventHandler(this.serialPort_DataReceived);
+						if (!serialPort.IsOpen)
+						{
+							serialPort.Open();
+						}
+						
+						Action("F", "");   //GET POSITION
+						Action("k", "");   //GET TEMPERATURE AND HUMIDITY
+						
+						// when we establish connection, set up the increment, step and speed
+						Action("I", "100"); // SET SPEED
+						Action("J", "200"); // SET MAXSPEED
+						Action("H", "200"); // SET ACCELERATION
+						
+						if (showUI)
+						{
+							mainWindow = new MainWindow(this);
+							mainWindow.Show();
+							System.Diagnostics.Debug.WriteLine("Connected " + IsConnected.ToString());
+						}
+						
+					}
+					catch (Exception e)
+					{
+						connectedState = false;
+						tl.LogMessage("Cannot Open Serial Port", comPort);
+						if (serialPort.IsOpen)
+						{
+							serialPort.Close();
+						}
+					}
+				}
+				else
+				{
+					connectedState = false;
+					tl.LogMessage("Connected Set", "Disconnecting from port " + comPort);
+					// TODO disconnect from the device
+					
+					if (showUI)
+					{
+						mainWindow.Close();
+					}
+					if (serialPort.IsOpen)
+					{
+						serialPort.Close();
+					}
+				}
+			}
+		}
+		
+		public string Description
+		{
+			// TODO customise this device description
+			get
+			{
+				tl.LogMessage("Description Get", driverDescription);
+				return driverDescription;
+			}
+		}
+		
+		public string DriverInfo
+		{
+			get
+			{
+				Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+				// TODO customise this driver description
+				string driverInfo = "Information about the driver itself. Version: " + String.Format(CultureInfo.InvariantCulture, "{0}.{1}", version.Major, version.Minor);
+				tl.LogMessage("DriverInfo Get", driverInfo);
+				return driverInfo;
+			}
+		}
+		
+		public string DriverVersion
+		{
+			get
+			{
+				Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+				string driverVersion = String.Format(CultureInfo.InvariantCulture, "{0}.{1}", version.Major, version.Minor);
+				tl.LogMessage("DriverVersion Get", driverVersion);
+				return driverVersion;
+			}
+		}
+		
+		public short InterfaceVersion
+		{
+			// set by the driver wizard
+			get
+			{
+				tl.LogMessage("InterfaceVersion Get", "3");
+				return Convert.ToInt16("3");
+			}
+		}
+		
+		public string Name
+		{
+			get
+			{
+				string name = "Short driver name - please customise";
+				tl.LogMessage("Name Get", name);
+				return name;
+			}
+		}
+		
+		public SerialPort SerialPort
+		{
+			get
+			{
+				return serialPort;
+			}
+		}
+		
+		private void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+		{
+			try
+			{
+				message = SerialPort.ReadTo("#");
+				System.Diagnostics.Debug.WriteLine(message);
+				existingMessage = SerialPort.ReadExisting();
+				System.Diagnostics.Debug.WriteLine("Existing" + existingMessage);
+				
+				if (message.Contains("POSITION"))
+				{
+					focuserPosition = Convert.ToInt16(message.Split(':')[1]);
+					OnFocuserValueChanged(new FocuserValueChangedEventArgs(focuserPosition, focuserPosition));
+					OnFocuserStateChanged(new FocuserStateChangedEventArgs(false));
+					this.isMoving = false;
+				}
+				
+				if (message.Contains("MOVING"))
+				{
+					OnFocuserStateChanged(new FocuserStateChangedEventArgs(true));
+					this.isMoving = true;
+				}
+				
+				if (message.Contains("TEMPERATURE"))
+				{
+					this.temperature = Convert.ToDouble(message.Split(':')[1]);
+					OnFocuserTemperatureChanged(
+					new FocuserTemperatureChangedEventArgs(message.Split(':')[1] + " C"));
+				}
+				
+				if (message.Contains("HUMIDITY"))
+				{
+					this.humidity = Convert.ToDouble(message.Split(':')[1]);
+					OnFocuserHumidityChanged(
+					new FocuserHumidityChangedEventArgs(message.Split(':')[1] + "%"));
+				}
+			}
+			catch (Exception ex)
+			{
+				tl.LogMessage("Encountered an Exeption", ex.Message);
+			}
+			
+		}
+		#endregion
+		
+		#region IFocuser Implementation
+		
+		public bool Absolute
+		{
+			get
+			{
+				tl.LogMessage("Absolute Get", true.ToString());
+				return true; // This is an absolute focuser
+			}
+		}
+		
+		public void Halt()
+		{
+			tl.LogMessage("Halt", "Called");
+			SerialPort.WriteLine("X");
+		}
+		
+		public bool IsMoving
+		{
+			get
+			{
+				tl.LogMessage("IsMoving Get", false.ToString());
+				return this.isMoving; // This focuser always moves instantaneously so no need for IsMoving ever to be True
+			}
+		}
+		
+		public bool Link
+		{
+			get
+			{
+				tl.LogMessage("Link Get", this.Connected.ToString());
+				return this.Connected; // Direct function to the connected method, the Link method is just here for backwards compatibility
+			}
+			set
+			{
+				tl.LogMessage("Link Set", value.ToString());
+				this.Connected = value; // Direct function to the connected method, the Link method is just here for backwards compatibility
+			}
+		}
+		
+		public int MaxIncrement
+		{
+			get
+			{
+				return maxIncrement; // Maximum change in one move
+			}
+			set
+			{
+				maxIncrement = value;
+			}
+		}
+		
+		public int MaxStep
+		{
+			get
+			{
+				tl.LogMessage("MaxStep Get", focuserSteps.ToString());
+				return focuserSteps; // Maximum extent of the focuser, so position range is 0 to 10,000
+			}
+		}
+		
+		public void Move(int Position)
+		{
+			tl.LogMessage("Move", Position.ToString());
+			//focuserPosition = Position;
+			Action("E", Position.ToString());  // Set the focuser position
+		}
+		
+		public int Position
+		{
+			get
+			{
+				return focuserPosition; // Return the focuser position
+			}
+		}
+		
+		public int MicroStepMode
+		{
+			get
+			{
+				return MicroSteppingMode; // Return microstepping mode
+			}
+			set
+			{
+				MicroSteppingMode = value;
+			}
+		}
+		public double StepSize
+		{
+			get
+			{
+				return stepSize;
+			}
+			set
+			{
+				stepSize = value;
+			}
+		}
+		
+		public bool TempComp
+		{
+			get
+			{
+				tl.LogMessage("TempComp Get", false.ToString());
+				return false;
+			}
+			set
+			{
+				tl.LogMessage("TempComp Set", "Not implemented");
+				throw new ASCOM.PropertyNotImplementedException("TempComp", false);
+			}
+		}
+		
+		public bool TempCompAvailable
+		{
+			get
+			{
+				tl.LogMessage("TempCompAvailable Get", false.ToString());
+				return false; // Temperature compensation is not available in this driver
+			}
+		}
+		
+		public double Temperature
+		{
+			get
+			{
+				tl.LogMessage("Temperature Get", "Not implemented");
+				return temperature;
+			}
+		}
+		
+		public string MotorDriver
+		{
+			get
+			{
+				return motorDriver;
+			}
+			set
+			{
+				motorDriver = value;
+			}
+		}
+		#endregion
+		
+		#region Private properties and methods
+		// here are some useful properties and methods that can be used as required
+		// to help with driver development
+		
+		#region ASCOM Registration
+		
+		// Register or unregister driver for ASCOM. This is harmless if already
+		// registered or unregistered. 
+		//
+		/// <summary>
+		/// Register or unregister the driver with the ASCOM Platform.
+		/// This is harmless if the driver is already registered/unregistered.
+		/// </summary>
+		/// <param name="bRegister">If <c>true</c>, registers the driver, otherwise unregisters it.</param>
+		private static void RegUnregASCOM(bool bRegister)
+		{
+			using (var P = new ASCOM.Utilities.Profile())
+			{
+				P.DeviceType = "Focuser";
+				if (bRegister)
+				{
+					P.Register(driverID, driverDescription);
+				}
+				else
+				{
+					P.Unregister(driverID);
+				}
+			}
+		}
+		
+		/// <summary>
+		/// This function registers the driver with the ASCOM Chooser and
+		/// is called automatically whenever this class is registered for COM Interop.
+		/// </summary>
+		/// <param name="t">Type of the class being registered, not used.</param>
+		/// <remarks>
+		/// This method typically runs in two distinct situations:
+		/// <list type="numbered">
+		/// <item>
+		/// In Visual Studio, when the project is successfully built.
+		/// For this to work correctly, the option <c>Register for COM Interop</c>
+		/// must be enabled in the project settings.
+		/// </item>
+		/// <item>During setup, when the installer registers the assembly for COM Interop.</item>
+		/// </list>
+		/// This technique should mean that it is never necessary to manually register a driver with ASCOM.
+		/// </remarks>
+		[ComRegisterFunction]
+		public static void RegisterASCOM(Type t)
+		{
+			RegUnregASCOM(true);
+		}
+		
+		/// <summary>
+		/// This function unregisters the driver from the ASCOM Chooser and
+		/// is called automatically whenever this class is unregistered from COM Interop.
+		/// </summary>
+		/// <param name="t">Type of the class being registered, not used.</param>
+		/// <remarks>
+		/// This method typically runs in two distinct situations:
+		/// <list type="numbered">
+		/// <item>
+		/// In Visual Studio, when the project is cleaned or prior to rebuilding.
+		/// For this to work correctly, the option <c>Register for COM Interop</c>
+		/// must be enabled in the project settings.
+		/// </item>
+		/// <item>During uninstall, when the installer unregisters the assembly from COM Interop.</item>
+		/// </list>
+		/// This technique should mean that it is never necessary to manually unregister a driver from ASCOM.
+		/// </remarks>
+		[ComUnregisterFunction]
+		public static void UnregisterASCOM(Type t)
+		{
+			RegUnregASCOM(false);
+		}
+		
+		#endregion
+		
+		/// <summary>
+		/// Returns true if there is a valid connection to the driver hardware
+		/// </summary>
+		private bool IsConnected
+		{
+			get
+			{
+				// TODO check that the driver hardware connection exists and is connected to the hardware
+				return connectedState;
+			}
+		}
+		
+		/// <summary>
+		/// Use this function to throw an exception if we aren't connected to the hardware
+		/// </summary>
+		/// <param name="message"></param>
+		private void CheckConnected(string message)
+		{
+			if (!IsConnected)
+			{
+				throw new ASCOM.NotConnectedException(message);
+			}
+		}
+		
+		/// <summary>
+		/// Read the device configuration from the ASCOM Profile store
+		/// </summary>
+		internal void ReadProfile()
+		{
+			using (Profile driverProfile = new Profile())
+			{
+				driverProfile.DeviceType = "Focuser";
+				traceState = Convert.ToBoolean(driverProfile.GetValue(driverID, traceStateProfileName, string.Empty, traceStateDefault));
+				//tl.Enabled = Convert.ToBoolean(driverProfile.GetValue(driverID, traceStateProfileName, string.Empty, traceStateDefault));
+				comPort = driverProfile.GetValue(driverID, comPortProfileName, string.Empty, comPortDefault);
+				showUI = Convert.ToBoolean(driverProfile.GetValue(driverID, showUIProfileName, string.Empty, showUIDefault));
+			}
+		}
+		
+		/// <summary>
+		/// Write the device configuration to the  ASCOM  Profile store
+		/// </summary>
+		internal void WriteProfile()
+		{
+			using (Profile driverProfile = new Profile())
+			{
+				driverProfile.DeviceType = "Focuser";
+				
+				try
+				{
+					driverProfile.WriteValue(driverID, traceStateProfileName, traceState.ToString());
+					driverProfile.WriteValue(driverID, comPortProfileName, comPort.ToString());
+					driverProfile.WriteValue(driverID, showUIProfileName, showUI.ToString());
+				}
+				catch (Exception ex)
+				{
+					tl.LogMessage("Cannot write to driveProfile", ex.Message);
+				}
+				//showUI = Convert.ToBoolean(driverProfile.GetValue(driverID, showUIProfileName, string.Empty, showUIDefault));
+				//driverProfile.WriteValue(driverID, traceStateProfileName, tl.Enabled.ToString());
+				//driverProfile.WriteValue(driverID, comPortProfileName, comPort.ToString());
+			}
+		}
+		
+		/// <summary>
+		/// Log helper function that takes formatted strings and arguments
+		/// </summary>
+		/// <param name="identifier"></param>
+		/// <param name="message"></param>
+		/// <param name="args"></param>
+		#endregion
+	}
+}
+
+\end{lstlisting}
+
+\subsubsection{SetupDialogForm.Designer.cs}
+\begin{lstlisting}
+namespace ASCOM.GS_touch
+{
+	partial class SetupDialogForm
+	{
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
+		
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
+		
+		#region Windows Form Designer generated code
+		
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{
+			this.cmdOK = new System.Windows.Forms.Button();
+			this.cmdCancel = new System.Windows.Forms.Button();
+			this.Title = new System.Windows.Forms.Label();
+			this.picASCOM = new System.Windows.Forms.PictureBox();
+			this.Comport = new System.Windows.Forms.Label();
+			this.comboBoxComPort = new System.Windows.Forms.ComboBox();
+			this.showUI = new System.Windows.Forms.CheckBox();
+			this.MS_mode = new System.Windows.Forms.Label();
+			this.comboBoxMS = new System.Windows.Forms.ComboBox();
+			this.chkTrace = new System.Windows.Forms.CheckBox();
+			this.Reconnect = new System.Windows.Forms.Button();
+			((System.ComponentModel.ISupportInitialize)(this.picASCOM)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// cmdOK
+			// 
+			this.cmdOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.cmdOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.cmdOK.Location = new System.Drawing.Point(328, 112);
+			this.cmdOK.Name = "cmdOK";
+			this.cmdOK.Size = new System.Drawing.Size(69, 22);
+			this.cmdOK.TabIndex = 0;
+			this.cmdOK.Text = "OK";
+			this.cmdOK.UseVisualStyleBackColor = true;
+			this.cmdOK.Click += new System.EventHandler(this.cmdOK_Click);
+			// 
+			// cmdCancel
+			// 
+			this.cmdCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.cmdCancel.Location = new System.Drawing.Point(328, 140);
+			this.cmdCancel.Name = "cmdCancel";
+			this.cmdCancel.Size = new System.Drawing.Size(69, 23);
+			this.cmdCancel.TabIndex = 1;
+			this.cmdCancel.Text = "Cancel";
+			this.cmdCancel.UseVisualStyleBackColor = true;
+			this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
+			// 
+			// Title
+			// 
+			this.Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+			this.Title.Location = new System.Drawing.Point(12, 8);
+			this.Title.Name = "Title";
+			this.Title.Size = new System.Drawing.Size(335, 31);
+			this.Title.TabIndex = 2;
+			this.Title.Text = "GS-touch ASCOM Driver (v 1.0.0b)";
+			// 
+			// picASCOM
+			// 
+			this.picASCOM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.picASCOM.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.picASCOM.Image = global::ASCOM.GS_touch.Properties.Resources.ASCOM;
+			this.picASCOM.Location = new System.Drawing.Point(17, 42);
+			this.picASCOM.Name = "picASCOM";
+			this.picASCOM.Size = new System.Drawing.Size(48, 56);
+			this.picASCOM.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.picASCOM.TabIndex = 3;
+			this.picASCOM.TabStop = false;
+			this.picASCOM.Click += new System.EventHandler(this.BrowseToAscom);
+			this.picASCOM.DoubleClick += new System.EventHandler(this.BrowseToAscom);
+			// 
+			// Comport
+			// 
+			this.Comport.AutoSize = true;
+			this.Comport.Location = new System.Drawing.Point(93, 53);
+			this.Comport.Name = "Comport";
+			this.Comport.Size = new System.Drawing.Size(161, 12);
+			this.Comport.TabIndex = 5;
+			this.Comport.Text = "Baudrate 115200 : COM port";
+			// 
+			// comboBoxComPort
+			// 
+			this.comboBoxComPort.FormattingEnabled = true;
+			this.comboBoxComPort.Location = new System.Drawing.Point(260, 50);
+			this.comboBoxComPort.Name = "comboBoxComPort";
+			this.comboBoxComPort.Size = new System.Drawing.Size(137, 20);
+			this.comboBoxComPort.TabIndex = 7;
+			// 
+			// showUI
+			// 
+			this.showUI.AutoSize = true;
+			this.showUI.Location = new System.Drawing.Point(20, 120);
+			this.showUI.Name = "showUI";
+			this.showUI.Size = new System.Drawing.Size(114, 16);
+			this.showUI.TabIndex = 8;
+			this.showUI.Text = "Show Controller";
+			this.showUI.UseVisualStyleBackColor = true;
+			this.showUI.CheckedChanged += new System.EventHandler(this.showUI_CheckedChanged);
+			// 
+			// MS_mode
+			// 
+			this.MS_mode.AutoSize = true;
+			this.MS_mode.Location = new System.Drawing.Point(133, 78);
+			this.MS_mode.Name = "MS_mode";
+			this.MS_mode.Size = new System.Drawing.Size(121, 12);
+			this.MS_mode.TabIndex = 9;
+			this.MS_mode.Text = "Microstepping Mode";
+			// 
+			// comboBoxMS
+			// 
+			this.comboBoxMS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBoxMS.FormattingEnabled = true;
+			this.comboBoxMS.Location = new System.Drawing.Point(260, 76);
+			this.comboBoxMS.Name = "comboBoxMS";
+			this.comboBoxMS.Size = new System.Drawing.Size(137, 20);
+			this.comboBoxMS.TabIndex = 10;
+			this.comboBoxMS.SelectedIndexChanged += new System.EventHandler(this.MS_SelectedIndexChanged);
+			// 
+			// chkTrace
+			// 
+			this.chkTrace.AutoSize = true;
+			this.chkTrace.Location = new System.Drawing.Point(20, 142);
+			this.chkTrace.Name = "chkTrace";
+			this.chkTrace.Size = new System.Drawing.Size(75, 16);
+			this.chkTrace.TabIndex = 6;
+			this.chkTrace.Text = "Trace on";
+			this.chkTrace.UseVisualStyleBackColor = true;
+			this.chkTrace.CheckedChanged += new System.EventHandler(this.chkTrace_CheckedChanged);
+			// 
+			// Reconnect
+			// 
+			this.Reconnect.Location = new System.Drawing.Point(233, 112);
+			this.Reconnect.Name = "Reconnect";
+			this.Reconnect.Size = new System.Drawing.Size(89, 52);
+			this.Reconnect.TabIndex = 11;
+			this.Reconnect.Text = "Reconnect";
+			this.Reconnect.UseVisualStyleBackColor = true;
+			this.Reconnect.Click += new System.EventHandler(this.Reconnect_Click);
+			// 
+			// SetupDialogForm
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(408, 169);
+			this.Controls.Add(this.Reconnect);
+			this.Controls.Add(this.comboBoxMS);
+			this.Controls.Add(this.MS_mode);
+			this.Controls.Add(this.showUI);
+			this.Controls.Add(this.comboBoxComPort);
+			this.Controls.Add(this.chkTrace);
+			this.Controls.Add(this.Comport);
+			this.Controls.Add(this.picASCOM);
+			this.Controls.Add(this.Title);
+			this.Controls.Add(this.cmdCancel);
+			this.Controls.Add(this.cmdOK);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
+			this.Name = "SetupDialogForm";
+			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "GS-touch Setup";
+			((System.ComponentModel.ISupportInitialize)(this.picASCOM)).EndInit();
+			this.ResumeLayout(false);
+			this.PerformLayout();
+			
+		}
+		
+		#endregion
+		
+		private System.Windows.Forms.PictureBox picASCOM;
+		private System.Windows.Forms.Button cmdOK;
+		private System.Windows.Forms.Button cmdCancel;
+		private System.Windows.Forms.Button Reconnect;
+		private System.Windows.Forms.Label Title;
+		private System.Windows.Forms.Label Comport;
+		private System.Windows.Forms.Label MS_mode;
+		private System.Windows.Forms.ComboBox comboBoxComPort;
+		private System.Windows.Forms.ComboBox comboBoxMS;
+		private System.Windows.Forms.CheckBox chkTrace;
+		private System.Windows.Forms.CheckBox showUI;
+	}
+}
+\end{lstlisting}
+\subsubsection{SetupDialogForm.cs}
+\begin{lstlisting}
+	using System;
+	using System.Collections.Generic;
+	using System.ComponentModel;
+	using System.Drawing;
+	using System.Runtime.InteropServices;
+	using System.Text;
+	using System.Windows.Forms;
+	using ASCOM.Utilities;
+	using ASCOM.GS_touch;
+	
+	using System.IO.Ports;
+	using System.Diagnostics;
+	using System.Threading;
+	using System.Threading.Tasks;
+	using System.Linq;
+	
+	namespace ASCOM.GS_touch
+	{
+		[ComVisible(false)]					// Form not registered for COM!
+		public partial class SetupDialogForm : Form
+		{
+			public SetupDialogForm()
+			{
+				InitializeComponent();
+				// Initialise current values of user settings from the ASCOM Profile
+				InitUI();
+			}
+			
+			private void cmdOK_Click(object sender, EventArgs e) // OK button event handler
+			{
+				// Place any validation constraint checks here
+				// Update the state variables with results from the dialogue
+				Focuser.comPort = (string)comboBoxComPort.SelectedItem;
+				Focuser.showUI = showUI.Checked;
+				
+				//String modeString = comboBoxMS.SelectedIndex.ToString().Substring(0,0);
+				int mode = Convert.ToInt32(comboBoxMS.SelectedIndex.ToString().Split(':')[0]);
+				Focuser.MicroSteppingMode = mode;
+			}
+			
+			private void cmdCancel_Click(object sender, EventArgs e) // Cancel button event handler
+			{
+				Close();
+			}
+			
+			private void BrowseToAscom(object sender, EventArgs e) // Click on ASCOM logo event handler
+			{
+				try
+				{
+					System.Diagnostics.Process.Start("http://ascom-standards.org/");
+				}
+				catch (System.ComponentModel.Win32Exception noBrowser)
+				{
+					if (noBrowser.ErrorCode == -2147467259)
+					MessageBox.Show(noBrowser.Message);
+				}
+				catch (System.Exception other)
+				{
+					MessageBox.Show(other.Message);
+				}
+			}
+			
+			private void InitUI()
+			{
+				chkTrace.Checked = Focuser.traceState;
+				showUI.Checked = Focuser.showUI;
+				
+				// set the list of com ports to those that are currently available
+				comboBoxComPort.Items.Clear();
+				
+				String[] ports = SerialPort.GetPortNames();
+				foreach (string port in ports)
+				{
+					Debug.WriteLine("Port here " + port);
+					if (Detect_GStouch(port))
+					{
+						comboBoxComPort.Items.Add(port);
+					}
+				}
+				
+				comboBoxComPort.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());      // use System.IO because it's static
+				// select the current port if possible
+				if (comboBoxComPort.Items.Contains(Focuser.comPort))
+				{
+					comboBoxComPort.SelectedItem = Focuser.comPort;
+				}
+				
+				comboBoxMS.Items.Add("1 (full step)");
+				comboBoxMS.Items.Add("2 (1/2 step)");
+				comboBoxMS.Items.Add("3 (1/4 step)");
+				comboBoxMS.Items.Add("4 (1/8 step)");
+				comboBoxMS.SelectedIndex = Focuser.MicroSteppingMode;
+			}
+			
+			private bool Detect_GStouch(string portName)
+			{
+				SerialPort testPort = new SerialPort(portName, 115200);
+				try
+				{
+					testPort.Open();
+					testPort.WriteLine("Z");
+					
+					Thread.Sleep(100);
+					string returnMessage = testPort.ReadExisting().ToString();
+					
+					testPort.Close();
+					Debug.WriteLine(returnMessage);
+					
+					if (returnMessage.Contains("GStouch") || returnMessage.Contains("POSITION"))
+					{
+						Focuser.motorDriver = Focuser.stepperMotor;
+						return true;
+					}
+					else return false;
+					
+				}
+				catch (Exception e)
+				{
+					Debug.WriteLine(e.Message);
+					return false;
+				}
+			}
+			
+			private void chkTrace_CheckedChanged(object sender, EventArgs e)
+			{
+				
+			}
+			
+			private void showUI_CheckedChanged(object sender, EventArgs e)
+			{
+				
+			}
+			
+			private void Reconnect_Click(object sender, EventArgs e)
+			{
+				chkTrace.Checked = Focuser.traceState;
+				showUI.Checked = Focuser.showUI;
+				
+				// set the list of com ports to those that are currently available
+				comboBoxComPort.Items.Clear();
+				
+				String[] ports = SerialPort.GetPortNames();
+				foreach (string port in ports)
+				{
+					Debug.WriteLine("Port here " + port);
+					if (Detect_GStouch(port))
+					{
+						comboBoxComPort.Items.Add(port);
+					}
+				}
+				
+				comboBoxComPort.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());      // use System.IO because it's static
+				// select the current port if possible
+				if (comboBoxComPort.Items.Contains(Focuser.comPort))
+				{
+					comboBoxComPort.SelectedItem = Focuser.comPort;
+				}
+			}
+			
+			private void MS_SelectedIndexChanged(object sender, EventArgs e)
+			{
+				
+			}
+			
+			
+		}
+	}
+\end{lstlisting}
+\subsubsection{MainWindow.Designer.cs}
+\begin{lstlisting}
+	namespace ASCOM.GS_touch
+	{
+		partial class MainWindow
+		{
+			/// <summary>
+			/// Required designer variable.
+			/// </summary>
+			private System.ComponentModel.IContainer components = null;
+			
+			/// <summary>
+			/// Clean up any resources being used.
+			/// </summary>
+			/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+			protected override void Dispose(bool disposing)
+			{
+				if (disposing && (components != null))
+				{
+					components.Dispose();
+				}
+				base.Dispose(disposing);
+			}
+			
+			#region Windows Form Designer generated code
+			
+			/// <summary>
+			/// Required method for Designer support - do not modify
+			/// the contents of this method with the code editor.
+			/// </summary>
+			private void InitializeComponent()
+			{
+				this.components = new System.ComponentModel.Container();
+				this.label_CurrentPosition = new System.Windows.Forms.Label();
+				this.button_Reset = new System.Windows.Forms.Button();
+				this.button_stop = new System.Windows.Forms.Button();
+				this.button_moveright = new System.Windows.Forms.Button();
+				this.button_moveleft = new System.Windows.Forms.Button();
+				this.button_Apply = new System.Windows.Forms.Button();
+				this.label_MoveTo = new System.Windows.Forms.Label();
+				this.button_Advanced = new System.Windows.Forms.Button();
+				this.label_GStouch = new System.Windows.Forms.Label();
+				this.textBox_Position = new System.Windows.Forms.TextBox();
+				this.label_OneStep = new System.Windows.Forms.Label();
+				this.numericUpDown_SingleStep = new System.Windows.Forms.NumericUpDown();
+				this.textBox_MoveTo = new System.Windows.Forms.TextBox();
+				this.label_Moving = new System.Windows.Forms.Label();
+				this.groupBox_Advanced = new System.Windows.Forms.GroupBox();
+				this.label_MS = new System.Windows.Forms.Label();
+				this.numericUpDown_Acceleration = new System.Windows.Forms.NumericUpDown();
+				this.numericUpDown_Speed = new System.Windows.Forms.NumericUpDown();
+				this.textBox_Humidity = new System.Windows.Forms.TextBox();
+				this.textBox_Temperature = new System.Windows.Forms.TextBox();
+				this.label_Acceleration = new System.Windows.Forms.Label();
+				this.label_Speed = new System.Windows.Forms.Label();
+				this.label_Humidity = new System.Windows.Forms.Label();
+				this.label_Temperature = new System.Windows.Forms.Label();
+				this.timer1 = new System.Windows.Forms.Timer(this.components);
+				this.panel_Advanced = new System.Windows.Forms.Panel();
+				((System.ComponentModel.ISupportInitialize)(this.numericUpDown_SingleStep)).BeginInit();
+				this.groupBox_Advanced.SuspendLayout();
+				((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Acceleration)).BeginInit();
+				((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Speed)).BeginInit();
+				this.panel_Advanced.SuspendLayout();
+				this.SuspendLayout();
+				// 
+				// label_CurrentPosition
+				// 
+				this.label_CurrentPosition.AutoSize = true;
+				this.label_CurrentPosition.CausesValidation = false;
+				this.label_CurrentPosition.Enabled = false;
+				this.label_CurrentPosition.Location = new System.Drawing.Point(12, 14);
+				this.label_CurrentPosition.Name = "label_CurrentPosition";
+				this.label_CurrentPosition.Size = new System.Drawing.Size(50, 12);
+				this.label_CurrentPosition.TabIndex = 0;
+				this.label_CurrentPosition.Text = "Position";
+				// 
+				// button_Reset
+				// 
+				this.button_Reset.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+				this.button_Reset.Font = new System.Drawing.Font("굴림", 10F);
+				this.button_Reset.Location = new System.Drawing.Point(12, 155);
+				this.button_Reset.Name = "button_Reset";
+				this.button_Reset.Size = new System.Drawing.Size(240, 46);
+				this.button_Reset.TabIndex = 4;
+				this.button_Reset.Text = "Reset Position";
+				this.button_Reset.UseMnemonic = false;
+				this.button_Reset.UseVisualStyleBackColor = true;
+				this.button_Reset.Click += new System.EventHandler(this.button_Reset_Click);
+				// 
+				// button_stop
+				// 
+				this.button_stop.FlatAppearance.BorderColor = System.Drawing.Color.White;
+				this.button_stop.Location = new System.Drawing.Point(96, 70);
+				this.button_stop.Name = "button_stop";
+				this.button_stop.Size = new System.Drawing.Size(72, 25);
+				this.button_stop.TabIndex = 5;
+				this.button_stop.Text = "STOP";
+				this.button_stop.UseVisualStyleBackColor = true;
+				this.button_stop.Click += new System.EventHandler(this.button_stop_Click);
+				// 
+				// button_moveright
+				// 
+				this.button_moveright.Location = new System.Drawing.Point(172, 70);
+				this.button_moveright.Name = "button_moveright";
+				this.button_moveright.Size = new System.Drawing.Size(80, 25);
+				this.button_moveright.TabIndex = 6;
+				this.button_moveright.Text = ">";
+				this.button_moveright.UseVisualStyleBackColor = true;
+				this.button_moveright.Click += new System.EventHandler(this.button_moveright_Click);
+				// 
+				// button_moveleft
+				// 
+				this.button_moveleft.Location = new System.Drawing.Point(12, 70);
+				this.button_moveleft.Name = "button_moveleft";
+				this.button_moveleft.Size = new System.Drawing.Size(80, 25);
+				this.button_moveleft.TabIndex = 7;
+				this.button_moveleft.Text = "<";
+				this.button_moveleft.UseVisualStyleBackColor = true;
+				this.button_moveleft.Click += new System.EventHandler(this.button_moveleft_Click);
+				// 
+				// button_Apply
+				// 
+				this.button_Apply.Location = new System.Drawing.Point(95, 127);
+				this.button_Apply.Name = "button_Apply";
+				this.button_Apply.Size = new System.Drawing.Size(156, 25);
+				this.button_Apply.TabIndex = 8;
+				this.button_Apply.Text = "Apply";
+				this.button_Apply.UseVisualStyleBackColor = true;
+				this.button_Apply.Click += new System.EventHandler(this.button_Apply_Click);
+				// 
+				// label_MoveTo
+				// 
+				this.label_MoveTo.AutoSize = true;
+				this.label_MoveTo.Location = new System.Drawing.Point(12, 106);
+				this.label_MoveTo.Name = "label_MoveTo";
+				this.label_MoveTo.Size = new System.Drawing.Size(55, 12);
+				this.label_MoveTo.TabIndex = 9;
+				this.label_MoveTo.Text = "Move To";
+				// 
+				// button_Advanced
+				// 
+				this.button_Advanced.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+				this.button_Advanced.Location = new System.Drawing.Point(12, 206);
+				this.button_Advanced.Name = "button_Advanced";
+				this.button_Advanced.Size = new System.Drawing.Size(75, 23);
+				this.button_Advanced.TabIndex = 10;
+				this.button_Advanced.Text = "Advanced";
+				this.button_Advanced.UseVisualStyleBackColor = true;
+				this.button_Advanced.Click += new System.EventHandler(this.button_Advanced_Click);
+				// 
+				// label_GStouch
+				// 
+				this.label_GStouch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+				this.label_GStouch.AutoSize = true;
+				this.label_GStouch.Location = new System.Drawing.Point(102, 212);
+				this.label_GStouch.Name = "label_GStouch";
+				this.label_GStouch.Size = new System.Drawing.Size(150, 12);
+				this.label_GStouch.TabIndex = 11;
+				this.label_GStouch.Text = "GS-touch ASCOM Driver";
+				// 
+				// textBox_Position
+				// 
+				this.textBox_Position.Location = new System.Drawing.Point(96, 9);
+				this.textBox_Position.Name = "textBox_Position";
+				this.textBox_Position.ReadOnly = true;
+				this.textBox_Position.Size = new System.Drawing.Size(154, 21);
+				this.textBox_Position.TabIndex = 12;
+				// 
+				// label_OneStep
+				// 
+				this.label_OneStep.AutoSize = true;
+				this.label_OneStep.Location = new System.Drawing.Point(12, 45);
+				this.label_OneStep.Name = "label_OneStep";
+				this.label_OneStep.Size = new System.Drawing.Size(69, 12);
+				this.label_OneStep.TabIndex = 13;
+				this.label_OneStep.Text = "Single Step";
+				// 
+				// numericUpDown_SingleStep
+				// 
+				this.numericUpDown_SingleStep.Location = new System.Drawing.Point(96, 39);
+				this.numericUpDown_SingleStep.Maximum = new decimal(new int[] {
+					10000,
+					0,
+					0,
+					0});
+				this.numericUpDown_SingleStep.Minimum = new decimal(new int[] {
+					1,
+					0,
+					0,
+					0});
+				this.numericUpDown_SingleStep.Name = "numericUpDown_SingleStep";
+				this.numericUpDown_SingleStep.Size = new System.Drawing.Size(154, 21);
+				this.numericUpDown_SingleStep.TabIndex = 14;
+				this.numericUpDown_SingleStep.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+				this.numericUpDown_SingleStep.Value = new decimal(new int[] {
+					500,
+					0,
+					0,
+					0});
+				this.numericUpDown_SingleStep.ValueChanged += new System.EventHandler(this.numericUpDown_SingleStep_ValueChanged);
+				// 
+				// textBox_MoveTo
+				// 
+				this.textBox_MoveTo.Location = new System.Drawing.Point(96, 101);
+				this.textBox_MoveTo.Name = "textBox_MoveTo";
+				this.textBox_MoveTo.Size = new System.Drawing.Size(154, 21);
+				this.textBox_MoveTo.TabIndex = 15;
+				// 
+				// label_Moving
+				// 
+				this.label_Moving.AutoSize = true;
+				this.label_Moving.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+				this.label_Moving.Location = new System.Drawing.Point(12, 133);
+				this.label_Moving.Name = "label_Moving";
+				this.label_Moving.Size = new System.Drawing.Size(65, 12);
+				this.label_Moving.TabIndex = 16;
+				this.label_Moving.Text = "READY...";
+				// 
+				// groupBox_Advanced
+				// 
+				this.groupBox_Advanced.Controls.Add(this.label_MS);
+				this.groupBox_Advanced.Controls.Add(this.numericUpDown_Acceleration);
+				this.groupBox_Advanced.Controls.Add(this.numericUpDown_Speed);
+				this.groupBox_Advanced.Controls.Add(this.textBox_Humidity);
+				this.groupBox_Advanced.Controls.Add(this.textBox_Temperature);
+				this.groupBox_Advanced.Controls.Add(this.label_Acceleration);
+				this.groupBox_Advanced.Controls.Add(this.label_Speed);
+				this.groupBox_Advanced.Controls.Add(this.label_Humidity);
+				this.groupBox_Advanced.Controls.Add(this.label_Temperature);
+				this.groupBox_Advanced.Location = new System.Drawing.Point(2, 3);
+				this.groupBox_Advanced.Name = "groupBox_Advanced";
+				this.groupBox_Advanced.Size = new System.Drawing.Size(245, 171);
+				this.groupBox_Advanced.TabIndex = 22;
+				this.groupBox_Advanced.TabStop = false;
+				this.groupBox_Advanced.Text = "Advanced";
+				this.groupBox_Advanced.Enter += new System.EventHandler(this.groupBox_Advanced_Enter);
+				// 
+				// label_MS
+				// 
+				this.label_MS.AutoSize = true;
+				this.label_MS.Location = new System.Drawing.Point(25, 22);
+				this.label_MS.Name = "label_MS";
+				this.label_MS.Size = new System.Drawing.Size(198, 12);
+				this.label_MS.TabIndex = 8;
+				this.label_MS.Text = "MicroStepping Mode : 1 (full step)";
+				// 
+				// numericUpDown_Acceleration
+				// 
+				this.numericUpDown_Acceleration.Location = new System.Drawing.Point(85, 132);
+				this.numericUpDown_Acceleration.Maximum = new decimal(new int[] {
+					200,
+					0,
+					0,
+					0});
+				this.numericUpDown_Acceleration.Minimum = new decimal(new int[] {
+					20,
+					0,
+					0,
+					0});
+				this.numericUpDown_Acceleration.Name = "numericUpDown_Acceleration";
+				this.numericUpDown_Acceleration.Size = new System.Drawing.Size(154, 21);
+				this.numericUpDown_Acceleration.TabIndex = 7;
+				this.numericUpDown_Acceleration.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+				this.numericUpDown_Acceleration.Value = new decimal(new int[] {
+					100,
+					0,
+					0,
+					0});
+				// 
+				// numericUpDown_Speed
+				// 
+				this.numericUpDown_Speed.Location = new System.Drawing.Point(85, 105);
+				this.numericUpDown_Speed.Maximum = new decimal(new int[] {
+					300,
+					0,
+					0,
+					0});
+				this.numericUpDown_Speed.Minimum = new decimal(new int[] {
+					10,
+					0,
+					0,
+					0});
+				this.numericUpDown_Speed.Name = "numericUpDown_Speed";
+				this.numericUpDown_Speed.Size = new System.Drawing.Size(154, 21);
+				this.numericUpDown_Speed.TabIndex = 6;
+				this.numericUpDown_Speed.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+				this.numericUpDown_Speed.Value = new decimal(new int[] {
+					100,
+					0,
+					0,
+					0});
+				// 
+				// textBox_Humidity
+				// 
+				this.textBox_Humidity.Location = new System.Drawing.Point(85, 73);
+				this.textBox_Humidity.Name = "textBox_Humidity";
+				this.textBox_Humidity.ReadOnly = true;
+				this.textBox_Humidity.Size = new System.Drawing.Size(154, 21);
+				this.textBox_Humidity.TabIndex = 5;
+				// 
+				// textBox_Temperature
+				// 
+				this.textBox_Temperature.Location = new System.Drawing.Point(85, 46);
+				this.textBox_Temperature.Name = "textBox_Temperature";
+				this.textBox_Temperature.ReadOnly = true;
+				this.textBox_Temperature.Size = new System.Drawing.Size(154, 21);
+				this.textBox_Temperature.TabIndex = 4;
+				// 
+				// label_Acceleration
+				// 
+				this.label_Acceleration.AutoSize = true;
+				this.label_Acceleration.Location = new System.Drawing.Point(4, 137);
+				this.label_Acceleration.Name = "label_Acceleration";
+				this.label_Acceleration.Size = new System.Drawing.Size(75, 12);
+				this.label_Acceleration.TabIndex = 3;
+				this.label_Acceleration.Text = "Acceleration";
+				// 
+				// label_Speed
+				// 
+				this.label_Speed.AutoSize = true;
+				this.label_Speed.Location = new System.Drawing.Point(38, 110);
+				this.label_Speed.Name = "label_Speed";
+				this.label_Speed.Size = new System.Drawing.Size(41, 12);
+				this.label_Speed.TabIndex = 2;
+				this.label_Speed.Text = "Speed";
+				// 
+				// label_Humidity
+				// 
+				this.label_Humidity.AutoSize = true;
+				this.label_Humidity.Location = new System.Drawing.Point(25, 79);
+				this.label_Humidity.Name = "label_Humidity";
+				this.label_Humidity.Size = new System.Drawing.Size(54, 12);
+				this.label_Humidity.TabIndex = 1;
+				this.label_Humidity.Text = "Humidity";
+				// 
+				// label_Temperature
+				// 
+				this.label_Temperature.AutoSize = true;
+				this.label_Temperature.Location = new System.Drawing.Point(2, 52);
+				this.label_Temperature.Name = "label_Temperature";
+				this.label_Temperature.Size = new System.Drawing.Size(77, 12);
+				this.label_Temperature.TabIndex = 0;
+				this.label_Temperature.Text = "Temperature";
+				// 
+				// timer1
+				// 
+				this.timer1.Enabled = true;
+				this.timer1.Interval = 3000;
+				this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+				// 
+				// panel_Advanced
+				// 
+				this.panel_Advanced.Controls.Add(this.groupBox_Advanced);
+				this.panel_Advanced.Location = new System.Drawing.Point(10, 155);
+				this.panel_Advanced.Name = "panel_Advanced";
+				this.panel_Advanced.Size = new System.Drawing.Size(252, 177);
+				this.panel_Advanced.TabIndex = 22;
+				this.panel_Advanced.Visible = false;
+				// 
+				// MainWindow
+				// 
+				this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+				this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+				this.BackColor = System.Drawing.Color.Silver;
+				this.ClientSize = new System.Drawing.Size(264, 241);
+				this.Controls.Add(this.label_Moving);
+				this.Controls.Add(this.textBox_MoveTo);
+				this.Controls.Add(this.numericUpDown_SingleStep);
+				this.Controls.Add(this.label_OneStep);
+				this.Controls.Add(this.textBox_Position);
+				this.Controls.Add(this.label_GStouch);
+				this.Controls.Add(this.button_Advanced);
+				this.Controls.Add(this.label_MoveTo);
+				this.Controls.Add(this.button_Apply);
+				this.Controls.Add(this.button_moveleft);
+				this.Controls.Add(this.button_moveright);
+				this.Controls.Add(this.button_stop);
+				this.Controls.Add(this.button_Reset);
+				this.Controls.Add(this.label_CurrentPosition);
+				this.Controls.Add(this.panel_Advanced);
+				this.Name = "MainWindow";
+				this.ShowIcon = false;
+				this.Text = "GS-touch MainControler";
+				this.Load += new System.EventHandler(this.MainWindow_Load);
+				((System.ComponentModel.ISupportInitialize)(this.numericUpDown_SingleStep)).EndInit();
+				this.groupBox_Advanced.ResumeLayout(false);
+				this.groupBox_Advanced.PerformLayout();
+				((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Acceleration)).EndInit();
+				((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Speed)).EndInit();
+				this.panel_Advanced.ResumeLayout(false);
+				this.ResumeLayout(false);
+				this.PerformLayout();
+				
+			}
+			
+			#endregion
+			
+			private System.Windows.Forms.Label label_CurrentPosition;
+			private System.Windows.Forms.Button button_Reset;
+			private System.Windows.Forms.Button button_stop;
+			private System.Windows.Forms.Button button_moveright;
+			private System.Windows.Forms.Button button_moveleft;
+			private System.Windows.Forms.Button button_Apply;
+			private System.Windows.Forms.Label label_MoveTo;
+			private System.Windows.Forms.Button button_Advanced;
+			private System.Windows.Forms.Label label_GStouch;
+			private System.Windows.Forms.TextBox textBox_Position;
+			private System.Windows.Forms.Label label_OneStep;
+			private System.Windows.Forms.NumericUpDown numericUpDown_SingleStep;
+			private System.Windows.Forms.TextBox textBox_MoveTo;
+			private System.Windows.Forms.Label label_Moving;
+			private System.Windows.Forms.GroupBox groupBox_Advanced;
+			private System.Windows.Forms.Timer timer1;
+			private System.Windows.Forms.Panel panel_Advanced;
+			private System.Windows.Forms.NumericUpDown numericUpDown_Acceleration;
+			private System.Windows.Forms.NumericUpDown numericUpDown_Speed;
+			private System.Windows.Forms.TextBox textBox_Humidity;
+			private System.Windows.Forms.TextBox textBox_Temperature;
+			private System.Windows.Forms.Label label_Acceleration;
+			private System.Windows.Forms.Label label_Speed;
+			private System.Windows.Forms.Label label_Humidity;
+			private System.Windows.Forms.Label label_Temperature;
+			private System.Windows.Forms.Label label_MS;
+		}
+	}
+\end{lstlisting}
+
+\subsubsection{MainWindow.cs}
+\begin{lstlisting}
+	using System;
+	using System.Collections.Generic;
+	using System.ComponentModel;
+	using System.Data;
+	using System.Drawing;
+	using System.Linq;
+	using System.Text;
+	using System.Windows.Forms;
+	
+	namespace ASCOM.GS_touch
+	{
+		public partial class MainWindow : Form
+		{
+			
+			ASCOM.GS_touch.Focuser focuser;
+			
+			public MainWindow(Focuser focuser)
+			{
+				this.focuser = focuser;
+				this.focuser.FocuserValueChanged += FocuserValueChanged;
+				this.focuser.FocuserStateChanged += FocuserStateChanged;
+				this.focuser.FocuserHumidityChanged += FocuserHumidityChanged;
+				this.focuser.FocuserTemperatureChanged += FocuserTemperatureChanged;
+				InitializeComponent();
+				InitControls();
+				
+				this.FormBorderStyle = FormBorderStyle.FixedSingle;
+			}
+			
+			delegate void SetCurrentPositionCallBack(int position);
+			delegate void SetCurrentStateCallBack(bool isMoving);
+			delegate void SetCurrentTemperatureCallBack(string temperature);
+			delegate void SetCurrentHumidityCallBack(string humidity);
+			
+			private void SetCurrentTemperature(string temperature)
+			{
+				textBox_Temperature.InvokeIfRequired(textBox_Temperature => { textBox_Temperature.Text = temperature; });
+			}
+			
+			private void SetCurrentHumidity(string humidity)
+			{
+				
+				textBox_Humidity.InvokeIfRequired(textBox_Humidity => { textBox_Humidity.Text = humidity; });
+			}
+			
+			public void SetCurrentPosition(int position)
+			{
+				
+				textBox_Position.InvokeIfRequired(textBox_Position => { textBox_Position.Text = position.ToString(); });
+			}
+			
+			private void FocuserValueChanged(object sender, FocuserValueChangedEventArgs e)
+			{
+				//this.textBoxCurrentPosition.Text = e.NewValue.ToString();
+				SetCurrentPosition(e.NewValue);
+			}
+			
+			private void SetCurrentState(bool isMoving)
+			{
+				if (label_Moving.InvokeRequired)
+				{
+					SetCurrentStateCallBack d = new SetCurrentStateCallBack(SetCurrentState);
+					this.Invoke(d, new object[] { isMoving });
+				}
+				else
+				{
+					if (isMoving)
+					{
+						label_Moving.Text = "MOVING...";
+					}
+					else
+					{
+						label_Moving.Text = "READY...";
+					}
+				}
+			}
+			
+			#region Changed EventArg Declaration
+			
+			private void FocuserHumidityChanged(object sender, FocuserHumidityChangedEventArgs e)
+			{
+				SetCurrentHumidity(e.Humidity);
+			}
+			
+			private void FocuserTemperatureChanged(object sender, FocuserTemperatureChangedEventArgs e)
+			{
+				SetCurrentTemperature(e.Temperature);
+			}
+			
+			private void FocuserStateChanged(object sender, FocuserStateChangedEventArgs e)
+			{
+				SetCurrentState(e.IsMoving);
+			}
+			#endregion
+			
+			private void InitControls()
+			{
+				textBox_Position.Text = focuser.Position.ToString();
+				label_MS.Text = "MicroStepping Mode : ";
+				switch (focuser.MicroStepMode)
+				{
+					case 1:
+					label_MS.Text += "1 (full step)";
+					focuser.Action("M", Convert.ToString(1));
+					break;
+					
+					case 2:
+					label_MS.Text += "2 (half step)";
+					focuser.Action("M", Convert.ToString(2));
+					break;
+					
+					case 3:
+					label_MS.Text += "3 (1/4 step)";
+					focuser.Action("M", Convert.ToString(3));
+					break;
+					
+					case 4:
+					label_MS.Text += "4 (1/8 step)";
+					focuser.Action("M", Convert.ToString(4));
+					break;
+				}
+			}
+			
+			private ResetForm resetForm;
+			private void button_Reset_Click(object sender, EventArgs e)
+			{
+				resetForm = new ResetForm(this);
+				resetForm.Show();
+				InitControls();
+			}
+			
+			private void button_Advanced_Click(object sender, EventArgs e)
+			{
+				panel_Advanced.Visible = !panel_Advanced.Visible;
+				
+				if (panel_Advanced.Visible)
+				{
+					this.Height = 430;
+					button_Advanced.Text = "Briefly";
+				}
+				else
+				{
+					this.Height = 280;
+					button_Advanced.Text = "Advanced";
+				}
+			}
+			
+			private void button_Apply_Click(object sender, EventArgs e)
+			{
+				focuser.Move(Convert.ToInt16(textBox_MoveTo.Text));
+			}
+			
+			private void button_stop_Click(object sender, EventArgs e)
+			{
+				focuser.Halt();
+			}
+			
+			private void button_moveleft_Click(object sender, EventArgs e)
+			{
+				focuser.CommandString("B", true);
+			}
+			
+			private void button_moveright_Click(object sender, EventArgs e)
+			{
+				focuser.CommandString("C", true);
+			}
+			
+			private void numericUpDown_SingleStep_ValueChanged(object sender, EventArgs e)
+			{
+				focuser.StepSize = Convert.ToDouble(numericUpDown_SingleStep.Value);
+			}
+			
+			private void numericUpDown_Speed_ValueChanged(object sender, EventArgs e)
+			{
+				focuser.Action("J", numericUpDown_Speed.Value.ToString());
+			}
+			
+			private void numericUpDown_Acceleration_ValueChanged(object sender, EventArgs e)
+			{
+				focuser.Action("H", numericUpDown_Acceleration.Value.ToString());
+			}
+			
+			private void timer1_Tick(object sender, EventArgs e)
+			{
+				// do not disrupt the motor when it is moving
+				if (!focuser.IsMoving)
+				{
+					System.Diagnostics.Debug.WriteLine("Getting Temperature");
+					focuser.Action("k", "");
+				}
+			}
+			
+			private void groupBox_Advanced_Enter(object sender, EventArgs e)
+			{
+				
+			}
+			
+			public String askPosition()
+			{
+				return focuser.Position.ToString();
+			}
+			public void applyPosition(String resetPosition)
+			{
+				focuser.Action("G", resetPosition);
+				SetCurrentPosition(Convert.ToInt32(resetPosition));
+				return;
+			}
+			
+			private void MainWindow_Load(object sender, EventArgs e)
+			{
+				
+			}
+		}
+		
+		#region ExtensionMethods
+		
+		public static class ExtensionMethods
+		{
+			public static void InvokeIfRequired(this TextBox control, Action<TextBox> action)
+			{
+				if (control.InvokeRequired)
+				{
+					control.Invoke(new Action(() => action(control)));
+				}
+				else
+				{
+					action(control);
+				}
+			}
+		}
+		#endregion
+	}
+	
+\end{lstlisting}
+
+\subsubsection{ResetForm.Designer.cs}
+\begin{lstlisting}
+	namespace ASCOM.GS_touch
+	{
+		partial class ResetForm
+		{
+			/// <summary>
+			/// Required designer variable.
+			/// </summary>
+			private System.ComponentModel.IContainer components = null;
+			
+			/// <summary>
+			/// Clean up any resources being used.
+			/// </summary>
+			/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+			protected override void Dispose(bool disposing)
+			{
+				if (disposing && (components != null))
+				{
+					components.Dispose();
+				}
+				base.Dispose(disposing);
+			}
+			
+			#region Windows Form Designer generated code
+			
+			/// <summary>
+			/// Required method for Designer support - do not modify
+			/// the contents of this method with the code editor.
+			/// </summary>
+			private void InitializeComponent()
+			{
+				this.label_ResetPosition = new System.Windows.Forms.Label();
+				this.textBox_ResetPosition = new System.Windows.Forms.TextBox();
+				this.button_Reset = new System.Windows.Forms.Button();
+				this.button_Cancel = new System.Windows.Forms.Button();
+				this.SuspendLayout();
+				// 
+				// label_ResetPosition
+				// 
+				this.label_ResetPosition.AutoSize = true;
+				this.label_ResetPosition.Location = new System.Drawing.Point(26, 36);
+				this.label_ResetPosition.Name = "label_ResetPosition";
+				this.label_ResetPosition.Size = new System.Drawing.Size(81, 12);
+				this.label_ResetPosition.TabIndex = 0;
+				this.label_ResetPosition.Text = "Position want";
+				// 
+				// textBox_ResetPosition
+				// 
+				this.textBox_ResetPosition.Location = new System.Drawing.Point(128, 30);
+				this.textBox_ResetPosition.Name = "textBox_ResetPosition";
+				this.textBox_ResetPosition.Size = new System.Drawing.Size(150, 21);
+				this.textBox_ResetPosition.TabIndex = 2;
+				// 
+				// button_Reset
+				// 
+				this.button_Reset.Location = new System.Drawing.Point(128, 65);
+				this.button_Reset.Name = "button_Reset";
+				this.button_Reset.Size = new System.Drawing.Size(70, 25);
+				this.button_Reset.TabIndex = 4;
+				this.button_Reset.Text = "Apply";
+				this.button_Reset.UseVisualStyleBackColor = true;
+				this.button_Reset.Click += new System.EventHandler(this.button_Reset_Click);
+				// 
+				// button_Cancel
+				// 
+				this.button_Cancel.Location = new System.Drawing.Point(208, 65);
+				this.button_Cancel.Name = "button_Cancel";
+				this.button_Cancel.Size = new System.Drawing.Size(70, 25);
+				this.button_Cancel.TabIndex = 5;
+				this.button_Cancel.Text = "Cancel";
+				this.button_Cancel.UseVisualStyleBackColor = true;
+				this.button_Cancel.Click += new System.EventHandler(this.button_Cancel_Click);
+				// 
+				// ResetForm
+				// 
+				this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+				this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+				this.ClientSize = new System.Drawing.Size(304, 111);
+				this.Controls.Add(this.button_Cancel);
+				this.Controls.Add(this.button_Reset);
+				this.Controls.Add(this.textBox_ResetPosition);
+				this.Controls.Add(this.label_ResetPosition);
+				this.Name = "ResetForm";
+				this.Text = "Reset Settings";
+				this.ResumeLayout(false);
+				this.PerformLayout();
+				
+			}
+			
+			#endregion
+			
+			private System.Windows.Forms.Label label_ResetPosition;
+			private System.Windows.Forms.TextBox textBox_ResetPosition;
+			private System.Windows.Forms.Button button_Reset;
+			private System.Windows.Forms.Button button_Cancel;
+		}
+	}
+\end{lstlisting}
+
+\subsubsection{ResetForm.cs}
+\begin{lstlisting}
+	using System;
+	using System.Collections.Generic;
+	using System.ComponentModel;
+	using System.Data;
+	using System.Drawing;
+	using System.Linq;
+	using System.Text;
+	using System.Windows.Forms;
+	
+	namespace ASCOM.GS_touch
+	{
+		public partial class ResetForm : Form
+		{
+			private ASCOM.GS_touch.MainWindow mainWindow;
+			public ResetForm(MainWindow mainWindow)
+			{
+				this.mainWindow = mainWindow;
+				InitializeComponent();
+				textBox_ResetPosition.Text = mainWindow.askPosition();
+			}
+			
+			internal const int MaxStep = 500000;
+			
+			private void button_Reset_Click(object sender, EventArgs e)
+			{
+				if (Convert.ToInt32(textBox_ResetPosition.Text) > MaxStep || Convert.ToInt32(textBox_ResetPosition.Text) < 0)
+				{
+					System.Windows.Forms.MessageBox.Show("Reset Position Out of Range");
+				}
+				else
+				{
+					mainWindow.applyPosition(textBox_ResetPosition.Text);
+					//mainWindow.SetCurrentPosition(Convert.ToInt32(textBox_ResetPosition));
+					this.Close();
+				}
+			}
+			
+			private void button_Cancel_Click(object sender, EventArgs e)
+			{
+				this.Close();
+			}
+		}
+	}
+	
+\end{lstlisting}

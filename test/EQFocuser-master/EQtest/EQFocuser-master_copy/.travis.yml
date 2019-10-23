@@ -1,3 +1,0 @@
-language: csharp
-install: false
-script: make build

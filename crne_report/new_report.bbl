@@ -1,0 +1,20 @@
+\begin{thebibliography}{1}
+
+\bibitem[1]{weber2001fast}
+Weber, L., \& Brady, S. (2001).
+\newblock Fast auto-focus method and software for ccd-based telescopes.
+\newblock In {\em Minor Planet Amateur/Professional Workshop}, (pp.\ 104--113).
+
+\bibitem[2]{wiki-arduino}
+Wikipedia (2019).
+\newblock {아두이노} --- {W}ikipedia{,} the free encyclopedia.
+\newblock
+  \url{http://ko.wikipedia.org/w/index.php?title=\%EC\%95\%84\%EB\%91\%90\%EC\%9D\%B4\%EB\%85\%B8&oldid=24758975}.
+\newblock [Online; accessed 31-August-2019].
+
+\bibitem[3]{persha2001temperature}
+Persha, G.~C. (2001).
+\newblock Temperature compensating focuser for telescope.
+\newblock US Patent 6,327,081.
+
+\end{thebibliography}
