@@ -31,22 +31,22 @@ bool PCMODE = false;
   AccelStepper stepper(motorInterfaceType, STEP, DIR);
 
 // for the temperature and hubmidity sensor
-  #ifdef DHT22_
+#ifdef DHT22_
    #define DHT22_PIN 2
    #define DHTTYPE DHT22
    DHT dht(DHT22_PIN,DHTTYPE);
-  #endif
+#endif
 
 
 String inputString = "";
 
 // temperature and humidity sensor
-  #ifdef DHT22
+#ifdef DHT22
    //dht DHT;
    int chkSensor;
    String Temperature;
    String Humidity;
-  #endif
+#endif
   
 
 void setup() {
@@ -59,7 +59,6 @@ void setup() {
   stepper.setSpeed(100);
 
   inputString.reserve(200);
-
   pinset();
 }
 
@@ -75,14 +74,13 @@ void loop() {
     }
   #endif
   
-  }
+}
 
 void reportPosition() {
   Serial.print("POSITION:");
   Serial.print(stepper.currentPosition());
   Serial.println("#");
 }
-
 
 /**
 * process the command we recieved from the client
@@ -95,8 +93,6 @@ void serialCommand(String commandString) {
   String _answer = "";
   int _currentPosition = stepper.currentPosition();
   int _newPosition = _currentPosition;
-
-
   
   switch (_command) {
     
@@ -115,6 +111,7 @@ void serialCommand(String commandString) {
   case 'F':  // GET CURRENT POSITION
   case 'f': _answer += _currentPosition;
     break;
+  
   case 'G':  // SET CURRENT POSITION
   case 'g': _newPosition = _value;
     _currentPosition = _value;
@@ -138,20 +135,21 @@ void serialCommand(String commandString) {
     _answer += stepper.speed();
     break;
 
-      #ifdef DHT22
-        case 'k': // GET TEMPERATURE & HUMIDITY
-          _newPosition = _currentPosition; // non move command
-          humidityTemperatureReport();
-          break;
-      #endif
+    #ifdef DHT22
+      case 'k': // GET TEMPERATURE & HUMIDITY
+        _newPosition = _currentPosition; // non move command
+        humidityTemperatureReport();
+        break;
+    #endif
 
   case 'X':  // GET STATUS - may not be needed
   case 'x':
     stepper.stop();
     break;
+  
   case 'Z':  // IDENTIFY
   case 'z':  _answer += "GStouch";
-  PCMODE = true;
+    PCMODE = true;
     break;
   default:
     _answer += "GStouch";

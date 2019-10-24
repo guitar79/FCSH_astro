@@ -1,8 +1,7 @@
 int ct=0;
 int pt=0;
 
-void motorControl()
-{
+void motorControl(){
   int stp = 0;
   switch(power)
   {
@@ -32,8 +31,7 @@ void motorControl()
   }
 }
 
-void MSmodeControl()
-{
+void MSmodeControl(){
   
   if(S[0] && stepmode<4 && !rm) stepmode++;
   else if(S[1] && stepmode>1 && !rm) stepmode--;
@@ -41,7 +39,6 @@ void MSmodeControl()
   if(S[0] && _resetPosition < 500000 && rm==1) _resetPosition = (_resetPosition+100)/100*100;
   else if(S[1] && _resetPosition > 0 && rm==1) _resetPosition = (_resetPosition-100)/100*100;
   
-
   if(S[2] && rm != 2) rm++;
   else if(S[2] && rm==2) 
     {
@@ -55,5 +52,3 @@ void MSmodeControl()
   else if(S[3] && !rm) subm--;
   else if(S[3] && rm) rm--;
 }
-
-
