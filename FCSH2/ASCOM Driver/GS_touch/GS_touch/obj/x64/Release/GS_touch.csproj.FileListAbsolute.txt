@@ -46,7 +46,6 @@ c:\Users\User\Documents\Github\Kevin_FCSH_controller\FCSH2\ASCOM Driver\GS_touch
 c:\Users\User\Documents\Github\Kevin_FCSH_controller\FCSH2\ASCOM Driver\GS_touch\GS_touch\bin\x64\Release\ASCOM.SettingsProvider.xml
 c:\Users\User\Documents\Github\Kevin_FCSH_controller\FCSH2\ASCOM Driver\GS_touch\GS_touch\bin\x64\Release\ASCOM.Utilities.xml
 c:\Users\User\Documents\Github\Kevin_FCSH_controller\FCSH2\ASCOM Driver\GS_touch\GS_touch\bin\x64\Release\ASCOM.Internal.Extensions.xml
-c:\Users\User\Documents\Github\Kevin_FCSH_controller\FCSH2\ASCOM Driver\GS_touch\GS_touch\obj\x64\Release\GS_touch.csprojAssemblyReference.cache
 c:\Users\User\Documents\Github\Kevin_FCSH_controller\FCSH2\ASCOM Driver\GS_touch\GS_touch\obj\x64\Release\ASCOM.GS_touch.Properties.Resources.resources
 c:\Users\User\Documents\Github\Kevin_FCSH_controller\FCSH2\ASCOM Driver\GS_touch\GS_touch\obj\x64\Release\ASCOM.GS_touch.SetupDialogForm.resources
 c:\Users\User\Documents\Github\Kevin_FCSH_controller\FCSH2\ASCOM Driver\GS_touch\GS_touch\obj\x64\Release\GS_touch.csproj.GenerateResource.cache
