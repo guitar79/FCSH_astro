@@ -77,7 +77,7 @@
             // 
             this.button_Reset.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.button_Reset.Font = new System.Drawing.Font("굴림", 10F);
-            this.button_Reset.Location = new System.Drawing.Point(12, 155);
+            this.button_Reset.Location = new System.Drawing.Point(30, 339);
             this.button_Reset.Name = "button_Reset";
             this.button_Reset.Size = new System.Drawing.Size(240, 46);
             this.button_Reset.TabIndex = 4;
@@ -139,7 +139,7 @@
             // button_Advanced
             // 
             this.button_Advanced.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button_Advanced.Location = new System.Drawing.Point(12, 206);
+            this.button_Advanced.Location = new System.Drawing.Point(12, 390);
             this.button_Advanced.Name = "button_Advanced";
             this.button_Advanced.Size = new System.Drawing.Size(75, 23);
             this.button_Advanced.TabIndex = 10;
@@ -151,9 +151,9 @@
             // 
             this.label_GStouch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label_GStouch.AutoSize = true;
-            this.label_GStouch.Location = new System.Drawing.Point(102, 212);
+            this.label_GStouch.Location = new System.Drawing.Point(138, 396);
             this.label_GStouch.Name = "label_GStouch";
-            this.label_GStouch.Size = new System.Drawing.Size(150, 12);
+            this.label_GStouch.Size = new System.Drawing.Size(144, 12);
             this.label_GStouch.TabIndex = 11;
             this.label_GStouch.Text = "GS-touch ASCOM Driver";
             // 
@@ -361,7 +361,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(264, 241);
+            this.ClientSize = new System.Drawing.Size(300, 425);
             this.Controls.Add(this.label_Moving);
             this.Controls.Add(this.textBox_MoveTo);
             this.Controls.Add(this.numericUpDown_SingleStep);

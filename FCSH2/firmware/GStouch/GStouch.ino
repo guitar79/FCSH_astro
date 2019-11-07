@@ -1,4 +1,18 @@
-//https://www.airspayce.com/mikem/arduino/AccelStepper/classAccelStepper.html#a608b2395b64ac15451d16d0371fe13ce
+// GS-touch
+// ONLY FOR USE WITH STEPPER MOTORS ONLY
+// LEDS, TEMPERATURE PROBE, OLED
+// REQUIRES 12V 3A Power Supply
+// ----------------------------------------------------------------------------------------------------------
+// FIRMWARE CHANGE LOG
+// Ver. 1.1 기초 동작 시작
+// 
+// ----------------------------------------------------------------------------------------------------------
+
+//previousMillis = millis();
+
+// ----------------------------------------------------------------------------------------------------------
+// Accell Stepper liblary
+// https://www.airspayce.com/mikem/arduino/AccelStepper/classAccelStepper.html#a608b2395b64ac15451d16d0371fe13ce
 
 short subm = 0;
 short menu = 1;

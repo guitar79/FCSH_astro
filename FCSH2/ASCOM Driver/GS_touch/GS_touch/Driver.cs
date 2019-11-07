@@ -119,7 +119,7 @@ namespace ASCOM.GS_touch
         /// <summary>
         /// Driver description that displays in the ASCOM Chooser.
         /// </summary>
-        private static string driverDescription = "ASCOM Focuser Driver for GS-touch";
+        private static string driverDescription = "GS_touch";
 
         internal static string comPortProfileName = "COM Port"; // Constants used for Profile persistence
         internal static string comPortDefault = "COM4";
