@@ -210,6 +210,11 @@ namespace ASCOM.GS_touch
         {
 
         }
+
+        private void label_GStouch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     #region ExtensionMethods

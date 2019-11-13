@@ -153,9 +153,10 @@
             this.label_GStouch.AutoSize = true;
             this.label_GStouch.Location = new System.Drawing.Point(138, 396);
             this.label_GStouch.Name = "label_GStouch";
-            this.label_GStouch.Size = new System.Drawing.Size(144, 12);
+            this.label_GStouch.Size = new System.Drawing.Size(149, 12);
             this.label_GStouch.TabIndex = 11;
-            this.label_GStouch.Text = "GS-touch ASCOM Driver";
+            this.label_GStouch.Text = "GS-touch Main Controller";
+            this.label_GStouch.Click += new System.EventHandler(this.label_GStouch_Click);
             // 
             // textBox_Position
             // 

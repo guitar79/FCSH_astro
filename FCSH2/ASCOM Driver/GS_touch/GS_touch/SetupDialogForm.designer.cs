@@ -73,7 +73,7 @@ namespace ASCOM.GS_touch
             this.Title.Name = "Title";
             this.Title.Size = new System.Drawing.Size(335, 31);
             this.Title.TabIndex = 2;
-            this.Title.Text = "GS-touch ASCOM Driver (v 1.0.0b)";
+            this.Title.Text = "GS-touch ASCOM Driver (v 1.1)";
             // 
             // picASCOM
             // 
@@ -153,7 +153,7 @@ namespace ASCOM.GS_touch
             this.Reconnect.Name = "Reconnect";
             this.Reconnect.Size = new System.Drawing.Size(89, 52);
             this.Reconnect.TabIndex = 11;
-            this.Reconnect.Text = "Reconnect";
+            this.Reconnect.Text = "Connect";
             this.Reconnect.UseVisualStyleBackColor = true;
             this.Reconnect.Click += new System.EventHandler(this.Reconnect_Click);
             // 
