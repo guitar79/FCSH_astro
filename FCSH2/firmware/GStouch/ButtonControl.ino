@@ -1,7 +1,8 @@
+// JS's pcb
 //#define PCB_1
+
+//Kevin's PCB
 #define PCB_2 
-// PCB variables
-// 1: JS, 2:Kevin_touch 
 
 //스위치 핀 번호
 #ifdef PCB_1 

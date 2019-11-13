@@ -1,5 +1,5 @@
 // GS-touch
-// ONLY FOR USE WITH STEPPER MOTORS ONLY
+// ONLY FOR USE WITH Biopolar STEPPER MOTORS ONLY
 // LEDS, TEMPERATURE PROBE, OLED
 // REQUIRES 12V 3A Power Supply
 // ----------------------------------------------------------------------------------------------------------
