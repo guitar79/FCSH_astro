@@ -7,9 +7,10 @@ void motorControl(){
   {
     case 1: stp=1; break;
     case 2: stp=10; break;
-    case 3: stp=100; break;
-    case 4: stp=300; break;
-    case 5: stp=1000; break;
+    case 3: stp=30; break;
+    case 4: stp=100; break;
+    case 5: stp=300; break;
+    case 6: stp=1000; break;
   }
   if(!now[0]||!now[1])
   {

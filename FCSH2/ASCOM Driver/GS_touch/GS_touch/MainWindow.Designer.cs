@@ -76,7 +76,7 @@
             // button_Reset
             // 
             this.button_Reset.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button_Reset.Font = new System.Drawing.Font("굴림", 10F);
+            this.button_Reset.Font = new System.Drawing.Font("Arial", 10F);
             this.button_Reset.Location = new System.Drawing.Point(30, 339);
             this.button_Reset.Name = "button_Reset";
             this.button_Reset.Size = new System.Drawing.Size(240, 46);
@@ -209,7 +209,7 @@
             // label_Moving
             // 
             this.label_Moving.AutoSize = true;
-            this.label_Moving.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label_Moving.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label_Moving.Location = new System.Drawing.Point(12, 133);
             this.label_Moving.Name = "label_Moving";
             this.label_Moving.Size = new System.Drawing.Size(65, 12);

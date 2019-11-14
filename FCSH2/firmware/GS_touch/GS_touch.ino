@@ -4,19 +4,39 @@
 // REQUIRES 12V 3A Power Supply
 // ----------------------------------------------------------------------------------------------------------
 // FIRMWARE CHANGE LOG
-// Ver. 1.1 기초 동작 시작
-// 
+// (2019. 10. 1) Ver. 1.0 기초 동작 시작
+// (2019. 10. 1.) Ver. 1.1 박기현 편집 시작 
+// (2019. 11. 14.) Ver. 2.0 프로토콜 변경 
 // ----------------------------------------------------------------------------------------------------------
+// 프로토콜
+//  'B' :  // REVERSE "<"
+//  'b': _newPosition = _currentPosition - _value;
+//  'C':  // FORWARD ">"
+//  'c': _newPosition = _currentPosition + _value;
+//  'E':  // MOVE TO POSITION
+//  'e': _newPosition = _value;
+//  'F':  // GET CURRENT POSITION
+//  'f': _answer += _currentPosition;
+//  'G':  // SET CURRENT POSITION
+//  'g': _newPosition = _value;
+//  'H':  // SET ACCELERATION
+//  'h': _newPosition = _currentPosition; // non move command
+//  'I':  // SET SPEED
+//  'i':  // GET SPEED
+//  'X':  // GET STATUS - may not be needed
+//  'x':
+//  'Z':  // IDENTIFY
+//  'z':  _answer += "GStouch";
+// ----------------------------------------------------------------------------------------------------------
+
 
 //previousMillis = millis();
 
-// ----------------------------------------------------------------------------------------------------------
-// Accell Stepper liblary
-// https://www.airspayce.com/mikem/arduino/AccelStepper/classAccelStepper.html#a608b2395b64ac15451d16d0371fe13ce
-
+// 변수 설정
 short subm = 0;
 short menu = 1;
 short power = 1;
+
 //
 short rm = 0;
 //
@@ -24,15 +44,20 @@ short stepmode = 1;
 
 bool PCMODE = false;
 
+// ----------------------------------------------------------------------------------------------------------
+// for the temperature and hubmidity sensor
 #define DHT22_ 1
-
-#include <AccelStepper.h>
 #ifdef DHT22_
- //#include <dht.h>
- #include <DHT.h>
+  #include <DHT.h>
+  #define DHT22_PIN 2
+  #define DHTTYPE DHT22
+    DHT dht(DHT22_PIN,DHTTYPE);
+    int chkSensor;
+    String Temperature;
+    String Humidity;
 #endif
 
-// motor pins
+// DRV8825 Motor driver pins
 #define motorInterfaceType 1
 #define DIR 4
 #define STEP 3
@@ -42,26 +67,14 @@ bool PCMODE = false;
 #define MOTOR_STEPS 200
 
 // Declaration needed for the AccelStepper Library
+// ----------------------------------------------------------------------------------------------------------
+// Accell Stepper liblary
+// https://www.airspayce.com/mikem/arduino/AccelStepper/classAccelStepper.html#a608b2395b64ac15451d16d0371fe13ce
+#include <AccelStepper.h>
   AccelStepper stepper(motorInterfaceType, STEP, DIR);
-
-// for the temperature and hubmidity sensor
-#ifdef DHT22_
-   #define DHT22_PIN 2
-   #define DHTTYPE DHT22
-   DHT dht(DHT22_PIN,DHTTYPE);
-#endif
 
 
 String inputString = "";
-
-// temperature and humidity sensor
-#ifdef DHT22
-   //dht DHT;
-   int chkSensor;
-   String Temperature;
-   String Humidity;
-#endif
-  
 
 void setup() {
   Serial.begin(115200);

@@ -84,11 +84,12 @@ namespace ASCOM.GS_touch
             {
                 comboBoxComPort.SelectedItem = Focuser.comPort;
             }
-
             comboBoxMS.Items.Add("1 (full step)");
             comboBoxMS.Items.Add("2 (1/2 step)");
             comboBoxMS.Items.Add("3 (1/4 step)");
             comboBoxMS.Items.Add("4 (1/8 step)");
+            comboBoxMS.Items.Add("5 (1/16 step)");
+            comboBoxMS.Items.Add("6 (1/32 step)");
             comboBoxMS.SelectedIndex = Focuser.MicroSteppingMode;
         }
 
