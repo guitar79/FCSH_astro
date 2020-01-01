@@ -10,13 +10,9 @@ short stepmode = 1;
 
 bool PCMODE = false;
 
-#define DHT22_ 1
 
 #include <AccelStepper.h>
-  #ifdef DHT22_
-   //#include <dht.h>
-   #include <DHT.h>
-  #endif
+#include <DHT.h>
 
 // motor pins
 #define motorInterfaceType 1
@@ -31,22 +27,17 @@ bool PCMODE = false;
   AccelStepper stepper(motorInterfaceType, STEP, DIR);
 
 // for the temperature and hubmidity sensor
-  #ifdef DHT22_
-   #define DHT22_PIN 2
-   #define DHTTYPE DHT22
-   DHT dht(DHT22_PIN,DHTTYPE);
-  #endif
+ #define DHT22_PIN 2
+ #define DHTTYPE DHT22
+ DHT dht(DHT22_PIN,DHTTYPE);
 
 
 String inputString = "";
 
 // temperature and humidity sensor
-  #ifdef DHT22
-   //dht DHT;
-   int chkSensor;
-   String Temperature;
-   String Humidity;
-  #endif
+ int chkSensor;
+ String Temperature;
+ String Humidity;
   
 
 void setup() {
