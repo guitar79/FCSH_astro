@@ -11,6 +11,13 @@
 // microstepping
   short stepmode = 1;
 
+// controling PWM (0~100)
+  int PWM_value = 0;
+  bool currentstate = false;
+  unsigned long currentMillis = 0;
+  unsigned long previousMillis = 0;
+  unsigned long delayMillis = 0;
+
   bool PCMODE = false;
 
 #include <AccelStepper.h>
@@ -47,6 +54,7 @@ void setup() {
   inputString.reserve(200);
 
   pinset();
+  digitalWrite(PWM,LOW);
 }
 
 
@@ -60,6 +68,18 @@ void loop() {
     buttonRead();
     draw();
   }
+
+  if(delayMillis != 0)
+  {
+    currentMillis = millis();
+    if(currentMillis > previousMillis + delayMillis)
+    {
+      currentstate = !currentstate;
+      delayMIllis = 500-5*delayMillis;
+    }
+    if(currentstate == true) digitalWrite(PWM,HIGH);
+    else digitalWrite(PWM,LOW);
+  }//not tested
   
 }
 
@@ -86,6 +106,14 @@ void serialCommand(String commandString) {
   
   switch (_command) {
 
+  case 'A':  // SET PWM
+  case 'a': _newPosition = _currentPosition; // non move command
+    //PWM test
+    delayMillis = 5 * _value;
+    previousMillis = millis();
+    currentMillis = millis();
+    break;
+    
   case 'B':  // REVERSE "<"
   case 'b': _newPosition = _currentPosition - _value;
     break;
@@ -144,6 +172,7 @@ void serialCommand(String commandString) {
     servo.detach();
     delay(500);
 
+  
   
   
   case 'X':  // GET STATUS - may not be needed

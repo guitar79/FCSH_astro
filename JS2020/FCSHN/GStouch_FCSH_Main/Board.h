@@ -21,6 +21,7 @@
 #define MOTOR_STEPS 200
 #define DHT22_PIN 2
 #define ServoPin 3
+#define PWM 20
 
 //need to set
 /*
@@ -28,7 +29,6 @@
 #define RelayPin2 2
 #define RelayPin3 3
 #define RelayPin4 4
-#define PWM 20
 */
 #endif
 

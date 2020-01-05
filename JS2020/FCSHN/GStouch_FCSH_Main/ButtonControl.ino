@@ -33,6 +33,7 @@ void pinset()
   pinMode(DOWNpin,INPUT_PULLUP);
   pinMode(RIGHTpin,INPUT_PULLUP);
   pinMode(LEFTpin,INPUT_PULLUP);
+  pinMode(PWM,OUTPUT);
 }
 
 void buttonRead()

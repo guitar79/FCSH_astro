@@ -135,7 +135,7 @@ namespace ASCOM.GS_touch
 
             if (panel_Advanced.Visible)
             {
-                this.Height = 480;
+                this.Height = 505;
                 button_Advanced.Text = "Briefly";
             }
             else
@@ -179,6 +179,12 @@ namespace ASCOM.GS_touch
         {
             focuser.Action("H", numericUpDown_Acceleration.Value.ToString());
         }
+
+        private void numericUpDown_PWM_ValueChanged(object sender, EventArgs e)
+        {
+            focuser.Action("A", numericUpDown_PWM.Value.ToString());
+        }
+        //일단 A에 PWM 할당
 
         private void timer1_Tick(object sender, EventArgs e)
         {

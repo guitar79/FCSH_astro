@@ -56,11 +56,14 @@
             this.label_Temperature = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel_Advanced = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.numericUpDown_PWM = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_SingleStep)).BeginInit();
             this.groupBox_Advanced.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Acceleration)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Speed)).BeginInit();
             this.panel_Advanced.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PWM)).BeginInit();
             this.SuspendLayout();
             // 
             // label_CurrentPosition
@@ -79,7 +82,7 @@
             this.button_Reset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_Reset.AutoEllipsis = true;
             this.button_Reset.Font = new System.Drawing.Font("굴림", 10F);
-            this.button_Reset.Location = new System.Drawing.Point(12, 155);
+            this.button_Reset.Location = new System.Drawing.Point(12, 380);
             this.button_Reset.Name = "button_Reset";
             this.button_Reset.Size = new System.Drawing.Size(240, 46);
             this.button_Reset.TabIndex = 4;
@@ -142,7 +145,7 @@
             // button_Advanced
             // 
             this.button_Advanced.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button_Advanced.Location = new System.Drawing.Point(12, 206);
+            this.button_Advanced.Location = new System.Drawing.Point(12, 431);
             this.button_Advanced.Name = "button_Advanced";
             this.button_Advanced.Size = new System.Drawing.Size(75, 23);
             this.button_Advanced.TabIndex = 10;
@@ -154,7 +157,7 @@
             // 
             this.label_GStouch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label_GStouch.AutoSize = true;
-            this.label_GStouch.Location = new System.Drawing.Point(102, 212);
+            this.label_GStouch.Location = new System.Drawing.Point(102, 437);
             this.label_GStouch.Name = "label_GStouch";
             this.label_GStouch.Size = new System.Drawing.Size(144, 12);
             this.label_GStouch.TabIndex = 11;
@@ -220,6 +223,8 @@
             // 
             // groupBox_Advanced
             // 
+            this.groupBox_Advanced.Controls.Add(this.numericUpDown_PWM);
+            this.groupBox_Advanced.Controls.Add(this.label1);
             this.groupBox_Advanced.Controls.Add(this.label_MS);
             this.groupBox_Advanced.Controls.Add(this.button_maskControl);
             this.groupBox_Advanced.Controls.Add(this.numericUpDown_Acceleration);
@@ -232,7 +237,7 @@
             this.groupBox_Advanced.Controls.Add(this.label_Temperature);
             this.groupBox_Advanced.Location = new System.Drawing.Point(2, 3);
             this.groupBox_Advanced.Name = "groupBox_Advanced";
-            this.groupBox_Advanced.Size = new System.Drawing.Size(238, 190);
+            this.groupBox_Advanced.Size = new System.Drawing.Size(238, 214);
             this.groupBox_Advanced.TabIndex = 22;
             this.groupBox_Advanced.TabStop = false;
             this.groupBox_Advanced.Text = "Advanced";
@@ -249,7 +254,7 @@
             // 
             // button_maskControl
             // 
-            this.button_maskControl.Location = new System.Drawing.Point(14, 159);
+            this.button_maskControl.Location = new System.Drawing.Point(14, 183);
             this.button_maskControl.Name = "button_maskControl";
             this.button_maskControl.Size = new System.Drawing.Size(209, 25);
             this.button_maskControl.TabIndex = 23;
@@ -322,7 +327,7 @@
             // label_Acceleration
             // 
             this.label_Acceleration.AutoSize = true;
-            this.label_Acceleration.Location = new System.Drawing.Point(8, 132);
+            this.label_Acceleration.Location = new System.Drawing.Point(8, 134);
             this.label_Acceleration.Name = "label_Acceleration";
             this.label_Acceleration.Size = new System.Drawing.Size(75, 12);
             this.label_Acceleration.TabIndex = 3;
@@ -331,7 +336,7 @@
             // label_Speed
             // 
             this.label_Speed.AutoSize = true;
-            this.label_Speed.Location = new System.Drawing.Point(42, 105);
+            this.label_Speed.Location = new System.Drawing.Point(42, 107);
             this.label_Speed.Name = "label_Speed";
             this.label_Speed.Size = new System.Drawing.Size(41, 12);
             this.label_Speed.TabIndex = 2;
@@ -340,7 +345,7 @@
             // label_Humidity
             // 
             this.label_Humidity.AutoSize = true;
-            this.label_Humidity.Location = new System.Drawing.Point(29, 74);
+            this.label_Humidity.Location = new System.Drawing.Point(29, 76);
             this.label_Humidity.Name = "label_Humidity";
             this.label_Humidity.Size = new System.Drawing.Size(54, 12);
             this.label_Humidity.TabIndex = 1;
@@ -349,7 +354,7 @@
             // label_Temperature
             // 
             this.label_Temperature.AutoSize = true;
-            this.label_Temperature.Location = new System.Drawing.Point(6, 47);
+            this.label_Temperature.Location = new System.Drawing.Point(6, 49);
             this.label_Temperature.Name = "label_Temperature";
             this.label_Temperature.Size = new System.Drawing.Size(77, 12);
             this.label_Temperature.TabIndex = 0;
@@ -366,16 +371,33 @@
             this.panel_Advanced.Controls.Add(this.groupBox_Advanced);
             this.panel_Advanced.Location = new System.Drawing.Point(10, 155);
             this.panel_Advanced.Name = "panel_Advanced";
-            this.panel_Advanced.Size = new System.Drawing.Size(242, 194);
+            this.panel_Advanced.Size = new System.Drawing.Size(242, 220);
             this.panel_Advanced.TabIndex = 22;
             this.panel_Advanced.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 160);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(143, 12);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Thermal Control (0~100)";
+            // 
+            // numericUpDown_PWM
+            // 
+            this.numericUpDown_PWM.Location = new System.Drawing.Point(160, 156);
+            this.numericUpDown_PWM.Name = "numericUpDown_PWM";
+            this.numericUpDown_PWM.Size = new System.Drawing.Size(67, 21);
+            this.numericUpDown_PWM.TabIndex = 24;
+            this.numericUpDown_PWM.ValueChanged += new System.EventHandler(this.numericUpDown_PWM_ValueChanged);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(259, 241);
+            this.ClientSize = new System.Drawing.Size(259, 466);
             this.Controls.Add(this.label_Moving);
             this.Controls.Add(this.textBox_MoveTo);
             this.Controls.Add(this.numericUpDown_SingleStep);
@@ -401,6 +423,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Acceleration)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Speed)).EndInit();
             this.panel_Advanced.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PWM)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -435,5 +458,7 @@
         private System.Windows.Forms.Label label_Temperature;
         private System.Windows.Forms.Label label_MS;
         private System.Windows.Forms.Button button_maskControl;
+        private System.Windows.Forms.NumericUpDown numericUpDown_PWM;
+        private System.Windows.Forms.Label label1;
     }
 }
