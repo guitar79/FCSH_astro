@@ -21,7 +21,7 @@
 #define MOTOR_STEPS 200
 #define DHT22_PIN 2
 #define ServoPin 3
-#define PWM 20
+#define PWM 13
 
 //need to set
 /*

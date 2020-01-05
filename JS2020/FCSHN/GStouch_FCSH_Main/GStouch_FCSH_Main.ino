@@ -19,7 +19,8 @@
   unsigned long delayMillis = 0;
 
   bool PCMODE = false;
-
+  int EEPcurrentPosition = 0;
+  
 #include <AccelStepper.h>
 #include <DHT.h>
 #include <Servo.h>
@@ -47,6 +48,9 @@ void setup() {
   U8G_start();
   Servo_start();
   
+  eepRead();
+  stepper.setCurrentPosition(EEPcurrentPosition);
+  
   stepper.setMaxSpeed(2000.0);
   stepper.setAcceleration(300.0);
   stepper.setSpeed(100);
@@ -59,7 +63,7 @@ void setup() {
 
 
 void loop() {
-
+/*
   if(stepper.distanceToGo() == 0 || subm!=2)
   {
     Temperature = String(dht.readTemperature(),1);
@@ -68,18 +72,20 @@ void loop() {
     buttonRead();
     draw();
   }
-
-  if(delayMillis != 0)
+*/
+  if(delayMillis >0 && delayMillis <500)
   {
+    Serial.println(delayMillis);
     currentMillis = millis();
     if(currentMillis > previousMillis + delayMillis)
     {
+      previousMillis = currentMillis;
       currentstate = !currentstate;
-      delayMIllis = 500-5*delayMillis;
+      delayMillis = 500-delayMillis;
     }
     if(currentstate == true) digitalWrite(PWM,HIGH);
     else digitalWrite(PWM,LOW);
-  }//not tested
+  }//test OK
   
 }
 
@@ -112,6 +118,8 @@ void serialCommand(String commandString) {
     delayMillis = 5 * _value;
     previousMillis = millis();
     currentMillis = millis();
+    currentstate = true;
+    if(delayMillis == 500) digitalWrite(PWM,HIGH);
     break;
     
   case 'B':  // REVERSE "<"
@@ -172,9 +180,6 @@ void serialCommand(String commandString) {
     servo.detach();
     delay(500);
 
-  
-  
-  
   case 'X':  // GET STATUS - may not be needed
   case 'x':
     stepper.stop();
@@ -200,8 +205,9 @@ void serialCommand(String commandString) {
     _answer += "POSITION:";
     _answer += stepper.currentPosition();
   }
-
-
+  
+  eepWrite(_newPosition);
+  eepRead();
   Serial.print(_answer);
   Serial.println("#");
 }
