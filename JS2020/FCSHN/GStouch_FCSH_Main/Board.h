@@ -20,16 +20,23 @@
 #define MS2 13
 #define MOTOR_STEPS 200
 #define DHT22_PIN 2
-#define ServoPin 3
-#define PWM 13
+#define UPpin 8
+#define DOWNpin 9
+#define RIGHTpin 7
+#define LEFTpin 10
+#define ServoPin1 3
+#define ServoPin2 5
+#define PWMPin1 20
+#define PWMPin2 22
+#define MAX_POSITION 65535
 
 //need to set
-/*
-#define RelayPin1 1
-#define RelayPin2 2
-#define RelayPin3 3
-#define RelayPin4 4
-*/
+
+#define RelayPin1 7
+#define RelayPin2 21
+#define RelayPin3 8
+#define RelayPin4 23
+
 #endif
 
 #endif
