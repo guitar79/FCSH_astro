@@ -1,47 +1,24 @@
 \begin{thebibliography}{1}
 
-\bibitem[1]{yarita2017dynamics}
-Yarita, N., Tahara, H., Ihara, T., Kawawaki, T., Sato, R., Saruyama, M., .~.~.
-  \& Kanemitsu, Y. (2017).
-\newblock Dynamics of charged excitons and biexcitons in cspbbr3 perovskite
-  nanocrystals revealed by femtosecond transient-absorption and single-dot
-  luminescence spectroscopy.
-\newblock {\em The journal of physical chemistry letters}, {\em 8\/}(7),
-  1413--1418.
+\bibitem[1]{weber2001fast}
+Weber, L., \& Brady, S. (2001).
+\newblock Fast auto-focus method and software for ccd-based telescopes.
+\newblock In {\em Minor Planet Amateur/Professional Workshop}, (pp.\ 104--113).
 
-\bibitem[2]{green2014emergence}
-Green, M.~A., Ho-Baillie, A., \& Snaith, H.~J. (2014).
-\newblock The emergence of perovskite solar cells.
-\newblock {\em Nature photonics}, {\em 8\/}(7), 506.
+\bibitem[2]{persha2001temperature}
+Persha, G.~C. (2001).
+\newblock Temperature compensating focuser for telescope.
+\newblock US Patent 6,327,081.
 
-\bibitem[3]{huang2009fabrication}
-Huang, J.-H., Ho, Z.-Y., Kuo, T.-H., Kekuda, D., Chu, C.-W., \& Ho, K.-C.
-  (2009).
-\newblock Fabrication of multilayer organic solar cells through a stamping
-  technique.
-\newblock {\em Journal of Materials Chemistry}, {\em 19\/}(24), 4077--4080.
+\bibitem[3]{budding1995global}
+Budding, E. (1995).
+\newblock A global network of small automated telescopes.
+\newblock {\em Astrophysics and Space Science}, {\em 228\/}(1-2), 299--307.
 
-\bibitem[4]{valenta2002waveguiding}
-Valenta, J., Pelant, I., \& Linnros, J. (2002).
-\newblock Waveguiding effects in the measurement of optical gain in a layer of
-  si nanocrystals.
-\newblock {\em Applied physics letters}, {\em 81\/}(8), 1396--1398.
-
-\bibitem[5]{jin1999band}
-Jin, C., Cheng, B., Man, B., Li, Z., Zhang, D., Ban, S., \& Sun, B. (1999).
-\newblock Band gap and wave guiding effect in a quasiperiodic photonic crystal.
-\newblock {\em Applied physics letters}, {\em 75\/}(13), 1848--1850.
-
-\bibitem[6]{chen2018room}
-Chen, J., Zhang, Q., Du, W., Mi, Y., Shang, Q., Shi, J., .~.~. et~al. (2018).
-\newblock Room temperature continuous-wave excited biexciton emission in
-  cspbbr3 nanocrystals.
-\newblock {\em arXiv preprint arXiv:1804.09782}.
-
-\bibitem[7]{hartley1961modified}
-Hartley, H.~O. (1961).
-\newblock The modified gauss-newton method for the fitting of non-linear
-  regression functions by least squares.
-\newblock {\em Technometrics}, {\em 3\/}(2), 269--280.
+\bibitem[4]{godoy2018control}
+Godoy, R., Fernández, G., Aballay, J., Collado, O., Fernández, C., \&
+  Ruartes, H. (2018).
+\newblock Control remoto de telescopios.
+\newblock {\em 60}, 62.
 
 \end{thebibliography}
