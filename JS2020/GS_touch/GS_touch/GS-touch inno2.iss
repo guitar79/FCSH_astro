@@ -13,15 +13,15 @@
 
 AppId={{0F5BC3A2-6B4E-4A66-9FD1-FE5A97F8E628}
 AppName=ASCOM GS-touch Focuser Driver
-AppVersion=1.2.0
-AppVerName=ASCOM GS-touch Focuser Driver 1.2.0 (32bit)
+AppVersion=1.2.1
+AppVerName=ASCOM GS-touch Focuser Driver 1.2.1 (32bit)
 AppPublisher=jiseong Gwak
-VersionInfoVersion= 1.2.0
+VersionInfoVersion= 1.2.1
 DefaultDirName="{cf}\ASCOM\Focuser"
 DisableDirPage=yes
 DisableProgramGroupPage=yes
-OutputDir=C:\Users\user\Desktop\2020\GS_touch\GS_touch
-OutputBaseFilename=GS-touch 1.2.0(32bit) setup
+OutputDir=C:\Users\user\Desktop\2020\JS2020\GS_touch\GS_touch
+OutputBaseFilename=GS-touch 1.2.1(32bit) setup
 Compression=lzma
 SolidCompression=yes
 
@@ -41,8 +41,8 @@ Name: "{cf}\ASCOM\Uninstall\Focuser\GS_touch"
 
 
 [Files]
-Source: "C:\Users\user\Desktop\2020\GS_touch\GS_touch\GS_touch\bin\Release\ASCOM.GS_touch.Focuser.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\user\Desktop\2020\GS_touch\GS_touch\GS_touch\ReadMe.htm"; DestDir: "{app}"; Flags: isreadme
+Source: "C:\Users\user\Desktop\2020\JS2020\GS_touch\GS_touch\GS_touch\bin\Release\ASCOM.GS_touch.Focuser.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\user\Desktop\2020\JS2020\GS_touch\GS_touch\GS_touch\ReadMe.htm"; DestDir: "{app}"; Flags: isreadme
 [Run]
 Filename: "{dotnet4032}\regasm.exe"; Parameters: "/codebase ""{app}\ASCOM.GS_touch.Focuser.dll"""; Flags: runhidden 32bit
 Filename: "{dotnet4064}\regasm.exe"; Parameters: "/codebase ""{app}\ASCOM.GS_touch.Focuser.dll"""; Flags: runhidden 64bit; Check: IsWin64

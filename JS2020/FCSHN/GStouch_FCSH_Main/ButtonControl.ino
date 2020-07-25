@@ -1,11 +1,5 @@
 
 
-//스위치 핀 번호
-#define UPpin 8
-#define DOWNpin 9
-#define RIGHTpin 7
-#define LEFTpin 10
-
 //about button switch
 short S[4]={0}; short now[4]={1}; short was[4]={0};
 //
@@ -33,6 +27,21 @@ void pinset()
   pinMode(DOWNpin,INPUT_PULLUP);
   pinMode(RIGHTpin,INPUT_PULLUP);
   pinMode(LEFTpin,INPUT_PULLUP);
+  
+  pinMode(PWMPin1,OUTPUT);
+  digitalWrite(PWMPin1,LOW);
+
+  pinMode(PWMPin2,OUTPUT);
+  digitalWrite(PWMPin2,LOW);
+
+  pinMode(RelayPin1,OUTPUT);
+  pinMode(RelayPin2,OUTPUT);
+  pinMode(RelayPin3,OUTPUT);
+  pinMode(RelayPin4,OUTPUT);
+  digitalWrite(RelayPin1,LOW);
+  digitalWrite(RelayPin2,LOW);
+  digitalWrite(RelayPin3,LOW);
+  digitalWrite(RelayPin4,LOW);
 }
 
 void buttonRead()

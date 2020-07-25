@@ -11,8 +11,17 @@
 // microstepping
   short stepmode = 1;
 
-  bool PCMODE = false;
+// controling PWM (0~100)
+  int PWM_value = 0;
+  bool currentstate = false;
+  unsigned long currentMillis = 0;
+  unsigned long previousMillis = 0;
+  unsigned long delayMillis = 0;
 
+//for EEPROM and PCMODE
+  bool PCMODE = false;
+  int EEPcurrentPosition = 0;
+  
 #include <AccelStepper.h>
 #include <DHT.h>
 #include <Servo.h>
@@ -29,7 +38,14 @@
 
 // for Servor motor control
   Servo servo;
-  bool BMask = false;
+  bool BMask1 = false;
+  bool BMask2 = false;
+
+//for Relay control
+  bool Relay1 = false;
+  bool Relay2 = false;
+  bool Relay3 = false;
+  bool Relay4 = false;
   
   String inputString = "";
 
@@ -38,7 +54,10 @@ void setup() {
   Serial.begin(115200);
   Serial.println("GStouch#");
   U8G_start();
-  Servo_start();
+//  Servo_start();
+  
+  eepRead();
+  stepper.setCurrentPosition(EEPcurrentPosition);
   
   stepper.setMaxSpeed(2000.0);
   stepper.setAcceleration(300.0);
@@ -60,6 +79,20 @@ void loop() {
     buttonRead();
     draw();
   }
+
+  if(delayMillis >0 && delayMillis <500)
+  {
+    //Serial.println(delayMillis);
+    currentMillis = millis();
+    if(currentMillis > previousMillis + delayMillis)
+    {
+      previousMillis = currentMillis;
+      currentstate = !currentstate;
+      delayMillis = 500-delayMillis;
+    }
+    if(currentstate == true) digitalWrite(PWMPin1,HIGH);
+    else digitalWrite(PWMPin1,LOW);
+  }//test OK
   
 }
 
@@ -86,6 +119,16 @@ void serialCommand(String commandString) {
   
   switch (_command) {
 
+  case 'A':  // SET PWM
+  case 'a': _newPosition = _currentPosition; // non move command
+    //PWM test
+    delayMillis = 5 * _value;
+    previousMillis = millis();
+    currentMillis = millis();
+    currentstate = true;
+    if(delayMillis == 500) digitalWrite(PWMPin1,HIGH);
+    break;
+    
   case 'B':  // REVERSE "<"
   case 'b': _newPosition = _currentPosition - _value;
     break;
@@ -135,17 +178,48 @@ void serialCommand(String commandString) {
 
   case 'N':  // Mask Set
   case 'n': _newPosition = _currentPosition; // non move command
-  BMask = !BMask;
-  
-    servo.attach(ServoPin); // 5도 동시제어
-    if(BMask) servo.write(_value);
-      else if(!BMask) servo.write(0);
+  BMask1 = !BMask1;
+    servo.attach(ServoPin1); // 5도 동시제어
+    if(BMask1) servo.write(_value);
+      else if(!BMask1) servo.write(0);
     delay(500);
     servo.detach();
     delay(500);
 
-  
-  
+  case 'O':  // Mask Set
+  case 'o': _newPosition = _currentPosition; // non move command
+  BMask2 = !BMask2;
+    servo.attach(ServoPin2); // 5도 동시제어
+    if(BMask2) servo.write(_value);
+      else if(!BMask2) servo.write(0);
+    delay(500);
+    servo.detach();
+    delay(500);
+
+  case 'P': //RelayPin1
+  case 'p': _newPosition = _currentPosition;
+  Relay1 = !Relay1;
+  if(Relay1) digitalWrite(RelayPin1,HIGH);
+  else digitalWrite(RelayPin1,LOW);
+
+  case 'Q': //RelayPin2
+  case 'q': _newPosition = _currentPosition;
+  Relay2 = !Relay2;
+  if(Relay2) digitalWrite(RelayPin2,HIGH);
+  else digitalWrite(RelayPin2,LOW);
+
+  case 'R': //RelayPin
+  case 'r': _newPosition = _currentPosition;
+  Relay3 = !Relay3;
+  if(Relay3) digitalWrite(RelayPin3,HIGH);
+  else digitalWrite(RelayPin3,LOW);
+
+  case 'S': //RelayPin
+  case 's': _newPosition = _currentPosition;
+  Relay4 = !Relay4;
+  if(Relay4) digitalWrite(RelayPin4,HIGH);
+  else digitalWrite(RelayPin4,LOW);
+
   case 'X':  // GET STATUS - may not be needed
   case 'x':
     stepper.stop();
@@ -171,8 +245,9 @@ void serialCommand(String commandString) {
     _answer += "POSITION:";
     _answer += stepper.currentPosition();
   }
-
-
+  
+  eepWrite(_newPosition);
+  eepRead();
   Serial.print(_answer);
   Serial.println("#");
 }
@@ -231,7 +306,7 @@ void serialEvent() {
 
 void Servo_start()
 {
-  servo.attach(ServoPin); // 5도 동시제어
+  servo.attach(ServoPin1); // 5도 동시제어
   servo.write(0);
   delay(500);
   servo.detach();
