@@ -7,48 +7,49 @@ A level-1 auxiliary file: sub/introduction.aux
 A level-1 auxiliary file: sub/methodology.aux
 A level-1 auxiliary file: sub/result.aux
 A level-1 auxiliary file: sub/conclusion.aux
+A level-1 auxiliary file: sub/appendix.aux
 A level-1 auxiliary file: sub/footer.aux
 Database file #1: bibfile.bib
 Warning--empty journal in godoy2018control
-You've used 4 entries,
+You've used 5 entries,
             2759 wiz_defined-function locations,
-            638 strings with 5417 characters,
-and the built_in function-call counts, 1382 in all, are:
-= -- 105
-> -- 64
-< -- 8
-+ -- 28
-- -- 20
-* -- 125
-:= -- 241
-add.period$ -- 12
-call.type$ -- 4
-change.case$ -- 12
+            647 strings with 5786 characters,
+and the built_in function-call counts, 1977 in all, are:
+= -- 143
+> -- 118
+< -- 16
++ -- 50
+- -- 40
+* -- 194
+:= -- 364
+add.period$ -- 15
+call.type$ -- 5
+change.case$ -- 15
 chr.to.int$ -- 0
-cite$ -- 5
-duplicate$ -- 60
-empty$ -- 103
-format.name$ -- 26
-if$ -- 262
+cite$ -- 6
+duplicate$ -- 73
+empty$ -- 132
+format.name$ -- 47
+if$ -- 368
 int.to.chr$ -- 0
-int.to.str$ -- 8
-missing$ -- 3
-newline$ -- 23
-num.names$ -- 12
-pop$ -- 18
+int.to.str$ -- 10
+missing$ -- 4
+newline$ -- 28
+num.names$ -- 15
+pop$ -- 21
 preamble$ -- 1
-purify$ -- 16
+purify$ -- 20
 quote$ -- 0
-skip$ -- 37
+skip$ -- 42
 stack$ -- 0
-substring$ -- 79
-swap$ -- 25
+substring$ -- 114
+swap$ -- 30
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 12
+type$ -- 15
 warning$ -- 1
-while$ -- 14
-width$ -- 5
-write$ -- 52
+while$ -- 18
+width$ -- 6
+write$ -- 65
 (There was 1 warning)

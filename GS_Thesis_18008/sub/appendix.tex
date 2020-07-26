@@ -13,16 +13,40 @@
 \setcounter{equation}{0} %%% Appendix equation starting number의 초기화
 \setcounter{figure}{0} %%% Appendix figure starting number의 초기화
 \setcounter{table}{0} %%% Appendix table starting number의 초기화
+
 \section{부록}
 
 \subsection{Firmware 코드}
 
+\subsubsection{GS-system.ino}
 \lstset{basicstyle=\scriptsize, tabsize=4, numbers=left, keywordstyle=\color{blue}, commentstyle=\color{magenta}}
+\lstinputlisting[language=c++]{GS-system/GS-system.ino}
 
-\begin{lstlisting}[language=c++]
-# put code here
+\subsubsection{Board.h}
+\lstset{basicstyle=\scriptsize, tabsize=4, numbers=left, keywordstyle=\color{blue}, commentstyle=\color{magenta}}
+\lstinputlisting[language=c++]{GS-system/Board.h}
 
-\end{lstlisting}
+\subsubsection{ButtonControl.ino}
+\lstset{basicstyle=\scriptsize, tabsize=4, numbers=left, keywordstyle=\color{blue}, commentstyle=\color{magenta}}
+\lstinputlisting[language=c++]{GS-system/ButtonControl.ino}
+
+\subsubsection{displayAdafruit.ino}
+\lstset{basicstyle=\scriptsize, tabsize=4, numbers=left, keywordstyle=\color{blue}, commentstyle=\color{magenta}}
+\lstinputlisting[language=c++]{GS-system/displayAdafruit.ino}
+
+\subsubsection{EEPROM.ino}
+\lstset{basicstyle=\scriptsize, tabsize=4, numbers=left, keywordstyle=\color{blue}, commentstyle=\color{magenta}}
+\lstinputlisting[language=c++]{GS-system/EEPROM.ino}
+
+\subsubsection{MainControl.ino}
+\lstset{basicstyle=\scriptsize, tabsize=4, numbers=left, keywordstyle=\color{blue}, commentstyle=\color{magenta}}
+\lstinputlisting[language=c++]{GS-system/MainControl.ino}
+
+\subsubsection{Setstep.ino}
+\lstset{basicstyle=\scriptsize, tabsize=4, numbers=left, keywordstyle=\color{blue}, commentstyle=\color{magenta}}
+\lstinputlisting[language=c++]{GS-system/Setstep.ino}
+
+
 
 \subsection{ASCOM driver 코드}
 
