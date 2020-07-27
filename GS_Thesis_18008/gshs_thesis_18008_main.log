@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.25)  27 JUL 2020 14:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.4.25)  27 JUL 2020 15:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1329,15 +1329,15 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.iii}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.24 ...어 프로그램}{18}{subsubsection.2.4.2}
-                                                   [3
+l.24 ...berline {III}연구 결과}{17}{section.3}
+                                                  % [3
 
 ]pdfTeX warning (ext4): destination with the same identifier (name{page.iv}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.48 ...tupDialogForm.cs}{65}{subsubsection.A.2.7}
-                                                   [4])
+l.48 ...Form.designer.cs}{66}{subsubsection.A.2.8}
+                                                  % [4])
 \tf@toc=\write5
 \openout5 = `gshs_thesis_18008_main.toc'.
 
@@ -1367,7 +1367,7 @@ LaTeX Font Info:    Font shape `LUC/nanummj/b/n' in size <21> not available
 LaTeX Font Info:    Font shape `LUC/nanummj/b/n' in size <16> not available
 (Font)              Font shape `LUC/nanummj/bx/n' tried instead on input line 8
 .
-<images/V-curve.png, id=420, 295.1025pt x 679.53876pt>
+<images/V-curve.png, id=415, 295.1025pt x 679.53876pt>
 File: images/V-curve.png Graphic file (type png)
 <use images/V-curve.png>
 Package pdftex.def Info: images/V-curve.png  used on input line 19.
@@ -1376,7 +1376,7 @@ Package pdftex.def Info: images/V-curve.png  used on input line 19.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/bahtinov1.jpg, id=423, 584.4234pt x 477.4638pt>
+<images/bahtinov1.jpg, id=418, 584.4234pt x 477.4638pt>
 File: images/bahtinov1.jpg Graphic file (type jpg)
 <use images/bahtinov1.jpg>
 Package pdftex.def Info: images/bahtinov1.jpg  used on input line 31.
@@ -1389,22 +1389,22 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-] [2 <./images/V-curve.png>] [3 <./images/bahtinov1.jpg>] [4]) [5] [6]
+] [2 <./images/V-curve.png>] [3 <./images/bahtinov1.jpg>] [4]) [5]
 \openout2 = `sub/methodology.aux'.
 
 
 (./sub/methodology.tex
-<images/FSQ_106ED_tube.png, id=467, 765.86125pt x 482.80376pt>
+<images/FSQ_106ED_tube.png, id=454, 765.86125pt x 482.80376pt>
 File: images/FSQ_106ED_tube.png Graphic file (type png)
 <use images/FSQ_106ED_tube.png>
 Package pdftex.def Info: images/FSQ_106ED_tube.png  used on input line 14.
 (pdftex.def)             Requested size: 256.0748pt x 161.43268pt.
-<images/coverpeice1.jpg, id=470, 767.2665pt x 542.025pt>
+<images/coverpeice1.jpg, id=457, 767.2665pt x 542.025pt>
 File: images/coverpeice1.jpg Graphic file (type jpg)
 <use images/coverpeice1.jpg>
 Package pdftex.def Info: images/coverpeice1.jpg  used on input line 28.
 (pdftex.def)             Requested size: 184.9429pt x 130.65105pt.
-<images/coverpeice2.jpg, id=471, 829.9005pt x 542.025pt>
+<images/coverpeice2.jpg, id=458, 829.9005pt x 542.025pt>
 File: images/coverpeice2.jpg Graphic file (type jpg)
 <use images/coverpeice2.jpg>
 Package pdftex.def Info: images/coverpeice2.jpg  used on input line 29.
@@ -1413,7 +1413,7 @@ Package pdftex.def Info: images/coverpeice2.jpg  used on input line 29.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/cover.png, id=473, 484.05844pt x 313.9228pt>
+<images/cover.png, id=460, 484.05844pt x 313.9228pt>
 File: images/cover.png Graphic file (type png)
 <use images/cover.png>
 Package pdftex.def Info: images/cover.png  used on input line 39.
@@ -1421,17 +1421,17 @@ Package pdftex.def Info: images/cover.png  used on input line 39.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[7
+[6
 
 
- <./images/FSQ_106ED_tube.png>] [8 <./images/coverpeice1.jpg> <./images/coverpe
+ <./images/FSQ_106ED_tube.png>] [7 <./images/coverpeice1.jpg> <./images/coverpe
 ice2.jpg> <./images/cover.png>]
-<images/hinge.png, id=490, 406.51875pt x 396.7322pt>
+<images/hinge.png, id=477, 406.51875pt x 396.7322pt>
 File: images/hinge.png Graphic file (type png)
 <use images/hinge.png>
 Package pdftex.def Info: images/hinge.png  used on input line 54.
 (pdftex.def)             Requested size: 170.71652pt x 166.60216pt.
-<images/servo1.jpg, id=493, 426.8748pt x 426.393pt>
+<images/servo1.jpg, id=480, 426.8748pt x 426.393pt>
 File: images/servo1.jpg Graphic file (type jpg)
 <use images/servo1.jpg>
 Package pdftex.def Info: images/servo1.jpg  used on input line 66.
@@ -1440,7 +1440,7 @@ Package pdftex.def Info: images/servo1.jpg  used on input line 66.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/servo2.png, id=494, 423.83344pt x 341.77687pt>
+<images/servo2.png, id=481, 423.83344pt x 341.77687pt>
 File: images/servo2.png Graphic file (type png)
 <use images/servo2.png>
 Package pdftex.def Info: images/servo2.png  used on input line 74.
@@ -1448,14 +1448,14 @@ Package pdftex.def Info: images/servo2.png  used on input line 74.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[9 <./images/hinge.png>]
-<images/servo3.png, id=502, 406.51875pt x 325.96782pt>
+[8 <./images/hinge.png>]
+<images/servo3.png, id=489, 406.51875pt x 325.96782pt>
 File: images/servo3.png Graphic file (type png)
 <use images/servo3.png>
 Package pdftex.def Info: images/servo3.png  used on input line 86.
 (pdftex.def)             Requested size: 199.16928pt x 159.70074pt.
- [10 <./images/servo1.jpg>]
-<images/bendmask.jpg, id=508, 690.9012pt x 206.6922pt>
+ [9 <./images/servo1.jpg>]
+<images/bendmask.jpg, id=495, 690.9012pt x 206.6922pt>
 File: images/bendmask.jpg Graphic file (type jpg)
 <use images/bendmask.jpg>
 Package pdftex.def Info: images/bendmask.jpg  used on input line 103.
@@ -1464,87 +1464,83 @@ Package pdftex.def Info: images/bendmask.jpg  used on input line 103.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/mask1.png, id=509, 284.56313pt x 236.38312pt>
+<images/mask1.png, id=496, 284.56313pt x 236.38312pt>
 File: images/mask1.png Graphic file (type png)
 <use images/mask1.png>
 Package pdftex.def Info: images/mask1.png  used on input line 118.
 (pdftex.def)             Requested size: 154.13507pt x 128.0374pt.
-<images/mask2.png, id=510, 391.4625pt x 348.55219pt>
+<images/mask2.png, id=497, 391.4625pt x 348.55219pt>
 File: images/mask2.png Graphic file (type png)
 <use images/mask2.png>
 Package pdftex.def Info: images/mask2.png  used on input line 119.
 (pdftex.def)             Requested size: 143.7995pt x 128.0374pt.
-[11 <./images/servo2.png>] [12 <./images/servo3.png> <./images/bendmask.jpg>]
-<images/GStouch.png, id=523, 503.63156pt x 569.12625pt>
+[10 <./images/servo2.png>]
+<images/thermicline1.jpg, id=504, 597.73312pt x 398.23781pt>
+File: images/thermicline1.jpg Graphic file (type jpg)
+<use images/thermicline1.jpg>
+Package pdftex.def Info: images/thermicline1.jpg  used on input line 139.
+(pdftex.def)             Requested size: 170.71652pt x 113.73593pt.
+<images/thermicline3.jpg, id=505, 597.9138pt x 341.5962pt>
+File: images/thermicline3.jpg Graphic file (type jpg)
+<use images/thermicline3.jpg>
+Package pdftex.def Info: images/thermicline3.jpg  used on input line 140.
+(pdftex.def)             Requested size: 199.16928pt x 113.78519pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[11 <./images/servo3.png> <./images/bendmask.jpg>]
+<images/GStouch.png, id=513, 503.63156pt x 569.12625pt>
 File: images/GStouch.png Graphic file (type png)
 <use images/GStouch.png>
-Package pdftex.def Info: images/GStouch.png  used on input line 147.
+Package pdftex.def Info: images/GStouch.png  used on input line 165.
 (pdftex.def)             Requested size: 275.99164pt x 311.88278pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[13 <./images/mask1.png> <./images/mask2.png>] [14 <./images/GStouch.png>]
-<images/thermicline1.jpg, id=537, 597.73312pt x 398.23781pt>
-File: images/thermicline1.jpg Graphic file (type jpg)
-<use images/thermicline1.jpg>
-Package pdftex.def Info: images/thermicline1.jpg  used on input line 176.
-(pdftex.def)             Requested size: 170.71652pt x 113.73593pt.
-<images/thermicline3.jpg, id=538, 597.9138pt x 341.5962pt>
-File: images/thermicline3.jpg Graphic file (type jpg)
-<use images/thermicline3.jpg>
-Package pdftex.def Info: images/thermicline3.jpg  used on input line 177.
-(pdftex.def)             Requested size: 199.16928pt x 113.78519pt.
-
-[15 <./images/thermicline1.jpg> <./images/thermicline3.jpg>]
-<images/eeprom1.png, id=544, 317.5062pt x 117.5592pt>
+[12 <./images/mask1.png> <./images/mask2.png> <./images/thermicline1.jpg> <./im
+ages/thermicline3.jpg>] [13 <./images/GStouch.png>] [14]
+<images/eeprom1.png, id=531, 317.5062pt x 117.5592pt>
 File: images/eeprom1.png Graphic file (type png)
 <use images/eeprom1.png>
 Package pdftex.def Info: images/eeprom1.png  used on input line 198.
 (pdftex.def)             Requested size: 142.26378pt x 52.67513pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<images/relay.png, id=545, 569.12625pt x 345.29pt>
+<images/relay.png, id=532, 569.12625pt x 345.29pt>
 File: images/relay.png Graphic file (type png)
 <use images/relay.png>
 Package pdftex.def Info: images/relay.png  used on input line 212.
 (pdftex.def)             Requested size: 213.39566pt x 129.46762pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[16] [17 <./images/eeprom1.png> <./images/relay.png (PNG copy)>]) [18]
+ [15 <./images/eeprom1.png>]) [16 <./images/relay.png (PNG copy)>]
 \openout2 = `sub/result.aux'.
 
-
-(./sub/result.tex
-<images/PWMcode.png, id=563, 636.12656pt x 294.34969pt>
+ (./sub/result.tex
+<images/PWMcode.png, id=546, 636.12656pt x 294.34969pt>
 File: images/PWMcode.png Graphic file (type png)
 <use images/PWMcode.png>
 Package pdftex.def Info: images/PWMcode.png  used on input line 16.
 (pdftex.def)             Requested size: 312.9803pt x 144.82097pt.
-<images/eepread.png, id=564, 590.205pt x 335.00156pt>
+<images/eepread.png, id=547, 590.205pt x 335.00156pt>
 File: images/eepread.png Graphic file (type png)
 <use images/eepread.png>
 Package pdftex.def Info: images/eepread.png  used on input line 26.
 (pdftex.def)             Requested size: 312.9803pt x 177.6522pt.
- [19
+ [17
 
 
  <./images/PWMcode.png>]
-<images/mask_status1.png, id=573, 406.51875pt x 542.025pt>
+<images/mask_status1.png, id=555, 406.51875pt x 542.025pt>
 File: images/mask_status1.png Graphic file (type png)
 <use images/mask_status1.png>
 Package pdftex.def Info: images/mask_status1.png  used on input line 44.
 (pdftex.def)             Requested size: 149.37367pt x 199.16928pt.
-<images/mask_status2.png, id=574, 406.51875pt x 542.025pt>
+<images/mask_status2.png, id=556, 406.51875pt x 542.025pt>
 File: images/mask_status2.png Graphic file (type png)
 <use images/mask_status2.png>
 Package pdftex.def Info: images/mask_status2.png  used on input line 45.
 (pdftex.def)             Requested size: 149.37367pt x 199.16928pt.
- [20 <./images/eepread.png>]
-<images/maincontrol.png, id=581, 592.46344pt x 451.6875pt>
+ [18 <./images/eepread.png>]
+<images/maincontrol.png, id=563, 592.46344pt x 451.6875pt>
 File: images/maincontrol.png Graphic file (type png)
 <use images/maincontrol.png>
 Package pdftex.def Info: images/maincontrol.png  used on input line 68.
@@ -1553,14 +1549,14 @@ Package pdftex.def Info: images/maincontrol.png  used on input line 68.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [21 <./images/mask_status1.png> <./images/mask_status2.png>] [22 <./images/ma
+) [19 <./images/mask_status1.png> <./images/mask_status2.png>] [20 <./images/ma
 incontrol.png>]
 \openout2 = `sub/conclusion.aux'.
 
- (./sub/conclusion.tex) [23
+ (./sub/conclusion.tex) [21
 
 
-] [24]
+] [22]
 \openout2 = `sub/appendix.aux'.
 
  (./sub/appendix.tex
@@ -1576,14 +1572,14 @@ File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 23.
 
-(../JS2020/GS-system/GS-system.ino [25
+(../JS2020/GS-system/GS-system.ino [23
 
 
-] [26] [27] [28] [29])
-(../JS2020/GS-system/Board.h [30]) (../JS2020/GS-system/ButtonControl.ino
-[31]) (../JS2020/GS-system/displayAdafruit.ino [32] [33] [34])
-(../JS2020/GS-system/EEPROM.ino [35]) (../JS2020/GS-system/MainControl.ino
-[36] [37] [38]) (../JS2020/GS-system/Setstep.ino [39])
+] [24] [25] [26] [27])
+(../JS2020/GS-system/Board.h [28]) (../JS2020/GS-system/ButtonControl.ino
+[29]) (../JS2020/GS-system/displayAdafruit.ino [30] [31] [32])
+(../JS2020/GS-system/EEPROM.ino [33]) (../JS2020/GS-system/MainControl.ino
+[34] [35] [36]) (../JS2020/GS-system/Setstep.ino [37])
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/09/10 1.8c listings language file
 )
@@ -1597,21 +1593,21 @@ Overfull \hbox (104.708pt too wide) in paragraph at lines 21--22
 [][][][] 
  []
 
-[40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51] [52] [53])
-(../JS2020/GS_touch/GS_touch/GS_touch/FCSH.cs [54])
-(../JS2020/GS_touch/GS_touch/GS_touch/FCSH.Designer.cs [55] [56] [57])
-(../JS2020/GS_touch/GS_touch/GS_touch/MainWindow.cs [58] [59] [60] [61]
-[62]) (../JS2020/GS_touch/GS_touch/GS_touch/ResetForm.cs) [63]
-(../JS2020/GS_touch/GS_touch/GS_touch/ResetForm.Designer.cs [64])
-(../JS2020/GS_touch/GS_touch/GS_touch/SetupDialogForm.cs [65] [66] [67])
-(../JS2020/GS_touch/GS_touch/GS_touch/SetupDialogForm.designer.cs [68] [69]
-[70] [71])) [72] (./gshs_thesis_18008_main.bbl
+[38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51])
+(../JS2020/GS_touch/GS_touch/GS_touch/FCSH.cs [52])
+(../JS2020/GS_touch/GS_touch/GS_touch/FCSH.Designer.cs [53] [54] [55])
+(../JS2020/GS_touch/GS_touch/GS_touch/MainWindow.cs [56] [57] [58] [59]
+[60]) (../JS2020/GS_touch/GS_touch/GS_touch/ResetForm.cs) [61]
+(../JS2020/GS_touch/GS_touch/GS_touch/ResetForm.Designer.cs [62])
+(../JS2020/GS_touch/GS_touch/GS_touch/SetupDialogForm.cs [63] [64] [65])
+(../JS2020/GS_touch/GS_touch/GS_touch/SetupDialogForm.designer.cs [66] [67]
+[68] [69])) [70] (./gshs_thesis_18008_main.bbl
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
 1.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)) [73
+)) [71
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 54.
@@ -1624,18 +1620,18 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 54.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 54.
 Package rerunfilecheck Info: File `gshs_thesis_18008_main.out' has not changed.
 
-(rerunfilecheck)             Checksum: 28E0BDBB2E211DC9CAC924C93AB96457;3234.
+(rerunfilecheck)             Checksum: 1F9729D60CFF51936FA7C4690D545C8B;3179.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 39536 strings out of 481239
- 870463 string characters out of 5920377
- 1560707 words of memory out of 5000000
- 51010 multiletter control sequences out of 15000+600000
- 697077 words of font info for 402 fonts, out of 8000000 for 9000
+ 39527 strings out of 481239
+ 870369 string characters out of 5920377
+ 1560832 words of memory out of 5000000
+ 51008 multiletter control sequences out of 15000+600000
+ 696775 words of font info for 401 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,18n,140p,1081b,2138s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texliv
@@ -1651,75 +1647,74 @@ pe1/nanummjbb3.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1
 nummjbb5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanum
 mjbb8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjb
 b9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjbba.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjbbb.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjbbc.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjbbd.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjbc1.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjbc2.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjbc5.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjbc6.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/nanumtype1/nanummjbc7.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/nanumtype1/nanummjbc8.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/nanumtype1/nanummjbc9.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/nanumtype1/nanummjbcc.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/nanumtype1/nanummjbcd.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/nanumtype1/nanummjbce.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/nanumtype1/nanummjbcf.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/nanumtype1/nanummjbd1.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/nanumtype1/nanummjbd2.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/nanumtype1/nanummjbd5.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/nanumtype1/nanummjbd6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-nanumtype1/nanummjmac.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nan
-umtype1/nanummjmad.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumt
-ype1/nanummjmae.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype
-1/nanummjmaf.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/n
-anummjmb0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanu
-mmjmb1.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummj
-mb2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb3
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb4.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb5.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb6.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb7.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb8.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb9.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmba.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmbb.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/nanumtype1/nanummjmbc.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/nanumtype1/nanummjmbd.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/nanumtype1/nanummjmbe.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/nanumtype1/nanummjmc0.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/nanumtype1/nanummjmc1.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/nanumtype1/nanummjmc2.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/nanumtype1/nanummjmc3.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/nanumtype1/nanummjmc4.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/nanumtype1/nanummjmc5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/nanumtype1/nanummjmc6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/nanumtype1/nanummjmc7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/na
-numtype1/nanummjmc8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanum
-type1/nanummjmc9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtyp
-e1/nanummjmca.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/
-nanummjmcc.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nan
-ummjmcd.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanumm
-jmce.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmc
-f.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd0.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd1.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd2.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd3.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd4.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd5.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd6.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd7.pfb></usr/share/texmf/
-fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/uhc/umj/umj00.pfb></usr/share/texlive/texmf-dist/fonts/type1/uhc/umj/umj24
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/uhc/umj/umj34.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/uhc/umj/umj36.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
-/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.
-pfb>
-Output written on gshs_thesis_18008_main.pdf (85 pages, 8756221 bytes).
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjbbc.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjbbd.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjbc1.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjbc2.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjbc5.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjbc6.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjbc7.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/nanumtype1/nanummjbc8.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/nanumtype1/nanummjbc9.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/nanumtype1/nanummjbcc.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/nanumtype1/nanummjbcd.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/nanumtype1/nanummjbce.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/nanumtype1/nanummjbcf.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/nanumtype1/nanummjbd1.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/nanumtype1/nanummjbd2.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/nanumtype1/nanummjbd5.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/nanumtype1/nanummjbd6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/nanumtype1/nanummjmac.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+nanumtype1/nanummjmad.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nan
+umtype1/nanummjmae.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumt
+ype1/nanummjmaf.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype
+1/nanummjmb0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/n
+anummjmb1.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanu
+mmjmb2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummj
+mb3.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb4
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb5.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb6.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb7.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb8.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmb9.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmba.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmbb.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmbc.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/nanumtype1/nanummjmbd.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/nanumtype1/nanummjmbe.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/nanumtype1/nanummjmc0.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/nanumtype1/nanummjmc1.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/nanumtype1/nanummjmc2.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/nanumtype1/nanummjmc3.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/nanumtype1/nanummjmc4.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/nanumtype1/nanummjmc5.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/nanumtype1/nanummjmc6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/nanumtype1/nanummjmc7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/nanumtype1/nanummjmc8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/na
+numtype1/nanummjmc9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanum
+type1/nanummjmca.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtyp
+e1/nanummjmcc.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/
+nanummjmcd.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nan
+ummjmce.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanumm
+jmcf.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd1.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd2.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd3.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd4.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd5.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd6.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd7.pfb></usr/share/tex
+mf/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texlive/texmf-dist/font
+s/type1/uhc/umj/umj00.pfb></usr/share/texlive/texmf-dist/fonts/type1/uhc/umj/um
+j24.pfb></usr/share/texlive/texmf-dist/fonts/type1/uhc/umj/umj34.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/uhc/umj/umj36.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri
+8a.pfb>
+Output written on gshs_thesis_18008_main.pdf (83 pages, 8703148 bytes).
 PDF statistics:
- 4401 PDF objects out of 5155 (max. 8388607)
- 4155 compressed objects within 42 object streams
- 2881 named destinations out of 2984 (max. 500000)
- 528 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 4378 PDF objects out of 5155 (max. 8388607)
+ 4135 compressed objects within 42 object streams
+ 2875 named destinations out of 2984 (max. 500000)
+ 520 words of extra memory for PDF output out of 10000 (max. 10000000)
 
