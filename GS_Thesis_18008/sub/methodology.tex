@@ -5,6 +5,8 @@
 
 \subsection{소형 천체망원경 자동화 시스템 구성}
 
+
+
 %본 연구에서 사용되는 망원경은 기존 천체관측에 있어서 큰 어려움은 없어 원격 천체관측을 진행할 수 있어야 하며, 직접 덮개를 개발하게 되므로 적절한 크기를 가지고 있어야 한다. 최종적으로 선발된 망원경은 Takahashi 사의 'FSQ-106ED'이다. Takahashi 사의 웹사이트에서 참고한 FSQ-106ED의 스펙은 \textrm{Figure} \ref{FSQ}를 참고할 때 망원경의 경통은 580mm/675mm의 길이를 가지고 있으며, 지름은 125mm으로 마스크를 위한 덮개를 제작할 적절한 크기를 가지고 있다.
 
 \begin{figure}[h]
@@ -89,8 +91,7 @@ Fusion360(https://www.autodesk.co.kr/products/fusion-360/students-teachers-educa
 
 
 \subsubsection{바흐티노프마스크 제작}
-천체망원경에 사용되는 대부분의 바흐티노프마스크의 도안은 직접 제작이 가능하며, 본 연구의 경우 astrojargon (http://astrojargon.net/MaskGenerator.aspx?AspxAutoDetectCookieSupport=1) 사이트에서 망원경의 사양 및 마스크의 사용 목적에 맞는 적절한 바흐티노프마스크의 도안을 제작하여 사용하였다.
-
+천체망원경에 사용되는 대부분의 바흐티노프마스크의 도안은 직접 제작이 가능하며, 본 연구의 경우 astrojargon (http://astrojargon.net/MaskGenerator.aspx) 사이트에서 망원경의 사양 및 마스크의 사용 목적에 맞는 적절한 바흐티노프마스크의 도안을 제작하여 사용하였다.
 
 덮개에서 사용되는 방식을 이용한 바흐티노프마스크의 경우 기존처럼 종이나 알루미늄에 프린트된 방식일 경우 덮개에 원하는 모양으로 씌워지지 않을 가능성이 있다. 때문에 주변환경에 영향을 적게 받으면서도 그 면이 평평하여 천체관측을 진행할 때에 영향이 없어야 한다. 
 
@@ -127,12 +128,13 @@ Astrojargon을 이용하여 출력한 바흐티노프마스크는 D값을 106, f
 
 또한, 3D 프린터의 특성상 한쪽 면은 거친 면, 다른 한쪽 면은 평평한 면을 가지고 있는다. 이 때 거리를 일정하게 하기 위해 평평한 면이 아크릴과 붙는 방향으로 고정시켰다.
 
+\subsubsection{열선 제작}
+열선....
 
 
 \subsection{제어부 제작}
 
 \subsubsection{모터 포커서 제어}
-
 
 이전에 개발된 GS-touch(Gyeonggi Science high school for the gifted touch)는 바이폴라 스테핑 모터를 제어할 수 있는 모터 포커서로 초점 조절 기능은 이기 때문에 이를 위한 기능들이 주를 이루었다. 때문에 이를 보완하여 덮개를 제어할 수 있도록 추가로 개발할 필요가 있다.
 
@@ -201,27 +203,6 @@ EEPROM은 대표적인 롬(ROM - read only memory)의 한 종류로서, 전원�
 
 
 %https://www.pjrc.com/teensy/td_libs_EEPROM.html
-
-
-\subsubsection{서보모터 제어}
-
-\begin{comment}
-\begin{figure}[h]
-\begin{center}
-\begin{tikzpicture}
-\node[anchor=south west,inner sep=0] at (0,0) 
-{
-\includegraphics[width=6cm]{servo1}
-\includegraphics[width=6cm]{servo2} 
-};
-\draw (0.3, 5.7) node {(a)};
-\draw (6.4, 5.7) node {(b)};
-\end{tikzpicture}
-\end{center}
-\caption{(a) 사용한 서보모터인 ds lx3325mg 25kg와 (b) 이를 제작한 덮개에 장착한 모습.}
-\label{motor2}
-\end{figure}
-\end{comment}
 
 
 \subsubsection{릴레이 스위치}
