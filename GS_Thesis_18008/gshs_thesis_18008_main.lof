@@ -1,20 +1,23 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces FocusMAX 소프트웨어를 이용하여 FWHM 값의 V-curve를 얻어 초점을 결정하는 모습 \cite {weber2001fast}.\relax }}{2}{figure.caption.3}%
-\contentsline {figure}{\numberline {2}{\ignorespaces PP(Polypropylene) 소재의 파일 표지를 잘라서 만든 바흐티노프 마스크\relax }}{3}{figure.caption.4}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Takahashi사의 FSQ-106ED의 사양 \cite {fsq106ed}.\relax }}{6}{figure.caption.6}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Fusion360을 이용하여 설계한 경통 덮개 조각들\relax }}{7}{figure.caption.7}%
-\contentsline {figure}{\numberline {5}{\ignorespaces 제작한 후드를 천체망원경에 장착한 모습\relax }}{7}{figure.caption.8}%
-\contentsline {figure}{\numberline {6}{\ignorespaces 개선한 경첩 및 서보모터\relax }}{8}{figure.caption.9}%
-\contentsline {figure}{\numberline {7}{\ignorespaces 사용한 서보모터인 ds lx3325mg 25kg\relax }}{9}{figure.caption.10}%
-\contentsline {figure}{\numberline {8}{\ignorespaces 서보모터를 제작한 후드에 장착한 모습.\relax }}{10}{figure.caption.11}%
-\contentsline {figure}{\numberline {9}{\ignorespaces 후드에 서보모터를 고정하기 위해 볼트를 이용해 고정한 모습\relax }}{11}{figure.caption.12}%
-\contentsline {figure}{\numberline {10}{\ignorespaces 레이저에 의해 휘어진 아크릴 마스크\relax }}{11}{figure.caption.13}%
-\contentsline {figure}{\numberline {11}{\ignorespaces (a) 4 조각으로 나누어서 출력한 FSQ-106ED 경통의 바흐티노프 마스크 (b) 출력된 마스크를 경통에 붙인 모습. 빛이 새지 않도록 접착부를 검은색 테이프로 접합시켜 고정하였다.\relax }}{12}{figure.caption.14}%
-\contentsline {figure}{\numberline {12}{\ignorespaces (a) 제작한 열선의 접합부와 (b) 제작한 열선을 12V에 연결한 모습. 끝에 벨크로가 붙어있어 경통에 둘러 사용할 때 편리하다.\relax }}{12}{figure.caption.15}%
-\contentsline {figure}{\numberline {13}{\ignorespaces 제어부 회로도\relax }}{13}{figure.caption.16}%
-\contentsline {figure}{\numberline {14}{\ignorespaces 실험에 사용된 릴레이스위치를 모터포커서에 연결시킨 모습\relax }}{14}{figure.caption.17}%
-\contentsline {figure}{\numberline {15}{\ignorespaces GS-touch의 주요 기능\relax }}{15}{figure.caption.18}%
-\contentsline {figure}{\numberline {16}{\ignorespaces PWM제어를 위한 코드\relax }}{17}{figure.caption.19}%
-\contentsline {figure}{\numberline {17}{\ignorespaces EEPROM의 address별 사용 구조. 부호와 값을 절대치를 이용하여 연산하였다.\relax }}{17}{figure.caption.20}%
-\contentsline {figure}{\numberline {18}{\ignorespaces EEPROM에서 정보를 읽어오는 과정\relax }}{18}{figure.caption.21}%
-\contentsline {figure}{\numberline {19}{\ignorespaces (a) 개선된 모터포커서를 이용하여 제어한 덮개 (b) 이 때 개선된 모터포커서에 출력되는 마스크의 상태. 화면 아래의 버튼들을 이용해 상태를 제어할 수 있으며, 제어상태를 확인할 수 있다.\relax }}{20}{figure.caption.22}%
-\contentsline {figure}{\numberline {20}{\ignorespaces 개선된 모터포커서 드라이버의 GUI 모습\relax }}{21}{figure.caption.23}%
+\contentsline {figure}{\numberline {1}{\ignorespaces FocusMAX 소프트웨어를 이용하여 FWHM 값의 V-curve를 얻어 초점을 결정하는 모습 \cite {weber2001fast}.\relax }}{2}{figure.caption.3}
+\contentsline {figure}{\numberline {2}{\ignorespaces PP(Polypropylene) 소재의 파일 표지를 잘라서 만든 바흐티노프 마스크\relax }}{3}{figure.caption.4}
+\contentsline {figure}{\numberline {3}{\ignorespaces GS-system의 대략적인 시스템 구성도\relax }}{6}{figure.caption.6}
+\contentsline {figure}{\numberline {4}{\ignorespaces Fusion360을 이용하여 설계한 경통 덮개 조각들\relax }}{7}{figure.caption.7}
+\contentsline {figure}{\numberline {5}{\ignorespaces 제작한 후드를 천체망원경에 장착한 모습\relax }}{7}{figure.caption.8}
+\contentsline {figure}{\numberline {6}{\ignorespaces 사용한 서보모터인 ds lx3325mg 25kg\relax }}{8}{figure.caption.9}
+\contentsline {figure}{\numberline {7}{\ignorespaces 서보모터를 제작한 후드에 장착한 모습.\relax }}{9}{figure.caption.10}
+\contentsline {figure}{\numberline {8}{\ignorespaces 개선한 경첩 및 서보모터\relax }}{9}{figure.caption.11}
+\contentsline {figure}{\numberline {9}{\ignorespaces 후드에 서보모터를 고정하기 위해 볼트를 이용해 고정한 모습\relax }}{10}{figure.caption.12}
+\contentsline {figure}{\numberline {10}{\ignorespaces 레이저에 의해 휘어진 아크릴 마스크\relax }}{11}{figure.caption.13}
+\contentsline {figure}{\numberline {11}{\ignorespaces (a) 4 조각으로 나누어서 출력한 FSQ-106ED 경통의 바흐티노프 마스크 (b) 출력된 마스크를 경통에 붙인 모습. 빛이 새지 않도록 접착부를 검은색 테이프로 접합시켜 고정하였다.\relax }}{12}{figure.caption.14}
+\contentsline {figure}{\numberline {12}{\ignorespaces (a) 제작한 열선의 접합부와 (b) 제작한 열선을 12V에 연결한 모습. 끝에 벨크로가 붙어있어 경통에 둘러 사용할 때 편리하다.\relax }}{12}{figure.caption.15}
+\contentsline {figure}{\numberline {13}{\ignorespaces GS-touch의 주요 기능\relax }}{14}{figure.caption.16}
+\contentsline {figure}{\numberline {14}{\ignorespaces Firmware하드웨어의 회로도\relax }}{15}{figure.caption.17}
+\contentsline {figure}{\numberline {15}{\ignorespaces (a)GS-touch의 MCU인 Arduino Nano (b) 새로 제작한 Firmware 하드웨어의 MCU인 Teensy 3.2\relax }}{16}{figure.caption.18}
+\contentsline {figure}{\numberline {16}{\ignorespaces 실험에 사용된 릴레이스위치를 모터포커서에 연결시킨 모습\relax }}{16}{figure.caption.19}
+\contentsline {figure}{\numberline {17}{\ignorespaces PWM제어를 위한 코드\relax }}{18}{figure.caption.20}
+\contentsline {figure}{\numberline {18}{\ignorespaces EEPROM의 address별 사용 구조. 부호와 값을 절대치를 이용하여 연산하였다.\relax }}{19}{figure.caption.21}
+\contentsline {figure}{\numberline {19}{\ignorespaces EEPROM에서 정보를 읽어오는 과정\relax }}{19}{figure.caption.22}
+\contentsline {figure}{\numberline {20}{\ignorespaces 완성된 Firmware하드웨어의 (a)앞면 과 (b)뒷면\relax }}{21}{figure.caption.23}
+\contentsline {figure}{\numberline {21}{\ignorespaces 제작한 Firmware하드웨어의 Menu System의 구성\relax }}{22}{figure.caption.24}
+\contentsline {figure}{\numberline {22}{\ignorespaces (a) 개선된 모터포커서를 이용하여 제어한 덮개 (b) 이 때 개선된 모터포커서에 출력되는 마스크의 상태. 화면 아래의 버튼들을 이용해 상태를 제어할 수 있으며, 제어상태를 확인할 수 있다.\relax }}{22}{figure.caption.25}
+\contentsline {figure}{\numberline {23}{\ignorespaces 개선된 제어부의 GUI 모습\relax }}{23}{figure.caption.26}

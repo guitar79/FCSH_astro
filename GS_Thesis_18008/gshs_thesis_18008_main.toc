@@ -1,46 +1,45 @@
-\contentsline {section}{Abstract}{i}{Doc-Start}%
-\contentsline {section}{Contents}{iii}{Doc-Start}%
-\contentsline {section}{List of Figures}{v}{section*.1}%
-\contentsline {section}{List of Tables}{vii}{section*.2}%
-\contentsline {section}{\numberline {I}서론}{1}{section.1}%
-\contentsline {subsection}{\numberline {I.1}연구의 필요성}{1}{subsection.1.1}%
-\contentsline {subsection}{\numberline {I.2}연구 목적}{4}{subsection.1.2}%
-\contentsline {section}{\numberline {II}연구 과정 및 방법}{6}{section.2}%
-\contentsline {subsection}{\numberline {II.1}소형 천체망원경 자동화 시스템 구성}{6}{subsection.2.1}%
-\contentsline {subsection}{\numberline {II.2}구동부 제작}{6}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {II.2.1}후드 제작}{6}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {II.2.2}아크릴 덮개 제작}{7}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {II.2.3}바흐티노프마스크 제작}{9}{subsubsection.2.2.3}%
-\contentsline {subsubsection}{\numberline {II.2.4}열선 제작}{11}{subsubsection.2.2.4}%
-\contentsline {subsection}{\numberline {II.3}제어부 제작}{12}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {II.3.1}회로 구성}{12}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {II.3.2}전원 제어}{12}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {II.3.3}모터 포커서 제어}{13}{subsubsection.2.3.3}%
-\contentsline {subsubsection}{\numberline {II.3.4}서보모터 제어}{15}{subsubsection.2.3.4}%
-\contentsline {subsubsection}{\numberline {II.3.5}열선 제어}{16}{subsubsection.2.3.5}%
-\contentsline {subsubsection}{\numberline {II.3.6}EEPROM(Electrically Erasable Read-Only Memory)}{16}{subsubsection.2.3.6}%
-\contentsline {section}{\numberline {III}연구 결과}{19}{section.3}%
-\contentsline {subsection}{\numberline {III.1}구동부 완성}{19}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {III.1.1}열선 제어}{19}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {III.1.2}서보모터 제어}{19}{subsubsection.3.1.2}%
-\contentsline {subsection}{\numberline {III.2}제어부}{20}{subsection.3.2}%
-\contentsline {section}{\numberline {IV}결론}{22}{section.4}%
-\contentsline {section}{\numberline {A}부록}{24}{appendix.A}%
-\contentsline {subsection}{\numberline {1}아두이노 코드}{24}{subsection.A.1}%
-\contentsline {subsubsection}{\numberline {1}GS-system.ino}{24}{subsubsection.A.1.1}%
-\contentsline {subsubsection}{\numberline {2}Board.h}{29}{subsubsection.A.1.2}%
-\contentsline {subsubsection}{\numberline {3}ButtonControl.ino}{30}{subsubsection.A.1.3}%
-\contentsline {subsubsection}{\numberline {4}displayAdafruit.ino}{31}{subsubsection.A.1.4}%
-\contentsline {subsubsection}{\numberline {5}EEPROM.ino}{34}{subsubsection.A.1.5}%
-\contentsline {subsubsection}{\numberline {6}MainControl.ino}{35}{subsubsection.A.1.6}%
-\contentsline {subsubsection}{\numberline {7}Setstep.ino}{38}{subsubsection.A.1.7}%
-\contentsline {subsection}{\numberline {2}ASCOM driver 코드}{39}{subsection.A.2}%
-\contentsline {subsubsection}{\numberline {1}driver.cs}{39}{subsubsection.A.2.1}%
-\contentsline {subsubsection}{\numberline {2}FCSH.cs}{53}{subsubsection.A.2.2}%
-\contentsline {subsubsection}{\numberline {3}FCSH.Designer.cs}{54}{subsubsection.A.2.3}%
-\contentsline {subsubsection}{\numberline {4}MainWindow.cs}{57}{subsubsection.A.2.4}%
-\contentsline {subsubsection}{\numberline {5}ResetForm.cs}{62}{subsubsection.A.2.5}%
-\contentsline {subsubsection}{\numberline {6}ResetForm.Designer.cs}{63}{subsubsection.A.2.6}%
-\contentsline {subsubsection}{\numberline {7}SetupDialogForm.cs}{64}{subsubsection.A.2.7}%
-\contentsline {subsubsection}{\numberline {8}SetupDialogForm.designer.cs}{67}{subsubsection.A.2.8}%
-\contentsline {section}{References}{72}{lstnumber.-15.203}%
+\contentsline {section}{Abstract}{i}{Doc-Start}
+\contentsline {section}{Contents}{iii}{Doc-Start}
+\contentsline {section}{List of Figures}{v}{section*.1}
+\contentsline {section}{List of Tables}{vii}{section*.2}
+\contentsline {section}{\numberline {I}서론}{1}{section.1}
+\contentsline {subsection}{\numberline {I.1}연구의 필요성}{1}{subsection.1.1}
+\contentsline {subsection}{\numberline {I.2}연구 목적}{4}{subsection.1.2}
+\contentsline {section}{\numberline {II}연구 과정 및 방법}{6}{section.2}
+\contentsline {subsection}{\numberline {II.1}소형 천체망원경 자동화 시스템 구성}{6}{subsection.2.1}
+\contentsline {subsection}{\numberline {II.2}구동부 제작}{7}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {II.2.1}후드 제작}{7}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {II.2.2}아크릴 덮개 제작}{8}{subsubsection.2.2.2}
+\contentsline {subsubsection}{\numberline {II.2.3}바흐티노프마스크 제작}{11}{subsubsection.2.2.3}
+\contentsline {subsubsection}{\numberline {II.2.4}열선 제작}{12}{subsubsection.2.2.4}
+\contentsline {subsection}{\numberline {II.3}제어부 제작}{14}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {II.3.1}회로 구성}{15}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {II.3.2}전원 제어}{16}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {II.3.3}서보모터 제어}{17}{subsubsection.2.3.3}
+\contentsline {subsubsection}{\numberline {II.3.4}열선 제어}{17}{subsubsection.2.3.4}
+\contentsline {subsubsection}{\numberline {II.3.5}EEPROM(Electrically Erasable Read-Only Memory)}{18}{subsubsection.2.3.5}
+\contentsline {section}{\numberline {III}연구 결과}{21}{section.3}
+\contentsline {subsection}{\numberline {III.1}구동부 및 제어부}{21}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {III.1.1}Firmware하드웨어}{21}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {III.1.2}하드웨어의 Menu조작}{22}{subsubsection.3.1.2}
+\contentsline {subsection}{\numberline {III.2}제어부(ASCOM Driver)}{23}{subsection.3.2}
+\contentsline {section}{\numberline {IV}결론}{24}{section.4}
+\contentsline {section}{\numberline {A}부록}{26}{appendix.A}
+\contentsline {subsection}{\numberline {1}아두이노 코드}{26}{subsection.A.1}
+\contentsline {subsubsection}{\numberline {1}GS-system.ino}{26}{subsubsection.A.1.1}
+\contentsline {subsubsection}{\numberline {2}Board.h}{31}{subsubsection.A.1.2}
+\contentsline {subsubsection}{\numberline {3}ButtonControl.ino}{32}{subsubsection.A.1.3}
+\contentsline {subsubsection}{\numberline {4}displayAdafruit.ino}{33}{subsubsection.A.1.4}
+\contentsline {subsubsection}{\numberline {5}EEPROM.ino}{36}{subsubsection.A.1.5}
+\contentsline {subsubsection}{\numberline {6}MainControl.ino}{37}{subsubsection.A.1.6}
+\contentsline {subsubsection}{\numberline {7}Setstep.ino}{40}{subsubsection.A.1.7}
+\contentsline {subsection}{\numberline {2}ASCOM driver 코드}{41}{subsection.A.2}
+\contentsline {subsubsection}{\numberline {1}driver.cs}{41}{subsubsection.A.2.1}
+\contentsline {subsubsection}{\numberline {2}FCSH.cs}{55}{subsubsection.A.2.2}
+\contentsline {subsubsection}{\numberline {3}FCSH.Designer.cs}{56}{subsubsection.A.2.3}
+\contentsline {subsubsection}{\numberline {4}MainWindow.cs}{59}{subsubsection.A.2.4}
+\contentsline {subsubsection}{\numberline {5}ResetForm.cs}{64}{subsubsection.A.2.5}
+\contentsline {subsubsection}{\numberline {6}ResetForm.Designer.cs}{65}{subsubsection.A.2.6}
+\contentsline {subsubsection}{\numberline {7}SetupDialogForm.cs}{66}{subsubsection.A.2.7}
+\contentsline {subsubsection}{\numberline {8}SetupDialogForm.designer.cs}{69}{subsubsection.A.2.8}
+\contentsline {section}{References}{74}{lstnumber.-15.203}

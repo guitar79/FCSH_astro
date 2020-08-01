@@ -15,32 +15,31 @@
 \BOOKMARK [2][-]{subsection.2.3}{... ..}{section.2}% 15
 \BOOKMARK [3][-]{subsubsection.2.3.1}{.. ..}{subsection.2.3}% 16
 \BOOKMARK [3][-]{subsubsection.2.3.2}{.. ..}{subsection.2.3}% 17
-\BOOKMARK [3][-]{subsubsection.2.3.3}{.. ... ..}{subsection.2.3}% 18
-\BOOKMARK [3][-]{subsubsection.2.3.4}{.... ..}{subsection.2.3}% 19
-\BOOKMARK [3][-]{subsubsection.2.3.5}{.. ..}{subsection.2.3}% 20
-\BOOKMARK [3][-]{subsubsection.2.3.6}{EEPROM\(Electrically Erasable Read-Only Memory\)}{subsection.2.3}% 21
-\BOOKMARK [1][-]{section.3}{.. ..}{}% 22
-\BOOKMARK [2][-]{subsection.3.1}{... ..}{section.3}% 23
-\BOOKMARK [3][-]{subsubsection.3.1.1}{.. ..}{subsection.3.1}% 24
-\BOOKMARK [3][-]{subsubsection.3.1.2}{.... ..}{subsection.3.1}% 25
-\BOOKMARK [2][-]{subsection.3.2}{...}{section.3}% 26
-\BOOKMARK [1][-]{section.4}{..}{}% 27
-\BOOKMARK [1][-]{appendix.A}{..}{}% 28
-\BOOKMARK [2][-]{subsection.A.1}{.... ..}{appendix.A}% 29
-\BOOKMARK [3][-]{subsubsection.A.1.1}{GS-system.ino}{subsection.A.1}% 30
-\BOOKMARK [3][-]{subsubsection.A.1.2}{Board.h}{subsection.A.1}% 31
-\BOOKMARK [3][-]{subsubsection.A.1.3}{ButtonControl.ino}{subsection.A.1}% 32
-\BOOKMARK [3][-]{subsubsection.A.1.4}{displayAdafruit.ino}{subsection.A.1}% 33
-\BOOKMARK [3][-]{subsubsection.A.1.5}{EEPROM.ino}{subsection.A.1}% 34
-\BOOKMARK [3][-]{subsubsection.A.1.6}{MainControl.ino}{subsection.A.1}% 35
-\BOOKMARK [3][-]{subsubsection.A.1.7}{Setstep.ino}{subsection.A.1}% 36
-\BOOKMARK [2][-]{subsection.A.2}{ASCOM driver ..}{appendix.A}% 37
-\BOOKMARK [3][-]{subsubsection.A.2.1}{driver.cs}{subsection.A.2}% 38
-\BOOKMARK [3][-]{subsubsection.A.2.2}{FCSH.cs}{subsection.A.2}% 39
-\BOOKMARK [3][-]{subsubsection.A.2.3}{FCSH.Designer.cs}{subsection.A.2}% 40
-\BOOKMARK [3][-]{subsubsection.A.2.4}{MainWindow.cs}{subsection.A.2}% 41
-\BOOKMARK [3][-]{subsubsection.A.2.5}{ResetForm.cs}{subsection.A.2}% 42
-\BOOKMARK [3][-]{subsubsection.A.2.6}{ResetForm.Designer.cs}{subsection.A.2}% 43
-\BOOKMARK [3][-]{subsubsection.A.2.7}{SetupDialogForm.cs}{subsection.A.2}% 44
-\BOOKMARK [3][-]{subsubsection.A.2.8}{SetupDialogForm.designer.cs}{subsection.A.2}% 45
-\BOOKMARK [1][-]{lstnumber.-15.203}{References}{}% 46
+\BOOKMARK [3][-]{subsubsection.2.3.3}{.... ..}{subsection.2.3}% 18
+\BOOKMARK [3][-]{subsubsection.2.3.4}{.. ..}{subsection.2.3}% 19
+\BOOKMARK [3][-]{subsubsection.2.3.5}{EEPROM\(Electrically Erasable Read-Only Memory\)}{subsection.2.3}% 20
+\BOOKMARK [1][-]{section.3}{.. ..}{}% 21
+\BOOKMARK [2][-]{subsection.3.1}{... . ...}{section.3}% 22
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Firmware....}{subsection.3.1}% 23
+\BOOKMARK [3][-]{subsubsection.3.1.2}{..... Menu..}{subsection.3.1}% 24
+\BOOKMARK [2][-]{subsection.3.2}{...\(ASCOM Driver\)}{section.3}% 25
+\BOOKMARK [1][-]{section.4}{..}{}% 26
+\BOOKMARK [1][-]{appendix.A}{..}{}% 27
+\BOOKMARK [2][-]{subsection.A.1}{.... ..}{appendix.A}% 28
+\BOOKMARK [3][-]{subsubsection.A.1.1}{GS-system.ino}{subsection.A.1}% 29
+\BOOKMARK [3][-]{subsubsection.A.1.2}{Board.h}{subsection.A.1}% 30
+\BOOKMARK [3][-]{subsubsection.A.1.3}{ButtonControl.ino}{subsection.A.1}% 31
+\BOOKMARK [3][-]{subsubsection.A.1.4}{displayAdafruit.ino}{subsection.A.1}% 32
+\BOOKMARK [3][-]{subsubsection.A.1.5}{EEPROM.ino}{subsection.A.1}% 33
+\BOOKMARK [3][-]{subsubsection.A.1.6}{MainControl.ino}{subsection.A.1}% 34
+\BOOKMARK [3][-]{subsubsection.A.1.7}{Setstep.ino}{subsection.A.1}% 35
+\BOOKMARK [2][-]{subsection.A.2}{ASCOM driver ..}{appendix.A}% 36
+\BOOKMARK [3][-]{subsubsection.A.2.1}{driver.cs}{subsection.A.2}% 37
+\BOOKMARK [3][-]{subsubsection.A.2.2}{FCSH.cs}{subsection.A.2}% 38
+\BOOKMARK [3][-]{subsubsection.A.2.3}{FCSH.Designer.cs}{subsection.A.2}% 39
+\BOOKMARK [3][-]{subsubsection.A.2.4}{MainWindow.cs}{subsection.A.2}% 40
+\BOOKMARK [3][-]{subsubsection.A.2.5}{ResetForm.cs}{subsection.A.2}% 41
+\BOOKMARK [3][-]{subsubsection.A.2.6}{ResetForm.Designer.cs}{subsection.A.2}% 42
+\BOOKMARK [3][-]{subsubsection.A.2.7}{SetupDialogForm.cs}{subsection.A.2}% 43
+\BOOKMARK [3][-]{subsubsection.A.2.8}{SetupDialogForm.designer.cs}{subsection.A.2}% 44
+\BOOKMARK [1][-]{lstnumber.-15.203}{References}{}% 45
