@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.8.13)  1 AUG 2020 21:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.8.13)  2 AUG 2020 22:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1449,12 +1449,12 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.13 \end{abstracts}
+l.12 \end{abstracts}
                      [1]pdfTeX warning (ext4): destination with the same identi
 fier (name{page.ii}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.20 \end{abstractskor}
+l.19 \end{abstractskor}
                         [2] (./gshs_thesis_18008_main.toc
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 1.
@@ -1473,7 +1473,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.iv}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.35 \cleardoublepage
+l.34 \cleardoublepage
                       [4] (./gshs_thesis_18008_main.lof [5
 
 
@@ -1497,7 +1497,7 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <21> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 7.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <16> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 8.
-<images/V-curve.png, id=398, 295.1025pt x 679.53876pt>
+<images/V-curve.png, id=396, 295.1025pt x 679.53876pt>
 File: images/V-curve.png Graphic file (type png)
 <use images/V-curve.png>
 Package pdftex.def Info: images/V-curve.png  used on input line 19.
@@ -1508,7 +1508,7 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/bahtinov1.jpg, id=401, 584.4234pt x 477.4638pt>
+<images/bahtinov1.jpg, id=399, 584.4234pt x 477.4638pt>
 File: images/bahtinov1.jpg Graphic file (type jpg)
 <use images/bahtinov1.jpg>
 Package pdftex.def Info: images/bahtinov1.jpg  used on input line 31.
@@ -1526,17 +1526,17 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 (./sub/methodology.tex
-<images/GSsystem4.png, id=437, 579.1236pt x 228.3732pt>
+<images/GSsystem4.png, id=435, 579.1236pt x 228.3732pt>
 File: images/GSsystem4.png Graphic file (type png)
 <use images/GSsystem4.png>
 Package pdftex.def Info: images/GSsystem4.png  used on input line 14.
 (pdftex.def)             Requested size: 369.88582pt x 145.86563pt.
-<images/coverpeice1.jpg, id=439, 767.2665pt x 542.025pt>
+<images/coverpeice1.jpg, id=437, 767.2665pt x 542.025pt>
 File: images/coverpeice1.jpg Graphic file (type jpg)
 <use images/coverpeice1.jpg>
 Package pdftex.def Info: images/coverpeice1.jpg  used on input line 32.
 (pdftex.def)             Requested size: 161.0956pt x 113.81102pt.
-<images/coverpeice2.jpg, id=440, 829.9005pt x 542.025pt>
+<images/coverpeice2.jpg, id=438, 829.9005pt x 542.025pt>
 File: images/coverpeice2.jpg Graphic file (type jpg)
 <use images/coverpeice2.jpg>
 Package pdftex.def Info: images/coverpeice2.jpg  used on input line 33.
@@ -1556,57 +1556,57 @@ tudents-teachers-educators)
 
 
  <./images/GSsystem4.png>]
-<images/cover.png, id=449, 484.05844pt x 313.9228pt>
+<images/cover.png, id=447, 484.05844pt x 313.9228pt>
 File: images/cover.png Graphic file (type png)
 <use images/cover.png>
 Package pdftex.def Info: images/cover.png  used on input line 44.
 (pdftex.def)             Requested size: 199.16928pt x 129.16423pt.
  [7 <./images/coverpeice1.jpg> <./images/coverpeice2.jpg> <./images/cover.png>]
-<images/servo1.jpg, id=456, 426.8748pt x 426.393pt>
+<images/servo1.jpg, id=454, 426.8748pt x 426.393pt>
 File: images/servo1.jpg Graphic file (type jpg)
 <use images/servo1.jpg>
 Package pdftex.def Info: images/servo1.jpg  used on input line 57.
 (pdftex.def)             Requested size: 199.16928pt x 198.94734pt.
  [8 <./images/servo1.jpg>]
-<images/servo2.png, id=464, 423.83344pt x 341.77687pt>
+<images/servo2.png, id=462, 423.83344pt x 341.77687pt>
 File: images/servo2.png Graphic file (type png)
 <use images/servo2.png>
 Package pdftex.def Info: images/servo2.png  used on input line 70.
 (pdftex.def)             Requested size: 156.49014pt x 126.18948pt.
-<images/hinge.png, id=466, 406.51875pt x 396.7322pt>
+<images/hinge.png, id=464, 406.51875pt x 396.7322pt>
 File: images/hinge.png Graphic file (type png)
 <use images/hinge.png>
 Package pdftex.def Info: images/hinge.png  used on input line 79.
 (pdftex.def)             Requested size: 156.49014pt x 152.72118pt.
  [9 <./images/servo2.png> <./images/hinge.png>]
-<images/servo3.png, id=475, 406.51875pt x 325.96782pt>
+<images/servo3.png, id=473, 406.51875pt x 325.96782pt>
 File: images/servo3.png Graphic file (type png)
 <use images/servo3.png>
 Package pdftex.def Info: images/servo3.png  used on input line 91.
 (pdftex.def)             Requested size: 199.16928pt x 159.70074pt.
  [10 <./images/servo3.png>]
-<images/bendmask.jpg, id=482, 690.9012pt x 206.6922pt>
+<images/bendmask.jpg, id=480, 690.9012pt x 206.6922pt>
 File: images/bendmask.jpg Graphic file (type jpg)
 <use images/bendmask.jpg>
 Package pdftex.def Info: images/bendmask.jpg  used on input line 108.
 (pdftex.def)             Requested size: 341.43306pt x 102.14737pt.
-<images/mask1.png, id=484, 284.56313pt x 236.38312pt>
+<images/mask1.png, id=482, 284.56313pt x 236.38312pt>
 File: images/mask1.png Graphic file (type png)
 <use images/mask1.png>
 Package pdftex.def Info: images/mask1.png  used on input line 125.
 (pdftex.def)             Requested size: 154.13507pt x 128.0374pt.
-<images/mask2.png, id=485, 391.4625pt x 348.55219pt>
+<images/mask2.png, id=483, 391.4625pt x 348.55219pt>
 File: images/mask2.png Graphic file (type png)
 <use images/mask2.png>
 Package pdftex.def Info: images/mask2.png  used on input line 126.
 (pdftex.def)             Requested size: 143.7995pt x 128.0374pt.
  [11 <./images/bendmask.jpg>]
-<images/thermicline1.jpg, id=491, 597.73312pt x 398.23781pt>
+<images/thermicline1.jpg, id=490, 597.73312pt x 398.23781pt>
 File: images/thermicline1.jpg Graphic file (type jpg)
 <use images/thermicline1.jpg>
 Package pdftex.def Info: images/thermicline1.jpg  used on input line 147.
 (pdftex.def)             Requested size: 170.71652pt x 113.73593pt.
-<images/thermicline3.jpg, id=492, 597.9138pt x 341.5962pt>
+<images/thermicline3.jpg, id=491, 597.9138pt x 341.5962pt>
 File: images/thermicline3.jpg Graphic file (type jpg)
 <use images/thermicline3.jpg>
 Package pdftex.def Info: images/thermicline3.jpg  used on input line 148.
@@ -1614,18 +1614,18 @@ Package pdftex.def Info: images/thermicline3.jpg  used on input line 148.
 
 [12 <./images/mask1.png> <./images/mask2.png> <./images/thermicline1.jpg> <./im
 ages/thermicline3.jpg>] [13]
-<images/GStouch.png, id=506, 503.63156pt x 569.12625pt>
+<images/GStouch.png, id=505, 503.63156pt x 569.12625pt>
 File: images/GStouch.png Graphic file (type png)
 <use images/GStouch.png>
 Package pdftex.def Info: images/GStouch.png  used on input line 176.
 (pdftex.def)             Requested size: 275.99164pt x 311.88278pt.
  [14 <./images/GStouch.png>]
-<images/arduino.png, id=513, 284.56313pt x 143.03438pt>
+<images/arduino.png, id=512, 284.56313pt x 143.03438pt>
 File: images/arduino.png Graphic file (type png)
 <use images/arduino.png>
 Package pdftex.def Info: images/arduino.png  used on input line 206.
 (pdftex.def)             Requested size: 169.81866pt x 85.35826pt.
-<images/teensy.png, id=514, 270.25969pt x 143.03438pt>
+<images/teensy.png, id=513, 270.25969pt x 143.03438pt>
 File: images/teensy.png Graphic file (type png)
 <use images/teensy.png>
 Package pdftex.def Info: images/teensy.png  used on input line 207.
@@ -1642,25 +1642,25 @@ m/n/10.95/c5 È\LUC/nanummj/m/n/10.95/b3 X \T1/ptm/m/n/10.95 MCU(microcontroller
  []
 
 [15]
-<images/relay.png, id=519, 569.12625pt x 345.29pt>
+<images/relay.png, id=518, 569.12625pt x 345.29pt>
 File: images/relay.png Graphic file (type png)
 <use images/relay.png>
 Package pdftex.def Info: images/relay.png  used on input line 227.
 (pdftex.def)             Requested size: 213.39566pt x 129.46762pt.
  [16 <./images/arduino.png> <./images/teensy.png> <./images/relay.png (PNG copy
 )>] [17]
-<images/PWMcode.png, id=533, 636.12656pt x 294.34969pt>
+<images/PWMcode.png, id=532, 636.12656pt x 294.34969pt>
 File: images/PWMcode.png Graphic file (type png)
 <use images/PWMcode.png>
 Package pdftex.def Info: images/PWMcode.png  used on input line 261.
 (pdftex.def)             Requested size: 398.33858pt x 184.31842pt.
  [18 <./images/PWMcode.png>]
-<images/eeprom1.png, id=539, 317.5062pt x 117.5592pt>
+<images/eeprom1.png, id=538, 317.5062pt x 117.5592pt>
 File: images/eeprom1.png Graphic file (type png)
 <use images/eeprom1.png>
 Package pdftex.def Info: images/eeprom1.png  used on input line 274.
 (pdftex.def)             Requested size: 113.81102pt x 42.14009pt.
-<images/eepread.png, id=540, 590.205pt x 335.00156pt>
+<images/eepread.png, id=539, 590.205pt x 335.00156pt>
 File: images/eepread.png Graphic file (type png)
 <use images/eepread.png>
 Package pdftex.def Info: images/eepread.png  used on input line 285.
@@ -1669,17 +1669,17 @@ Package pdftex.def Info: images/eepread.png  used on input line 285.
 \openout2 = `sub/result.aux'.
 
  (./sub/result.tex
-<images/pcb1.png, id=553, 406.51875pt x 542.025pt>
+<images/pcb1.png, id=552, 406.51875pt x 542.025pt>
 File: images/pcb1.png Graphic file (type png)
 <use images/pcb1.png>
 Package pdftex.def Info: images/pcb1.png  used on input line 13.
 (pdftex.def)             Requested size: 138.70457pt x 184.9429pt.
-<images/pcb2.png, id=554, 406.51875pt x 542.025pt>
+<images/pcb2.png, id=553, 406.51875pt x 542.025pt>
 File: images/pcb2.png Graphic file (type png)
 <use images/pcb2.png>
 Package pdftex.def Info: images/pcb2.png  used on input line 14.
 (pdftex.def)             Requested size: 138.70457pt x 184.9429pt.
-<images/menu.png, id=556, 438.9198pt x 187.4202pt>
+<images/menu.png, id=555, 438.9198pt x 187.4202pt>
 File: images/menu.png Graphic file (type png)
 <use images/menu.png>
 Package pdftex.def Info: images/menu.png  used on input line 32.
@@ -1688,19 +1688,19 @@ Package pdftex.def Info: images/menu.png  used on input line 32.
 
 
  <./images/pcb1.png> <./images/pcb2.png>]
-<images/mask_status1.png, id=565, 406.51875pt x 542.025pt>
+<images/mask_status1.png, id=564, 406.51875pt x 542.025pt>
 File: images/mask_status1.png Graphic file (type png)
 <use images/mask_status1.png>
 Package pdftex.def Info: images/mask_status1.png  used on input line 46.
 (pdftex.def)             Requested size: 138.70457pt x 184.9429pt.
-<images/mask_status2.png, id=566, 406.51875pt x 542.025pt>
+<images/mask_status2.png, id=565, 406.51875pt x 542.025pt>
 File: images/mask_status2.png Graphic file (type png)
 <use images/mask_status2.png>
 Package pdftex.def Info: images/mask_status2.png  used on input line 47.
 (pdftex.def)             Requested size: 138.70457pt x 184.9429pt.
  [22 <./images/menu.png> <./images/mask_status1.png> <./images/mask_status2.png
 >]
-<images/maincontrol.png, id=575, 592.46344pt x 451.6875pt>
+<images/maincontrol.png, id=574, 592.46344pt x 451.6875pt>
 File: images/maincontrol.png Graphic file (type png)
 <use images/maincontrol.png>
 Package pdftex.def Info: images/maincontrol.png  used on input line 66.
@@ -1780,11 +1780,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 38919 strings out of 492642
- 856136 string characters out of 6133162
- 1205807 words of memory out of 5000000
- 39045 multiletter control sequences out of 15000+600000
- 163060 words of font info for 378 fonts, out of 8000000 for 9000
+ 38916 strings out of 492642
+ 856095 string characters out of 6133162
+ 1206807 words of memory out of 5000000
+ 39043 multiletter control sequences out of 15000+600000
+ 162765 words of font info for 377 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,18n,138p,1200b,2088s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texl
@@ -1833,34 +1833,33 @@ ype1/nanummjmbd.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/nanumtype1/n
 anummjmbe.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/nanumtype1/nanummj
 mc0.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/nanumtype1/nanummjmc1.pf
 b><c:/texlive/2018/texmf-dist/fonts/type1/public/nanumtype1/nanummjmc2.pfb><c:/
-texlive/2018/texmf-dist/fonts/type1/public/nanumtype1/nanummjmc3.pfb><c:/texliv
-e/2018/texmf-dist/fonts/type1/public/nanumtype1/nanummjmc4.pfb><c:/texlive/2018
-/texmf-dist/fonts/type1/public/nanumtype1/nanummjmc5.pfb><c:/texlive/2018/texmf
--dist/fonts/type1/public/nanumtype1/nanummjmc6.pfb><c:/texlive/2018/texmf-dist/
-fonts/type1/public/nanumtype1/nanummjmc7.pfb><c:/texlive/2018/texmf-dist/fonts/
-type1/public/nanumtype1/nanummjmc8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/
-public/nanumtype1/nanummjmc9.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public
-/nanumtype1/nanummjmca.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/nanum
-type1/nanummjmcc.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/nanumtype1/
-nanummjmcd.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/nanumtype1/nanumm
-jmce.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/nanumtype1/nanummjmcf.p
-fb><c:/texlive/2018/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd0.pfb><c:
-/texlive/2018/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd1.pfb><c:/texli
-ve/2018/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd2.pfb><c:/texlive/201
-8/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd3.pfb><c:/texlive/2018/texm
-f-dist/fonts/type1/public/nanumtype1/nanummjmd4.pfb><c:/texlive/2018/texmf-dist
-/fonts/type1/public/nanumtype1/nanummjmd5.pfb><c:/texlive/2018/texmf-dist/fonts
-/type1/public/nanumtype1/nanummjmd6.pfb><c:/texlive/2018/texmf-dist/fonts/type1
-/public/nanumtype1/nanummjmd7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/publi
-c/cm-super/sftt1095.pfb><c:/texlive/2018/texmf-dist/fonts/type1/uhc/umj/umj24.p
-fb><c:/texlive/2018/texmf-dist/fonts/type1/uhc/umj/umj34.pfb><c:/texlive/2018/t
-exmf-dist/fonts/type1/uhc/umj/umj36.pfb><c:/texlive/2018/texmf-dist/fonts/type1
-/urw/times/utmb8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.
-pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on gshs_thesis_18008_main.pdf (85 pages, 10285271 bytes).
+texlive/2018/texmf-dist/fonts/type1/public/nanumtype1/nanummjmc4.pfb><c:/texliv
+e/2018/texmf-dist/fonts/type1/public/nanumtype1/nanummjmc5.pfb><c:/texlive/2018
+/texmf-dist/fonts/type1/public/nanumtype1/nanummjmc6.pfb><c:/texlive/2018/texmf
+-dist/fonts/type1/public/nanumtype1/nanummjmc7.pfb><c:/texlive/2018/texmf-dist/
+fonts/type1/public/nanumtype1/nanummjmc8.pfb><c:/texlive/2018/texmf-dist/fonts/
+type1/public/nanumtype1/nanummjmc9.pfb><c:/texlive/2018/texmf-dist/fonts/type1/
+public/nanumtype1/nanummjmca.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public
+/nanumtype1/nanummjmcc.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/nanum
+type1/nanummjmcd.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/nanumtype1/
+nanummjmce.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/nanumtype1/nanumm
+jmcf.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd0.p
+fb><c:/texlive/2018/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd1.pfb><c:
+/texlive/2018/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd2.pfb><c:/texli
+ve/2018/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd3.pfb><c:/texlive/201
+8/texmf-dist/fonts/type1/public/nanumtype1/nanummjmd4.pfb><c:/texlive/2018/texm
+f-dist/fonts/type1/public/nanumtype1/nanummjmd5.pfb><c:/texlive/2018/texmf-dist
+/fonts/type1/public/nanumtype1/nanummjmd6.pfb><c:/texlive/2018/texmf-dist/fonts
+/type1/public/nanumtype1/nanummjmd7.pfb><c:/texlive/2018/texmf-dist/fonts/type1
+/public/cm-super/sftt1095.pfb><c:/texlive/2018/texmf-dist/fonts/type1/uhc/umj/u
+mj24.pfb><c:/texlive/2018/texmf-dist/fonts/type1/uhc/umj/umj34.pfb><c:/texlive/
+2018/texmf-dist/fonts/type1/uhc/umj/umj36.pfb><c:/texlive/2018/texmf-dist/fonts
+/type1/urw/times/utmb8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/u
+tmr8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on gshs_thesis_18008_main.pdf (85 pages, 10228595 bytes).
 PDF statistics:
- 4378 PDF objects out of 5155 (max. 8388607)
- 4127 compressed objects within 42 object streams
+ 4374 PDF objects out of 5155 (max. 8388607)
+ 4124 compressed objects within 42 object streams
  2881 named destinations out of 2984 (max. 500000)
  513 words of extra memory for PDF output out of 10000 (max. 10000000)
 
