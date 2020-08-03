@@ -17,7 +17,7 @@
 \contentsline {subsubsection}{\numberline {II.3.2}전원 제어}{15}{subsubsection.2.3.2}
 \contentsline {subsubsection}{\numberline {II.3.3}서보모터 제어}{16}{subsubsection.2.3.3}
 \contentsline {subsubsection}{\numberline {II.3.4}열선 제어}{17}{subsubsection.2.3.4}
-\contentsline {subsubsection}{\numberline {II.3.5}EEPROM(Electrically Erasable Read-Only Memory)}{17}{subsubsection.2.3.5}
+\contentsline {subsubsection}{\numberline {II.3.5}EEPROM(Electrically Erasable Read-Only Memory)}{18}{subsubsection.2.3.5}
 \contentsline {section}{\numberline {III}연구 결과}{20}{section.3}
 \contentsline {subsection}{\numberline {III.1}구동부 및 제어부}{20}{subsection.3.1}
 \contentsline {subsubsection}{\numberline {III.1.1}Firmware하드웨어}{20}{subsubsection.3.1.1}
