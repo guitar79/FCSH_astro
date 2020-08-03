@@ -1,10 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.8.13)  3 AUG 2020 17:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.6.16)  3 AUG 2020 18:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **gshs_thesis_18008_main.tex
 (./gshs_thesis_18008_main.tex
-LaTeX2e <2018-04-01> patch level 5
+LaTeX2e <2018-04-01> patch level 2
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 \@input{sub/preamble.aux}
 \openout2 = `sub/preamble.aux'.
 
@@ -104,7 +105,7 @@ File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \bibindent=\dimen103
 )
 (c:/texlive/2018/texmf-dist/tex/latex/geometry/geometry.sty
-Package: geometry 2018/04/16 v5.8 Page Geometry
+Package: geometry 2018/03/24 v5.7 Page Geometry
 
 (c:/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
@@ -220,11 +221,11 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 \Gin@req@width=\dimen122
 )
 (c:/texlive/2018/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2018/05/01 v3.3-147 Customizing captions (AR)
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
 (c:/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2018/05/27 v1.8a caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 64.
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
 \captionmargin=\dimen123
 \captionmargin@=\dimen124
 \captionwidth=\dimen125
@@ -236,7 +237,7 @@ Package caption3 Info: TeX engine: e-TeX on input line 64.
 \c@ContinuedFloat=\count105
 )
 (c:/texlive/2018/texmf-dist/tex/latex/caption/subcaption.sty
-Package: subcaption 2018/05/01 v1.1-162 Sub-captions (AR)
+Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
 \c@subfigure=\count106
 \c@subtable=\count107
 )
@@ -364,7 +365,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 LaTeX Info: Redefining \hbar on input line 50.
 )
 (c:/texlive/2018/texmf-dist/tex/latex/tools/array.sty
-Package: array 2018/04/30 v2.4h Tabular extension package (FMi)
+Package: array 2018/04/07 v2.4g Tabular extension package (FMi)
 \col@sep=\dimen135
 \ar@mcellbox=\box29
 \extrarowheight=\dimen136
@@ -685,7 +686,7 @@ Package: tabularx 2016/02/03 v2.11b `tabularx' package (DPC)
 \TX@ftn=\toks44
 )
 (c:/texlive/2018/texmf-dist/tex/latex/multirow/multirow.sty
-Package: multirow 2018/08/03 v2.3 Span multiple rows of a table
+Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
 \multirow@colwidth=\skip93
 \multirow@cntb=\count136
 \multirow@dima=\skip94
@@ -1613,56 +1614,64 @@ Package pdftex.def Info: images/GStouch.png  used on input line 168.
 <images/arduino.png, id=503, 284.56313pt x 143.03438pt>
 File: images/arduino.png Graphic file (type png)
 <use images/arduino.png>
-Package pdftex.def Info: images/arduino.png  used on input line 200.
+Package pdftex.def Info: images/arduino.png  used on input line 189.
 (pdftex.def)             Requested size: 198.12466pt x 99.58464pt.
 <images/teensy.png, id=504, 270.25969pt x 143.03438pt>
 File: images/teensy.png Graphic file (type png)
 <use images/teensy.png>
-Package pdftex.def Info: images/teensy.png  used on input line 201.
+Package pdftex.def Info: images/teensy.png  used on input line 190.
 (pdftex.def)             Requested size: 188.16602pt x 99.58464pt.
- [14]
-<images/relay.png, id=510, 569.12625pt x 345.29pt>
+ [14 <./images/arduino.png> <./images/teensy.png>]
+<images/circuit01.pdf, id=513, 845.07718pt x 597.19106pt>
+File: images/circuit01.pdf Graphic file (type pdf)
+<use images/circuit01.pdf>
+Package pdftex.def Info: images/circuit01.pdf  used on input line 208.
+(pdftex.def)             Requested size: 406.87448pt x 287.52324pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/relay.png, id=514, 569.12625pt x 345.29pt>
 File: images/relay.png Graphic file (type png)
 <use images/relay.png>
 Package pdftex.def Info: images/relay.png  used on input line 221.
 (pdftex.def)             Requested size: 213.39566pt x 129.46762pt.
 
-
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[15 <./images/arduino.png> <./images/teensy.png>] [16 <./images/relay.png (PNG 
-copy)>]
-<images/PWMcode.png, id=523, 636.12656pt x 294.34969pt>
+[15] [16 <./images/circuit01.pdf>]
+<images/PWMcode.png, id=551, 636.12656pt x 294.34969pt>
 File: images/PWMcode.png Graphic file (type png)
 <use images/PWMcode.png>
 Package pdftex.def Info: images/PWMcode.png  used on input line 253.
 (pdftex.def)             Requested size: 355.65944pt x 164.56969pt.
- [17 <./images/PWMcode.png>]
-<images/eeprom1.png, id=530, 317.5062pt x 117.5592pt>
+ [17 <./images/relay.png (PNG copy)>]
+<images/eeprom1.png, id=557, 317.5062pt x 117.5592pt>
 File: images/eeprom1.png Graphic file (type png)
 <use images/eeprom1.png>
 Package pdftex.def Info: images/eeprom1.png  used on input line 269.
 (pdftex.def)             Requested size: 113.81102pt x 42.14009pt.
-<images/eepread.png, id=531, 590.205pt x 335.00156pt>
+<images/eepread.png, id=558, 590.205pt x 335.00156pt>
 File: images/eepread.png Graphic file (type png)
 <use images/eepread.png>
 Package pdftex.def Info: images/eepread.png  used on input line 278.
 (pdftex.def)             Requested size: 312.9803pt x 177.6522pt.
- [18 <./images/eeprom1.png> <./images/eepread.png>]) [19]
+
+[18 <./images/PWMcode.png> <./images/eeprom1.png>]) [19 <./images/eepread.png>]
 \openout2 = `sub/result.aux'.
 
- (./sub/result.tex
-<images/pcb1.png, id=543, 406.51875pt x 542.025pt>
+(./sub/result.tex
+<images/pcb1.png, id=571, 406.51875pt x 542.025pt>
 File: images/pcb1.png Graphic file (type png)
 <use images/pcb1.png>
 Package pdftex.def Info: images/pcb1.png  used on input line 13.
 (pdftex.def)             Requested size: 138.70457pt x 184.9429pt.
-<images/pcb2.png, id=544, 406.51875pt x 542.025pt>
+<images/pcb2.png, id=572, 406.51875pt x 542.025pt>
 File: images/pcb2.png Graphic file (type png)
 <use images/pcb2.png>
 Package pdftex.def Info: images/pcb2.png  used on input line 14.
 (pdftex.def)             Requested size: 138.70457pt x 184.9429pt.
-<images/menu.png, id=546, 438.9198pt x 187.4202pt>
+<images/menu.png, id=574, 438.9198pt x 187.4202pt>
 File: images/menu.png Graphic file (type png)
 <use images/menu.png>
 Package pdftex.def Info: images/menu.png  used on input line 32.
@@ -1671,20 +1680,19 @@ Package pdftex.def Info: images/menu.png  used on input line 32.
 
 
  <./images/pcb1.png> <./images/pcb2.png>]
-<images/mask_status1.png, id=556, 406.51875pt x 542.025pt>
+<images/mask_status1.png, id=584, 406.51875pt x 542.025pt>
 File: images/mask_status1.png Graphic file (type png)
 <use images/mask_status1.png>
 Package pdftex.def Info: images/mask_status1.png  used on input line 46.
 (pdftex.def)             Requested size: 138.70457pt x 184.9429pt.
-<images/mask_status2.png, id=557, 406.51875pt x 542.025pt>
+<images/mask_status2.png, id=585, 406.51875pt x 542.025pt>
 File: images/mask_status2.png Graphic file (type png)
 <use images/mask_status2.png>
 Package pdftex.def Info: images/mask_status2.png  used on input line 47.
 (pdftex.def)             Requested size: 138.70457pt x 184.9429pt.
-
-[21 <./images/menu.png> <./images/mask_status1.png> <./images/mask_status2.png>
-]
-<images/maincontrol.png, id=566, 592.46344pt x 451.6875pt>
+ [21 <./images/menu.png> <./images/mask_status1.png> <./images/mask_status2.png
+>]
+<images/maincontrol.png, id=594, 592.46344pt x 451.6875pt>
 File: images/maincontrol.png Graphic file (type png)
 <use images/maincontrol.png>
 Package pdftex.def Info: images/maincontrol.png  used on input line 66.
@@ -1698,10 +1706,11 @@ Package pdftex.def Info: images/maincontrol.png  used on input line 66.
 ]) [24]
 \openout2 = `sub/appendix.aux'.
 
-
-(./sub/appendix.tex (c:/texlive/2018/texmf-dist/tex/latex/listings/lstlang1.sty
+ (./sub/appendix.tex
+(c:/texlive/2018/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
-) (c:/texlive/2018/texmf-dist/tex/latex/listings/lstlang1.sty
+)
+(c:/texlive/2018/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (c:/texlive/2018/texmf-dist/tex/latex/listings/lstmisc.sty
@@ -1764,10 +1773,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 38909 strings out of 492642
- 855966 string characters out of 6133162
- 1206674 words of memory out of 5000000
- 39039 multiletter control sequences out of 15000+600000
+ 38885 strings out of 492649
+ 855553 string characters out of 6133384
+ 1205928 words of memory out of 5000000
+ 39010 multiletter control sequences out of 15000+600000
  162767 words of font info for 377 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,18n,138p,1200b,2088s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1841,10 +1850,10 @@ fb><c:/texlive/2018/texmf-dist/fonts/type1/uhc/umj/umj34.pfb><c:/texlive/2018/t
 exmf-dist/fonts/type1/uhc/umj/umj36.pfb><c:/texlive/2018/texmf-dist/fonts/type1
 /urw/times/utmb8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.
 pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on gshs_thesis_18008_main.pdf (84 pages, 10382350 bytes).
+Output written on gshs_thesis_18008_main.pdf (84 pages, 10476972 bytes).
 PDF statistics:
- 4366 PDF objects out of 5155 (max. 8388607)
- 4117 compressed objects within 42 object streams
+ 4394 PDF objects out of 5155 (max. 8388607)
+ 4136 compressed objects within 42 object streams
  2878 named destinations out of 2984 (max. 500000)
- 508 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 513 words of extra memory for PDF output out of 10000 (max. 10000000)
 
