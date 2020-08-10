@@ -5,16 +5,16 @@
 \contentsline {section}{\numberline {I}서론}{1}{section.1}
 \contentsline {subsection}{\numberline {I.1}연구의 필요성}{1}{subsection.1.1}
 \contentsline {subsection}{\numberline {I.2}연구 목적}{4}{subsection.1.2}
-\contentsline {section}{\numberline {II}연구 과정 및 방법}{6}{section.2}
-\contentsline {subsection}{\numberline {II.1}소형 천체망원경 자동화 시스템 구성}{6}{subsection.2.1}
-\contentsline {subsection}{\numberline {II.2}구동부 제작}{7}{subsection.2.2}
-\contentsline {subsubsection}{\numberline {II.2.1}후드 제작}{7}{subsubsection.2.2.1}
-\contentsline {subsubsection}{\numberline {II.2.2}아크릴 덮개 제작}{8}{subsubsection.2.2.2}
+\contentsline {section}{\numberline {II}연구 과정 및 방법}{7}{section.2}
+\contentsline {subsection}{\numberline {II.1}소형 천체망원경 자동화 시스템 구성}{7}{subsection.2.1}
+\contentsline {subsection}{\numberline {II.2}구동부 제작}{8}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {II.2.1}후드 제작}{8}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {II.2.2}아크릴 덮개 제작}{9}{subsubsection.2.2.2}
 \contentsline {subsubsection}{\numberline {II.2.3}바흐티노프마스크 제작}{11}{subsubsection.2.2.3}
-\contentsline {subsubsection}{\numberline {II.2.4}열선 제작}{12}{subsubsection.2.2.4}
+\contentsline {subsubsection}{\numberline {II.2.4}열선 제작}{13}{subsubsection.2.2.4}
 \contentsline {subsection}{\numberline {II.3}제어부 제작}{14}{subsection.2.3}
 \contentsline {subsubsection}{\numberline {II.3.1}회로 구성}{15}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {II.3.2}전원 제어}{16}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {II.3.2}전원 제어}{17}{subsubsection.2.3.2}
 \contentsline {subsubsection}{\numberline {II.3.3}서보모터 제어}{17}{subsubsection.2.3.3}
 \contentsline {subsubsection}{\numberline {II.3.4}열선 제어}{18}{subsubsection.2.3.4}
 \contentsline {subsubsection}{\numberline {II.3.5}EEPROM(Electrically Erasable Read-Only Memory)}{19}{subsubsection.2.3.5}
