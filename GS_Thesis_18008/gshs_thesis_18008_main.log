@@ -1,10 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.8.13)  10 AUG 2020 22:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.10.25)  18 AUG 2020 07:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **gshs_thesis_18008_main.tex
 (./gshs_thesis_18008_main.tex
-LaTeX2e <2018-04-01> patch level 5
+LaTeX2e <2018-04-01> patch level 2
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 \@input{sub/preamble.aux}
 \openout2 = `sub/preamble.aux'.
 
@@ -104,7 +105,7 @@ File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \bibindent=\dimen103
 )
 (c:/texlive/2018/texmf-dist/tex/latex/geometry/geometry.sty
-Package: geometry 2018/04/16 v5.8 Page Geometry
+Package: geometry 2018/03/24 v5.7 Page Geometry
 
 (c:/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
@@ -220,11 +221,11 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 \Gin@req@width=\dimen122
 )
 (c:/texlive/2018/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2018/05/01 v3.3-147 Customizing captions (AR)
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
 (c:/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2018/05/27 v1.8a caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 64.
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
 \captionmargin=\dimen123
 \captionmargin@=\dimen124
 \captionwidth=\dimen125
@@ -236,7 +237,7 @@ Package caption3 Info: TeX engine: e-TeX on input line 64.
 \c@ContinuedFloat=\count105
 )
 (c:/texlive/2018/texmf-dist/tex/latex/caption/subcaption.sty
-Package: subcaption 2018/05/01 v1.1-162 Sub-captions (AR)
+Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
 \c@subfigure=\count106
 \c@subtable=\count107
 )
@@ -364,7 +365,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 LaTeX Info: Redefining \hbar on input line 50.
 )
 (c:/texlive/2018/texmf-dist/tex/latex/tools/array.sty
-Package: array 2018/04/30 v2.4h Tabular extension package (FMi)
+Package: array 2018/04/07 v2.4g Tabular extension package (FMi)
 \col@sep=\dimen135
 \ar@mcellbox=\box29
 \extrarowheight=\dimen136
@@ -685,7 +686,7 @@ Package: tabularx 2016/02/03 v2.11b `tabularx' package (DPC)
 \TX@ftn=\toks44
 )
 (c:/texlive/2018/texmf-dist/tex/latex/multirow/multirow.sty
-Package: multirow 2018/08/03 v2.3 Span multiple rows of a table
+Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
 \multirow@colwidth=\skip93
 \multirow@cntb=\count136
 \multirow@dima=\skip94
@@ -1523,12 +1524,12 @@ Package pdftex.def Info: images/bahtinov1.jpg  used on input line 33.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[2 <./images/V-curve.png>] [3 <./images/bahtinov1.jpg>] [4]) [5] [6]
+[2 <./images/V-curve.png>] [3 <./images/bahtinov1.jpg>] [4] [5]) [6]
 \openout2 = `sub/methodology.aux'.
 
 
 (./sub/methodology.tex
-<images/GSsystem4.png, id=443, 579.1236pt x 228.3732pt>
+<images/GSsystem4.png, id=442, 579.1236pt x 228.3732pt>
 File: images/GSsystem4.png Graphic file (type png)
 <use images/GSsystem4.png>
 Package pdftex.def Info: images/GSsystem4.png  used on input line 14.
@@ -1537,7 +1538,7 @@ Package pdftex.def Info: images/GSsystem4.png  used on input line 14.
 
 
  <./images/GSsystem4.png>]
-<images/FSQ_106ED_tube.png, id=452, 765.86125pt x 482.80376pt>
+<images/FSQ_106ED_tube.png, id=451, 765.86125pt x 482.80376pt>
 File: images/FSQ_106ED_tube.png Graphic file (type png)
 <use images/FSQ_106ED_tube.png>
 Package pdftex.def Info: images/FSQ_106ED_tube.png  used on input line 31.
@@ -1550,17 +1551,17 @@ tudents-teachers-educators)
  []
 
 [8 <./images/FSQ_106ED_tube.png>]
-<images/coverpeice.jpg, id=464, 664.28175pt x 542.025pt>
+<images/coverpeice.jpg, id=463, 664.28175pt x 542.025pt>
 File: images/coverpeice.jpg Graphic file (type jpg)
 <use images/coverpeice.jpg>
 Package pdftex.def Info: images/coverpeice.jpg  used on input line 50.
 (pdftex.def)             Requested size: 165.02606pt x 134.65404pt.
-<images/cover.png, id=465, 484.05844pt x 313.9228pt>
+<images/cover.png, id=464, 484.05844pt x 313.9228pt>
 File: images/cover.png Graphic file (type png)
 <use images/cover.png>
 Package pdftex.def Info: images/cover.png  used on input line 51.
 (pdftex.def)             Requested size: 213.39566pt x 138.3947pt.
-<images/servo1.jpg, id=466, 426.8748pt x 426.393pt>
+<images/servo1.jpg, id=465, 426.8748pt x 426.393pt>
 File: images/servo1.jpg Graphic file (type jpg)
 <use images/servo1.jpg>
 Package pdftex.def Info: images/servo1.jpg  used on input line 68.
@@ -1570,63 +1571,63 @@ Package pdftex.def Info: images/servo1.jpg  used on input line 68.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [9 <./images/coverpeice.jpg> <./images/cover.png>]
-<images/servo2.png, id=474, 423.83344pt x 341.77687pt>
+<images/servo2.png, id=473, 423.83344pt x 341.77687pt>
 File: images/servo2.png Graphic file (type png)
 <use images/servo2.png>
 Package pdftex.def Info: images/servo2.png  used on input line 86.
 (pdftex.def)             Requested size: 158.78192pt x 128.0374pt.
-<images/hinge.png, id=475, 406.51875pt x 396.7322pt>
+<images/hinge.png, id=474, 406.51875pt x 396.7322pt>
 File: images/hinge.png Graphic file (type png)
 <use images/hinge.png>
 Package pdftex.def Info: images/hinge.png  used on input line 87.
 (pdftex.def)             Requested size: 131.19897pt x 128.0374pt.
  [10 <./images/servo1.jpg> <./images/servo2.png> <./images/hinge.png>]
-<images/servo3.png, id=485, 406.51875pt x 325.96782pt>
+<images/servo3.png, id=484, 406.51875pt x 325.96782pt>
 File: images/servo3.png Graphic file (type png)
 <use images/servo3.png>
 Package pdftex.def Info: images/servo3.png  used on input line 104.
 (pdftex.def)             Requested size: 199.16928pt x 159.70074pt.
  [11 <./images/servo3.png>]
-<images/bendmask.jpg, id=492, 690.9012pt x 206.6922pt>
+<images/bendmask.jpg, id=491, 690.9012pt x 206.6922pt>
 File: images/bendmask.jpg Graphic file (type jpg)
 <use images/bendmask.jpg>
 Package pdftex.def Info: images/bendmask.jpg  used on input line 121.
 (pdftex.def)             Requested size: 341.43306pt x 102.14737pt.
-<images/mask1.png, id=494, 284.56313pt x 236.38312pt>
+<images/mask1.png, id=493, 284.56313pt x 236.38312pt>
 File: images/mask1.png Graphic file (type png)
 <use images/mask1.png>
 Package pdftex.def Info: images/mask1.png  used on input line 137.
 (pdftex.def)             Requested size: 154.13507pt x 128.0374pt.
-<images/mask2.png, id=495, 391.4625pt x 348.55219pt>
+<images/mask2.png, id=494, 391.4625pt x 348.55219pt>
 File: images/mask2.png Graphic file (type png)
 <use images/mask2.png>
 Package pdftex.def Info: images/mask2.png  used on input line 138.
 (pdftex.def)             Requested size: 143.7995pt x 128.0374pt.
  [12 <./images/bendmask.jpg>]
-<images/thermicline1.jpg, id=502, 597.73312pt x 398.23781pt>
+<images/thermicline1.jpg, id=501, 597.73312pt x 398.23781pt>
 File: images/thermicline1.jpg Graphic file (type jpg)
 <use images/thermicline1.jpg>
 Package pdftex.def Info: images/thermicline1.jpg  used on input line 158.
 (pdftex.def)             Requested size: 170.71652pt x 113.73593pt.
-<images/thermicline3.jpg, id=503, 597.9138pt x 341.5962pt>
+<images/thermicline3.jpg, id=502, 597.9138pt x 341.5962pt>
 File: images/thermicline3.jpg Graphic file (type jpg)
 <use images/thermicline3.jpg>
 Package pdftex.def Info: images/thermicline3.jpg  used on input line 159.
 (pdftex.def)             Requested size: 199.16928pt x 113.78519pt.
  [13 <./images/mask1.png> <./images/mask2.png> <./images/thermicline1.jpg> <./i
 mages/thermicline3.jpg>] [14]
-<images/GStouch.png, id=517, 503.63156pt x 569.12625pt>
+<images/GStouch.png, id=516, 503.63156pt x 569.12625pt>
 File: images/GStouch.png Graphic file (type png)
 <use images/GStouch.png>
 Package pdftex.def Info: images/GStouch.png  used on input line 181.
 (pdftex.def)             Requested size: 275.99164pt x 311.88278pt.
  [15 <./images/GStouch.png>]
-<images/arduino.png, id=523, 284.56313pt x 143.03438pt>
+<images/arduino.png, id=522, 284.56313pt x 143.03438pt>
 File: images/arduino.png Graphic file (type png)
 <use images/arduino.png>
 Package pdftex.def Info: images/arduino.png  used on input line 202.
 (pdftex.def)             Requested size: 198.12466pt x 99.58464pt.
-<images/teensy.png, id=524, 270.25969pt x 143.03438pt>
+<images/teensy.png, id=523, 270.25969pt x 143.03438pt>
 File: images/teensy.png Graphic file (type png)
 <use images/teensy.png>
 Package pdftex.def Info: images/teensy.png  used on input line 203.
@@ -1641,30 +1642,30 @@ no Nano (https://store.arduino.cc/usa/arduino-
  []
 
 [16 <./images/arduino.png> <./images/teensy.png>]
-<images/circuit01.png, id=533, 657.95813pt x 463.7325pt>
+<images/circuit01.png, id=532, 657.95813pt x 463.7325pt>
 File: images/circuit01.png Graphic file (type png)
 <use images/circuit01.png>
 Package pdftex.def Info: images/circuit01.png  used on input line 219.
 (pdftex.def)             Requested size: 406.87448pt x 286.77527pt.
  [17 <./images/circuit01.png>]
-<images/relay.png, id=540, 569.12625pt x 345.29pt>
+<images/relay.png, id=539, 569.12625pt x 345.29pt>
 File: images/relay.png Graphic file (type png)
 <use images/relay.png>
 Package pdftex.def Info: images/relay.png  used on input line 233.
 (pdftex.def)             Requested size: 213.39566pt x 129.46762pt.
 [18 <./images/relay.png (PNG copy)>]
-<images/PWMcode.png, id=545, 636.12656pt x 294.34969pt>
+<images/PWMcode.png, id=544, 636.12656pt x 294.34969pt>
 File: images/PWMcode.png Graphic file (type png)
 <use images/PWMcode.png>
 Package pdftex.def Info: images/PWMcode.png  used on input line 264.
 (pdftex.def)             Requested size: 355.65944pt x 164.56969pt.
  [19]
-<images/eeprom1.png, id=551, 317.5062pt x 117.5592pt>
+<images/eeprom1.png, id=550, 317.5062pt x 117.5592pt>
 File: images/eeprom1.png Graphic file (type png)
 <use images/eeprom1.png>
 Package pdftex.def Info: images/eeprom1.png  used on input line 280.
 (pdftex.def)             Requested size: 113.81102pt x 42.14009pt.
-<images/eepread.png, id=552, 590.205pt x 335.00156pt>
+<images/eepread.png, id=551, 590.205pt x 335.00156pt>
 File: images/eepread.png Graphic file (type png)
 <use images/eepread.png>
 Package pdftex.def Info: images/eepread.png  used on input line 289.
@@ -1674,17 +1675,17 @@ Package pdftex.def Info: images/eepread.png  used on input line 289.
 \openout2 = `sub/result.aux'.
 
  (./sub/result.tex
-<images/pcb1.png, id=566, 406.51875pt x 542.025pt>
+<images/pcb1.png, id=565, 406.51875pt x 542.025pt>
 File: images/pcb1.png Graphic file (type png)
 <use images/pcb1.png>
 Package pdftex.def Info: images/pcb1.png  used on input line 13.
 (pdftex.def)             Requested size: 138.70457pt x 184.9429pt.
-<images/pcb2.png, id=567, 406.51875pt x 542.025pt>
+<images/pcb2.png, id=566, 406.51875pt x 542.025pt>
 File: images/pcb2.png Graphic file (type png)
 <use images/pcb2.png>
 Package pdftex.def Info: images/pcb2.png  used on input line 14.
 (pdftex.def)             Requested size: 138.70457pt x 184.9429pt.
-<images/menu.png, id=569, 438.9198pt x 187.4202pt>
+<images/menu.png, id=568, 438.9198pt x 187.4202pt>
 File: images/menu.png Graphic file (type png)
 <use images/menu.png>
 Package pdftex.def Info: images/menu.png  used on input line 32.
@@ -1693,19 +1694,19 @@ Package pdftex.def Info: images/menu.png  used on input line 32.
 
 
  <./images/pcb1.png> <./images/pcb2.png>]
-<images/mask_status1.png, id=578, 406.51875pt x 542.025pt>
+<images/mask_status1.png, id=577, 406.51875pt x 542.025pt>
 File: images/mask_status1.png Graphic file (type png)
 <use images/mask_status1.png>
 Package pdftex.def Info: images/mask_status1.png  used on input line 46.
 (pdftex.def)             Requested size: 138.70457pt x 184.9429pt.
-<images/mask_status2.png, id=579, 406.51875pt x 542.025pt>
+<images/mask_status2.png, id=578, 406.51875pt x 542.025pt>
 File: images/mask_status2.png Graphic file (type png)
 <use images/mask_status2.png>
 Package pdftex.def Info: images/mask_status2.png  used on input line 47.
 (pdftex.def)             Requested size: 138.70457pt x 184.9429pt.
  [23 <./images/menu.png> <./images/mask_status1.png> <./images/mask_status2.png
 >]
-<images/maincontrol.png, id=588, 592.46344pt x 451.6875pt>
+<images/maincontrol.png, id=587, 592.46344pt x 451.6875pt>
 File: images/maincontrol.png Graphic file (type png)
 <use images/maincontrol.png>
 Package pdftex.def Info: images/maincontrol.png  used on input line 66.
@@ -1787,10 +1788,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 38924 strings out of 492642
- 856272 string characters out of 6133162
- 1205884 words of memory out of 5000000
- 39049 multiletter control sequences out of 15000+600000
+ 38895 strings out of 492649
+ 855723 string characters out of 6133383
+ 1206090 words of memory out of 5000000
+ 39016 multiletter control sequences out of 15000+600000
  163060 words of font info for 378 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,18n,138p,1212b,2088s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1864,10 +1865,10 @@ fb><c:/texlive/2018/texmf-dist/fonts/type1/uhc/umj/umj34.pfb><c:/texlive/2018/t
 exmf-dist/fonts/type1/uhc/umj/umj36.pfb><c:/texlive/2018/texmf-dist/fonts/type1
 /urw/times/utmb8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.
 pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on gshs_thesis_18008_main.pdf (86 pages, 10653691 bytes).
+Output written on gshs_thesis_18008_main.pdf (86 pages, 10653217 bytes).
 PDF statistics:
- 4390 PDF objects out of 5155 (max. 8388607)
- 4135 compressed objects within 42 object streams
+ 4389 PDF objects out of 5155 (max. 8388607)
+ 4134 compressed objects within 42 object streams
  2881 named destinations out of 2984 (max. 500000)
  518 words of extra memory for PDF output out of 10000 (max. 10000000)
 
