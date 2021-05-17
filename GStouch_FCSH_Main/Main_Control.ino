@@ -1,4 +1,3 @@
-
 int ct=0;
 int pt=0;
 void motorControl()
@@ -56,5 +55,3 @@ void MSmodeControl()
   else if(S[3] && !rm) subm--;
   else if(S[3] && rm) rm--;
 }
-
-

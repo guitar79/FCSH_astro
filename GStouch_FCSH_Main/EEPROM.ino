@@ -1,5 +1,4 @@
 #include <EEPROM.h> //부호고려
-
 void eepRead()
 {
  int N = EEPROM.read(0); // 0은 자릿수 저장
@@ -31,6 +30,5 @@ void eepWrite(int value_)
       EEPROM.write(0,0);
       EEPROM.write(2,v);
       EEPROM.write(3,0);
-    }
-  
+    } 
 }

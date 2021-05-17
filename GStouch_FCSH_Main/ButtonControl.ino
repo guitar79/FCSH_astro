@@ -1,5 +1,3 @@
-
-
 //about button switch
 short S[4]={0}; short now[4]={1}; short was[4]={0};
 //
@@ -70,4 +68,3 @@ void buttonRead()
     }
   }
 }
-

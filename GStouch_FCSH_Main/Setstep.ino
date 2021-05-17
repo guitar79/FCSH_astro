@@ -1,4 +1,4 @@
-  void setstep()
+void setstep()
   {
     switch(stepmode)
     {
